@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Accounts>
+	<Account AccountNum="1245646">
+		<AccountType>ThatsMyBank</AccountType>
+		<CusID>123456789</CusID>
+		<Balence>1450.65</Balence>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>10110110</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+				<Debit date="1100110">10.00</Debit>
+				<Debit date="1110110">25.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="011101">60.00</Credit>
+			</RecentCredits>
+			<Overdrafts>
+			</Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000000">
+		<AccountType>SimpleSavings</AccountType>
+		<CusID>123456789</CusID>
+		<Balence>2500.65</Balence>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>10110110</DateActivated>
+		<AccountSpecificDetails>
+			<IntrestRate>.015</IntrestRate>
+			<RecentDebits>
+				<Debit date="1100110">10.00</Debit>
+				<Debit date="1100110">10.00</Debit>
+				<Debit date="1110110">100.00</Debit>
+				<Debit date="1110110">25.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="011101">60.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+</Accounts>
