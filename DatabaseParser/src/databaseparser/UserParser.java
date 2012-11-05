@@ -289,6 +289,17 @@ public class UserParser {
                                         attValue = attValue.replace("\n", "");
                                         
                                         ssn.add(Integer.parseInt(attValue));
+                                        //set placeholder data for new record
+                                        password.add("error-99");
+                                        fname.add("error-99");
+                                        lname.add("error-99");
+                                        username.add("error-99");
+                                        street.add("error-99");
+                                        city.add("error-99");
+                                        st.add("error-99");
+                                        zip.add(-99);
+                                        type.add(-99);
+                                        
 
                                         //adds 1 record to the list
                                         usercount++;
@@ -310,23 +321,23 @@ public class UserParser {
                                     String text =Stats.getTextContent().replace("\t", "");
                                     text = text.replace("\n", "");
                                     switch(Stats.getNodeName()){
-                                            case "password": password.add(text);
+                                            case "password": password.set(usercount-1, text);
                                                 break;
-                                            case "Fname": fname.add(text);
+                                            case "Fname": fname.set(usercount-1,text);
                                                 break;
-                                            case "Lname": lname.add(text);
+                                            case "Lname": lname.set(usercount-1,text);
                                                 break;
-                                            case "UID":username.add(text);
+                                            case "UID":username.set(usercount-1,text);
                                                 break;
-                                            case "StreetAddress":street.add(text);
+                                            case "StreetAddress":street.set(usercount-1,text);
                                                 break;
-                                            case "City":city.add(text);
+                                            case "City":city.set(usercount-1,text);
                                                 break;
-                                            case "State":st.add(text);
+                                            case "State":st.set(usercount-1,text);
                                                 break;
-                                            case "ZIP":zip.add(Integer.parseInt(text));
+                                            case "ZIP":zip.set(usercount-1,Integer.parseInt(text));
                                                 break;
-                                            case "AccessType":type.add(Integer.parseInt(text));
+                                            case "AccessType":type.set(usercount-1,Integer.parseInt(text));
                                                 break;
                                     }
                                     //System.out.print(text);
