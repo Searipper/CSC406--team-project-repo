@@ -215,11 +215,11 @@ public class UserParser {
                 p1.println("<users>");
                 for(int i=0;i<getRecordCount();i++){
                     
-                p1.println("\t<user"+" UID=\""+getUsername(i)+"\">");
+                p1.println("\t<user"+" SSN=\""+getSSN(i)+"\">");
                     p1.println("\t\t<Fname>"+getFName(i)+"</Fname>");
                     p1.println("\t\t<Lname>"+getLName(i)+"</Lname>");
                     p1.println("\t\t<password>"+getPassword(i)+"</password>");
-                    p1.println("\t\t<SSN>"+getSSN(i)+"</SSN>");
+                    p1.println("\t\t<UID>"+getUsername(i)+"</UID>");
                     p1.println("\t\t<StreetAddress>"+getStreet(i)+"</StreetAddress>");
                     p1.println("\t\t<City>"+getCity(i)+"</City>");
                     p1.println("\t\t<State>"+getState(i)+"</State>");
@@ -282,14 +282,20 @@ public class UserParser {
                                         Node attr = attributes.item(i);
                                         //get atribute name
                                         String attName = attr.getNodeName();
-
+                                        
+                                        if(current.hasAttributes()){
                                         //get attribute contents
                                         String attValue= attr.getNodeValue().replace("\t", "");
                                         attValue = attValue.replace("\n", "");
-                                        username.add(attValue);
+                                        
+                                        ssn.add(Integer.parseInt(attValue));
 
                                         //adds 1 record to the list
                                         usercount++;
+                                        }else{
+                                            //if there is no SSN number then the data in this node is currupt and we don't want it
+                                            current = current.getNextSibling();
+                                        }
                                     }//end for
                                 }//end if
 
@@ -310,7 +316,7 @@ public class UserParser {
                                                 break;
                                             case "Lname": lname.add(text);
                                                 break;
-                                            case "SSN":ssn.add(Integer.parseInt(text));
+                                            case "UID":username.add(text);
                                                 break;
                                             case "StreetAddress":street.add(text);
                                                 break;

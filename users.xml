@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
-	<user UID="shajeer">
+	<user SSN="123456789">
 		<Fname>Sammy</Fname>
 		<Lname>Hajeer</Lname>
 		<password>password</password>
-		<SSN>123456789</SSN>
+		<UID>shajeer</UID>
 		<StreetAddress>1254 215th Road</StreetAddress>
 		<City>Troy</City>
 		<State>KS</State>
 		<ZIP>66087</ZIP>
 		<AccessType>1</AccessType>
 	</user>
-	<user UID="mlau">
+	<user SSN="987654321">
 		<Fname>Martin</Fname>
 		<Lname>Lau</Lname>
 		<password>12345</password>
-		<SSN>987654321</SSN>
+		<UID>mlau</UID>
 		<StreetAddress>4525 Downs Drive</StreetAddress>
 		<City>St. Joseph</City>
 		<State>MO</State>
