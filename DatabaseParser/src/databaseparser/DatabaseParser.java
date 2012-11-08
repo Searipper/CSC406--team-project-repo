@@ -6,8 +6,9 @@ public class DatabaseParser {
     public static void main(String[] args) {
         String path= "C:/Users/sjhajeer/Desktop/Object_Oriented/Project_folder/Parser/";
         System.out.println(path);
-        /*UserParser file1 = new  UserParser(path);
-        
+        UserParser file1 = new  UserParser(path);
+        System.out.println(file1.ValidateUserLogin("shajeer","password"));
+        /*
         System.out.println(file1.CreateRecord(121212121, "Granola", "Bar", "123 4th Street", "Anywhere", "OH", 12345, "GBar", "abcdefg", 2));
         file1.printusers();
         System.out.println();

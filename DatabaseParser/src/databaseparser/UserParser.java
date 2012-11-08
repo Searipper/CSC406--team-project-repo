@@ -362,7 +362,41 @@ public class UserParser {
                 System.exit(1);
             }//end exception
     }//end ReadFile()
-    
+    /**
+     * Checks a username and password passed to the method. returns a valid or invalid number
+     * @param username username
+     * @param password password
+     * @return Boolean T/F value.
+     */
+    public boolean ValidateUserLogin(String username,String password){
+        boolean check = false;
+        for(int i=0;i<usercount;i++){
+                    System.out.println("looking for user: "+username+" found: "+getUsername(i)+" "+getUsername(i).compareTo(username));
+            if(getUsername(i)==username){
+                    System.out.println("found user");
+                if (getPassword(i)==password){
+                    System.out.println("password valid");
+                check=true;
+                return check;
+                }
+            }
+        }
+        return check;
+    }//
+    /**
+     * Updates user record. Checks the record for the SSN and updates if it exists.
+     * 
+     * @param ssn integer social security number
+     * @param fname String First Name
+     * @param lname String Last Name
+     * @param street String Street Address
+     * @param city String City
+     * @param state String State
+     * @param zip integer ZIP Code
+     * @param username String Username
+     * @param password String Password
+     * @param utype integer User Type
+     */
     public String UpdateRecord(int ssn,String fname,String lname,String street,
             String city,String state,int zip,String username,String password, int utype){
         int record=-1;
