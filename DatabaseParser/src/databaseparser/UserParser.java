@@ -364,20 +364,20 @@ public class UserParser {
     }//end ReadFile()
     /**
      * Checks a username and password passed to the method. returns a valid or invalid number
-     * @param username username
-     * @param password password
-     * @return Boolean T/F value.
+     * @param username String variable username to be checked against records
+     * @param password String variable password to check against password recorded for username
+     * @return Boolean value: <ul><li>true if username and password are valid</li> <li>false if incorrect username or password</li></ul>
      */
     public boolean ValidateUserLogin(String username,String password){
         boolean check = false;
         for(int i=0;i<usercount;i++){
-                    System.out.println("looking for user: "+username+" found: "+getUsername(i)+" "+getUsername(i).compareTo(username));
-            if(getUsername(i)==username){
+                    //System.out.println("looking for user: "+username+" found: "+getUsername(i)+" "+getUsername(i).compareTo(username));
+            if(getUsername(i).compareTo(username)==0){
                     System.out.println("found user");
-                if (getPassword(i)==password){
+                if (getPassword(i).compareTo(password)==0){
                     System.out.println("password valid");
-                check=true;
-                return check;
+                    check=true;
+                    return check;
                 }
             }
         }
