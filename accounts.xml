@@ -1,40 +1,533 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Accounts>
 	<Account AccountNum="1245646">
-		<AccountType>ThatsMyBank</AccountType>
-		<CusID>123456789</CusID>
-		<Balence>1450.65</Balence>
+		<AccountType>TMB</AccountType>
+		<CusID>559555555</CusID>
+		<Balance>1450.65</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>10110110</DateActivated>
+		<DateActivated>mmddyyyy</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
-				<Debit date="1100110">10.00</Debit>
-				<Debit date="1110110">25.00</Debit>
+				<Debit date="mmddyyyy">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="011101">60.00</Credit>
+				<Credit date="mmddyyyy">30.00</Credit>
 			</RecentCredits>
-			<Overdrafts>
-			</Overdrafts>
+			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
 	</Account>
-	<Account AccountNum="1000000">
-		<AccountType>SimpleSavings</AccountType>
-		<CusID>123456789</CusID>
-		<Balence>2500.65</Balence>
+	<Account AccountNum="2000000">
+		<AccountType>G/D</AccountType>
+		<CusID>423453245</CusID>
+		<Balance>2500.65</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>10110110</DateActivated>
+		<DateActivated>mmddyyyy</DateActivated>
 		<AccountSpecificDetails>
-			<IntrestRate>.015</IntrestRate>
+		<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
 			<RecentDebits>
-				<Debit date="1100110">10.00</Debit>
-				<Debit date="1100110">10.00</Debit>
-				<Debit date="1110110">100.00</Debit>
-				<Debit date="1110110">25.00</Debit>
+				<Debit date="mmddyyyy">10.00</Debit>
+				<Debit date="mmddyyyy">10.00</Debit>
+				<Debit date="mmddyyyy">100.00</Debit>
+				<Debit date="mmddyyyy">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="011101">60.00</Credit>
+				<Credit date="mmddyyyy">60.00</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2000001">
+		<AccountType>G/D</AccountType>
+		<CusID>345653425</CusID>
+		<Balance>1500.12</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+		<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">10.00</Debit>
+				<Debit date="mmddyyyy">25.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2000002">
+		<AccountType>TMB</AccountType>
+		<CusID>423148894</CusID>
+		<Balance>212.12</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+		<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">160.00</Credit>
+				<Credit date="mmddyyyy">360.00</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="3000000">
+		<AccountType>TMB</AccountType>
+		<CusID>677879013</CusID>
+		<Balance>999.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+		<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+				<Debit date="mmddyyyy">1000.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">50.00</Credit>
+				<Credit date="mmddyyyy">165.00</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="3000001">
+		<AccountType>TMB</AccountType>
+		<CusID>345599870</CusID>
+		<Balance>3332.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+		<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+				<Debit date="mmddyyyy">242.11</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">42.99</Credit>
+				<Credit date="mmddyyyy">132.10</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="3000002">
+		<AccountType>G/D</AccountType>
+		<CusID>423567890</CusID>
+		<Balance>2122.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">242.11</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">342.99</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="3000003">
+		<AccountType>TMB</AccountType>
+		<CusID>345812332</CusID>
+		<Balance>99.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+		<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+				<Debit date="mmddyyyy">55.11</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">11.99</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000009">
+		<AccountType>G/D</AccountType>
+		<CusID>345879912</CusID>
+		<Balance>9229.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">525.11</Debit>				
+				<Debit date="mmddyyyy">405.10</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">1111.99</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000011">
+		<AccountType>G/D</AccountType>
+		<CusID>423168945</CusID>
+		<Balance>1000.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">1000.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">999.05</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000012">
+		<AccountType>TMB</AccountType>
+		<CusID>235445789</CusID>
+		<Balance>50.05</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">9.05</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000013">
+		<AccountType>TMB</AccountType>
+		<CusID>436789213</CusID>
+		<Balance>67.12</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">99.18</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">29.12</Credit>
+				<Credit date="mmddyyyy">19.35</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000014">
+		<AccountType>G/D</AccountType>
+		<CusID>233435656</CusID>
+		<Balance>2267.12</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">299.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">129.58</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1000015">
+		<AccountType>G/D</AccountType>
+		<CusID>435678787</CusID>
+		<Balance>5542.67</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">19.00</Debit>
+			</RecentDebits>
+			<RecentCredits>			
+				<Credit date="mmddyyyy">229.33</Credit>
+				<Credit date="mmddyyyy">1229.58</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1003333">
+		<AccountType>TMB</AccountType>
+		<CusID>563432913</CusID>
+		<Balance>5.67</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">22.00</Debit>
+			</RecentDebits>
+			<RecentCredits>			
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1044333">
+		<AccountType>TMB</AccountType>
+		<CusID>345679898</CusID>
+		<Balance>12.34</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">23.00</Debit>
+			</RecentDebits>
+			<RecentCredits>						
+				<Credit date="mmddyyyy">12.03</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1023133">
+		<AccountType>G/D</AccountType>
+		<CusID>987654321</CusID>
+		<Balance>1112.34</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>			
+			</RecentDebits>
+			<RecentCredits>						
+				<Credit date="mmddyyyy">122.03</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1003343">
+		<AccountType>G/D</AccountType>
+		<CusID>123456789</CusID>
+		<Balance>2255.04</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<IntrestRate>(.5*.015)</IntrestRate>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">223.00</Debit>
+			</RecentDebits>
+			<RecentCredits>						
+				<Credit date="mmddyyyy">350.03</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1003663">
+		<AccountType>TMB</AccountType>
+		<CusID>777777777</CusID>
+		<Balance>332.34</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">25.00</Debit>
+			</RecentDebits>
+			<RecentCredits>						
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1003663">
+		<AccountType>TMB</AccountType>
+		<CusID>543201234</CusID>
+		<Balance>233.34</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<OverdraftProtection>0</OverdraftProtection>
+			<RecentDebits>			
+				<Debit date="mmddyyyy">25.00</Debit>
+			</RecentDebits>
+			<RecentCredits>	
+				<Credit date="mmddyyyy">33.03</Credit>
+			</RecentCredits>
+			<Overdrafts></Overdrafts>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="2223456">
+		<AccountType>SLoan</AccountType>
+		<CusID>436789213</CusID>
+		<Balance>4450.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">225.00</Debit>
+				<Debit date="mmddyyyy">225.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">5000.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2223457">
+		<AccountType>SLoan</AccountType>
+		<CusID>233435656</CusID>
+		<Balance>1800.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">425.00</Debit>
+				<Debit date="mmddyyyy">100.00</Debit>
+				<Debit date="mmddyyyy">550.00</Debit>
+				<Debit date="mmddyyyy">125.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">3000.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2223458">
+		<AccountType>SLoan</AccountType>
+		<CusID>435678787</CusID>
+		<Balance>5450.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">1425.00</Debit>
+				<Debit date="mmddyyyy">1125.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">8000.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2223459">
+		<AccountType>SLoan</AccountType>
+		<CusID>563432913</CusID>
+		<Balance>2000.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">2000.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="2223460">
+		<AccountType>SLoan</AccountType>
+		<CusID>345679898</CusID>
+		<Balance>0.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">500.00</Debit>
+				<Debit date="mmddyyyy">500.00</Debit>
+				<Debit date="mmddyyyy">500.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">1500.00</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1113460">
+		<AccountType>CC</AccountType>
+		<CusID>436789213</CusID>
+		<Balance>0.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<CreditLimit>500.00</CreditLimit>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">100.01</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">77.00</Credit>
+				<Credit date="mmddyyyy">23.01</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1113461">
+		<AccountType>CC</AccountType>
+		<CusID>233435656</CusID>
+		<Balance>7.51</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<CreditLimit>1500.00</CreditLimit>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">60.00</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">45.00</Credit>
+				<Credit date="mmddyyyy">22.51</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1113462">
+		<AccountType>CC</AccountType>
+		<CusID>435678787</CusID>
+		<Balance>0.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<CreditLimit>500.00</CreditLimit>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">227.11</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">215.00</Credit>
+				<Credit date="mmddyyyy">12.11</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>	
+	<Account AccountNum="1113463">
+		<AccountType>CC</AccountType>
+		<CusID>563432913</CusID>
+		<Balance>1.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<CreditLimit>500.00</CreditLimit>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">164.18</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">111.00</Credit>
+				<Credit date="mmddyyyy">42.15</Credit>
+				<Credit date="mmddyyyy">12.03</Credit>
+			</RecentCredits>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="1113464">
+		<AccountType>CC</AccountType>
+		<CusID>345679898</CusID>
+		<Balance>0.00</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>mmddyyyy</DateActivated>
+		<AccountSpecificDetails>
+			<CreditLimit>2500.00</CreditLimit>
+			<PaymentDate date="mmddyyyy">mmddyyyy</PaymentDate>
+			<RecentDebits>
+				<Debit date="mmddyyyy">1666.78</Debit>
+			</RecentDebits>
+			<RecentCredits>
+				<Credit date="mmddyyyy">1111.00</Credit>
+				<Credit date="mmddyyyy">242.85</Credit>
+				<Credit date="mmddyyyy">312.93</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
