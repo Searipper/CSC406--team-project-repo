@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+	<user SSN="123456789">
+		<Fname>Sammy</Fname>
+		<Lname>Hajeer</Lname>
+		<password>password</password>
+		<UID>shajeer</UID>
+		<StreetAddress>1254 215th Road</StreetAddress>
+		<City>Troy</City>
+		<State>KS</State>
+		<ZIP>66087</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="987654321">
+		<Fname>Martin</Fname>
+		<Lname>Lau</Lname>
+		<password>12345</password>
+		<UID>mlau</UID>
+		<StreetAddress>4525 Downs Drive</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64507</ZIP>
+		<AccessType>2</AccessType>
+	</user>
+	<user SSN="222222222">
+		<Fname>Zac</Fname>
+		<Lname>Parks</Lname>
+		<password>test</password>
+		<UID>trick</UID>
+		<StreetAddress>1800 12th Street</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>12345</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+</users>

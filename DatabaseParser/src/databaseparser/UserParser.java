@@ -27,16 +27,16 @@ public class UserParser {
     
     private String path;
     private int usercount;
-    private ArrayList ssn = new ArrayList();
-    private ArrayList fname = new ArrayList();
-    private ArrayList lname = new ArrayList();
-    private ArrayList street = new ArrayList();
-    private ArrayList city = new ArrayList();
-    private ArrayList st = new ArrayList();
-    private ArrayList zip = new ArrayList();
-    private ArrayList type = new ArrayList();
-    private ArrayList username = new ArrayList();
-    private ArrayList password = new ArrayList();
+    private ArrayList<Integer> ssn = new ArrayList<Integer>();
+    private ArrayList<String> fname = new ArrayList<String>();
+    private ArrayList<String> lname = new ArrayList<String>();
+    private ArrayList<String> street = new ArrayList<String>();
+    private ArrayList<String> city = new ArrayList<String>();
+    private ArrayList<String> st = new ArrayList<String>();
+    private ArrayList<Integer> zip = new ArrayList<Integer>();
+    private ArrayList<Integer> type = new ArrayList<Integer>();
+    private ArrayList<String> username = new ArrayList<String>();
+    private ArrayList<String> password = new ArrayList<String>();
     //end data variables
 
 
@@ -320,26 +320,16 @@ public class UserParser {
                                 while (Stats!=null){
                                     String text =Stats.getTextContent().replace("\t", "");
                                     text = text.replace("\n", "");
-                                    switch(Stats.getNodeName()){
-                                            case "password": password.set(usercount-1, text);
-                                                break;
-                                            case "Fname": fname.set(usercount-1,text);
-                                                break;
-                                            case "Lname": lname.set(usercount-1,text);
-                                                break;
-                                            case "UID":username.set(usercount-1,text);
-                                                break;
-                                            case "StreetAddress":street.set(usercount-1,text);
-                                                break;
-                                            case "City":city.set(usercount-1,text);
-                                                break;
-                                            case "State":st.set(usercount-1,text);
-                                                break;
-                                            case "ZIP":zip.set(usercount-1,Integer.parseInt(text));
-                                                break;
-                                            case "AccessType":type.set(usercount-1,Integer.parseInt(text));
-                                                break;
-                                    }
+                                    if(Stats.getNodeName().compareTo("password")==0){ password.set(usercount-1, text);}
+                                    if(Stats.getNodeName().compareTo("Fname")==0){fname.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("Lname")==0){lname.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("UID")==0){username.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("StreetAddress")==0){street.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("City")==0){city.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("State")==0){st.set(usercount-1,text);}
+                                    if(Stats.getNodeName().compareTo("ZIP")==0){zip.set(usercount-1,Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("AccessType")==0){type.set(usercount-1,Integer.parseInt(text));}
+
                                     //System.out.print(text);
                                     Stats = Stats.getNextSibling();
                                 }//end while
@@ -357,31 +347,35 @@ public class UserParser {
                 WriteFile();
             }
             }catch(Exception e){
-                System.out.println("\n=====================================\nvery unspecific exception with wich this print-out does not help with at all.");
+                System.out.println("\n=====================================\n ReadFile() Exception ");
                 System.out.println(e);
                 System.exit(1);
             }//end exception
     }//end ReadFile()
     /**
      * Checks a username and password passed to the method. returns a valid or invalid number
-     * @param username String variable username to be checked against records
-     * @param password String variable password to check against password recorded for username
-     * @return Boolean value: <ul><li>true if username and password are valid</li> <li>false if incorrect username or password</li></ul>
+     * @param username username
+     * @param password password
+     * @return Boolean T/F value.
      */
-    public boolean ValidateUserLogin(String username,String password){
-        boolean check = false;
+    public int ValidateUserLogin(String username,String password){
+        int index = -1;
         for(int i=0;i<usercount;i++){
-                    //System.out.println("looking for user: "+username+" found: "+getUsername(i)+" "+getUsername(i).compareTo(username));
-            if(getUsername(i).compareTo(username)==0){
-                    System.out.println("found user");
-                if (getPassword(i).compareTo(password)==0){
-                    System.out.println("password valid");
-                    check=true;
-                    return check;
-                }
-            }
-        }
-        return check;
+            System.out.println("looking for user: "+username+" found: "+getUsername(i)+ 
+                            " How much it is different from what you are looking for "+getUsername(i).compareTo(username));
+            if(this.getUsername(i).compareTo(username)==0){
+                    System.out.println("found user match username in arraylist");
+                if (this.getPassword(i).compareTo(password)==0){
+                    System.out.println("found password match password in arraylist");
+                index=i;
+                System.out.println("record index = " + i);
+                return index;
+                }else{System.out.println("Password didn't find match in the arraylist");}
+            }{
+            System.out.println("username didn't find match in the arraylist");
+        }//end if checking username
+        }//end for loop
+        return index;
     }//
     /**
      * Updates user record. Checks the record for the SSN and updates if it exists.

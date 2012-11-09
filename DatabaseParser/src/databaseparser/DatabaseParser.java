@@ -4,11 +4,18 @@ package databaseparser;
 public class DatabaseParser {
 
     public static void main(String[] args) {
-        String path= "C:/Users/sjhajeer/Desktop/Object_Oriented/Project_folder/Parser/";
+        
+        
+        Login_Jframe_Form login1 = new Login_Jframe_Form();
+        login1.run();
+        
+        
+        /*
+        String path= "";
         System.out.println(path);
         UserParser file1 = new  UserParser(path);
         System.out.println(file1.ValidateUserLogin("shajeer","password"));
-        //file1.
+        System.out.println(file1.getSSN(1));
         System.out.println(file1.CreateRecord(121212121, "Granola", "Bar", "123 4th Street", "Anywhere", "OH", 12345, "GBar", "abcdefg", 2));
         file1.printusers();
         System.out.println();
@@ -21,6 +28,6 @@ public class DatabaseParser {
         
        AccountParser file2 = new AccountParser(path);
        file2.getRecordCount();
-       file2.printAccounts();
+       file2.printAccounts();*/
     }
 }
