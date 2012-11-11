@@ -29,11 +29,11 @@ public class AccountParser {
     
     private String path;
     private int recordcount;
-    private ArrayList AccountNumber = new ArrayList();
-    private ArrayList AccountType = new ArrayList();
-    private ArrayList usernum = new ArrayList();
-    private ArrayList balence = new ArrayList();
-    private ArrayList flags = new ArrayList();
+    private ArrayList<Integer> AccountNumber = new ArrayList<Integer>();
+    private ArrayList<String> AccountType = new ArrayList<String>();
+    private ArrayList<Integer> usernum = new ArrayList<Integer>();
+    private ArrayList<Double> balence = new ArrayList<Double>();
+    private ArrayList<Integer> flags = new ArrayList<Integer>();
     private ArrayList dateactivated = new ArrayList();
     private ArrayList accountobjects = new ArrayList();
     //end data variables
@@ -64,9 +64,45 @@ public class AccountParser {
      * @return integer number of user records in the system. 
      */
     public int getRecordCount(){return recordcount;}
-    /** * @param i location in ArrayList 
-     * @return Social Security Number */
+    /**<p>returns account number for [index] account</p>
+     * @param index index for specific record
+     */
+    public int getAccountNumber(int index) {
+        return AccountNumber.get(index);
+    }
+    /**<p>returns account type for [index] account</p>
+     * @param index index for specific record
+     */
+    public String getAccountType(int index) {
+        return AccountType.get(index);
+    }
 
+   /* public ArrayList getAccountobjects(int index) {
+        return accountobjects;
+    }*/
+    /**<p>returns balance for [index] account</p>
+     * @param index index for specific record
+     */
+    public double getBalence(int index) {
+        return balence.get(index);
+    }
+/*
+    public ArrayList getDateactivated(int index) {
+        return dateactivated;
+    }
+*/
+    /**<p>returns account flags for [index] account</p>
+     * @param index index for specific record
+     */
+    public int getFlags(int index) {
+        return flags.get(index);
+    }
+    /**<p>returns usernumber for [index] account</p>
+     * @param index index for specific record
+     */
+    public int getUsernum(int index) {
+        return usernum.get(index);
+    }
 
     //-------------------------------------------------------------
     //          Methods
@@ -122,8 +158,13 @@ public class AccountParser {
                                         //get attribute contents
                                         String attValue= attr.getNodeValue().replace("\t", "");
                                         attValue = attValue.replace("\n", "");
-                                        this.AccountNumber.add(attValue);
-
+                                        this.AccountNumber.add(Integer.parseInt(attValue));
+                                        //set placeholder data
+                                        AccountType.add("-99");
+                                        usernum.add(-99);
+                                        balence.add(0.00);
+                                        flags.add(0);
+                                        dateactivated.add(-99);
                                         //adds 1 record to the list
                                         recordcount++;
                                     }//end for
@@ -139,17 +180,12 @@ public class AccountParser {
                                 while (Stats!=null){
                                     String text =Stats.getTextContent().replace("\t", "");
                                     text = text.replace("\n", "");
-                                    switch(Stats.getNodeName()){
-                                            case "AccountType": AccountType.add(text);
-                                                break; 
-                                            case "CusID": usernum.add(text);
-                                                break;
-                                            case "Balence": balence.add(text);
-                                                break;
-                                            case "AccountFlag": flags.add(text);
-                                                break;
-                                            case "DateActivated":dateactivated.add(text);
-                                                break;
+                                    if(Stats.getNodeName().compareTo("AccountType")==0){ AccountType.set(recordcount-1,text);}
+                                    if(Stats.getNodeName().compareTo("CusID")==0){usernum.set(recordcount-1,Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("Balance")==0){balence.set(recordcount-1,Double.parseDouble(text));}
+                                    if(Stats.getNodeName().compareTo("AccountFlag")==0){flags.set(recordcount-1,Integer.parseInt(text));
+                                    if(Stats.getNodeName().compareTo("DateActivated")==0){dateactivated.set(recordcount-1,text);}
+                                    
                                                 /*
                                             case "AccountSpecificDetails": switch((String)AccountType.get(recordcount)){
                                                     case "SimpleSavings":
@@ -221,7 +257,7 @@ public class AccountParser {
     public void printAccounts(){
         for(int i=0;i<recordcount;i++){
             System.out.println("Account #: "+AccountNumber.get(i)+"\tAccount type: "+
-            AccountType.get(i)+"\tBalence: $"+balence.get(i)+"\tUser: "+
+            AccountType.get(i)+"\tBalence: $"+balence.get(i)+"    \tUser: "+
             usernum.get(i)+"\tDate Activated: "+dateactivated.get(i)+
             "\tAccount Flag: "+ flags.get(i));
         }//end for

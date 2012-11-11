@@ -21,9 +21,6 @@ abstract class AbstractAccount {
     protected double balance;//the current balence of the account
     protected int accountFlag;//any flaggs associated with this account
     
-    protected int numofdebits;//number of recent debits
-    protected ArrayList debits;//list of recent debits to this account
-    protected ArrayList debitdates;//dates associated 
     
 
     //-----------------------------
@@ -33,7 +30,6 @@ abstract class AbstractAccount {
     
     public double checkBalance(){return balance;}
     public abstract void updateBalance();
-    public abstract void DebitAccount();
     //public abstract void CreditAccount();//not used in all classes
     
 }
