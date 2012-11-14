@@ -187,43 +187,38 @@ public class AccountParser {
                                     if(Stats.getNodeName().compareTo("DateActivated")==0){dateactivated.set(recordcount-1,text);}
                                     
                                                 /*
-                                            case "AccountSpecificDetails": switch((String)AccountType.get(recordcount)){
-                                                    case "SimpleSavings":
-                                                        /**
-                                                         * create object for account and add it to accountobjects.
-                                                         * 
-                                                         * example: this.accountobjects.add(new SimpleSavings(balence.get(recordcount)));
-                                                         * 
-                                                         * afterwords set the account data with the account specific information
-                                                         * example: 
-                                                         * 
-                                                         * Node AccountDetails = Stats.getFirstChild();
-                                                         * while(AccountDetails!=null){
-                                                         *      text = AccountDetails.getTextContents().replace("\t", "");
-                                                         *      text = text.replace("\n", "");
-                                                         * 
-                                                         * }//end while
-                                                         * 
-                                                         * (SimpleSavings)accountobjects.get(recordcount).set()
-                                                         */
-                                                /*
-                                                        break;
-                                                    case "CDs":
-                                                        break;
-                                                    case"ThatsMyBank":
-                                                        break;
-                                                    case "GoldDimond":
-                                                        break;
-                                                    case "ShortTermLoan":
-                                                        break;
-                                                    case "LongTermMorgage":
-                                                        break;
-                                                    case "CreditCards":
-                                                        break;
-                                                }
-                                                break;*/
+                                            if(Stats.getNodeName().compareTo("AccountSpecificDetails")==0){ 
+                                                * 
+                                                *if AccountType.get(recordcount-1).compareTo("TMB")==0){
+                                                *   //TODO put account setting code here
+                                                * }//end if(TMB)
+                                                *if AccountType.get(recordcount-1).compareTo("G/D")==0){
+                                                *   //TODO put account setting code here
+                                                * }//end if (G/D)
+                                                *if AccountType.get(recordcount-1).compareTo("SLoan")==0){
+                                                *   //TODO put account setting code here
+                                                * }//end if (SLoan)
+                                                *if AccountType.get(recordcount-1).compareTo("CC")==0){
+                                                *   //TODO put account setting code here
+                                                * }//end if (CC)
+                                                *if AccountType.get(recordcount-1).compareTo("SimpleSavings")==0){
+                                                    * //TODO put account setting code here
+                                                        * //branch deaper into the hierarchy to get the account specific data
+                                                        * Node AccountDetails = Stats.getFirstChild();
+                                                        * while(AccountDetails!=null){
+                                                        *      text = AccountDetails.getTextContents().replace("\t", "");
+                                                        *      text = text.replace("\n", "");
+                                                        * 
+                                                        * }//end while
+                                                        * 
+                                                        * if(AccountDetails.getNodeName().compareTo()==0){
+                                                            * accountobjects.set[method](recordcount-1,[Dattype].parse[Datatype](text));
+                                                        * }//end if
+                                                * }//end if (simple savings)
+                                             * }//end if (AccountSpecificDetails)
+                                        */
                                     }
-                                    //System.out.print(text);
+                                    
                                     Stats = Stats.getNextSibling();
                                 }//end while
                             }//end if
