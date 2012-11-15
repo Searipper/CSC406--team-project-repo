@@ -15,10 +15,12 @@ The System will have the following accounts:
       Simple Savings
       CDs
   ----------------------
+  ----------------------
     Checking
   ----------------------
       That's My Bank
       Gold/Dimond
+  ----------------------
   ----------------------
     Loans
   ----------------------
@@ -28,4 +30,4 @@ The System will have the following accounts:
   ----------------------
 
 ---------------------------
-post commits here
+
