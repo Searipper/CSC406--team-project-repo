@@ -1,4 +1,7 @@
 package databaseparser;
+
+import java.util.Date;
+
 /**
  * <p>
  * interface for Debiting accounts. implement these methods in classes that 
@@ -24,10 +27,19 @@ public interface DebitInterface {
     public abstract int getNumOfDebits();
     /**
      * will be used to return the debit amount for a specific record
+     * @param index this is the index in the list of debit amounts
      */
     public abstract void getDebitAmounts(int index);
      /**
      * will be used to return the debit date for a specific record
+     * @param index this is the index in the list of debit dates
      */
     public abstract void getDebitDates(int index);
+        /**
+     * adds a record into the history list. this is needed when parsing the file
+     * in to get all of the credits stored
+     * @param amount this is the amount of the Debit. type double
+     * @param creditdate this is the date this Debit was made. type Date
+     */
+    public abstract void addDebititRecord(double amount,Date creditdate);
 }

@@ -6,8 +6,8 @@ public class DatabaseParser {
     public static void main(String[] args) {
         
         
-        Login_Jframe_Form login1 = new Login_Jframe_Form();
-        login1.run();
+        Application_Start_Form app1 = new Application_Start_Form();
+        app1.run();
         
         
         /*
