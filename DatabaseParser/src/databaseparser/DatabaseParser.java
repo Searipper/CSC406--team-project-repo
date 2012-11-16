@@ -6,10 +6,10 @@ public class DatabaseParser {
     public static void main(String[] args) {
         
         
-        Application_Start_Form app1 = new Application_Start_Form();
+        Application_Start_Form app1 = new Application_Start_Form(); 
         app1.run();
          
-        
+          
         /*
         String path= "";
         System.out.println(path);

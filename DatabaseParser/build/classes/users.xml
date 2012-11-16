@@ -1,3 +1,223 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <users>
+	<user SSN="123456789">
+		<Fname>Sammy</Fname>
+		<Lname>Hajeer</Lname>
+		<password>password</password>
+		<UID>shajeer</UID>
+		<StreetAddress>1254 215th Road</StreetAddress>
+		<City>Troy</City>
+		<State>KS</State>
+		<ZIP>66087</ZIP>
+		<AccessType>3</AccessType>
+	</user>
+	<user SSN="559555555">
+		<Fname>Lamont</Fname>
+		<Lname>Ealey</Lname>
+		<password>drowssap</password>
+		<UID>lealey</UID>
+		<StreetAddress>South 5th</StreetAddress>
+		<City>Plattsburgh</City>
+		<State>MO</State>
+		<ZIP>64477</ZIP>
+		<AccessType>2</AccessType>
+	</user>
+	<user SSN="777777777">
+		<Fname>Alan</Fname>
+		<Lname>Appley</Lname>
+		<password>654321</password>
+		<UID>aappley</UID>
+		<StreetAddress>2703 36th St.</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64507</ZIP>
+		<AccessType>2</AccessType>
+	</user>
+	<user SSN="543201234">
+		<Fname>Xubo</Fname>
+		<Lname>Zhao</Lname>
+		<password>plaid</password>
+		<UID>xzhao</UID>
+		<StreetAddress>672 Bank Ln.</StreetAddress>
+		<City>Platte City</City>
+		<State>MO</State>
+		<ZIP>64079</ZIP>
+		<AccessType>2</AccessType>
+	</user>
+	<user SSN="423453245">
+		<Fname>Ronald</Fname>
+		<Lname>Jones</Lname>
+		<password>passw0rd</password>
+		<UID>rjones</UID>
+		<StreetAddress>114 North 4th</StreetAddress>
+		<City>Clarkesdale</City>
+		<State>MO</State>
+		<ZIP>64493</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="345653425">
+		<Fname>Mark</Fname>
+		<Lname>Ingrem</Lname>
+		<password>wordsworms</password>
+		<UID>mingrem</UID>
+		<StreetAddress>1805 Jules</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64503</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="423148894">
+		<Fname>Sherry</Fname>
+		<Lname>Harrison</Lname>
+		<password>mustang</password>
+		<UID>sharrison</UID>
+		<StreetAddress>2109 Sylviana</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64501</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="677879013">
+		<Fname>John</Fname>
+		<Lname>Morgeson</Lname>
+		<password>loadsofmoney</password>
+		<UID>jmorgeson</UID>
+		<StreetAddress>4305 West 3rd</StreetAddress>
+		<City>Wathena</City>
+		<State>KS</State>
+		<ZIP>54910</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="345599870">
+		<Fname>Gary</Fname>
+		<Lname>Gilkerson</Lname>
+		<password>boochiefs</password>
+		<UID>ggilkerson</UID>
+		<StreetAddress>221 South Highly</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64503</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="423567890">
+		<Fname>Mary</Fname>
+		<Lname>Francis</Lname>
+		<password>gallileo</password>
+		<UID>mfrancis</UID>
+		<StreetAddress>335 Jules</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64503</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="345812332">
+		<Fname>Carolyn</Fname>
+		<Lname>Johnson</Lname>
+		<password>hal9000</password>
+		<UID>cjohnson</UID>
+		<StreetAddress>1402 Mocking Bird</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64502</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="345879912">
+		<Fname>Larry</Fname>
+		<Lname>Waite</Lname>
+		<password>ironmang</password>
+		<UID>lwaite</UID>
+		<StreetAddress>2105 Senior Dr.</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64503</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="423168945">
+		<Fname>Marilyn</Fname>
+		<Lname>Macklin</Lname>
+		<password>orapple</password>
+		<UID>mmacklin</UID>
+		<StreetAddress>1801 Lovers Ln.</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64502</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="235445789">
+		<Fname>Lana</Fname>
+		<Lname>McGlynn</Lname>
+		<password>jehuty</password>
+		<UID>lmcgylnn</UID>
+		<StreetAddress>2508 Stonecrest</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64501</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="436789213">
+		<Fname>John</Fname>
+		<Lname>Munzer</Lname>
+		<password>munzerator</password>
+		<UID>jmunzer</UID>
+		<StreetAddress>4156 N. Mulbury</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64502</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="233435656">
+		<Fname>Mary</Fname>
+		<Lname>White</Lname>
+		<password>bradbury</password>
+		<UID>mwhite</UID>
+		<StreetAddress>1525 Kioa</StreetAddress>
+		<City>Ellwood</City>
+		<State>KS</State>
+		<ZIP>56708</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="435678787">
+		<Fname>Jerry</Fname>
+		<Lname>Gronius</Lname>
+		<password>bensicecream</password>
+		<UID>jgronius</UID>
+		<StreetAddress>8902 Martha Ln.</StreetAddress>
+		<City>Gower</City>
+		<State>MO</State>
+		<ZIP>63301</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="563432913">
+		<Fname>Martin</Fname>
+		<Lname>Williams</Lname>
+		<password>mcking</password>
+		<UID>mwilliams</UID>
+		<StreetAddress>1532 Lovers Ln.</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64502</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="345679898">
+		<Fname>Broderick</Fname>
+		<Lname>Jones</Lname>
+		<password>tastycakes</password>
+		<UID>bjones</UID>
+		<StreetAddress>703 Park Ln.</StreetAddress>
+		<City>St. Joseph</City>
+		<State>MO</State>
+		<ZIP>64501</ZIP>
+		<AccessType>1</AccessType>
+	</user>
+	<user SSN="123487999">
+		<Fname>tim</Fname>
+		<Lname>shower</Lname>
+		<password>password</password>
+		<UID>tim</UID>
+		<StreetAddress>12 Main</StreetAddress>
+		<City>St Joseph</City>
+		<State>MO</State>
+		<ZIP>98766</ZIP>
+		<AccessType>1</AccessType>
+	</user>
 </users>

@@ -1,4 +1,4 @@
-package databaseparser;
+package fall2012_csc406_banking_system;
 
 import java.util.ArrayList;
 import java.io.File;
@@ -19,21 +19,18 @@ import org.w3c.dom.*;
  */
 public class AccountParser {
        
-//
-    /*
-     
-     */
+
     //-------------------------------------------------------------
     //          Variables
     //-------------------------------------------------------------
     
     private String path;
     private int recordcount;
-    private ArrayList<Integer> AccountNumber = new ArrayList<Integer>();
-    private ArrayList<String> AccountType = new ArrayList<String>();
-    private ArrayList<Integer> usernum = new ArrayList<Integer>();
-    private ArrayList<Double> balence = new ArrayList<Double>();
-    private ArrayList<Integer> flags = new ArrayList<Integer>();
+    private ArrayList AccountNumber = new ArrayList();
+    private ArrayList AccountType = new ArrayList();
+    private ArrayList usernum = new ArrayList();
+    private ArrayList balence = new ArrayList();
+    private ArrayList flags = new ArrayList();
     private ArrayList dateactivated = new ArrayList();
     private ArrayList accountobjects = new ArrayList();
     //end data variables
@@ -64,45 +61,9 @@ public class AccountParser {
      * @return integer number of user records in the system. 
      */
     public int getRecordCount(){return recordcount;}
-    /**<p>returns account number for [index] account</p>
-     * @param index index for specific record
-     */
-    public int getAccountNumber(int index) {
-        return AccountNumber.get(index);
-    }
-    /**<p>returns account type for [index] account</p>
-     * @param index index for specific record
-     */
-    public String getAccountType(int index) {
-        return AccountType.get(index);
-    }
+    /** * @param i location in ArrayList 
+     * @return Social Security Number */
 
-   /* public ArrayList getAccountobjects(int index) {
-        return accountobjects;
-    }*/
-    /**<p>returns balance for [index] account</p>
-     * @param index index for specific record
-     */
-    public double getBalence(int index) {
-        return balence.get(index);
-    }
-/*
-    public ArrayList getDateactivated(int index) {
-        return dateactivated;
-    }
-*/
-    /**<p>returns account flags for [index] account</p>
-     * @param index index for specific record
-     */
-    public int getFlags(int index) {
-        return flags.get(index);
-    }
-    /**<p>returns usernumber for [index] account</p>
-     * @param index index for specific record
-     */
-    public int getUsernum(int index) {
-        return usernum.get(index);
-    }
 
     //-------------------------------------------------------------
     //          Methods
@@ -158,13 +119,8 @@ public class AccountParser {
                                         //get attribute contents
                                         String attValue= attr.getNodeValue().replace("\t", "");
                                         attValue = attValue.replace("\n", "");
-                                        this.AccountNumber.add(Integer.parseInt(attValue));
-                                        //set placeholder data
-                                        AccountType.add("-99");
-                                        usernum.add(-99);
-                                        balence.add(0.00);
-                                        flags.add(0);
-                                        dateactivated.add(-99);
+                                        this.AccountNumber.add(attValue);
+
                                         //adds 1 record to the list
                                         recordcount++;
                                     }//end for
@@ -180,45 +136,55 @@ public class AccountParser {
                                 while (Stats!=null){
                                     String text =Stats.getTextContent().replace("\t", "");
                                     text = text.replace("\n", "");
-                                    if(Stats.getNodeName().compareTo("AccountType")==0){ AccountType.set(recordcount-1,text);}
-                                    if(Stats.getNodeName().compareTo("CusID")==0){usernum.set(recordcount-1,Integer.parseInt(text));}
-                                    if(Stats.getNodeName().compareTo("Balance")==0){balence.set(recordcount-1,Double.parseDouble(text));}
-                                    if(Stats.getNodeName().compareTo("AccountFlag")==0){flags.set(recordcount-1,Integer.parseInt(text));
-                                    if(Stats.getNodeName().compareTo("DateActivated")==0){dateactivated.set(recordcount-1,text);}
-                                    
-                                                /*
-                                            if(Stats.getNodeName().compareTo("AccountSpecificDetails")==0){ 
-                                                * 
-                                                *if AccountType.get(recordcount-1).compareTo("TMB")==0){
-                                                *   //TODO put account setting code here
-                                                * }//end if(TMB)
-                                                *if AccountType.get(recordcount-1).compareTo("G/D")==0){
-                                                *   //TODO put account setting code here
-                                                * }//end if (G/D)
-                                                *if AccountType.get(recordcount-1).compareTo("SLoan")==0){
-                                                *   //TODO put account setting code here
-                                                * }//end if (SLoan)
-                                                *if AccountType.get(recordcount-1).compareTo("CC")==0){
-                                                *   //TODO put account setting code here
-                                                * }//end if (CC)
-                                                *if AccountType.get(recordcount-1).compareTo("SimpleSavings")==0){
-                                                    * //TODO put account setting code here
-                                                        * //branch deaper into the hierarchy to get the account specific data
-                                                        * Node AccountDetails = Stats.getFirstChild();
-                                                        * while(AccountDetails!=null){
-                                                        *      text = AccountDetails.getTextContents().replace("\t", "");
-                                                        *      text = text.replace("\n", "");
-                                                        * 
-                                                        * }//end while
-                                                        * 
-                                                        * if(AccountDetails.getNodeName().compareTo()==0){
-                                                            * accountobjects.set[method](recordcount-1,[Dattype].parse[Datatype](text));
-                                                        * }//end if
-                                                * }//end if (simple savings)
-                                             * }//end if (AccountSpecificDetails)
-                                        */
-                                    }
-                                    
+//                                    switch(Stats.getNodeName()){
+//                                            case "AccountType": AccountType.add(text);
+//                                                break;
+//                                            case "CusID": usernum.add(text);
+//                                                break;
+//                                            case "Balence": balence.add(text);
+//                                                break;
+//                                            case "AccountFlag": flags.add(text);
+//                                                break;
+//                                            case "DateActivated":dateactivated.add(text);
+//                                                break;
+//                                                /*
+//                                            case "AccountSpecificDetails": switch((String)AccountType.get(recordcount)){
+//                                                    case "SimpleSavings":
+//                                                        /**
+//                                                         * create object for account and add it to accountobjects.
+//                                                         *
+//                                                         * example: this.accountobjects.add(new SimpleSavings(balence.get(recordcount)));
+//                                                         *
+//                                                         * afterwords set the account data with the account specific information
+//                                                         * example:
+//                                                         *
+//                                                         * Node AccountDetails = Stats.getFirstChild();
+//                                                         * while(AccountDetails!=null){
+//                                                         *      text = AccountDetails.getTextContents().replace("\t", "");
+//                                                         *      text = text.replace("\n", "");
+//                                                         *
+//                                                         * }//end while
+//                                                         *
+//                                                         * (SimpleSavings)accountobjects.get(recordcount).set()
+//                                                         */
+//                                                /*
+//                                                        break;
+//                                                    case "CDs":
+//                                                        break;
+//                                                    case"ThatsMyBank":
+//                                                        break;
+//                                                    case "GoldDimond":
+//                                                        break;
+//                                                    case "ShortTermLoan":
+//                                                        break;
+//                                                    case "LongTermMorgage":
+//                                                        break;
+//                                                    case "CreditCards":
+//                                                        break;
+//                                                }
+//                                                break;*/
+//                                    }
+                                    //System.out.print(text);
                                     Stats = Stats.getNextSibling();
                                 }//end while
                             }//end if
@@ -252,7 +218,7 @@ public class AccountParser {
     public void printAccounts(){
         for(int i=0;i<recordcount;i++){
             System.out.println("Account #: "+AccountNumber.get(i)+"\tAccount type: "+
-            AccountType.get(i)+"\tBalence: $"+balence.get(i)+"    \tUser: "+
+            AccountType.get(i)+"\tBalence: $"+balence.get(i)+"\tUser: "+
             usernum.get(i)+"\tDate Activated: "+dateactivated.get(i)+
             "\tAccount Flag: "+ flags.get(i));
         }//end for

@@ -61,6 +61,7 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         pass = new javax.swing.JPasswordField();
         fname = new javax.swing.JTextField();
+        display = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -126,6 +127,9 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(65, 65, 65))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -221,7 +225,9 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -255,18 +261,19 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
         
         
         //Test through UserParser
-        String path= "C:/Users/Arron/Documents/NetBeansProjects/Fall2012_CSC406_Banking_System/";
+        String path= "";
         UserParser rec1 = new UserParser(path);
-        rec1.CreateRecord(
-                Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
+        
+        display.setText(rec1.CreateRecord(Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
                 street.getText(),city.getText(),state.getSelectedItem().toString(),
-                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),Integer.parseInt(type.getText())
-                );
+                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),
+                Integer.parseInt(type.getText())));
+        //this.setVisible(false);
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(0);        
+        dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -287,6 +294,7 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField city;
+    private javax.swing.JLabel display;
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

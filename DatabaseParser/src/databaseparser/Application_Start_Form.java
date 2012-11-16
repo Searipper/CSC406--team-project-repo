@@ -15,6 +15,7 @@ public class Application_Start_Form extends javax.swing.JFrame {
      */
     public Application_Start_Form() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

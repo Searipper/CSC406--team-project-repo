@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.xml.parsers.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +19,7 @@ import org.w3c.dom.*;
  * @version 1.0
  */
 public class UserParser {
-
+    
     
 
     //-------------------------------------------------------------
@@ -27,6 +28,7 @@ public class UserParser {
     
     private String path;
     private int usercount;
+    //private ArrayList<Date> Date = new ArrayList<Date>();    
     private ArrayList<Integer> ssn = new ArrayList<Integer>();
     private ArrayList<String> fname = new ArrayList<String>();
     private ArrayList<String> lname = new ArrayList<String>();
@@ -54,7 +56,6 @@ public class UserParser {
         this.path = path+"users.xml";//this sets the file path
         ReadFile();//Reads in records
     }
-
     
     //-------------------------------------------------------------
     //          Getter Methods
@@ -64,6 +65,8 @@ public class UserParser {
      * <p>gets the number of records read in from the file.</p>
      * @return integer number of user records in the system. 
      */
+    
+    
     public int getRecordCount(){return usercount;}
     /** * @param i location in ArrayList 
      * @return Social Security Number */
@@ -101,6 +104,19 @@ public class UserParser {
     //          Methods
     //-------------------------------------------------------------
     
+    public int getIndexFromSSN(int ssn){
+        int index =-1;//negative number means not in the system files
+        System.out.println("in getIndexFromSSN() looking for "+ssn);
+        for(int i=0;i<usercount;i++){//loop through the system files
+            System.out.println("looking for "+ssn+" found: "+this.getSSN(i));
+            if((this.getSSN(i))==ssn){//if ssn number found return the index of located record
+                index = i;
+                 System.out.println("found a match");
+                return index;
+            }
+        }
+        return index;
+    }
     
     /**
      * <p>This Function adds a record to the ArrayLists, updates the user counter
@@ -125,7 +141,7 @@ public class UserParser {
         
         int flag=0;
         for(int i=0;i<usercount;i++){
-            if(ssn==getSSN(i))flag++;
+            if(ssn==getSSN(i)){flag++;}
         }
         if(flag==0){
         try{
@@ -165,12 +181,13 @@ public class UserParser {
      * </ul>
      */
     public String DeleteRecord(int userssn){
+        System.out.println(userssn);
         if(usercount<1){
             return "There are no users in the system to delete";
         }else{
             int record=-1;//will throw an error if user is not in Array
             for(int i=0;i<usercount;i++){
-                if (userssn==getSSN(i))record=i;
+                if (userssn==getSSN(i)){record=i;}
             }//end for
             if (record>usercount){return "user does not exist within the system. cannot delete";}
             if(record==-1){return "could not find user to delete!";}
@@ -234,7 +251,8 @@ public class UserParser {
                 ReadFile();
             }
         }catch(Exception e){
-            System.out.println("Exception in file output stream");        
+            System.out.println("Exception in file output stream");
+            System.out.println(e);
         }
     }
     /**
@@ -347,9 +365,11 @@ public class UserParser {
                 WriteFile();
             }
             }catch(Exception e){
+                //this Exception will occur when there is file, but no content in the file
                 System.out.println("\n=====================================\n ReadFile() Exception ");
                 System.out.println(e);
                 System.exit(1);
+                //To get rid of this exception, we need to consider the empty file situation and put another if else statement
             }//end exception
     }//end ReadFile()
     /**
@@ -421,7 +441,23 @@ public class UserParser {
      * prints out all the data on all the users in the ArrayLists
      * @return do I even have to say it? nothing!!!
      */
-    public void printusers(){
+    public String printUser(int ssn){
+
+        String fn = null;
+        String ln = null;
+        String sn = null;
+        for(int i=0;i<usercount;i++){
+            if((this.getSSN(i))==ssn){
+                fn = this.getFName(i);
+                ln = this.getLName(i);
+                sn = Integer.toString(this.getSSN(i));
+                System.out.println(this.getFName(i) + " " + this.getLName(i) + " USER TYPE:" + this.getType(i));
+            }
+        }
+        return (fn + " "+ ln + " " + sn);
+    }//end printUser
+    
+    public void printUserList(){
         for(int i=0;i<usercount;i++){
             System.out.println(getFName(i)+"\t"+getLName(i)+"\t"+getSSN(i)+
                     "\t"+getStreet(i)+" \t"+getCity(i)+"    \t"+getState(i)+"\t"
