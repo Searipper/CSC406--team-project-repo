@@ -11,17 +11,6 @@
 		<ZIP>66087</ZIP>
 		<AccessType>3</AccessType>
 	</user>
-	<user SSN="559555555">
-		<Fname>Lamont</Fname>
-		<Lname>Ealey</Lname>
-		<password>drowssap</password>
-		<UID>lealey</UID>
-		<StreetAddress>South 5th</StreetAddress>
-		<City>Plattsburgh</City>
-		<State>MO</State>
-		<ZIP>64477</ZIP>
-		<AccessType>2</AccessType>
-	</user>
 	<user SSN="777777777">
 		<Fname>Alan</Fname>
 		<Lname>Appley</Lname>
@@ -207,17 +196,6 @@
 		<City>St. Joseph</City>
 		<State>MO</State>
 		<ZIP>64501</ZIP>
-		<AccessType>1</AccessType>
-	</user>
-	<user SSN="123487999">
-		<Fname>tim</Fname>
-		<Lname>shower</Lname>
-		<password>password</password>
-		<UID>tim</UID>
-		<StreetAddress>12 Main</StreetAddress>
-		<City>St Joseph</City>
-		<State>MO</State>
-		<ZIP>98766</ZIP>
 		<AccessType>1</AccessType>
 	</user>
 </users>
