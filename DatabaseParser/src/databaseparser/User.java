@@ -1,108 +1,89 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package databaseparser;
 
 import java.util.ArrayList;
 
 /**
- *
+ *Class for storing data for an individual user
  * @author Arron
+ * @author Sammy
  */
 public class User {
-    //prototype for user
-    private ArrayList<String> ssn = new ArrayList<String>();
-    private ArrayList<String> fname = new ArrayList<String>();
-    private ArrayList<String> lname = new ArrayList<String>();
-    private ArrayList<String> street = new ArrayList<String>();
-    private ArrayList<String> city = new ArrayList<String>();
-    private ArrayList<String> state = new ArrayList<String>();
-    private ArrayList<String> zip = new ArrayList<String>();
-    private ArrayList<String> type = new ArrayList<String>();
-    private ArrayList<String> username = new ArrayList<String>();
-    private ArrayList<String> password = new ArrayList<String>();
+    //----------------------------------
+    //Variables for the user
+    //----------------------------------
     
-    //constructor
-    public User(String ssn,String fname,String lname,String street,String city,
-                String state,String zip,String type,String username,
-                String password) {
-        this.ssn.add(ssn);
-        this.fname.add(fname);
-        this.lname.add(lname);
-        this.street.add(street);
-        this.city.add(city);
-        this.state.add(state);
-        this.zip.add(zip);
-        this.type.add(type);
-        this.username.add(username);
-        this.password.add(password);
-    }
-    //end of constructor
-
+    private int ssn;
+    private String fname;
+    private String lname;
+    private String street;
+    private String city;
+    private String state;
+    private int zip;
+    private int accestype;
+    private String username;
+    private String password;
     
-    //setter and getter
-    public ArrayList<String> getSsn() {
-        return ssn;
-    }
-    public void setSsn(ArrayList<String> ssn) {
+    //----------------------------------
+    //  Constructors
+    //----------------------------------
+    
+    //ssn only
+    public User(int ssn) {
         this.ssn = ssn;
     }
-    public ArrayList<String> getFname() {
-        return fname;
-    }
-    public void setFname(ArrayList<String> fname) {
+    //everything but username and password
+    public User(int ssn, String fname, String lname, String street, String city,
+    String state, int zip, int accestype) {
+        this.ssn = ssn;
         this.fname = fname;
-    }
-    public ArrayList<String> getLname() {
-        return lname;
-    }
-    public void setLname(ArrayList<String> lname) {
         this.lname = lname;
-    }
-    public ArrayList<String> getStreet() {
-        return street;
-    }
-    public void setStreet(ArrayList<String> street) {
         this.street = street;
-    }
-    public ArrayList<String> getCity() {
-        return city;
-    }
-    public void setCity(ArrayList<String> city) {
         this.city = city;
-    }
-    public ArrayList<String> getState() {
-        return state;
-    }
-    public void setState(ArrayList<String> state) {
         this.state = state;
-    }
-    public ArrayList<String> getZip() {
-        return zip;
-    }
-    public void setZip(ArrayList<String> zip) {
         this.zip = zip;
+        this.accestype = accestype;
     }
-    public ArrayList<String> getType() {
-        return type;
-    }
-    public void setType(ArrayList<String> type) {
-        this.type = type;
-    }
-    public ArrayList<String> getUsername() {
-        return username;
-    }
-    public void setUsername(ArrayList<String> username) {
+    //everything
+    public User(int ssn, String fname, String lname, String street, String city, 
+    String state, int zip, int accestype, String username, String password) {
+        this.ssn = ssn;
+        this.fname = fname;
+        this.lname = lname;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.accestype = accestype;
         this.username = username;
-    }
-    public ArrayList<String> getPassword() {
-        return password;
-    }
-    public void setPassword(ArrayList<String> password) {
         this.password = password;
     }
     
     
+    //----------------------------------
+    //  Methods
+    //----------------------------------
+    
+    //getter & setter methods
+    public int getAccestype() {return accestype;}
+    public void setAccestype(int accestype) {this.accestype = accestype;}
+    public String getCity() {return city;}
+    public void setCity(String city) {this.city = city;}
+    public String getFname() {return fname;}
+    public void setFname(String fname) {this.fname = fname;}
+    public String getLname() {return lname;}
+    public void setLname(String lname) {this.lname = lname;}
+    public String getPassword() {return password;}
+    public void setPassword(String password) {this.password = password;}
+    public int getSsn() {return ssn;}
+    public void setSsn(int ssn) {this.ssn = ssn;}
+    public String getState() {return state;}
+    public void setState(String state) {this.state = state;}
+    public String getStreet() {return street;}
+    public void setStreet(String street) {this.street = street;}
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
+    public int getZip() {return zip;}
+    public void setZip(int zip) {this.zip = zip;}
     //end setter and getter
+    
 }//end class user

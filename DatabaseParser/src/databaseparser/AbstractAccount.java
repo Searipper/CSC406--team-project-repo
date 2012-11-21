@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package databaseparser;
 
 import java.util.ArrayList;
 /**
- * 
+ * Abstract account containing variables that all accounts will need.
  */
 abstract class AbstractAccount {
  
@@ -25,7 +21,8 @@ abstract class AbstractAccount {
     //---------------------------
     
     public AbstractAccount() {}//default abstract constructor.
-    public AbstractAccount(int customerID, int accountNum, double balance, int accountFlag) {
+    public AbstractAccount(int customerID, int accountNum, 
+            double balance, int accountFlag) {
         //constructor to set the basic account details
         this.customerID = customerID;
         this.accountNum = accountNum;
@@ -41,39 +38,16 @@ abstract class AbstractAccount {
     
     
     public double checkBalance(){return balance;}
-    public abstract void updateBalance();
-    //public abstract void CreditAccount();//not used in all classes
+    public abstract void updateBalance(double balance);
 
-    public int getAccountFlag() {
-        return accountFlag;
-    }
-
-    public void setAccountFlag(int accountFlag) {
-        this.accountFlag = accountFlag;
-    }
-
-    public int getAccountNum() {
-        return accountNum;
-    }
-
-    public void setAccountNum(int accountNum) {
-        this.accountNum = accountNum;
-    }
-
-    public int getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(int accountType) {
-        this.accountType = accountType;
-    }
-
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
+    //getter/setter methods
+    public int getAccountFlag() {return accountFlag;}
+    public void setAccountFlag(int accountFlag) {this.accountFlag = accountFlag;}
+    public int getAccountNum() {return accountNum;}
+    public void setAccountNum(int accountNum) {this.accountNum = accountNum;}
+    public int getAccountType() {return accountType;}
+    public void setAccountType(int accountType) {this.accountType = accountType;}
+    public int getCustomerID() {return customerID;}
+    public void setCustomerID(int customerID) {this.customerID = customerID;}
     
-}
+}//end Abstract class

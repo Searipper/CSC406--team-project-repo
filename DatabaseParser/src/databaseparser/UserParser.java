@@ -19,8 +19,6 @@ import org.w3c.dom.*;
  * @version 1.0
  */
 public class UserParser {
-    
-    
 
     //-------------------------------------------------------------
     //          Variables
@@ -28,25 +26,14 @@ public class UserParser {
     
     private String path;
     private int usercount;
-    //private ArrayList<Date> Date = new ArrayList<Date>();    
-    private ArrayList<Integer> ssn = new ArrayList<Integer>();
-    private ArrayList<String> fname = new ArrayList<String>();
-    private ArrayList<String> lname = new ArrayList<String>();
-    private ArrayList<String> street = new ArrayList<String>();
-    private ArrayList<String> city = new ArrayList<String>();
-    private ArrayList<String> st = new ArrayList<String>();
-    private ArrayList<Integer> zip = new ArrayList<Integer>();
-    private ArrayList<Integer> type = new ArrayList<Integer>();
-    private ArrayList<String> username = new ArrayList<String>();
-    private ArrayList<String> password = new ArrayList<String>();
+    private ArrayList<User> userlist = new ArrayList<User>();
     //end data variables
 
 
     //-------------------------------------------------------------
     //          Constructor
     //-------------------------------------------------------------
-    
-    
+       
     /**
      * constructor for UserParser class
      * Class {@code Object} is the root of the class hierarchy.
@@ -65,39 +52,39 @@ public class UserParser {
      * <p>gets the number of records read in from the file.</p>
      * @return integer number of user records in the system. 
      */
-    
-    
     public int getRecordCount(){return usercount;}
     /** * @param i location in ArrayList 
      * @return Social Security Number */
-    public int getSSN(int i){return (int)ssn.get(i);}
+    public int getSSN(int index){return userlist.get(index).getSsn();}
     /** * @param i location in ArrayList 
      * @return ZIP Code Number*/
-    public int getZip(int i){return (int)zip.get(i);}
+    public int getZip(int index){return userlist.get(index).getZip();}
     /** * @param i location in ArrayList 
      * @return System User Type Integer */
-    public int getType(int i){return (int)type.get(i);}
+    public int getType(int index){return userlist.get(index).getAccestype();}
     /** * @param i location in ArrayList 
      * @return System Username String */
-    public String getUsername(int i){return (String)username.get(i);}
+    public String getUsername(int index){return userlist.get(index).getUsername();}
     /** * @param i location in ArrayList 
      * @return System Password String*/
-    public String getPassword(int i){return (String)password.get(i);}
+    public String getPassword(int index){return userlist.get(index).getPassword();}
     /** * @param i location in ArrayList 
      * @return City String */
-    public String getCity(int i){return (String)city.get(i);}
+    public String getCity(int index){return userlist.get(index).getCity();}
     /** * @param i location in ArrayList 
      * @return First Name String*/
-    public String getFName(int i){return (String)fname.get(i);}
+    public String getFName(int index){return userlist.get(index).getFname();}
     /** * @param i location in ArrayList 
      * @return Last Name String */
-    public String getLName(int i){return (String)lname.get(i);}
+    public String getLName(int index){return userlist.get(index).getLname();}
     /** * @param i location in ArrayList 
      * @return Street Address String */
-    public String getStreet(int i){return (String)street.get(i);}
+    public String getStreet(int index){return userlist.get(index).getStreet();}
     /** * @param i location in ArrayList 
      * @return State String */
-    public String getState(int i){return (String)st.get(i);}
+    public String getState(int index){return userlist.get(index).getState();}
+    /**Returns a user object. @param index the user location in the Array.*/
+    public User getUserlist(int index) {return userlist.get(index);}
     
 
     //-------------------------------------------------------------
@@ -117,7 +104,6 @@ public class UserParser {
         }
         return index;
     }
-    
     /**
      * <p>This Function adds a record to the ArrayLists, updates the user counter
      * and then updates the .xml file by calling WriteFile();
@@ -136,7 +122,7 @@ public class UserParser {
      * @return String message <ul><li>"User Added"</li><li>"User already exist in our database"</li><li>"Error in adding user"</li></ul>
      */
     public String CreateRecord(int ssn,String fname,String lname,String street,
-            String city,String state,int zip,String username,String password, int utype){
+            String city,String state,int zip,String username,String password, int accestype){
         //update counter variable
         
         int flag=0;
@@ -148,16 +134,9 @@ public class UserParser {
         usercount = usercount+1;
         //add to arraylists
         
-        this.ssn.add(ssn);
-        this.fname.add(fname);
-        this.lname.add(lname);
-        this.street.add(street);
-        this.city.add(city);
-        this.st.add(state);
-        this.zip.add(zip);
-        this.username.add(username);
-        this.password.add(password);
-        this.type.add(utype);
+        this.userlist.add(new User(ssn,fname,lname,street,city,state,zip,accestype));
+        this.userlist.get(usercount-1).setUsername(username);
+        this.userlist.get(usercount-1).setPassword(password);
         //update file
         WriteFile();
         return "User Added";
@@ -192,17 +171,7 @@ public class UserParser {
             if (record>usercount){return "user does not exist within the system. cannot delete";}
             if(record==-1){return "could not find user to delete!";}
             try{
-                ssn.remove(record);
-                fname.remove(record);
-                lname.remove(record);
-                street.remove(record);
-                city.remove(record);
-                st.remove(record);
-                zip.remove(record);
-                username.remove(record);
-                password.remove(record);
-                type.remove(record);
-
+                this.userlist.remove(record);//done, its gone
                 //set the user counter back 1 and update the file.
                 usercount = usercount-1;
                 WriteFile();
@@ -306,19 +275,7 @@ public class UserParser {
                                         String attValue= attr.getNodeValue().replace("\t", "");
                                         attValue = attValue.replace("\n", "");
                                         
-                                        ssn.add(Integer.parseInt(attValue));
-                                        //set placeholder data for new record
-                                        password.add("error-99");
-                                        fname.add("error-99");
-                                        lname.add("error-99");
-                                        username.add("error-99");
-                                        street.add("error-99");
-                                        city.add("error-99");
-                                        st.add("error-99");
-                                        zip.add(-99);
-                                        type.add(-99);
-                                        
-
+                                        this.userlist.add(new User(Integer.parseInt(attValue)));
                                         //adds 1 record to the list
                                         usercount++;
                                         }else{
@@ -338,15 +295,15 @@ public class UserParser {
                                 while (Stats!=null){
                                     String text =Stats.getTextContent().replace("\t", "");
                                     text = text.replace("\n", "");
-                                    if(Stats.getNodeName().compareTo("password")==0){ password.set(usercount-1, text);}
-                                    if(Stats.getNodeName().compareTo("Fname")==0){fname.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("Lname")==0){lname.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("UID")==0){username.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("StreetAddress")==0){street.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("City")==0){city.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("State")==0){st.set(usercount-1,text);}
-                                    if(Stats.getNodeName().compareTo("ZIP")==0){zip.set(usercount-1,Integer.parseInt(text));}
-                                    if(Stats.getNodeName().compareTo("AccessType")==0){type.set(usercount-1,Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("password")==0){ this.userlist.get(this.usercount-1).setPassword(text);}
+                                    if(Stats.getNodeName().compareTo("Fname")==0){this.userlist.get(this.usercount-1).setFname(text);}
+                                    if(Stats.getNodeName().compareTo("Lname")==0){this.userlist.get(this.usercount-1).setLname(text);}
+                                    if(Stats.getNodeName().compareTo("UID")==0){this.userlist.get(this.usercount-1).setUsername(text);}
+                                    if(Stats.getNodeName().compareTo("StreetAddress")==0){this.userlist.get(this.usercount-1).setStreet(text);}
+                                    if(Stats.getNodeName().compareTo("City")==0){this.userlist.get(this.usercount-1).setCity(text);}
+                                    if(Stats.getNodeName().compareTo("State")==0){this.userlist.get(this.usercount-1).setState(text);}
+                                    if(Stats.getNodeName().compareTo("ZIP")==0){this.userlist.get(this.usercount-1).setZip(Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("AccessType")==0){this.userlist.get(this.usercount-1).setAccestype(Integer.parseInt(text));}
 
                                     //System.out.print(text);
                                     Stats = Stats.getNextSibling();
@@ -419,15 +376,16 @@ public class UserParser {
         }
         if(record==-1){return "User not found";
         }else{
-            this.fname.set(record,fname);
-            this.lname.set(record,lname);
-            this.street.set(record,street);
-            this.city.set(record,city);
-            this.st.set(record,state);
-            this.zip.set(record,zip);
-            this.username.set(record,username);
-            this.password.set(record,password);
-            this.type.set(record,utype);
+            this.userlist.get(record).setSsn(ssn);
+            this.userlist.get(record).setFname(fname);
+            this.userlist.get(record).setLname(lname);
+            this.userlist.get(record).setStreet(street);
+            this.userlist.get(record).setCity(city);
+            this.userlist.get(record).setState(state);
+            this.userlist.get(record).setZip(zip);
+            this.userlist.get(record).setUsername(username);
+            this.userlist.get(record).setPassword(password);
+            this.userlist.get(record).setAccestype(utype);
             WriteFile();
             
             return "user information updated";

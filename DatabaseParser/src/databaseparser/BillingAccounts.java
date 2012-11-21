@@ -40,6 +40,16 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
     //  methods
     //---------------------------------
     
+    //----getter & setter methods----
+    public long getBillDue() {return BillDue;}
+    public void setBillDue(long BillDue) {this.BillDue = BillDue;}
+    public long getBillSentOut() {return BillSentOut;}
+    public void setBillSentOut(long BillSentOut) {this.BillSentOut = BillSentOut;}
+    public double getBillamount() {return Billamount;}
+    public void setBillamount(double Billamount) {this.Billamount = Billamount;}
+    public int getGraceperiod() {return graceperiod;}
+    public void setGraceperiod(int graceperiod) {this.graceperiod = graceperiod;}
+    
     /**abstract method to calculate how much this month’s payment should be*/
     public abstract double CalculateBill();//let the lower classes figure this one out
     /**
@@ -97,16 +107,28 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
         //convert the calender to a date, converts the date to a long value
         BillDue =cal.getTime().getTime();
     }
-
-    
+    /**
+     * updates the balance of the account
+     * @param balance value to be added to the account balance if balance passed is negative it deducts from 
+     */
+    @Override
+    public void updateBalance(double balance) {
+        this.balance = this.balance+balance;
+    }
     //---------------------------------
     //  implemented from DebitInterface
     //---------------------------------
     @Override
     public void DebitAccount(double amount) {
-        DebitAmounts.add(amount);
-        DebitDates.add(new Date().getTime());
-        NumberOfDebits++;
+        if(amount<=balance){//if the payment is less then or equal to the amount owed
+            DebitAmounts.add(amount);
+            DebitDates.add(new Date().getTime());
+            NumberOfDebits++;
+            //send a negative number to detract from the balence
+            this.updateBalance(0-amount);
+        }else{
+            System.out.println("No payments greater then the amount owed!");
+        }
     }
     @Override
     public void addDebititRecord(double amount, long creditdate) {
@@ -137,4 +159,4 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
         return NumberOfDebits;
     }
     
-}
+}//end class
