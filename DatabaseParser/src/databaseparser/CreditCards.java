@@ -18,8 +18,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     //----creditcard specific----
     private ArrayList<String> CreditDescriptions=new ArrayList<String>();
     private double CreditLimit;
-    private double FinanceCharge;
-    private long DateOfFinanceCharge;
+    private double FinanceCharge;//average of purchases during the month
+    private long DateOfFinanceCharge;//date that user paid off finance charge
     
     //-------------------------------------
     //  Constructor
@@ -109,6 +109,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     //-----------------------------------
     //  implemented from CreditInterface
     //-----------------------------------
+    
+    /**Adds amount to balance @param amount amount of purchase*/
     @Override
     public void CreditAccount(double amount) {
         //check against the credit limit first
@@ -149,5 +151,9 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     public long getCreditDates(int index) {return CreditDates.get(index);}
     @Override
     public int getNumOfCredits() {return NumberOfCredits;}
+
+    public ArrayList<String> getCreditDescriptions() {
+        return CreditDescriptions;
+    }
     
 }

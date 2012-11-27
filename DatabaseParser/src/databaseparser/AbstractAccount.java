@@ -11,7 +11,7 @@ abstract class AbstractAccount {
     //----------------------------
     
     protected int customerID;//the SSN number of the customer associated with this account
-    protected int accountNum;//unique account identifier number
+    protected int accountNum;//unique account identifier number 9-digit number
     protected int accountType;//account type identifier
     protected double balance;//the current balence of the account
     protected int accountFlag;//any flaggs associated with this account

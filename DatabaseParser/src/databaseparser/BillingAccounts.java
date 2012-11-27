@@ -19,8 +19,8 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
     //  Variable decleration
     //---------------------------------
     
-    private ArrayList<Double> DebitAmounts=new ArrayList<Double>();
-    private ArrayList<Long> DebitDates=new ArrayList<Long>();
+    protected ArrayList<Double> DebitAmounts=new ArrayList<Double>();
+    protected ArrayList<Long> DebitDates=new ArrayList<Long>();
     protected int NumberOfDebits;
     private double Billamount;//amount the bill costs
     private long BillDue; //day the bill is due
@@ -145,7 +145,7 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
             return 0.00;
         }
     }
-    @Override
+    @Override//people need to be able to search by dates
     public long getDebitDates(int index) {
         if(index<NumberOfDebits){
             return DebitDates.get(index);

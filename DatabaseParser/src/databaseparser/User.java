@@ -19,7 +19,7 @@ public class User {
     private String city;
     private String state;
     private int zip;
-    private int accestype;
+    private int accesstype;
     private String username;
     private String password;
     
@@ -41,7 +41,7 @@ public class User {
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.accestype = accestype;
+        this.accesstype = accestype;
     }
     //everything
     public User(int ssn, String fname, String lname, String street, String city, 
@@ -53,7 +53,7 @@ public class User {
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.accestype = accestype;
+        this.accesstype = accestype;
         this.username = username;
         this.password = password;
     }
@@ -64,8 +64,8 @@ public class User {
     //----------------------------------
     
     //getter & setter methods
-    public int getAccestype() {return accestype;}
-    public void setAccestype(int accestype) {this.accestype = accestype;}
+    public int getAccestype() {return accesstype;}
+    public void setAccestype(int accestype) {this.accesstype = accestype;}
     public String getCity() {return city;}
     public void setCity(String city) {this.city = city;}
     public String getFname() {return fname;}
