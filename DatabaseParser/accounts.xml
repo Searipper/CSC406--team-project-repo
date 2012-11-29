@@ -5,14 +5,14 @@
 		<CusID>559555555</CusID>
 		<Balance>1450.65</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
-				<Debit date="mmddyyyy">25.00</Debit>
+				<Debit date="1351793588910">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">30.00</Credit>
+				<Credit date="1351793588910">30.00</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -22,18 +22,18 @@
 		<CusID>423453245</CusID>
 		<Balance>2500.65</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">10.00</Debit>
-				<Debit date="mmddyyyy">10.00</Debit>
-				<Debit date="mmddyyyy">100.00</Debit>
-				<Debit date="mmddyyyy">25.00</Debit>
+				<Debit date="1351793588910">10.00</Debit>
+				<Debit date="1351793588910">10.00</Debit>
+				<Debit date="1351793588910">100.00</Debit>
+				<Debit date="1351793588910">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">60.00</Credit>
+				<Credit date="1351793588910">60.00</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -43,13 +43,13 @@
 		<CusID>345653425</CusID>
 		<Balance>1500.12</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">10.00</Debit>
-				<Debit date="mmddyyyy">25.00</Debit>
+				<Debit date="1351793588910">10.00</Debit>
+				<Debit date="1351793588910">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
 			</RecentCredits>
@@ -61,14 +61,14 @@
 		<CusID>423148894</CusID>
 		<Balance>212.12</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">160.00</Credit>
-				<Credit date="mmddyyyy">360.00</Credit>
+				<Credit date="1351793588910">160.00</Credit>
+				<Credit date="1351793588910">360.00</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -78,15 +78,15 @@
 		<CusID>677879013</CusID>
 		<Balance>999.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
-				<Debit date="mmddyyyy">1000.00</Debit>
+				<Debit date="1351793588910">1000.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">50.00</Credit>
-				<Credit date="mmddyyyy">165.00</Credit>
+				<Credit date="1351793588910">50.00</Credit>
+				<Credit date="1351793588910">165.00</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -96,15 +96,15 @@
 		<CusID>345599870</CusID>
 		<Balance>3332.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
-				<Debit date="mmddyyyy">242.11</Debit>
+				<Debit date="1351793588910">242.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">42.99</Credit>
-				<Credit date="mmddyyyy">132.10</Credit>
+				<Credit date="1351793588910">42.99</Credit>
+				<Credit date="1351793588910">132.10</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -114,15 +114,15 @@
 		<CusID>423567890</CusID>
 		<Balance>2122.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">242.11</Debit>
+				<Debit date="1351793588910">242.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">342.99</Credit>
+				<Credit date="1351793588910">342.99</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -132,14 +132,14 @@
 		<CusID>345812332</CusID>
 		<Balance>99.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 		<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
-				<Debit date="mmddyyyy">55.11</Debit>
+				<Debit date="1351793588910">55.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">11.99</Credit>
+				<Credit date="1351793588910">11.99</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -149,16 +149,16 @@
 		<CusID>345879912</CusID>
 		<Balance>9229.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">525.11</Debit>				
-				<Debit date="mmddyyyy">405.10</Debit>
+				<Debit date="1351793588910">525.11</Debit>				
+				<Debit date="1351793588910">405.10</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">1111.99</Credit>
+				<Credit date="1351793588910">1111.99</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -168,15 +168,15 @@
 		<CusID>423168945</CusID>
 		<Balance>1000.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">1000.00</Debit>
+				<Debit date="1351793588910">1000.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">999.05</Credit>
+				<Credit date="1351793588910">999.05</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -186,13 +186,13 @@
 		<CusID>235445789</CusID>
 		<Balance>50.05</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">9.05</Credit>
+				<Credit date="1351793588910">9.05</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -202,15 +202,15 @@
 		<CusID>436789213</CusID>
 		<Balance>67.12</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">99.18</Debit>
+				<Debit date="1351793588910">99.18</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">29.12</Credit>
-				<Credit date="mmddyyyy">19.35</Credit>
+				<Credit date="1351793588910">29.12</Credit>
+				<Credit date="1351793588910">19.35</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -220,15 +220,15 @@
 		<CusID>233435656</CusID>
 		<Balance>2267.12</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">299.00</Debit>
+				<Debit date="1351793588910">299.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">129.58</Credit>
+				<Credit date="1351793588910">129.58</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -238,16 +238,16 @@
 		<CusID>435678787</CusID>
 		<Balance>5542.67</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">19.00</Debit>
+				<Debit date="1351793588910">19.00</Debit>
 			</RecentDebits>
 			<RecentCredits>			
-				<Credit date="mmddyyyy">229.33</Credit>
-				<Credit date="mmddyyyy">1229.58</Credit>
+				<Credit date="1351793588910">229.33</Credit>
+				<Credit date="1351793588910">1229.58</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -257,11 +257,11 @@
 		<CusID>563432913</CusID>
 		<Balance>5.67</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">22.00</Debit>
+				<Debit date="1351793588910">22.00</Debit>
 			</RecentDebits>
 			<RecentCredits>			
 			</RecentCredits>
@@ -273,14 +273,14 @@
 		<CusID>345679898</CusID>
 		<Balance>12.34</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">23.00</Debit>
+				<Debit date="1351793588910">23.00</Debit>
 			</RecentDebits>
 			<RecentCredits>						
-				<Credit date="mmddyyyy">12.03</Credit>
+				<Credit date="1351793588910">12.03</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -290,14 +290,14 @@
 		<CusID>987654321</CusID>
 		<Balance>1112.34</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>			
 			</RecentDebits>
 			<RecentCredits>						
-				<Credit date="mmddyyyy">122.03</Credit>
+				<Credit date="1351793588910">122.03</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -307,15 +307,15 @@
 		<CusID>123456789</CusID>
 		<Balance>2255.04</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">223.00</Debit>
+				<Debit date="1351793588910">223.00</Debit>
 			</RecentDebits>
 			<RecentCredits>						
-				<Credit date="mmddyyyy">350.03</Credit>
+				<Credit date="1351793588910">350.03</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -325,11 +325,11 @@
 		<CusID>777777777</CusID>
 		<Balance>332.34</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">25.00</Debit>
+				<Debit date="1351793588910">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>						
 			</RecentCredits>
@@ -341,14 +341,14 @@
 		<CusID>543201234</CusID>
 		<Balance>233.34</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>			
-				<Debit date="mmddyyyy">25.00</Debit>
+				<Debit date="1351793588910">25.00</Debit>
 			</RecentDebits>
 			<RecentCredits>	
-				<Credit date="mmddyyyy">33.03</Credit>
+				<Credit date="1351793588910">33.03</Credit>
 			</RecentCredits>
 			<Overdrafts></Overdrafts>
 		</AccountSpecificDetails>
@@ -358,16 +358,17 @@
 		<CusID>436789213</CusID>
 		<Balance>4450.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<InterestRate>0.015</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
-				<Debit date="mmddyyyy">225.00</Debit>
-				<Debit date="mmddyyyy">225.00</Debit>
+				<Debit date="1351793588910">225.00</Debit>
+				<Debit date="1351793588910">225.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">5000.00</Credit>
+				<Credit date="1351793588910">5000.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -376,18 +377,19 @@
 		<CusID>233435656</CusID>
 		<Balance>1800.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<InterestRate>0.015</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
-				<Debit date="mmddyyyy">425.00</Debit>
-				<Debit date="mmddyyyy">100.00</Debit>
-				<Debit date="mmddyyyy">550.00</Debit>
-				<Debit date="mmddyyyy">125.00</Debit>
+				<Debit date="1351793588910">425.00</Debit>
+				<Debit date="1351793588910">100.00</Debit>
+				<Debit date="1351793588910">550.00</Debit>
+				<Debit date="1351793588910">125.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">3000.00</Credit>
+				<Credit date="1351793588910">3000.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -396,16 +398,17 @@
 		<CusID>435678787</CusID>
 		<Balance>5450.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<InterestRate>0.015</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
-				<Debit date="mmddyyyy">1425.00</Debit>
-				<Debit date="mmddyyyy">1125.00</Debit>
+				<Debit date="1351793588910">1425.00</Debit>
+				<Debit date="1351793588910">1125.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">8000.00</Credit>
+				<Credit date="1351793588910">8000.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -414,14 +417,15 @@
 		<CusID>563432913</CusID>
 		<Balance>2000.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<InterestRate>0.015</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">2000.00</Credit>
+				<Credit date="1351793588910">2000.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -430,17 +434,18 @@
 		<CusID>345679898</CusID>
 		<Balance>0.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<InterestRate>0.015</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
-				<Debit date="mmddyyyy">500.00</Debit>
-				<Debit date="mmddyyyy">500.00</Debit>
-				<Debit date="mmddyyyy">500.00</Debit>
+				<Debit date="1351793588910">500.00</Debit>
+				<Debit date="1351793588910">500.00</Debit>
+				<Debit date="1351793588910">500.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">1500.00</Credit>
+				<Credit date="1351793588910">1500.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -449,15 +454,15 @@
 		<CusID>423148894</CusID>
 		<Balance>103935.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.054)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/15/2012</PaymentDate>
-			<PaymentDue>293.00</PaymentDate>
+			<InterestRate>0.054</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>293.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">103935.00</Credit>
+				<Credit>1351793588910</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -466,15 +471,15 @@
 		<CusID>677879013</CusID>
 		<Balance>183065.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.049)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/26/2012</PaymentDate>
-			<PaymentDue>510.00</PaymentDate>
+			<InterestRate>0.049</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>510.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">183065.00</Credit>
+				<Credit date="1351793588910">183065.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -483,15 +488,15 @@
 		<CusID>345599870</CusID>
 		<Balance>23762.00</Balance>
 		<AccountFlag>1</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.065)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/13/2012</PaymentDate>
-			<PaymentDue>178.00</PaymentDate>
+			<InterestRate>0.065</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>178.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">23762.00</Credit>
+				<Credit date="1351793588910">23762.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -500,15 +505,15 @@
 		<CusID>423567890</CusID>
 		<Balance>13846.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.058)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/11/2012</PaymentDate>
-			<PaymentDue>88.00</PaymentDate>
+			<InterestRate>0.058</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>88.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">13846.00</Credit>
+				<Credit date="1351793588910">13846.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -517,15 +522,15 @@
 		<CusID>345812332</CusID>
 		<Balance>91517.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.037)</InterestRate>
-			<PaymentDate date="mmddyyyy">12/29/2012</PaymentDate>
-			<PaymentDue>259.00</PaymentDate>
+			<InterestRate>0.037</InterestRate>
+			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<PaymentDue>259.00</PaymentDue>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">91517.00</Credit>
+				<Credit date="1351793588910">91517.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -534,17 +539,17 @@
 		<CusID>436789213</CusID>
 		<Balance>0.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<CreditLimit>500.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">100.01</Debit>
+				<Debit date="1351793588910">100.01</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">77.00</Credit>
-				<Credit date="mmddyyyy">23.01</Credit>
+				<Credit date="1351793588910">77.00</Credit>
+				<Credit date="1351793588910">23.01</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -553,17 +558,17 @@
 		<CusID>233435656</CusID>
 		<Balance>7.51</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<CreditLimit>1500.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">60.00</Debit>
+				<Debit date="1351793588910">60.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">45.00</Credit>
-				<Credit date="mmddyyyy">22.51</Credit>
+				<Credit date="1351793588910">45.00</Credit>
+				<Credit date="1351793588910">22.51</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -572,17 +577,17 @@
 		<CusID>435678787</CusID>
 		<Balance>0.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<CreditLimit>500.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">227.11</Debit>
+				<Debit date="1351793588910">227.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">215.00</Credit>
-				<Credit date="mmddyyyy">12.11</Credit>
+				<Credit date="1351793588910">215.00</Credit>
+				<Credit date="1351793588910">12.11</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>	
@@ -591,18 +596,18 @@
 		<CusID>563432913</CusID>
 		<Balance>1.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<CreditLimit>500.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">164.18</Debit>
+				<Debit date="1351793588910">164.18</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">111.00</Credit>
-				<Credit date="mmddyyyy">42.15</Credit>
-				<Credit date="mmddyyyy">12.03</Credit>
+				<Credit date="1351793588910">111.00</Credit>
+				<Credit date="1351793588910">42.15</Credit>
+				<Credit date="1351793588910">12.03</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -611,18 +616,18 @@
 		<CusID>345679898</CusID>
 		<Balance>0.00</Balance>
 		<AccountFlag>0</AccountFlag>
-		<DateActivated>mmddyyyy</DateActivated>
+		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<CreditLimit>2500.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">1666.78</Debit>
+				<Debit date="1351793588910">1666.78</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">1111.00</Credit>
-				<Credit date="mmddyyyy">242.85</Credit>
-				<Credit date="mmddyyyy">312.93</Credit>
+				<Credit date="1351793588910">1111.00</Credit>
+				<Credit date="1351793588910">242.85</Credit>
+				<Credit date="1351793588910">312.93</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -633,15 +638,15 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>01/28/2012</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.043)</InterestRate>
+			<InterestRate>0.043</InterestRate>
 			<CreditLimit>10000.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-			<Debit date="mmddyyyy">110.00</Debit>
+			<Debit date="1351793588910">110.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">303.00</Credit>
-				<Credit date="mmddyyyy">352.98</Credit>
+				<Credit date="1351793588910">303.00</Credit>
+				<Credit date="1351793588910">352.98</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -652,14 +657,14 @@
 		<AccountFlag>1</AccountFlag>
 		<DateActivated>04/14/2012</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.073)</InterestRate>
+			<InterestRate>0.073</InterestRate>
 			<CreditLimit>3000.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">402.01</Credit>
-				<Credit date="mmddyyyy">2100.00</Credit>
+				<Credit date="1351793588910">402.01</Credit>
+				<Credit date="1351793588910">2100.00</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -670,16 +675,16 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>04/25/2012</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.043)</InterestRate>
+			<InterestRate>0.043</InterestRate>
 			<CreditLimit>20000.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">1200.00</Credit>
+				<Debit date="1351793588910">1200.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">9923.01</Credit>
-				<Credit date="mmddyyyy">2100.00</Credit>
-				<Credit date="mmddyyyy">1399.22</Credit>
+				<Credit date="1351793588910">9923.01</Credit>
+				<Credit date="1351793588910">2100.00</Credit>
+				<Credit date="1351793588910">1399.22</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -690,16 +695,16 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>09/14/2012</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.043)</InterestRate>
+			<InterestRate>0.043</InterestRate>
 			<CreditLimit>9000.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
-				<Debit date="mmddyyyy">2000.00</Credit>
+				<Debit date="1351793588910">2000.00</Debit>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">3123.01</Credit>
-				<Credit date="mmddyyyy">2314.20</Credit>				
-				<Credit date="mmddyyyy">2118.22</Credit>
+				<Credit date="1351793588910">3123.01</Credit>
+				<Credit date="1351793588910">2314.20</Credit>				
+				<Credit date="1351793588910">2118.22</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -710,13 +715,13 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>08/02/2012</DateActivated>
 		<AccountSpecificDetails>
-			<InterestRate>(.043)</InterestRate>
+			<InterestRate>0.043</InterestRate>
 			<CreditLimit>5000.00</CreditLimit>
-			<PaymentDate date="mmddyyyy">12/10/2012</PaymentDate>
+			<BillSentOutDate date="1351793588910">12/10/2012</BillSentOutDate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
-				<Credit date="mmddyyyy">12.54</Credit>
+				<Credit date="1351793588910">12.54</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -728,7 +733,7 @@
 		<DateActivated>12/05/2000</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftAccount>0</OverdraftAccount>
-			<InterestRate>(.011)</InterestRate>
+			<InterestRate>0.011</InterestRate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
@@ -743,7 +748,7 @@
 		<DateActivated>04/19/2010</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftAccount>1</OverdraftAccount>
-			<InterestRate>(.015)</InterestRate>
+			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
@@ -758,7 +763,7 @@
 		<DateActivated>09/15/2009</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftAccount>0</OverdraftAccount>
-			<InterestRate>(.01)</InterestRate>
+			<InterestRate>0.01</InterestRate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
@@ -773,7 +778,7 @@
 		<DateActivated>07/04/2011</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftAccount>1</OverdraftAccount>
-			<InterestRate>(.01)</InterestRate>
+			<InterestRate>0.01</InterestRate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
@@ -787,8 +792,8 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>12/05/2007</DateActivated>
 		<AccountSpecificDetails>
-			<MaturityDate date="mmddyyyy">12/05/2012</MaturityDate>
-			<InterestRate>(.025)</InterestRate>
+			<MaturityDate date="1351793588910">12/05/2012</MaturityDate>
+			<InterestRate>0.025</InterestRate>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="210987">
@@ -798,8 +803,8 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>11/01/2009</DateActivated>
 		<AccountSpecificDetails>
-			<MaturityDate date="mmddyyyy">11/01/2014</MaturityDate>
-			<InterestRate>(.021)</InterestRate>
+			<MaturityDate date="1351793588910">11/01/2014</MaturityDate>
+			<InterestRate>0.021</InterestRate>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="109876">
@@ -809,8 +814,8 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>05/09/2010</DateActivated>
 		<AccountSpecificDetails>
-			<MaturityDate date="mmddyyyy">05/09/2015</MaturityDate>
-			<InterestRate>(.015)</InterestRate>
+			<MaturityDate date="1351793588910">05/09/2015</MaturityDate>
+			<InterestRate>0.015</InterestRate>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="123098">
@@ -820,8 +825,8 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>04/19/2005</DateActivated>
 		<AccountSpecificDetails>
-			<MaturityDate date="mmddyyyy">04/19/2015</MaturityDate>
-			<InterestRate>(.027)</InterestRate>
+			<MaturityDate date="1351793588910">04/19/2015</MaturityDate>
+			<InterestRate>0.027</InterestRate>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="987123">
@@ -831,8 +836,8 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>09/16/2000</DateActivated>
 		<AccountSpecificDetails>
-			<MaturityDate date="mmddyyyy">09/16/2014</MaturityDate>
-			<InterestRate>(.019)</InterestRate>
+			<MaturityDate date="1351793588910">09/16/2014</MaturityDate>
+			<InterestRate>0.019</InterestRate>
 		</AccountSpecificDetails>
 	</Account>
 </Accounts>

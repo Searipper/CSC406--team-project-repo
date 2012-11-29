@@ -107,14 +107,6 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
         //convert the calender to a date, converts the date to a long value
         BillDue =cal.getTime().getTime();
     }
-    /**
-     * updates the balance of the account
-     * @param balance value to be added to the account balance if balance passed is negative it deducts from 
-     */
-    @Override
-    public void updateBalance(double balance) {
-        this.balance = this.balance+balance;
-    }
     //---------------------------------
     //  implemented from DebitInterface
     //---------------------------------

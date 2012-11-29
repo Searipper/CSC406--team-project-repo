@@ -38,7 +38,13 @@ abstract class AbstractAccount {
     
     
     public double checkBalance(){return balance;}
-    public abstract void updateBalance(double balance);
+    /**
+     * updates the balance of the account
+     * @param balance value to be added to the account balance if balance passed is negative it deducts from 
+     */
+    public void updateBalance(double balance) {
+        this.balance = this.balance+balance;
+    }
 
     //getter/setter methods
     public int getAccountFlag() {return accountFlag;}
