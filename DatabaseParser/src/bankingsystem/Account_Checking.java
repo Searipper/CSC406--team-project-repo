@@ -1,4 +1,4 @@
-package databaseparser;
+package bankingsystem;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

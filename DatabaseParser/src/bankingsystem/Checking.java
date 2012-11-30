@@ -1,4 +1,4 @@
-package databaseparser;
+package bankingsystem;
 
 import java.io.*;
 import javax.swing.*;

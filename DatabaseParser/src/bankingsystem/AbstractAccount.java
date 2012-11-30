@@ -1,4 +1,4 @@
-package databaseparser;
+package bankingsystem;
 
 import java.util.ArrayList;
 /**
@@ -15,7 +15,7 @@ abstract class AbstractAccount {
     protected int accountType;//account type identifier
     protected double balance;//the current balence of the account
     protected int accountFlag;//any flaggs associated with this account
-    protected long DateOfActivation;
+    protected long DateOfActivation;//long date of activation
 
     //---------------------------
     //Abstract constructor

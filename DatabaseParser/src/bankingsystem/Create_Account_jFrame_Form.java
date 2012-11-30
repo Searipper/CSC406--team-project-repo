@@ -9,7 +9,7 @@
  * Created on Nov 6, 2012, 2:22:27 AM
  */
 
-package databaseparser;
+package bankingsystem;
 
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -107,10 +107,13 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
         jLabel9.setText("Password");
 
-        try {
-            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
+        try{
+            try {
+                ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+            } catch (java.text.ParseException ex) {
+                ex.printStackTrace();
+            }
+        }catch(Exception e){System.out.println(e); System.exit(1);
         }
 
         try {

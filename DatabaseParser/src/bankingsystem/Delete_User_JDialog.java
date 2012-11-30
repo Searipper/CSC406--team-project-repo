@@ -1,4 +1,4 @@
-package databaseparser;
+package bankingsystem;
 
 /**
  *
@@ -50,10 +50,13 @@ public class Delete_User_JDialog extends javax.swing.JDialog {
 
         jLabel2.setText("Input the user's SSN and click Delete Button!");
 
-        try {
-            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
+        try{
+            try {
+                ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+            } catch (java.text.ParseException ex) {
+                ex.printStackTrace();
+            }
+        }catch(Exception e){System.out.print(e);System.exit(1);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

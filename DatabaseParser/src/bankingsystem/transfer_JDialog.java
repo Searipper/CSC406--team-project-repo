@@ -1,4 +1,4 @@
-package databaseparser;
+package bankingsystem;
 
 /**
  *
@@ -119,8 +119,6 @@ public class transfer_JDialog extends javax.swing.JDialog {
     private javax.swing.JTextField amount;
     private javax.swing.JButton btnsubmit;
     private javax.swing.JButton cancel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

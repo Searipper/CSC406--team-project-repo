@@ -1,4 +1,8 @@
-package databaseparser;
+package bankingsystem;
+
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -60,6 +64,12 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
 
         jLabel3.setText("SSN");
 
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Street");
 
         jLabel5.setText("City");
@@ -70,11 +80,13 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
 
         jLabel7.setText("Zipcode");
 
-        try {
-            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        try{
+            try {
+                zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+            } catch (java.text.ParseException ex) {
+                ex.printStackTrace();
+            }
+        }catch(Exception e){System.out.println(e); System.exit(1);}
 
         jCheckBox1.setText("Checking");
 
@@ -170,6 +182,10 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     public void run() {
                 Create_Account_Page_JDialog dialog = new Create_Account_Page_JDialog(new javax.swing.JFrame(), true);

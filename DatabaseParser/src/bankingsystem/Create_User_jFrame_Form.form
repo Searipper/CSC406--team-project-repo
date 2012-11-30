@@ -302,6 +302,10 @@
           <Format format="#########" subtype="-1" type="5"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="}catch(Exception e){System.out.println(e);System.exit(1);&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try{"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="zip">
       <Properties>

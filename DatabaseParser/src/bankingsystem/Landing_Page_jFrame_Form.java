@@ -9,7 +9,7 @@
  * Created on Nov 6, 2012, 2:16:46 AM
  */
 
-package databaseparser;
+package bankingsystem;
 
 
 
@@ -78,7 +78,6 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         menuExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(150, 50));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
