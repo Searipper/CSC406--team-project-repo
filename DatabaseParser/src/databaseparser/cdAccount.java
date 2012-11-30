@@ -33,6 +33,14 @@ public class cdAccount extends AbstractAccount {
         endDate = (maturity * 365);;
     }
 
+    public long getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(long endDate) {
+        this.endDate = endDate;
+    }
+
     public cdAccount(int customerID, int accountNum, double balance, int accountFlag) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         super(customerID, accountNum, balance, accountFlag);
         interestEarned = 0;
@@ -79,8 +87,8 @@ public class cdAccount extends AbstractAccount {
         }
     }
 
-    @Override
-    public void updateBalance(double balance) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    @Override
+//    public void updateBalance(double balance) {
+//        this.balance = balance;
+//    }
 }

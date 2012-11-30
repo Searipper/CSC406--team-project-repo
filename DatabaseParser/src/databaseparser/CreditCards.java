@@ -152,8 +152,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     @Override
     public int getNumOfCredits() {return NumberOfCredits;}
 
-    public ArrayList<String> getCreditDescriptions() {
-        return CreditDescriptions;
+    public String getCreditDescriptions(int index) {
+        return CreditDescriptions.get(index);
     }
     
 }

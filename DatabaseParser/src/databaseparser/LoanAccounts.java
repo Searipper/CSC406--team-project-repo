@@ -17,7 +17,7 @@ public class LoanAccounts extends BillingAccounts{
     private double InterestRate;
     /**date the loan is to be paid off by*/
     private long EndLoanDate;
-    private ArrayList<Double> IntrestGained;
+    private ArrayList<Double> IntrestGained= new ArrayList<Double>();
     private double FixedPaymentAmount;
     
     
