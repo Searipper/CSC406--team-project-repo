@@ -37,6 +37,11 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
         jLabel2.setText("Amount");
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -91,6 +96,10 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  
+    }//GEN-LAST:event_jButton1ActionPerformed
 
             public void run() {
                 Withdraw_JDialog dialog = new Withdraw_JDialog(new javax.swing.JFrame(), true);

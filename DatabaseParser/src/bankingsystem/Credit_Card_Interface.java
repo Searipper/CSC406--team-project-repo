@@ -48,6 +48,11 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
         jLabel3.setText("Purchase descrption");
 
         jButton2.setText("submit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,6 +108,19 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();//Current window disspear,however the application still running
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //int customerID(SSN), int accountNum, double balance, int accountFlag
+        int ccNum = Integer.parseInt(ccNo.getText());
+        double amount = Double.parseDouble(amt.getText());
+        String description = desc.getText();      
+        CreditCards cc  = new CreditCards(111111111, 123456789, 0.00, 0);
+        
+        //double amount, long creditdate,String description
+        
+        //CreditCards account implement required to continue......
+        //cc.addCreditRecord(ccNum ,amount ,description);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

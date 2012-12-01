@@ -9,7 +9,7 @@
 		<City>Troy</City>
 		<State>KS</State>
 		<ZIP>66087</ZIP>
-		<AccessType>3</AccessType>
+		<AccessType>1</AccessType>
 	</user>
 	<user SSN="777777777">
 		<Fname>Alan</Fname>

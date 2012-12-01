@@ -49,25 +49,28 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        btnTransfer = new javax.swing.JButton();
         welcome = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        acctNum = new javax.swing.JTextField();
+        btnLookupAccount = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        createAcct = new javax.swing.JButton();
+        btnCloseAccount = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         btnChangeRate = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        btnWithdraw = new javax.swing.JButton();
+        btnSendBill = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        btnCloseCreditCard = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLookupUser = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnUpdateUserInformation = new javax.swing.JButton();
         btnAddUser = new javax.swing.JButton();
+        acctNum = new javax.swing.JFormattedTextField();
+        btnOpenCD = new javax.swing.JButton();
+        btnCloseCD = new javax.swing.JButton();
+        btnRollOverCD = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuOpen = new javax.swing.JMenu();
@@ -79,30 +82,24 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "First Name", "Last Name", "User Name", "SSN", "Street Address", "City", "Zipcode", "AccessType"
-            }
-        ));
+        jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        jButton4.setText("Transfer");
-        jButton4.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton4.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton4.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnTransfer.setText("Transfer");
+        btnTransfer.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnTransfer.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnTransfer.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnTransfer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnTransferActionPerformed(evt);
             }
         });
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, welcome, org.jdesktop.beansbinding.ELProperty.create("${name}"), welcome, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        jButton6.setText("Look up Accoutn");
+        btnLookupAccount.setText("Look up Account");
 
         jButton9.setText("Deposit");
         jButton9.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -114,23 +111,23 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
             }
         });
 
-        jButton10.setText("Create Account");
-        jButton10.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton10.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton10.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        createAcct.setText("Create Account");
+        createAcct.setMaximumSize(new java.awt.Dimension(150, 50));
+        createAcct.setMinimumSize(new java.awt.Dimension(150, 50));
+        createAcct.setPreferredSize(new java.awt.Dimension(150, 50));
+        createAcct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                createAcctActionPerformed(evt);
             }
         });
 
-        jButton11.setText("Close Account");
-        jButton11.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton11.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton11.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        btnCloseAccount.setText("Close Account");
+        btnCloseAccount.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnCloseAccount.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnCloseAccount.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnCloseAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                btnCloseAccountActionPerformed(evt);
             }
         });
 
@@ -154,23 +151,23 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
             }
         });
 
-        jButton14.setText("Withdraw");
-        jButton14.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton14.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton14.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        btnWithdraw.setText("Withdraw");
+        btnWithdraw.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnWithdraw.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnWithdraw.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                btnWithdrawActionPerformed(evt);
             }
         });
 
-        jButton15.setText("Send Bill");
-        jButton15.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton15.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton15.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        btnSendBill.setText("Send Bill");
+        btnSendBill.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnSendBill.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnSendBill.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnSendBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                btnSendBillActionPerformed(evt);
             }
         });
 
@@ -184,13 +181,13 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
             }
         });
 
-        jButton17.setText("Close Credit Card");
-        jButton17.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton17.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton17.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        btnCloseCreditCard.setText("Close Credit Card");
+        btnCloseCreditCard.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnCloseCreditCard.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnCloseCreditCard.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnCloseCreditCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                btnCloseCreditCardActionPerformed(evt);
             }
         });
 
@@ -201,13 +198,13 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         jButton1.setMinimumSize(new java.awt.Dimension(150, 50));
         jButton1.setPreferredSize(new java.awt.Dimension(150, 50));
 
-        jButton2.setText("Look up user");
-        jButton2.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton2.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton2.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLookupUser.setText("Look up user");
+        btnLookupUser.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnLookupUser.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnLookupUser.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnLookupUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLookupUserActionPerformed(evt);
             }
         });
 
@@ -221,10 +218,15 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Update User Information");
-        jButton5.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton5.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton5.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnUpdateUserInformation.setText("Update User Information");
+        btnUpdateUserInformation.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnUpdateUserInformation.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnUpdateUserInformation.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnUpdateUserInformation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateUserInformationActionPerformed(evt);
+            }
+        });
 
         btnAddUser.setText("Create User");
         btnAddUser.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -233,6 +235,38 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
+            }
+        });
+
+        acctNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+
+        btnOpenCD.setText("Open CD");
+        btnOpenCD.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnOpenCD.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnOpenCD.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnOpenCD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpenCDActionPerformed(evt);
+            }
+        });
+
+        btnCloseCD.setText("Close CD");
+        btnCloseCD.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnCloseCD.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnCloseCD.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnCloseCD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseCDActionPerformed(evt);
+            }
+        });
+
+        btnRollOverCD.setText("Roll Over CD");
+        btnRollOverCD.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnRollOverCD.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnRollOverCD.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnRollOverCD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRollOverCDActionPerformed(evt);
             }
         });
 
@@ -277,93 +311,103 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(229, 229, 229)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6)
+                        .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLookupAccount)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(createAcct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnOpenCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnCloseCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnRollOverCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnCloseCreditCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(btnSendBill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnCloseAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnChangeRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                                        .addComponent(btnUpdateUserInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnLookupUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(301, 301, 301))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnLookupAccount)
+                        .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6)
-                            .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(createAcct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCloseAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDeleteUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnChangeRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnChangeRate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnLookupUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
-                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnUpdateUserInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCloseCreditCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSendBill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnOpenCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCloseCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRollOverCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -371,25 +415,25 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferActionPerformed
         transfer_JDialog transfer = new transfer_JDialog(this,true);
         transfer.run();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnTransferActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         Deposit_JDialog deposit = new Deposit_JDialog(this,true);
         deposit.run();
     }//GEN-LAST:event_jButton9ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void createAcctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcctActionPerformed
         Create_Account_Page_JDialog create = new Create_Account_Page_JDialog(this,true);
         create.run();
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_createAcctActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void btnCloseAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseAccountActionPerformed
         Close_Accout_page_JDialog close = new Close_Accout_page_JDialog(this,true);
         close.run();
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_btnCloseAccountActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
@@ -399,27 +443,27 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnChangeRateActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
         Withdraw_JDialog wd = new Withdraw_JDialog(this,true);
         wd.run();
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_btnWithdrawActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void btnSendBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendBillActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_btnSendBillActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void btnCloseCreditCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseCreditCardActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_btnCloseCreditCardActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnLookupUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLookupUserActionPerformed
         Find_User_JDialog find = new Find_User_JDialog(this,true);
         find.run();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnLookupUserActionPerformed
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
         System.exit(0);
@@ -441,6 +485,25 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
         adduser.run();
     }//GEN-LAST:event_btnAddUserActionPerformed
 
+    private void btnOpenCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenCDActionPerformed
+        OpenCD_JFrame cd = new OpenCD_JFrame(this,true);
+        cd.run();
+    }//GEN-LAST:event_btnOpenCDActionPerformed
+
+    private void btnCloseCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseCDActionPerformed
+        Closing_CD close = new Closing_CD(this, true);
+        close.run();
+    }//GEN-LAST:event_btnCloseCDActionPerformed
+
+    private void btnRollOverCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRollOverCDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRollOverCDActionPerformed
+
+    private void btnUpdateUserInformationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserInformationActionPerformed
+        Update_User_jFrame_Form up = new Update_User_jFrame_Form(this, true);
+        up.run();
+    }//GEN-LAST:event_btnUpdateUserInformationActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -456,22 +519,25 @@ public class Landing_Page_jFrame_Form extends javax.swing.JFrame {
 //    }//end main args
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField acctNum;
+    private javax.swing.JFormattedTextField acctNum;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeRate;
+    private javax.swing.JButton btnCloseAccount;
+    private javax.swing.JButton btnCloseCD;
+    private javax.swing.JButton btnCloseCreditCard;
     private javax.swing.JButton btnDeleteUser;
+    private javax.swing.JButton btnLookupAccount;
+    private javax.swing.JButton btnLookupUser;
+    private javax.swing.JButton btnOpenCD;
+    private javax.swing.JButton btnRollOverCD;
+    private javax.swing.JButton btnSendBill;
+    private javax.swing.JButton btnTransfer;
+    private javax.swing.JButton btnUpdateUserInformation;
+    private javax.swing.JButton btnWithdraw;
+    private javax.swing.JButton createAcct;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;

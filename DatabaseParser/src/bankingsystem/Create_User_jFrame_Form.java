@@ -10,11 +10,7 @@
  */
 
 package bankingsystem;
-
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.lang.*;
 /**
  *
  * @author Arron
@@ -102,14 +98,16 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
 
         jLabel9.setText("Password");
 
-        try{
-            try {
-                ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
-            } catch (java.text.ParseException ex) {
-                ex.printStackTrace();
-            }
-        }catch(Exception e){System.out.println(e);System.exit(1);
+        try {
+            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
         }
+        ssn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ssnActionPerformed(evt);
+            }
+        });
 
         try {
             zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
@@ -177,7 +175,7 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
                                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel11)))
-                                .addContainerGap())))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -278,6 +276,10 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ssnActionPerformed
 
     /**
     * @param args the command line arguments

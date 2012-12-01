@@ -4,31 +4,21 @@
  */
 
 /*
- * Create_Account_jFrame_Form.java
+ * Create_User_jFrame_Form.java
  *
  * Created on Nov 6, 2012, 2:22:27 AM
  */
 
 package bankingsystem;
-
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.lang.*;
 /**
  *
  * @author Arron
- * @since Nov 6, 2012, 2:22:27 AM
- * @version 1
  */
-public class Create_Account_jFrame_Form extends javax.swing.JDialog {
+public class Update_User_jFrame_Form extends javax.swing.JDialog {
 
-    //-------------------------------------------------------------
-    //          Constructor
-    //-------------------------------------------------------------
-    
-    /** Creates new form Create_Account_jFrame_Form */
-    public Create_Account_jFrame_Form(java.awt.Frame parent, boolean modal) {
+    /** Creates new form Create_User_jFrame_Form */
+    public Update_User_jFrame_Form(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);//sets the jFram_Form in the center
@@ -47,7 +37,7 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         street = new javax.swing.JTextField();
@@ -67,6 +57,8 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         pass = new javax.swing.JPasswordField();
         fname = new javax.swing.JTextField();
+        display = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -76,10 +68,10 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
         jLabel4.setText("SSN");
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Submit");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -108,13 +100,18 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
         jLabel9.setText("Password");
 
         try {
-            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        ssn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ssnActionPerformed(evt);
+            }
+        });
 
         try {
-            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -125,6 +122,9 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
         jLabel11.setText("(1 = Teller  2 = Manager)");
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Update User Information Page");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,6 +132,9 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(65, 65, 65))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -142,14 +145,24 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(street)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel11)))
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(street, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(city, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(0, 1, Short.MAX_VALUE)
-                                                .addComponent(jButton1)))
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(btnUpdate)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,22 +174,13 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
                                                 .addComponent(jLabel8)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(33, 33, 33)
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lname)))
-                                .addGap(65, 65, 65))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel11)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(65, 65, 65))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -192,7 +196,9 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
@@ -227,9 +233,11 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnUpdate)
                     .addComponent(jButton2))
                 .addGap(18, 32, Short.MAX_VALUE))
         );
@@ -239,43 +247,47 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-//        if(pass1.getPassword()==pass2.getPassword()){        
-//            System.out.println("pass1.toString()==pass2.toString()");
-//            System.out.println("pass=" + pass);
-//        }else{
-//            System.out.println("pass1 >< pass2");
-//            pass1.revalidate();
-//            pass2.revalidate();
-//        }
-
-//        
-//        User user1 = new User(ssn.getText(), fname.getText(), lname.getText(),
-//                street.getText(), city.getText(), state.getSelectedItem().toString(), 
-//                zip.getText(),type.getSelectedItem().toString(), username.getText(), pass.getText());
-//        System.out.println("SSN=" + user1.getSsn().get(1) + " fname=" + user1.getFname()+
-//                " lname="+ user1.getLname()+" street=" + user1.getStreet()+ 
-//                " city=" + user1.getCity()+" state"+ user1.getState()+
-//                " zip"+user1.getZip()+" type" + user1.getType() + " username"+user1.getUsername()+" pass"+user1.getPassword());
-        
-        
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+             
         //Test through UserParser
-        String path= "C:/Users/Arron/Documents/NetBeansProjects/Fall2012_CSC406_Banking_System/";
+        String path= "";
         UserParser rec1 = new UserParser(path);
-        System.out.println(
-                rec1.CreateRecord(
-                Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
+        
+        String a = rec1.UpdateRecord(Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
                 street.getText(),city.getText(),state.getSelectedItem().toString(),
-                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),Integer.parseInt(type.getText())
-                )
-                );
+                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),
+                Integer.parseInt(type.getText()));
+        System.out.println(a);
+        //this.setVisible(false);
  
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(0);        
+        dispose();  
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssnActionPerformed
+        UserParser up = new UserParser("");
+        int ssn1 = Integer.parseInt(ssn.getText());
+        String city1 = up.getCity(up.getIndexFromSSN(ssn1));
+        String fname1 = up.getFName(up.getIndexFromSSN(ssn1));
+        String lname1 = up.getLName(up.getIndexFromSSN(ssn1));
+        String street1 = up.getStreet(up.getIndexFromSSN(ssn1));
+        String state1 =up.getState(up.getIndexFromSSN(ssn1));
+        String zip1 = Integer.toString(up.getZip(up.getIndexFromSSN(ssn1)));//up.getzip returns int,so covert it
+        String username1 = up.getUsername(up.getIndexFromSSN(ssn1));
+        String usertype1 = Integer.toString(up.getUserType(up.getIndexFromSSN(ssn1)));
+             
+        this.city.setText(city1);
+        this.fname.setText(fname1);
+        this.lname.setText(lname1);
+        this.street.setText(street1);
+        this.state.setSelectedItem(state1);
+        this.zip.setText(zip1);
+        this.type.setText(usertype1);
+        this.username.setText(username1);
+
+    }//GEN-LAST:event_ssnActionPerformed
 
     /**
     * @param args the command line arguments
@@ -283,7 +295,7 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
 
             public void run() {
-                Create_Account_jFrame_Form dialog = new Create_Account_jFrame_Form(new javax.swing.JFrame(), true);
+                Update_User_jFrame_Form dialog = new Update_User_jFrame_Form(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     public void windowClosing(java.awt.event.WindowEvent e) {
                         System.exit(0);
@@ -294,13 +306,15 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JTextField city;
+    private javax.swing.JLabel display;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

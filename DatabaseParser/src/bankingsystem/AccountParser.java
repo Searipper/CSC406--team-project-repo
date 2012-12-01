@@ -13,9 +13,10 @@ import org.w3c.dom.*;
 /**
  * <p>
  * This class is the interface between the Account Data files and the Banking system.
+ * It reads and writes between the account.xml file and searches and returns specified accounts.
  * </p>
  * @author Sammy Hajeer
- * @version 1.0
+ * @version 1.8
  */
 public class AccountParser {
        
@@ -34,12 +35,12 @@ public class AccountParser {
     //          Constructor
     //-------------------------------------------------------------
     
-    
-    /**
+    //<editor-fold  defaultstate="collapsed">
+    /** 
      * constructor for UserParser class
      * Class {@code Object} is the root of the class hierarchy.
      * @param path an absolute URL giving the base location of the .xml file. the constructor will append the filename users.xml to this String
-    */
+    *///</editor-fold>
     public AccountParser(String path) {
         this.path = path+"Accounts.xml";//this sets the file path
         ReadFile();//Reads in records
@@ -55,60 +56,85 @@ public class AccountParser {
      * @return integer number of user records in the system. 
      */
     public int getRecordCount(){return recordcount;}
+    
+    
+    //-------------------------------------
+    //  get Arraylist of Accounts Methods
+    //-------------------------------------
+    
     /**get an ArrayList of all Accounts*/
-    public ArrayList<AbstractAccount> getAccountobjects() {
-        return accountobjects;
+    public ArrayList<AbstractAccount> getAccountobjects() 
+    {//<editor-fold  defaultstate="collapsed">
+        return accountobjects;//</editor-fold>
     }
-    /**get an ArrayList of all savings accounts @return savings accounts ArrayList*/
-    public ArrayList<savingsAccount> getSavingsAccounts() {
-        ArrayList<savingsAccount> savings= new ArrayList<savingsAccount>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof savingsAccount){
-                savings.add((savingsAccount)accountobjects.get(i));
-            }
-        }
-        return savings;
-    }
-    /**get an ArrayList of all credit card accounts @return accountlist accounts ArrayList*/
-    public ArrayList<CreditCards> getCreditCardAccounts() {
-        ArrayList<CreditCards> accountlist= new ArrayList<CreditCards>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof CreditCards){
-                accountlist.add((CreditCards)accountobjects.get(i));
-            }
-        }
-        return accountlist;
-        
-    }
-     /**get an ArrayList of all Checking accounts @return accountlist checking accounts ArrayList*/
-    public ArrayList<Checking> getCheckingAccounts() // <editor-fold>
-    { 
-       
+    
+    /**get an ArrayList of all Checking accounts @return accountlist checking accounts ArrayList*/
+    public ArrayList<Checking> getCheckingAccounts()
+    { //<editor-fold  defaultstate="collapsed">
         ArrayList<Checking> accountlist= new ArrayList<Checking>();
         for(int i=0;i<recordcount;i++){
             if(accountobjects.get(i) instanceof Checking){
                 accountlist.add((Checking)accountobjects.get(i));
-            }
-        }
-        return accountlist;
-    }// </editor-fold>
+            }//end if
+        }//end for
+        return accountlist;//</editor-fold>
+    }//end getCheckingAccounts
+    
      /**get an ArrayList of all Loan accounts @return accountlist loan accounts ArrayList*/
-    public ArrayList<LoanAccounts> getLoanAccounts() // <editor-fold>
-    { 
+    public ArrayList<LoanAccounts> getLoanAccounts()
+    { //<editor-fold  defaultstate="collapsed">
         ArrayList<LoanAccounts> accountlist= new ArrayList<LoanAccounts>();
         for(int i=0;i<recordcount;i++){
             if(accountobjects.get(i) instanceof LoanAccounts){
                 accountlist.add((LoanAccounts)accountobjects.get(i));
             }
         }
-        return accountlist;
-    }// </editor-fold>
-    /**
+        return accountlist;// </editor-fold>
+    }
+    /**get an ArrayList of all CreditCard accounts @return ArrayList of CreditCard accounts*/
+    public ArrayList<CreditCards> getCreditCardAccounts() 
+    {//<editor-fold  defaultstate="collapsed">
+        ArrayList<CreditCards> accountlist= new ArrayList<CreditCards>();
+        for(int i=0;i<recordcount;i++){
+            if(accountobjects.get(i) instanceof CreditCards){
+                accountlist.add((CreditCards)accountobjects.get(i));
+            }//edn if
+        }//end for
+        return accountlist;//</editor-fold>
+    }//end getSavingsAccounts
+    
+    /**get an ArrayList of all CD accounts @return ArrayList of CD Accounts*/
+    public ArrayList<cdAccount> getCDAccounts() 
+    {//<editor-fold  defaultstate="collapsed">
+        ArrayList<cdAccount> accountlist= new ArrayList<cdAccount>();
+        for(int i=0;i<recordcount;i++){
+            if(accountobjects.get(i) instanceof cdAccount){
+                accountlist.add((cdAccount)accountobjects.get(i));
+            }//edn if
+        }//end for
+        return accountlist;//</editor-fold>
+    }//end getSavingsAccounts
+    
+    /**get an ArrayList of all savings accounts @return savings accounts ArrayList*/
+    public ArrayList<savingsAccount> getSavingsAccounts() 
+    {//<editor-fold  defaultstate="collapsed">
+        ArrayList<savingsAccount> savings= new ArrayList<savingsAccount>();
+        for(int i=0;i<recordcount;i++){
+            if(accountobjects.get(i) instanceof savingsAccount){
+                savings.add((savingsAccount)accountobjects.get(i));
+            }//edn if
+        }//end for
+        return savings;//</editor-fold>
+    }//end getSavingsAccounts
+    
+    //<editor-fold defaultstate="collapsed">
+    /** 
      * searches the records for accounts owned by a specific Customer and returns an ArrayList of Accounts
      * @param ssn Customer's Social Security Number
      * @return usersAccounts: an ArrayList of accounts that are owned by this Customer 
-     */
-    public ArrayList<AbstractAccount> getCustomerAccounts(int ssn){//<editor-fold  defaultstate="collapsed">
+     *///</editor-fold>
+    public ArrayList<AbstractAccount> getCustomerAccounts(int ssn)
+    {//<editor-fold  defaultstate="collapsed">
         ArrayList<AbstractAccount>usersAccounts= new ArrayList<AbstractAccount>();
             //finds accounts owned by this user
             for(int i=0;i<this.recordcount;i++){
@@ -117,17 +143,191 @@ public class AccountParser {
             }
         return usersAccounts;//</editor-fold>
     }//end getCustomerAccounts
+    
+    
+    //------------------------------------
+    //  get Individual Account Methods
+    //------------------------------------
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the account searched for</li>
+     *              <li>If not found, returns a blank account</li></ul>
+     *///</editor-fold>
+    public  AbstractAccount getAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        AbstractAccount a1= new savingsAccount(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if(accountobjects.get(i).getAccountNum()==accountnumber){
+                a1= accountobjects.get(i);
+                System.out.println("Found account now returning");
+                return a1;
+            }//end if
+        }//end for
+        System.out.println("Account not found,returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective credit card account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the credit card account searched for</li>
+     *              <li>If not found, returns a blank credit card account</li></ul>
+     *///</editor-fold>
+    public  CreditCards getCreditCardAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        CreditCards a1= new CreditCards(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof CreditCards)){
+                a1= (CreditCards)accountobjects.get(i);
+                System.out.println("Found CreditCard account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof CreditCards)){
+                System.out.println("Found account, but it is not a CreditCard account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account, returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getCreditCardAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective checking account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the checking account searched for</li>
+     *              <li>If not found, returns a blank checking account</li></ul>
+     *///</editor-fold>
+    public  Checking getCheckingAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        Checking a1= new Checking(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof Checking)){
+                a1= (Checking)accountobjects.get(i);
+                System.out.println("Found Checking account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof Checking)){
+                System.out.println("Found account, but it is not a Checking account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account, returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getCheckingAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective savings account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the savings account searched for</li>
+     *              <li>If not found, returns a blank savings account</li></ul>
+     *///</editor-fold>
+    public  savingsAccount getSavingsAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        savingsAccount a1= new savingsAccount(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof savingsAccount)){
+                a1= (savingsAccount)accountobjects.get(i);
+                System.out.println("Found savings account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof savingsAccount)){
+                System.out.println("Found account, but it is not a savings account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account,returning blank savings account");
+        return a1;
+        //</editor-fold>
+    }//end getSavingsAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective CD account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the CD account searched for</li>
+     *              <li>If not found, returns a blank CD account</li></ul>
+     *///</editor-fold>
+    public  cdAccount getCDAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        cdAccount a1= new cdAccount(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof cdAccount)){
+                a1= (cdAccount)accountobjects.get(i);
+                System.out.println("Found CD account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof cdAccount)){
+                System.out.println("Found account, but it is not a CD account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account,returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getCDAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective loan account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the loan account searched for</li>
+     *              <li>If not found, returns a blank loan account</li></ul>
+     *///</editor-fold>
+    public  LoanAccounts getLoanAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        LoanAccounts a1= new LoanAccounts(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof LoanAccounts)){
+                a1= (LoanAccounts)accountobjects.get(i);
+                System.out.println("Found Loan account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof LoanAccounts)){
+                System.out.println("Found account, but it is not a Loan account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account,returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getLoanAccount
+    
+    //-------------------------------------------------------------
+    //          Create & Close Account Methods
+    //-------------------------------------------------------------
+    
+    
     /**Adds an account object to the account list @param AccountObject a new account object to add to the records*/
-    public void CreateAccount(AbstractAccount AccountObject){
-        this.accountobjects.add(AccountObject);
-        this.recordcount++;
-        this.WriteFile();
+    public String CreateAccount(AbstractAccount AccountObject)
+    {//search to make sure the account does not already exist.//<editor-fold  defaultstate="collapsed">
+        int check =0;
+        for(int i=0;i<this.recordcount;i++){
+            if(AccountObject.getAccountNum()==this.accountobjects.get(i).getAccountNum()){
+                //found an instance of this account in records
+                check++;
+            }//end if
+        }//end for
+        
+        if(check==0){
+            //no instance of account on file, go ahead and add it.
+            this.accountobjects.add(AccountObject);
+            this.recordcount++;
+            this.WriteFile();
+            return "Account added succesfully";
+        }else{
+            return "Cannot create account. Account number already exists in records";
+        }//end if//</editor-fold>
     }//end CreateAccount
     /**searches for a specified account and closes it if found and the account balance=0 @param AccountNumber account Identifier*/
-    public String CloseAccount(int AccountNumber){
+    public String CloseAccount(int AccountNumber)
+    {//<editor-fold  defaultstate="collapsed">
         for(int i=0;i<this.recordcount;i++){
             if(this.accountobjects.get(i).getAccountNum()==AccountNumber){
-                if(this.accountobjects.get(i).checkBalance()==0){
+                if(this.accountobjects.get(i).checkBalance()==0.00){
                     this.accountobjects.remove(i);
                     this.WriteFile();
                     return "Account Closed";
@@ -137,28 +337,29 @@ public class AccountParser {
             }//end if
         }//end for
         return "Could not find account";
+        //</editor-fold>
     }
 
     //-------------------------------------------------------------
-    //          Methods
+    //          File Input & Output Methods
     //-------------------------------------------------------------
     
-    // <editor-fold>
+    //<editor-fold  defaultstate="collapsed">
     /**Finds the index of the account in arraylist by searching for the account 
      * number and returns the index of the account
      * @param accountnumber number of the account we are looking for
      * @return index of the account in the record
      */// </editor-fold>
-    public int findAccountIndexByAccountNumber(int accountnumber)// <editor-fold>
-    {
+    public int findAccountIndexByAccountNumber(int accountnumber)
+    {//<editor-fold  defaultstate="collapsed">
         int index=-1;
         for(int i = 0; i<this.recordcount;i++){
             if(this.accountobjects.get(i).getAccountNum()==accountnumber)
                 return i;
         }
         System.out.println("Could not find account");
-        return index;
-    }// </editor-fold>
+        return index;// </editor-fold>
+    }
 
     /**
      * <t/><p>reads in an xml file</p>
@@ -878,8 +1079,12 @@ public class AccountParser {
         // </editor-fold>
     }//end ReadFile()
  
-    
-    public void WriteFile(){
+    //<editor-fold  defaultstate="collapsed">
+    /**
+     * Takes the data from all accounts and writes it out to the accounts.xml file
+     *///</editor-fold>
+    public void WriteFile()
+    {
         File f1 = new File(path);
         try{//<editor-fold  defaultstate="collapsed">
             //FileOutputStream fileout = new FileOutputStream(f1);
@@ -904,7 +1109,7 @@ public class AccountParser {
                             if(this.accountobjects.get(i).getAccountType()==5){p1.print("LLoan");}
                             else{p1.print("SLoan");}}
                     /* </editor-fold>*/}
-                    p1.print("</AccountType>\n");
+                    p1.println("</AccountType>");
                     //sets the customer ssn associated with account
                     p1.println("\t\t<CusID>"+this.accountobjects.get(i).getCustomerID()+"</CusID>");
                     //sets account balence

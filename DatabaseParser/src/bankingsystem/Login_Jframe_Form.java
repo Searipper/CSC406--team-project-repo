@@ -48,6 +48,12 @@ public class Login_Jframe_Form extends javax.swing.JFrame {
             }
         });
 
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
+
         btnew.setText("New User");
         btnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,16 +123,25 @@ public class Login_Jframe_Form extends javax.swing.JFrame {
 //        if(pass.getText()==user1.getUsername().toString()){System.out.println("password match");passwordBool = true;}
         String path= "";
         UserParser vald1 = new UserParser(path);
-        Landing_Page_jFrame_Form landing1 = new Landing_Page_jFrame_Form();
-        int valid = vald1.ValidateUserLogin(username.getText(), String.copyValueOf(pass.getPassword()));
+        Landing_Page_jFrame_Form manager = new Landing_Page_jFrame_Form();
+        Landing_Page_jFrame_Teller teller = new Landing_Page_jFrame_Teller();
         
-        if(valid>=0){
-            System.out.print("in Login click_event. Matched, validate>=0");
-            landing1.run();
+        int valid = vald1.ValidateUserLogin(username.getText(), String.copyValueOf(pass.getPassword()));
+        int role = vald1.getUserType(username.getText());
+        if(valid>=0&&role==1){
+            System.out.print("in Login click_event. Matched, validate>=0,&& usertype==1");
+            manager.run();
             this.setVisible(false);
-        }else{
-            if(valid<0){System.out.println("in Login click_event. Not Matched,validate<0");}
         }
+        if(valid>=0&&role==2){
+                System.out.print("in Login click_event. Matched, validate>=0，&& usertype=2");
+                teller.run();
+                this.setVisible(false);
+            }
+        if(valid<0){System.out.println("in Login click_event. Not Matched,validate<0");}
+         
+            
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnewActionPerformed
@@ -138,6 +153,21 @@ public class Login_Jframe_Form extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        String path= "";
+        UserParser vald1 = new UserParser(path);
+        Landing_Page_jFrame_Form landing1 = new Landing_Page_jFrame_Form();
+        int valid = vald1.ValidateUserLogin(username.getText(), String.copyValueOf(pass.getPassword()));
+        
+        if(valid>=0){
+            System.out.print("login validitated, validate>=0");
+            landing1.run();
+            this.setVisible(false);
+        }else{
+            if(valid<0){System.out.println("in Login click_event. Not Matched,validate<0");}
+        }
+    }//GEN-LAST:event_passActionPerformed
 
     /**
     * @param args the command line arguments
