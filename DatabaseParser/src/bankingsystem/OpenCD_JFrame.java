@@ -227,7 +227,7 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
         
         //parsing information when openning a CD, require CdAccount class to store
         //the object into the CDAccount arraylist and save in xml file
-        cdAccount cd = new cdAccount(customerId, accountNumber, loanAmount, accountFlag, loanInterest,maturityDate);
+        CdAccount cd = new CdAccount(customerId, accountNumber, loanAmount, accountFlag, loanInterest,maturityDate);
     }//GEN-LAST:event_btnOpenCDActionPerformed
 
     private void custIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDActionPerformed

@@ -81,6 +81,29 @@ abstract class AbstractAccount {
      * </ul>
      */
     public void setAccountType(int accountType) {this.accountType = accountType;}
+    /**Returns the account type based off of integer accounttype 
+     * @return if accounttype = <ul>
+        * <li>1: return SimpleSavings</li>
+        * <li>2: return CD</li>
+        * <li>3: return ThatsMyBank</li>
+        * <li>4: return Gold / Diamond</li>
+        * <li>5: return Long-Term Mortgage</li>
+        * <li>6: return Short-Term Loan</li>
+        * <li>7: return Credit Card</li>
+     * </ul>
+     */
+    public String getAccountDescription(){
+        switch(this.accountType){
+            case 1: return "SimpleSavings";
+            case 2: return "CD";
+            case 3: return "ThatsMyBank";
+            case 4: return "Gold / Diamond";
+            case 5: return "Long-Term Mortgage";
+            case 6: return "Short-Term Loan";
+            case 7: return "Credit Card";
+            default: return "Undefined Account Type";
+        }
+    }
     /**Returns the customer identifier @return customerID customer ssn*/
     public int getCustomerID() {return customerID;}
     /**sets the customer identifier @param customerID customer ssn*/

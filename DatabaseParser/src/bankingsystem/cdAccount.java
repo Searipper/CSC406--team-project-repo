@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author mlaunet
  */
-public class cdAccount extends AbstractAccount {
+public class CdAccount extends AbstractAccount {
 
     final double PENALTY = 90; //temp constant for penalty to apply to early CD withdrawal
     final int FIXEDMAT = (365 * 5); //standard maturity date if none set
@@ -19,7 +19,7 @@ public class cdAccount extends AbstractAccount {
     private double interestEarned; //variable to store interest earned
     private double interestRate = .015; //changable to whatever
 
-    public cdAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
+    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         //maturity should be in 'YEAR' form. So, five years for full maturity for example: (param.., 5);
         super(customerID, accountNum, balance, accountFlag);
         interestRate = interest;
@@ -27,7 +27,7 @@ public class cdAccount extends AbstractAccount {
         endDate = (maturity * 365);
     }
 
-    public cdAccount(int customerID, int accountNum, double balance, int accountFlag, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
+    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         super(customerID, accountNum, balance, accountFlag);
         interestEarned = 0;
         endDate = (maturity * 365);;
@@ -41,7 +41,7 @@ public class cdAccount extends AbstractAccount {
         this.endDate = endDate;
     }
 
-    public cdAccount(int customerID, int accountNum, double balance, int accountFlag) { //creation of CD requires: initial deposit, interest applied, and end date of CD
+    public CdAccount(int customerID, int accountNum, double balance, int accountFlag) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         super(customerID, accountNum, balance, accountFlag);
         interestEarned = 0;
         endDate = new Date().getTime() + FIXEDMAT;

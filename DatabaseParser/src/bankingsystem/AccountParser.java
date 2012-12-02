@@ -104,12 +104,12 @@ public class AccountParser {
     }//end getSavingsAccounts
     
     /**get an ArrayList of all CD accounts @return ArrayList of CD Accounts*/
-    public ArrayList<cdAccount> getCDAccounts() 
+    public ArrayList<CdAccount> getCDAccounts() 
     {//<editor-fold  defaultstate="collapsed">
-        ArrayList<cdAccount> accountlist= new ArrayList<cdAccount>();
+        ArrayList<CdAccount> accountlist= new ArrayList<CdAccount>();
         for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof cdAccount){
-                accountlist.add((cdAccount)accountobjects.get(i));
+            if(accountobjects.get(i) instanceof CdAccount){
+                accountlist.add((CdAccount)accountobjects.get(i));
             }//edn if
         }//end for
         return accountlist;//</editor-fold>
@@ -253,16 +253,16 @@ public class AccountParser {
      * @return <ul> <li>If found, returns the CD account searched for</li>
      *              <li>If not found, returns a blank CD account</li></ul>
      *///</editor-fold>
-    public  cdAccount getCDAccount(int accountnumber) 
+    public  CdAccount getCDAccount(int accountnumber) 
     {//<editor-fold  defaultstate="collapsed">
-        cdAccount a1= new cdAccount(-1,-1,0.00,1);
+        CdAccount a1= new CdAccount(-1,-1,0.00,1);
         for(int i=0;i<recordcount;i++){
-            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof cdAccount)){
-                a1= (cdAccount)accountobjects.get(i);
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof CdAccount)){
+                a1= (CdAccount)accountobjects.get(i);
                 System.out.println("Found CD account now returning");
                 return a1;
             }//end if
-            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof cdAccount)){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof CdAccount)){
                 System.out.println("Found account, but it is not a CD account");
             }//end if
         }//end for
@@ -811,7 +811,7 @@ public class AccountParser {
                                         // <editor-fold defaultstate="collapsed">
                                         if (AccountType.compareTo("CD")==0){
 //                                            System.out.println("Creating CD for account #"+AccountNumber);
-                                            accountobjects.add(new cdAccount(usernum,AccountNumber,balence,flags));
+                                            accountobjects.add(new CdAccount(usernum,AccountNumber,balence,flags));
                                             recordcount++;
                                             accountobjects.get(recordcount-1).setAccountType(2);
                                             accountobjects.get(recordcount-1).setDateOfActivation(activedate);
@@ -827,13 +827,13 @@ public class AccountParser {
                                                         //found IntrestRate
                                                         // <editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("MaturityDate")==0){
-                                                            cdAccount a1=(cdAccount)accountobjects.get(recordcount-1);
+                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
                                                             a1.setEndDate(Long.parseLong(text));
                                                         }//end if//</editor-fold>
                                                         //found Maturity Date
                                                         // <editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("BillAmount")==0){
-                                                            cdAccount a1=(cdAccount)accountobjects.get(recordcount-1);
+                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
                                                         }//end if//</editor-fold>
                                                         
@@ -1103,7 +1103,7 @@ public class AccountParser {
                             if(this.accountobjects.get(i).getAccountType()==4){p1.print("G/D");}
                             else{p1.print("TMB");}
                         }
-                        if (this.accountobjects.get(i) instanceof cdAccount)p1.print("CD");
+                        if (this.accountobjects.get(i) instanceof CdAccount)p1.print("CD");
                         if (this.accountobjects.get(i) instanceof CreditCards)p1.print("CC");
                         if (this.accountobjects.get(i) instanceof LoanAccounts){
                             if(this.accountobjects.get(i).getAccountType()==5){p1.print("LLoan");}
@@ -1144,8 +1144,8 @@ public class AccountParser {
                         // </editor-fold>
                         //if CD account
                         // <editor-fold defaultstate="collapsed">
-                        if(this.accountobjects.get(i) instanceof cdAccount){
-                            cdAccount a1=(cdAccount)this.accountobjects.get(i);
+                        if(this.accountobjects.get(i) instanceof CdAccount){
+                            CdAccount a1=(CdAccount)this.accountobjects.get(i);
                             p1.println("\t\t\t<MaturityDate>"+a1.getEndDate()+"</MaturityDate>");
                             p1.println("\t\t\t<InterestRate>"+a1.getInterestRate()+"</InterestRate>");
                         }//end if CDs
