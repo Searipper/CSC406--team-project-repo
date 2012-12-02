@@ -116,12 +116,12 @@ public class AccountParser {
     }//end getSavingsAccounts
     
     /**get an ArrayList of all savings accounts @return savings accounts ArrayList*/
-    public ArrayList<savingsAccount> getSavingsAccounts() 
+    public ArrayList<SavingsAccount> getSavingsAccounts() 
     {//<editor-fold  defaultstate="collapsed">
-        ArrayList<savingsAccount> savings= new ArrayList<savingsAccount>();
+        ArrayList<SavingsAccount> savings= new ArrayList<SavingsAccount>();
         for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof savingsAccount){
-                savings.add((savingsAccount)accountobjects.get(i));
+            if(accountobjects.get(i) instanceof SavingsAccount){
+                savings.add((SavingsAccount)accountobjects.get(i));
             }//edn if
         }//end for
         return savings;//</editor-fold>
@@ -158,7 +158,7 @@ public class AccountParser {
      *///</editor-fold>
     public  AbstractAccount getAccount(int accountnumber) 
     {//<editor-fold  defaultstate="collapsed">
-        AbstractAccount a1= new savingsAccount(-1,-1,0.00,1);
+        AbstractAccount a1= new SavingsAccount(-1,-1,0.00,1);
         for(int i=0;i<recordcount;i++){
             if(accountobjects.get(i).getAccountNum()==accountnumber){
                 a1= accountobjects.get(i);
@@ -228,16 +228,16 @@ public class AccountParser {
      * @return <ul> <li>If found, returns the savings account searched for</li>
      *              <li>If not found, returns a blank savings account</li></ul>
      *///</editor-fold>
-    public  savingsAccount getSavingsAccount(int accountnumber) 
+    public  SavingsAccount getSavingsAccount(int accountnumber) 
     {//<editor-fold  defaultstate="collapsed">
-        savingsAccount a1= new savingsAccount(-1,-1,0.00,1);
+        SavingsAccount a1= new SavingsAccount(-1,-1,0.00,1);
         for(int i=0;i<recordcount;i++){
-            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof savingsAccount)){
-                a1= (savingsAccount)accountobjects.get(i);
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof SavingsAccount)){
+                a1= (SavingsAccount)accountobjects.get(i);
                 System.out.println("Found savings account now returning");
                 return a1;
             }//end if
-            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof savingsAccount)){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof SavingsAccount)){
                 System.out.println("Found account, but it is not a savings account");
             }//end if
         }//end for
@@ -964,7 +964,7 @@ public class AccountParser {
                                         if (AccountType.compareTo("Savings")==0)try{
                                             
 //                                            System.out.println("Creating Savings account for account #"+AccountNumber);
-                                            accountobjects.add(new savingsAccount(usernum,AccountNumber,balence,flags));
+                                            accountobjects.add(new SavingsAccount(usernum,AccountNumber,balence,flags));
                                             recordcount++;
                                             accountobjects.get(recordcount-1).setAccountType(1);
                                             accountobjects.get(recordcount-1).setDateOfActivation(activedate);
@@ -979,7 +979,7 @@ public class AccountParser {
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("OverdraftAccount")==0){
-                                                            savingsAccount a1=(savingsAccount)accountobjects.get(recordcount-1);
+                                                            SavingsAccount a1=(SavingsAccount)accountobjects.get(recordcount-1);
                                                             if(Integer.parseInt(text)==0){
                                                                 a1.setOverdraftAcc(false);
                                                             }else{a1.setOverdraftAcc(true);}
@@ -987,13 +987,13 @@ public class AccountParser {
                                                         //found Intrest Rate
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("InterestRate")==0){
-                                                            savingsAccount a1=(savingsAccount)accountobjects.get(recordcount-1);
+                                                            SavingsAccount a1=(SavingsAccount)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
                                                         }//</editor-fold>
                                                         //found recent debits
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("RecentDebits")==0){
-                                                            savingsAccount a1=(savingsAccount)accountobjects.get(recordcount-1);
+                                                            SavingsAccount a1=(SavingsAccount)accountobjects.get(recordcount-1);
                                                             
                                                              Node Debits = AccountDetails.getFirstChild();
                                                              
@@ -1015,7 +1015,7 @@ public class AccountParser {
                                                         //found recent credits
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("RecentCredits")==0){
-                                                            savingsAccount a1=(savingsAccount)accountobjects.get(recordcount-1);
+                                                            SavingsAccount a1=(SavingsAccount)accountobjects.get(recordcount-1);
                                                             
                                                              Node Credits = AccountDetails.getFirstChild();
                                                              
@@ -1098,7 +1098,7 @@ public class AccountParser {
                 p1.println("\t<Account"+" AccountNum=\""+this.accountobjects.get(i).accountNum +"\">");
                     //sets the account typ text
                     p1.print("\t\t<AccountType>");{/* <editor-fold defaultstate="collapsed">*/
-                        if (this.accountobjects.get(i) instanceof savingsAccount)p1.print("Savings");
+                        if (this.accountobjects.get(i) instanceof SavingsAccount)p1.print("Savings");
                         if (this.accountobjects.get(i) instanceof Checking){
                             if(this.accountobjects.get(i).getAccountType()==4){p1.print("G/D");}
                             else{p1.print("TMB");}
@@ -1123,8 +1123,8 @@ public class AccountParser {
                     // <editor-fold defaultstate="collapsed">
                         //if Savings account
                         // <editor-fold defaultstate="collapsed">
-                        if (this.accountobjects.get(i) instanceof savingsAccount){
-                            savingsAccount a1=(savingsAccount)this.accountobjects.get(i);
+                        if (this.accountobjects.get(i) instanceof SavingsAccount){
+                            SavingsAccount a1=(SavingsAccount)this.accountobjects.get(i);
                             int over=0;
                             if(a1.isOverdraftAcc){over=1;}else{over=0;}
                             p1.println("\t\t<OverdraftAccount>"+over+"</OverdraftAccount>");

@@ -7,7 +7,7 @@ import java.util.Date;
  *
  * @author mlaunet
  */
-public class savingsAccount extends AtmCards {
+public class SavingsAccount extends AtmCards {
     
     //--------------------------------------
     //  Variables
@@ -18,17 +18,17 @@ public class savingsAccount extends AtmCards {
     //--------------------------------------
     //  Constructors
     //--------------------------------------
-    public savingsAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, boolean OP) {
+    public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, boolean OP) {
         super(customerID, accountNum, balance, accountFlag);
         interestRate = interest;
         isOverdraftAcc = OP;
     }
     
-    public savingsAccount(int customerID, int accountNum, double balance, int accountFlag, boolean OP) {
+    public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag, boolean OP) {
             super(customerID, accountNum, balance, accountFlag);
             isOverdraftAcc = OP;
     }
-    public savingsAccount(int customerID, int accountNum, double balance, int accountFlag) {
+    public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag) {
             super(customerID, accountNum, balance, accountFlag);
     }
     

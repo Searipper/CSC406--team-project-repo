@@ -7,10 +7,9 @@ import java.util.Date;
 public class SystemMain {
     
     public static void main(String[] args) {
-        AccountParser a1 = new AccountParser("");
-        a1.getRecordCount();
-//        Application_Start_Form start = new Application_Start_Form();
-//        start.run();
-        System.out.println(a1.getAccount(789012).getAccountDescription());
+//        AccountParser a1 = new AccountParser("");
+//        a1.getRecordCount();
+        Application_Start_Form start = new Application_Start_Form();
+        start.run();
     }//end main
 }
