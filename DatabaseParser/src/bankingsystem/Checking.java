@@ -20,7 +20,7 @@ public class Checking extends AtmCards {
     public double GDinterest;//Interst Amount to be added to balance
     public int protectingAcc; // the account to protect from overdraft
     public int AcctType;// 0 = TMB 1=GD
-    public int StopPaymentCheckNumber;// stop payment check number
+    public int CheckNumber = 0;// check number
     public int BackupAccountNumber;//Account number for over draft backup account
     public boolean HasOverDraftProtection;//True = yes False = No
     protected ArrayList<Double> DebitAmounts = new ArrayList<Double>();
@@ -29,6 +29,7 @@ public class Checking extends AtmCards {
     protected ArrayList<Double> CreditAmounts = new ArrayList<Double>();
     protected ArrayList<Long> CreditDates = new ArrayList<Long>();
     protected int NumberOfCredits;
+    protected ArrayList<Integer>CheckNumbers = new ArrayList<Integer>();
 
     //---------------------------------
     //  Constructor
@@ -37,9 +38,13 @@ public class Checking extends AtmCards {
         super(customerID, accountNum, balance, accountFlag);//send to the constructor
         NumberOfDebits = 0;
     }
+    public Checking(int customerID, int accountNum, int AcctType, double balance, int accountFlag) {
+        super(customerID, accountNum, balance, accountFlag);//send to the constructor
+        NumberOfDebits = 0;
+    }
 
     //-----------------------------
-    //      Methods
+    //      Getter and Setter Methods
     //-----------------------------
     public double getGDinterestRate() {
         return GDinterestRate;
@@ -81,117 +86,152 @@ public class Checking extends AtmCards {
         this.GDinterest = GDinterest;
     }
 
-    public boolean isHasOverDraftProtection() {
-        return HasOverDraftProtection;
-    }
-
     public void setHasOverDraftProtection(boolean HasOverDraftProtection) {
         this.HasOverDraftProtection = HasOverDraftProtection;
     }
+    
+    public boolean getHasOverDraftProtection() {
+        return HasOverDraftProtection;
+    }
+    
+    public void setCheckNumber(int CheckNumber) {
+        this.CheckNumber = CheckNumber;
+    }
 
     public int getStopPaymentCheckNumber() {
-        return StopPaymentCheckNumber;
-    }
-
-    public void setStopPaymentCheckNumber(int StopPaymentCheckNumber) {
-        this.StopPaymentCheckNumber = StopPaymentCheckNumber;
-    }
-
-    //---------------------------------
-    //  implemented from AbstractAccount
-    //---------------------------------
-    
-    public double getProtectingAcc() { //sets account to protect from ODing
-        return protectingAcc;
+        return CheckNumber;
     }
 
     public void setProtectingAcc(int protectingAcc) {
         this.protectingAcc = protectingAcc;
     }
-
-    public void overdraft(double amt) {
-        if (amt > balance) {
-            //check if prot. acc. exists
-            //if one doesn't, stop transaction charge 20
-            //if prot. acc. exists, determine that balance
-            //if prot acc can cover cost, withdraw from savings, deposit to checking
-            //if one doesn't, stop charge 20
-        }
-
+    
+     public double getProtectingAcc() { //sets account to protect from ODing
+        return protectingAcc;
     }
+
+    
+    
+    //-----------------------------
+    //      Other Methods
+    //-----------------------------
+     
+     public void applyTMBtransCharge(){//charges Account with a transaction charge
+        DebitAccount(TMBtransCharge);
+    }
+     
+     public void applyTMBmonthlyTransCharge(){//charges Account with a montly transaction charge
+        DebitAccount(TMBmonthlyTransCharge);
+    }
+     
+    public void calcGDavgBalance(){//calcs GD average balance
+        GDavgBalance = balance /30;
+    
+    }
+    
+    public void calcGDinterestRate(){//calcs GD interst Rate
+        GDinterestRate = .15 *.5; //.15 is Savings interest rate
+    }
+
+    public void calcGDinterest(){ //calcs GD interst
+        GDinterest = GDavgBalance * GDinterestRate;
+    }
+
+    public void applyGDinterest(){//adds interest rate to acctBalance
+        if (AcctType == 1)
+        {
+            calcGDavgBalance();
+            calcGDinterestRate();
+            calcGDinterest();
+            CreditAccount(GDinterest);
+        }
+    }
+
+    //-----------------------------
+    //      Other Methods (NOT FINISHED)
+    //-----------------------------
+
+
+
+    public void stopPayment(int StopPaymentCheckNumber){//stops the payment on a check and charges account
+       
+        //void check numbers debit amount
+        DebitAccount(StopPaymentCharge);
+    }
+
+    public void overDraft(double amt){//credit back up, debit checking, and then credit checking
+        //check if prot. acc. exists
+        //if one doesn't, stop transaction charge 20
+        //if prot. acc. exists, determine that balance
+        //if prot acc can cover cost, withdraw from savings, deposit to checking
+        //if one doesn't, stop charge 20
+        if(amt>balance)
+         {   
+           if(HasOverDraftProtection = false)//no account protection
+            {
+                
+               DebitAccount(OverDraftCharge);
+               setAccountFlag(1);
+            }
+              else {//has account protection
+                 if /*backup account */(balance > amt)//check backup account balance // HOW?
+                  {
+                 //  BACKUP DebitAccount(amt); //withdraw from backup account // HOW?
+                     CreditAccount(amt);//deposit into checking account
+                  }
+               
+                  else {//backup account doesnt have enought to withdraw
+                    DebitAccount(OverDraftCharge);
+                    setAccountFlag(1);
+                   }
+              }
+         }
+           else {
+              System.out.println("No over draft occured");
+           }
+    }
+
+    //------------------------------------
+    //      Impliments from DebitInterface
+    //------------------------------------
+
+ @Override
+     public void DebitAccount(double amount) {
+        overDraft(amount);
+        if(amount<=balance){//if the payment is less then or equal to the balence
+            DebitAmounts.add(amount);
+            DebitDates.add(new Date().getTime());
+            NumberOfDebits++;
+            CheckNumbers.add(CheckNumber++);
+            //send a negative number to detract from the balence
+            this.updateBalance(0-amount);
+        }else{
+            System.out.println("Over draft occured");
+        }
+    }
+
 }
-/*
+            
+       
+     
+   
+    
 
- public void applyTMBtransCharge(){//charges Account with a transaction charge
+   
 
- //AcctBalance = TMBtransCharge + AcctBalance;
-
-
- }
-
- public void applyTMBmonthlyTransCharge(){//charges Account with a montly transaction charge
-
- //AcctBalance  = AcctBalance + TMBmonthlyTransCharge;
+    
 
 
- }
 
- public void calcGDavgBalance(){//calcs GD average balance
+ 
 
- //Figure out how to calc avgBalance
- }
+ 
 
- public void calcGDinterestRate(){//calcs GD interst Rate
+ 
 
-
- //GDinterestRate = savingsInterestRate *.5;
-
-
- }
-
- public void calcGDinterest(){ //calcs GD interst
-
- GDinterest = GDavgBalance * GDinterestRate;
-
- }
-
- public void applyGDinteres(){//adds interest rate to acctBalance
-
- calcGDavgBalance();
- calcGDinterestRate();
- calcGDinterest();
-
- //acctBalance = GDinterst + acctBalance;
-
- }
-
- public void stopPayment(int StopPaymentCheckNumber){//stops the payment on a check and charges account
- this.StopPaymentCheckNumber = StopPaymentCheckNumber;
-
- //void check numbers debit amount
- //acctBalance = StopPaymentCharge + acctBalance;
-
- }
-
- public void overDraft(){//credit back up, debit checking, and then credit checking
-
-
- if(HasOverDraftProtection = false)
- {
- //acctBalance = acctBalance + OverDraftCharge;
- //flag account as a troubled account
- }
-
- else
- {
- //credit amount from backup account
- //debit amount to checking account
- //credit amount from checking account
- }
-
- }
+ 
 
 
 
 
- */
+ 

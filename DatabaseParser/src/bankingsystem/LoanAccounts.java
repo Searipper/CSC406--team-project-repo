@@ -27,6 +27,11 @@ public class LoanAccounts extends BillingAccounts{
     
     public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(5);
+    }
+    public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag,int accounttype) {
+        super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(accounttype);
     }
     
     //-----------------------------

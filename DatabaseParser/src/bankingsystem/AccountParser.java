@@ -1156,10 +1156,10 @@ public class AccountParser {
                             Checking a1=(Checking)this.accountobjects.get(i);
                             
                             //overdraft protection status
-                            int protection=0; if(a1.isHasOverDraftProtection()){protection=1;}
+                            int protection=0; if(a1.getHasOverDraftProtection()){protection=1;}
                             p1.println("\t\t\t<OverdraftProtection>"+protection+"</OverdraftProtection>");
                             //overdraft account number
-                            if(a1.isHasOverDraftProtection()){
+                            if(a1.getHasOverDraftProtection()){
                                 p1.println("\t\t\t<OverdraftAccount>"+a1.getBackupAccountNumber()+"</OverdraftAccount>");
                             }
                             //G/D intrest rate

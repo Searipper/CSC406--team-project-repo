@@ -27,6 +27,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     
     public CreditCards(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(7);
     }
 
     //-------------------------------------
