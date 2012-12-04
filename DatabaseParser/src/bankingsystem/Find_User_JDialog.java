@@ -105,10 +105,23 @@ public class Find_User_JDialog extends javax.swing.JDialog {
         int user = up.getIndexFromSSN(Integer.parseInt(ssn.getText()));
         //if ssn found matches a index then the user = index of SSN in the array.
         //since the index could be only >=0, so it found match, else index<0, not match
+        
+        int ssn1 = Integer.parseInt(ssn.getText());
+        String city1 = up.getCity(up.getIndexFromSSN(ssn1));
+        String fname1 = up.getFName(up.getIndexFromSSN(ssn1));
+        String lname1 = up.getLName(up.getIndexFromSSN(ssn1));
+        String street1 = up.getStreet(up.getIndexFromSSN(ssn1));
+        String state1 =up.getState(up.getIndexFromSSN(ssn1));
+        String zip1 = Integer.toString(up.getZip(up.getIndexFromSSN(ssn1)));//up.getzip returns int,so covert it
+        String username1 = up.getUsername(up.getIndexFromSSN(ssn1));
+        String usertype1 = Integer.toString(up.getType(up.getIndexFromSSN(ssn1)));
+
+        String userInfo = " " + fname1  + " " + lname1 + " " + city1 + " " + street1 
+                + " " + state1 + " " + zip1 + " " + username1 + " ";
+        System.out.println(userInfo);
         if(user>=0){
-            String description = "Record found:\n "+up.getFName(user)+"\n Last Name:"+
-                    up.getLName(user)+"\n Address: "+up.getStreet(user)+", "+up.getCity(user)+", "+up.getState(user)+" "+up.getType(user); 
-            displayLable.setText(description);
+            
+            displayLable.setText(userInfo.toString());
         }else{displayLable.setText("User not found");}
         //this.setVisible(false);
     }//GEN-LAST:event_btnSearchActionPerformed

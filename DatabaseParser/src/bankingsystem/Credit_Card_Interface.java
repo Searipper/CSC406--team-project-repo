@@ -41,7 +41,7 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Credit Card No.");
+        jLabel1.setText("Credit Card Account No");
 
         jLabel2.setText("Transaction Amount");
 
@@ -73,7 +73,7 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
                                 .addComponent(amt, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
                             .addComponent(desc)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(116, Short.MAX_VALUE)
+                        .addContainerGap(122, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(36, 36, 36)
                         .addComponent(jButton1)
@@ -111,10 +111,14 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //int customerID(SSN), int accountNum, double balance, int accountFlag
+        AccountParser ap = new AccountParser("");
+        
         int ccNum = Integer.parseInt(ccNo.getText());
         double amount = Double.parseDouble(amt.getText());
-        String description = desc.getText();      
-        CreditCards cc  = new CreditCards(111111111, 123456789, 0.00, 0);
+        String description = desc.getText();
+
+        ap.getCreditCardAccount(ccNum).CreditAccount(amount, description);
+        ap.WriteFile();
         
         //double amount, long creditdate,String description
         

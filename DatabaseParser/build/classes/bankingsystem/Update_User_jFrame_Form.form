@@ -26,6 +26,8 @@
               <EmptySpace min="121" pref="121" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="message" min="-2" pref="264" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="display" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
@@ -156,7 +158,10 @@
                   <Component id="pass" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="display" min="-2" pref="43" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="display" pref="43" max="32767" attributes="0"/>
+                  <Component id="message" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -312,7 +317,7 @@
     <Component class="javax.swing.JFormattedTextField" name="zip">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-          <Format format="" subtype="-1" type="5"/>
+          <Format format="#####" subtype="-1" type="5"/>
         </Property>
       </Properties>
     </Component>
@@ -334,6 +339,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="pass">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="fname">
     </Component>
@@ -346,6 +354,8 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Update User Information Page"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="message">
     </Component>
   </SubComponents>
 </Form>

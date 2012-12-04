@@ -59,6 +59,7 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
         fname = new javax.swing.JTextField();
         display = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -111,7 +112,7 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
         });
 
         try {
-            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -121,6 +122,12 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
         type.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
 
         jLabel11.setText("(1 = Teller  2 = Manager)");
+
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Update User Information Page");
@@ -133,6 +140,8 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
                 .addGap(121, 121, 121)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(65, 65, 65))
                     .addGroup(layout.createSequentialGroup()
@@ -152,7 +161,7 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
                                         .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jLabel11)))
-                                .addContainerGap())
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,7 +243,9 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
                     .addComponent(jLabel9)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
@@ -257,7 +268,8 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
                 street.getText(),city.getText(),state.getSelectedItem().toString(),
                 Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),
                 Integer.parseInt(type.getText()));
-        System.out.println(a);
+        message.setText(a);
+
         //this.setVisible(false);
  
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -276,7 +288,7 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
         String state1 =up.getState(up.getIndexFromSSN(ssn1));
         String zip1 = Integer.toString(up.getZip(up.getIndexFromSSN(ssn1)));//up.getzip returns int,so covert it
         String username1 = up.getUsername(up.getIndexFromSSN(ssn1));
-        String usertype1 = Integer.toString(up.getUserType(up.getIndexFromSSN(ssn1)));
+        String usertype1 = Integer.toString(up.getType(up.getIndexFromSSN(ssn1)));
              
         this.city.setText(city1);
         this.fname.setText(fname1);
@@ -288,6 +300,17 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
         this.username.setText(username1);
 
     }//GEN-LAST:event_ssnActionPerformed
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+                String path= "";
+        UserParser rec1 = new UserParser(path);
+        
+        String a = rec1.UpdateRecord(Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
+                street.getText(),city.getText(),state.getSelectedItem().toString(),
+                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),
+                Integer.parseInt(type.getText()));
+        message.setText(a);
+    }//GEN-LAST:event_passActionPerformed
 
     /**
     * @param args the command line arguments
@@ -324,6 +347,7 @@ public class Update_User_jFrame_Form extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lname;
+    private javax.swing.JLabel message;
     private javax.swing.JPasswordField pass;
     private javax.swing.JFormattedTextField ssn;
     private javax.swing.JComboBox state;

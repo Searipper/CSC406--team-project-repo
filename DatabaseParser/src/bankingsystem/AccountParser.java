@@ -296,6 +296,24 @@ public class AccountParser {
         //</editor-fold>
     }//end getLoanAccount
     
+    public  AtmCards getAtmAccount(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        AtmCards a1= new AtmCards(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&(accountobjects.get(i) instanceof AtmCards)){
+                a1= (AtmCards)accountobjects.get(i);
+                System.out.println("Found Loan account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof AtmCards)){
+                System.out.println("Found account, but it is not a Loan account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account,returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getAtmAccount
+
     //-------------------------------------------------------------
     //          Create & Close Account Methods
     //-------------------------------------------------------------
@@ -304,23 +322,35 @@ public class AccountParser {
     /**Adds an account object to the account list @param AccountObject a new account object to add to the records*/
     public String CreateAccount(AbstractAccount AccountObject)
     {//search to make sure the account does not already exist.//<editor-fold  defaultstate="collapsed">
-        int check =0;
-        for(int i=0;i<this.recordcount;i++){
-            if(AccountObject.getAccountNum()==this.accountobjects.get(i).getAccountNum()){
-                //found an instance of this account in records
-                check++;
+        int ssncheck=0;
+        UserParser up = new UserParser("");
+        for(int i =0;i<up.getRecordCount();i++){
+            if(AccountObject.getCustomerID()==up.getUserlist(i).getSsn()){
+                ssncheck++;
             }//end if
         }//end for
         
-        if(check==0){
-            //no instance of account on file, go ahead and add it.
-            this.accountobjects.add(AccountObject);
-            this.recordcount++;
-            this.WriteFile();
-            return "Account added succesfully";
+        if(ssncheck==0){//user does not exist, cannot create account
+            return "Cannot create account, User needs to be created before account can be created!";
         }else{
-            return "Cannot create account. Account number already exists in records";
-        }//end if//</editor-fold>
+            int check =0;
+            for(int i=0;i<this.recordcount;i++){
+                if(AccountObject.getAccountNum()==this.accountobjects.get(i).getAccountNum()){
+                    //found an instance of this account in records
+                    check++;
+                }//end if
+            }//end for
+
+            if(check==0){
+                //no instance of account on file, go ahead and add it.
+                this.accountobjects.add(AccountObject);
+                this.recordcount++;
+                this.WriteFile();
+                return "Account added succesfully";
+            }else{
+                return "Cannot create account. Account number already exists in records";
+            }//end if//</editor-fold>
+        }//end else
     }//end CreateAccount
     /**searches for a specified account and closes it if found and the account balance=0 @param AccountNumber account Identifier*/
     public String CloseAccount(int AccountNumber)

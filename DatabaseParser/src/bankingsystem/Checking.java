@@ -245,7 +245,6 @@ public class Checking extends AtmCards {
                 this.updateBalance(0-(amount+TMBtransCharge));
             }
             //send a negative number to detract from the balence
-            this.updateBalance(0-amount);
     }
 
     public void DebitAccount(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
