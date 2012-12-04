@@ -23,13 +23,18 @@ public class Checking extends AtmCards {
     public int CheckNumber = 0;// check number
     public int BackupAccountNumber;//Account number for over draft backup account
     public boolean HasOverDraftProtection;//True = yes False = No
-    protected ArrayList<Double> DebitAmounts = new ArrayList<Double>();
-    protected ArrayList<Long> DebitDates = new ArrayList<Long>();
-    protected int NumberOfDebits;
-    protected ArrayList<Double> CreditAmounts = new ArrayList<Double>();
-    protected ArrayList<Long> CreditDates = new ArrayList<Long>();
+//    protected ArrayList<Double> DebitAmounts = new ArrayList<Double>();
+//    protected ArrayList<Long> DebitDates = new ArrayList<Long>();
+//    protected int NumberOfDebits;
+//    protected ArrayList<Double> CreditAmounts = new ArrayList<Double>();
+//    protected ArrayList<Long> CreditDates = new ArrayList<Long>();
+    
+    
     protected int NumberOfCredits;
     protected ArrayList<Integer>CheckNumbers = new ArrayList<Integer>();
+    protected ArrayList<Double>TransactionChargeList = new ArrayList<Double>();
+    protected ArrayList<Double>TransferChargeList = new ArrayList<Double>();
+    
 
     //---------------------------------
     //  Constructor
@@ -195,20 +200,61 @@ public class Checking extends AtmCards {
     //      Impliments from DebitInterface
     //------------------------------------
 
- @Override
-     public void DebitAccount(double amount) {
-        overDraft(amount);
+    
+    @Override
+    public int Withdrawl(double amount) {
+        int status =-1;
         if(amount<=balance){//if the payment is less then or equal to the balence
+            status=1;
+            int checknum = this.CheckNumber + 1;
+            this.DebitAccount(amount,checknum);
+            return status;
+        }else{
+            System.out.println("Overdraft!");
+            return status;
+        }
+    }
+    
+    public double Transfer(double amount){
+        if(amount<=balance){//if the payment is less then or equal to the balence
+            int checknum = this.CheckNumber + 1;
+            this.DebitAccount(amount,checknum);
+            if(this.AcctType!=4){
+                this.TransferChargeList.set((this.TransferChargeList.size()-1), this.TMBmonthlyTransCharge);
+                this.updateBalance(0-TMBmonthlyTransCharge);
+            }
+            return amount;
+        }else{
+            System.out.println("now withdrawls greater than account balence!");
+            return 0.00;
+        }
+    }
+     public void DebitAccount(double amount, int checknum) {
+        
             DebitAmounts.add(amount);
             DebitDates.add(new Date().getTime());
             NumberOfDebits++;
-            CheckNumbers.add(CheckNumber++);
+            CheckNumbers.add(checknum);
+            if(this.accountType==4){
+                this.TransactionChargeList.add(0.00);
+                this.TransferChargeList.add(0.00);
+                this.updateBalance(0-(amount));
+            }else{
+                this.TransactionChargeList.add(TMBtransCharge);
+                this.TransferChargeList.add(0.00);
+                this.updateBalance(0-(amount+TMBtransCharge));
+            }
             //send a negative number to detract from the balence
             this.updateBalance(0-amount);
-        }else{
-            System.out.println("Over draft occured");
-        }
     }
+
+    public void DebitAccount(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
+        super.addDebititRecord(amount, DateOfActivation);
+        this.CheckNumbers.add(checknumber);
+        this.TransactionChargeList.add(transaction);
+        this.TransferChargeList.add(transfer);
+    }
+     
 
 }
             

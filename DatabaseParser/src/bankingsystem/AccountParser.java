@@ -329,6 +329,7 @@ public class AccountParser {
             if(this.accountobjects.get(i).getAccountNum()==AccountNumber){
                 if(this.accountobjects.get(i).checkBalance()==0.00){
                     this.accountobjects.remove(i);
+                    this.recordcount--;
                     this.WriteFile();
                     return "Account Closed";
                 }else{

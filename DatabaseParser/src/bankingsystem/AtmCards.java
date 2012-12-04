@@ -65,6 +65,18 @@ public class AtmCards extends AbstractAccount implements CreditInterface, DebitI
     void ATMwithdrawal() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    public int Withdrawl(double amount){
+        int status =-1;
+        if(amount<=balance){//if the payment is less then or equal to the balence
+            status=1;
+            this.DebitAccount(amount);
+            return status;
+        }else{
+            System.out.println("now withdrawls greater than account balence!");
+            return status;
+        }
+    }
 
     
     //---------------------------------

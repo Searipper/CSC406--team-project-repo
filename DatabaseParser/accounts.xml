@@ -10,8 +10,10 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">25.0</Debit>
+				<Debit date="1351793588910">25.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">30.0</Credit>
 				<Credit date="1351793588910">30.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -30,8 +32,13 @@
 				<Debit date="1351793588910">10.0</Debit>
 				<Debit date="1351793588910">100.0</Debit>
 				<Debit date="1351793588910">25.0</Debit>
+				<Debit date="1351793588910">10.0</Debit>
+				<Debit date="1351793588910">10.0</Debit>
+				<Debit date="1351793588910">100.0</Debit>
+				<Debit date="1351793588910">25.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">60.0</Credit>
 				<Credit date="1351793588910">60.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -46,6 +53,8 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
+				<Debit date="1351793588910">10.0</Debit>
+				<Debit date="1351793588910">25.0</Debit>
 				<Debit date="1351793588910">10.0</Debit>
 				<Debit date="1351793588910">25.0</Debit>
 			</RecentDebits>
@@ -66,6 +75,8 @@
 			<RecentCredits>
 				<Credit date="1351793588910">160.0</Credit>
 				<Credit date="1351793588910">360.0</Credit>
+				<Credit date="1351793588910">160.0</Credit>
+				<Credit date="1351793588910">360.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -79,8 +90,11 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">1000.0</Debit>
+				<Debit date="1351793588910">1000.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">50.0</Credit>
+				<Credit date="1351793588910">165.0</Credit>
 				<Credit date="1351793588910">50.0</Credit>
 				<Credit date="1351793588910">165.0</Credit>
 			</RecentCredits>
@@ -96,8 +110,11 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">242.11</Debit>
+				<Debit date="1351793588910">242.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">42.99</Credit>
+				<Credit date="1351793588910">132.1</Credit>
 				<Credit date="1351793588910">42.99</Credit>
 				<Credit date="1351793588910">132.1</Credit>
 			</RecentCredits>
@@ -114,8 +131,10 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910">242.11</Debit>
+				<Debit date="1351793588910">242.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">342.99</Credit>
 				<Credit date="1351793588910">342.99</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -130,8 +149,10 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">55.11</Debit>
+				<Debit date="1351793588910">55.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">11.99</Credit>
 				<Credit date="1351793588910">11.99</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -148,8 +169,11 @@
 			<RecentDebits>
 				<Debit date="1351793588910">525.11</Debit>
 				<Debit date="1351793588910">405.1</Debit>
+				<Debit date="1351793588910">525.11</Debit>
+				<Debit date="1351793588910">405.1</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">1111.99</Credit>
 				<Credit date="1351793588910">1111.99</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -165,8 +189,10 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910">1000.0</Debit>
+				<Debit date="1351793588910">1000.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">999.05</Credit>
 				<Credit date="1351793588910">999.05</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -183,6 +209,7 @@
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">9.05</Credit>
+				<Credit date="1351793588910">9.05</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -196,8 +223,11 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">99.18</Debit>
+				<Debit date="1351793588910">99.18</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">29.12</Credit>
+				<Credit date="1351793588910">19.35</Credit>
 				<Credit date="1351793588910">29.12</Credit>
 				<Credit date="1351793588910">19.35</Credit>
 			</RecentCredits>
@@ -214,8 +244,10 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910">299.0</Debit>
+				<Debit date="1351793588910">299.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">129.58</Credit>
 				<Credit date="1351793588910">129.58</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -231,8 +263,11 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910">19.0</Debit>
+				<Debit date="1351793588910">19.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">229.33</Credit>
+				<Credit date="1351793588910">1229.58</Credit>
 				<Credit date="1351793588910">229.33</Credit>
 				<Credit date="1351793588910">1229.58</Credit>
 			</RecentCredits>
@@ -247,6 +282,7 @@
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
+				<Debit date="1351793588910">22.0</Debit>
 				<Debit date="1351793588910">22.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
@@ -263,8 +299,10 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">23.0</Debit>
+				<Debit date="1351793588910">23.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">12.03</Credit>
 				<Credit date="1351793588910">12.03</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -282,6 +320,7 @@
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">122.03</Credit>
+				<Credit date="1351793588910">122.03</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -296,8 +335,10 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910">223.0</Debit>
+				<Debit date="1351793588910">223.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">350.03</Credit>
 				<Credit date="1351793588910">350.03</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -311,6 +352,7 @@
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
+				<Debit date="1351793588910">25.0</Debit>
 				<Debit date="1351793588910">25.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
@@ -327,8 +369,10 @@
 			<OverdraftProtection>0</OverdraftProtection>
 			<RecentDebits>
 				<Debit date="1351793588910">25.0</Debit>
+				<Debit date="1351793588910">25.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910">33.03</Credit>
 				<Credit date="1351793588910">33.03</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
@@ -345,6 +389,8 @@
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
+				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
 			</RecentDebits>
@@ -366,6 +412,10 @@
 				<Debit date="1351793588910" intrestgained="0.0">100.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">550.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">125.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">425.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">100.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">550.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">125.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -381,6 +431,8 @@
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
+				<Debit date="1351793588910" intrestgained="0.0">1425.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">1125.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">1425.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">1125.0</Debit>
 			</RecentDebits>
@@ -416,6 +468,9 @@
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -431,6 +486,7 @@
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
+				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
@@ -448,6 +504,7 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -463,6 +520,7 @@
 			<BillAmount>178.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
+				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
@@ -480,6 +538,7 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
+				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -495,6 +554,7 @@
 			<BillAmount>259.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
+				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
@@ -512,8 +572,11 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">100.01</Debit>
+				<Debit date="1351793588910">100.01</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Groceries">77.0</Credit>
+				<Credit date="1351793588910" description="Olive Garden Bill">23.01</Credit>
 				<Credit date="1351793588910" description="Groceries">77.0</Credit>
 				<Credit date="1351793588910" description="Olive Garden Bill">23.01</Credit>
 			</RecentCredits>
@@ -532,8 +595,11 @@
 			<BillDueDate>1351793588910</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">60.0</Debit>
+				<Debit date="1351793588910">60.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Books">45.0</Credit>
+				<Credit date="1351793588910" description="TGIFriday's Bill">22.51</Credit>
 				<Credit date="1351793588910" description="Books">45.0</Credit>
 				<Credit date="1351793588910" description="TGIFriday's Bill">22.51</Credit>
 			</RecentCredits>
@@ -552,8 +618,11 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">227.11</Debit>
+				<Debit date="1351793588910">227.11</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Insurance charge">215.0</Credit>
+				<Credit date="1351793588910" description="Lunch">12.11</Credit>
 				<Credit date="1351793588910" description="Insurance charge">215.0</Credit>
 				<Credit date="1351793588910" description="Lunch">12.11</Credit>
 			</RecentCredits>
@@ -572,8 +641,12 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">164.18</Debit>
+				<Debit date="1351793588910">164.18</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Gas Bill">111.0</Credit>
+				<Credit date="1351793588910" description="Grociery Store purchases">42.15</Credit>
+				<Credit date="1351793588910" description="Lunch">12.03</Credit>
 				<Credit date="1351793588910" description="Gas Bill">111.0</Credit>
 				<Credit date="1351793588910" description="Grociery Store purchases">42.15</Credit>
 				<Credit date="1351793588910" description="Lunch">12.03</Credit>
@@ -593,8 +666,12 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">1666.78</Debit>
+				<Debit date="1351793588910">1666.78</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Outboard Motor">1111.0</Credit>
+				<Credit date="1351793588910" description="Chain Saw">242.85</Credit>
+				<Credit date="1351793588910" description="Auto Repair">312.93</Credit>
 				<Credit date="1351793588910" description="Outboard Motor">1111.0</Credit>
 				<Credit date="1351793588910" description="Chain Saw">242.85</Credit>
 				<Credit date="1351793588910" description="Auto Repair">312.93</Credit>
@@ -614,8 +691,11 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">110.0</Debit>
+				<Debit date="1351793588910">110.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Gas bill">303.0</Credit>
+				<Credit date="1351793588910" description="Electric Bill">352.98</Credit>
 				<Credit date="1351793588910" description="Gas bill">303.0</Credit>
 				<Credit date="1351793588910" description="Electric Bill">352.98</Credit>
 			</RecentCredits>
@@ -637,6 +717,8 @@
 			<RecentCredits>
 				<Credit date="1351793588910" description="moniter">402.01</Credit>
 				<Credit date="1351793588910" description="3D Television">2100.0</Credit>
+				<Credit date="1351793588910" description="moniter">402.01</Credit>
+				<Credit date="1351793588910" description="3D Television">2100.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -653,8 +735,12 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">1200.0</Debit>
+				<Debit date="1351793588910">1200.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Seriously, what is the credit limit?">9923.01</Credit>
+				<Credit date="1351793588910" description="small jet plane">2100.0</Credit>
+				<Credit date="1351793588910" description="New TV">1399.22</Credit>
 				<Credit date="1351793588910" description="Seriously, what is the credit limit?">9923.01</Credit>
 				<Credit date="1351793588910" description="small jet plane">2100.0</Credit>
 				<Credit date="1351793588910" description="New TV">1399.22</Credit>
@@ -674,8 +760,12 @@
 			<BillDueDate>0</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">2000.0</Debit>
+				<Debit date="1351793588910">2000.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Patio Extension">3123.01</Credit>
+				<Credit date="1351793588910" description="Car">2314.2</Credit>
+				<Credit date="1351793588910" description="WashingMachine">2118.22</Credit>
 				<Credit date="1351793588910" description="Patio Extension">3123.01</Credit>
 				<Credit date="1351793588910" description="Car">2314.2</Credit>
 				<Credit date="1351793588910" description="WashingMachine">2118.22</Credit>
@@ -696,6 +786,7 @@
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
+				<Credit date="1351793588910" description="Lunch">12.54</Credit>
 				<Credit date="1351793588910" description="Lunch">12.54</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
