@@ -53,7 +53,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
         btnCloseAccount = new javax.swing.JButton();
         btnWithdraw = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        message2 = new javax.swing.JLabel();
         accountNum = new javax.swing.JFormattedTextField();
         jTextField1 = new javax.swing.JTextField();
         accountNumber = new javax.swing.JTextField();
@@ -149,7 +149,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Enter account number to search");
+        message2.setText("Enter account number to search");
 
         accountNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
         accountNum.addActionListener(new java.awt.event.ActionListener() {
@@ -241,7 +241,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(btnCloseAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                    .addComponent(message2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,7 +322,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                             .addComponent(btnLookupAccount)
                             .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(message2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(createAcct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -392,28 +392,80 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
         AccountParser ap = new AccountParser("");
         
         //input information requested from xml
-        
         int acctNum = Integer.parseInt(accountNum.getText());//from lookup field input
+        int ssn1 = ap.getAccount(acctNum).getCustomerID();//get CustomerID from Account Object, -1 = no account
         
-        int ssn1 = ap.getAccount(acctNum).getCustomerID();//get ssn from Account Object linked with acctNum
-        String ssn2 = String.valueOf(ssn1);
-        String fname1 = up.getFName(up.getIndexFromSSN(ssn1));
-        String lname1 = up.getLName(up.getIndexFromSSN(ssn1));
-        double balance1 = ap.getAccount(acctNum).checkBalance();
-        String balance2 = String.valueOf(balance1);//convert int to string
-        String acctNum1 = String.valueOf(acctNum);//convert int to string
-        int acctType = ap.getAccount(acctNum).getAccountType();
-        String acctType1 = String.valueOf(acctType);//convert int to string
-        //String overprotection1 = ap.getAccount(acctNum).getAccountOP();
-        
-        //output informations in each textfield according
-        fname.setText(fname1);
-        lname.setText(lname1);
-        balance.setText(balance2);
-        accountNumber.setText(acctNum1);
-        ssn.setText(ssn2);
-        accountType.setText(acctType1);
-        
+        //Search in user.xml for ssn,-1 = not match in user.xml
+
+        if(up.getIndexFromSSN(ssn1)==-1){
+            System.out.println("SSN did found match in user.xml");
+        }else{System.out.println("SSN found match in user.xml, SSN = " + ssn1 + " at index = " + up.getIndexFromSSN(ssn1));}
+
+
+        System.out.println("ssn1 = " + ssn1);//no this SSN found in user.xml
+        if(ssn1==-1){
+            //
+            message2.setText("No Customer Found in Accounts.xml, CustomerID = " + ssn1);
+            fname.setText("");
+            lname.setText("");
+            balance.setText("");
+            accountNumber.setText("");
+            ssn.setText("");
+            accountType.setText("");
+        }else{
+            message2.setText("Found in Accounts.xml, but not in user.xml");
+            double balance1 = ap.getAccount(acctNum).checkBalance();
+            String balance2 = String.valueOf(balance1);//convert int to string
+            String acctNum1 = String.valueOf(acctNum);//convert int to string
+            int acctType = ap.getAccount(acctNum).getAccountType();
+            
+            String acctType1;//convert int to string
+            /*
+            * <li>1=SimpleSavings</li>
+            * <li>2=CDs</li>
+            * <li>3=TMB</li>
+            * <li>4=G/D</li>
+            * <li>5=LLoans</li>
+            * <li>6=SLoans</li>
+            * <li>7=CreditCards</li>
+            * */
+            switch(acctType){
+                case 1: acctType1 = "SimpleSaving";
+                    break;
+                case 2: acctType1 = "CD";
+                    break;
+                case 3: acctType1 = "TMB";
+                    break;
+                case 4: acctType1 = "G/D";
+                    break;
+                case 5: acctType1 = "LLoans";
+                    break;
+                case 6: acctType1 = "SLoans";
+                    break;
+                case 7: acctType1 = "CreditCards";
+                    break;
+                default: acctType1 = "Unknown Type,in default. Check for acctType error";
+            }
+            
+            String ssn2 = String.valueOf(ssn1);
+
+            //out put account information
+            balance.setText(balance2);
+                accountNumber.setText(acctNum1);
+                ssn.setText(ssn2);
+                accountType.setText(acctType1);
+            //further check in user.xml
+            if(up.getIndexFromSSN(ssn1)>-1){
+                message2.setText("Found in Accounts.xml, and user.xml. CustomerID(ssn) = " + ssn1);
+                
+                String fname1 = up.getFName(up.getIndexFromSSN(ssn1));//if ssn1=-1,this will be outofbound
+                String lname1 = up.getLName(up.getIndexFromSSN(ssn1));//if ssn1=-1,this will be outofbound
+
+                //output informations when found match in user.xml
+                fname.setText(fname1);
+                lname.setText(lname1);
+            }//end user.xml part
+        }
     }//GEN-LAST:event_btnLookupAccountActionPerformed
 
     private void accountNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumActionPerformed
@@ -448,7 +500,6 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -467,6 +518,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     private javax.swing.JMenu menuExit;
     private javax.swing.JMenuItem menuLogin;
     private javax.swing.JMenu menuOpen;
+    private javax.swing.JLabel message2;
     private javax.swing.JTextField op;
     private javax.swing.JTextField ssn;
     // End of variables declaration//GEN-END:variables

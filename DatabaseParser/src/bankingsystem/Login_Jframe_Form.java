@@ -129,12 +129,12 @@ public class Login_Jframe_Form extends javax.swing.JFrame {
         int valid = vald1.ValidateUserLogin(username.getText(), String.copyValueOf(pass.getPassword()));
         int role = vald1.getUserType(username.getText());
         if(valid>=0&&role==1){
-            System.out.print("in Login click_event. Matched, validate>=0,&& usertype==1, teller");
+            System.out.print("in Login click_event. Matched, validate>=0,&& usertype=="+role+", teller");
             teller.run();
             this.setVisible(false);
         }
         if(valid>=0&&role==2){
-                System.out.print("in Login click_event. Matched, validate>=0，&& usertype=2,teller");
+                System.out.print("in Login click_event. Matched, validate>=0，&& usertype="+role+",teller");
                 manager.run();
                 this.setVisible(false);
             }

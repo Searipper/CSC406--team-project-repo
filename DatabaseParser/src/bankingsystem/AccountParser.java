@@ -44,7 +44,7 @@ public class AccountParser {
     public AccountParser(String path) {
         this.path = path+"Accounts.xml";//this sets the file path
         ReadFile();//Reads in records
-        EnforceRefEnteg(0);
+//        EnforceRefEnteg(0);
     }
 
     

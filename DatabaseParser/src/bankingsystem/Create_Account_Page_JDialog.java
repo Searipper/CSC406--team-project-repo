@@ -23,57 +23,39 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        opt1 = new javax.swing.JCheckBox();
-        opt2 = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        opt3 = new javax.swing.JCheckBox();
-        opt4 = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         ssn = new javax.swing.JFormattedTextField();
         acctNum = new javax.swing.JFormattedTextField();
         balance = new javax.swing.JTextField();
-        pin = new javax.swing.JTextField();
         message = new javax.swing.JLabel();
+        opt = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("Create");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
         jLabel3.setText("SSN");
 
-        opt1.setText("Checking");
-
-        opt2.setText("Saving");
-
         jLabel8.setText("AccountNum");
 
         jLabel9.setText("Initial Balance");
-
-        opt3.setText("Credit Card");
-
-        opt4.setText("CD");
-
-        jLabel1.setText("Desired PIN");
-
-        jLabel2.setText("4 digits number only");
 
         try {
             ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -85,6 +67,10 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
 
         message.setText("Result:");
 
+        opt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Simple Saving", "CD", "Checking", "Long Term Loan", "Short Term Loan", "Credit Card" }));
+
+        jLabel1.setText("Select Type");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,118 +78,109 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jButton1)
-                        .addGap(38, 38, 38)
-                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(11, 11, 11))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pin, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2))))
+                            .addComponent(opt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(opt1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(opt2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(opt3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(opt4)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(btnCreate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancel)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(pin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(opt1)
-                    .addComponent(opt2)
-                    .addComponent(opt3)
-                    .addComponent(opt4))
+                    .addComponent(opt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(58, 58, 58))
+                    .addComponent(btnCreate)
+                    .addComponent(btnCancel))
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int optcase =0;
-        if(opt1.isSelected()){optcase=1;}//checking
-        if(opt2.isSelected()){optcase=2;}//saving
-        if(opt3.isSelected()){optcase=3;}//Credit Card
-        if(opt4.isSelected()){optcase=4;}//CD
-        
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    //input information, what else?
         int cid = Integer.parseInt(ssn.getText());
         int acctnum = Integer.parseInt(acctNum.getText());
         double bal = Double.parseDouble(balance.getText());
-        int flag = 0;//default 0;
+        
+        System.out.println("In creating btn actionperformed");
+        int optcase;
+        optcase = this.opt.getSelectedIndex();//0=simple saving,1=CD,2=Checking,3=LLoan,4=SLoan,5=CC
+        System.out.println(optcase);
         
         AccountParser ap = new AccountParser("");
-        
-        //creating account according to each type of account case
-        switch(optcase){
-        
-            case 1: System.out.println(1);
-            //int customerID, int accountNum, double balance, int accountFlag
-            //are the parameters when creating these objects. reference each class for details
-                    Checking chk = new Checking(cid, acctnum, bal, flag);
-                    message.setText(ap.CreateAccount(chk));
-                break;
-            case 2: System.out.println(2);
-                    SavingsAccount sav = new SavingsAccount(cid, acctnum, bal, flag);
-                    message.setText(ap.CreateAccount(sav));
-                break;
-            case 3: System.out.println(3);
-                    CreditCards cc = new CreditCards(cid, acctnum, bal, flag);
-                    message.setText(ap.CreateAccount(cc));
-                break;
-            case 4: System.out.println(4);
-                    CdAccount cd = new CdAccount(cid, acctnum, bal, flag);
-                    message.setText(ap.CreateAccount(cd));
-                break;
-            default: System.out.println(0);
-        }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+            System.out.println(optcase);
+            
+            switch(optcase){
+                case 0: SavingsAccount sav = new SavingsAccount(cid,acctnum,bal,0);
+                        ap.CreateAccount(sav);
+                        break;
+                case 1: CdAccount cd = new CdAccount(cid,acctnum,bal,0,1);
+                        ap.CreateAccount(cd);
+                        break;
+                case 2: Checking chk = new Checking(cid,acctnum,bal,0);
+                        ap.CreateAccount(chk);
+                        System.out.println("In switch, case 2 " + optcase);
+                        break;
+                case 3: LoanAccounts lloan = new LoanAccounts(cid,acctnum,bal,0);
+                        ap.CreateAccount(lloan);
+                        System.out.println("In switch, case 3 " + optcase);
+                        break;
+                case 4: LoanAccounts sloan = new LoanAccounts(cid,acctnum,bal,0);
+                        ap.CreateAccount(sloan);
+                        break;
+                case 5: CreditCards cc = new CreditCards(cid,acctnum,bal,0);
+                        ap.CreateAccount(cc);
+                        break;
+                default: System.out.println("default,optcase = -1,check optcase");
+            }//end switch
+            message.setText("Account Created! Type");
+    }//GEN-LAST:event_btnCreateActionPerformed
 
     public void run() {
                 Create_Account_Page_JDialog dialog = new Create_Account_Page_JDialog(new javax.swing.JFrame(), true);
@@ -219,20 +196,14 @@ public class Create_Account_Page_JDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField acctNum;
     private javax.swing.JTextField balance;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JLabel message;
-    private javax.swing.JCheckBox opt1;
-    private javax.swing.JCheckBox opt2;
-    private javax.swing.JCheckBox opt3;
-    private javax.swing.JCheckBox opt4;
-    private javax.swing.JTextField pin;
+    private javax.swing.JComboBox opt;
     private javax.swing.JFormattedTextField ssn;
     // End of variables declaration//GEN-END:variables
 }

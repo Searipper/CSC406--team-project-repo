@@ -100,7 +100,7 @@
                       <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       <Component id="btnCloseAccount" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="message2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -205,7 +205,7 @@
                           <Component id="accountNum" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="message2" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="createAcct" alignment="3" max="-2" attributes="0"/>
@@ -339,7 +339,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton16ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="message2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter account number to search"/>
       </Properties>

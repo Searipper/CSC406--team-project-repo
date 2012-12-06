@@ -58,6 +58,7 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
         pass = new javax.swing.JPasswordField();
         fname = new javax.swing.JTextField();
         display = new javax.swing.JLabel();
+        usernameMsg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,12 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
         bindingGroup.addBinding(binding);
 
         jLabel3.setText("User Name");
+
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Password");
 
@@ -186,7 +193,9 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(pass)))
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(usernameMsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(235, 235, 235))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,21 +227,22 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
                     .addComponent(jLabel10)
                     .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(usernameMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(18, 32, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE))
         );
 
         bindingGroup.bind();
@@ -242,28 +252,15 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-//        if(pass1.getPassword()==pass2.getPassword()){        
-//            System.out.println("pass1.toString()==pass2.toString()");
-//            System.out.println("pass=" + pass);
-//        }else{
-//            System.out.println("pass1 >< pass2");
-//            pass1.revalidate();
-//            pass2.revalidate();
-//        }
-
-//        
-//        User user1 = new User(ssn.getText(), fname.getText(), lname.getText(),
-//                street.getText(), city.getText(), state.getSelectedItem().toString(), 
-//                zip.getText(),type.getSelectedItem().toString(), username.getText(), pass.getText());
-//        System.out.println("SSN=" + user1.getSsn().get(1) + " fname=" + user1.getFname()+
-//                " lname="+ user1.getLname()+" street=" + user1.getStreet()+ 
-//                " city=" + user1.getCity()+" state"+ user1.getState()+
-//                " zip"+user1.getZip()+" type" + user1.getType() + " username"+user1.getUsername()+" pass"+user1.getPassword());
-        
-        
         //Test through UserParser
         String path= "";
         UserParser rec1 = new UserParser(path);
+
+        String username1 = this.username.getText();
+        
+        System.out.println(username1);
+
+        usernameMsg.setText(username1);
         
         display.setText(rec1.CreateRecord(Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
                 street.getText(),city.getText(),state.getSelectedItem().toString(),
@@ -280,6 +277,10 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
     private void ssnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ssnActionPerformed
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
     * @param args the command line arguments
@@ -321,6 +322,7 @@ public class Create_User_jFrame_Form extends javax.swing.JDialog {
     private javax.swing.JTextField street;
     private javax.swing.JFormattedTextField type;
     private javax.swing.JTextField username;
+    private javax.swing.JLabel usernameMsg;
     private javax.swing.JFormattedTextField zip;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

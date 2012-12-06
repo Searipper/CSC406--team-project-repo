@@ -47,8 +47,6 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         btnTransfer = new javax.swing.JButton();
         welcome = new javax.swing.JLabel();
         btnLookupAccount = new javax.swing.JButton();
@@ -61,16 +59,32 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         btnSendBill = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         btnCloseCreditCard = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        message2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnLookupUser = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
         btnUpdateUserInformation = new javax.swing.JButton();
         btnAddUser = new javax.swing.JButton();
-        acctNum = new javax.swing.JFormattedTextField();
+        accountNum = new javax.swing.JFormattedTextField();
         btnOpenCD = new javax.swing.JButton();
         btnCloseCD = new javax.swing.JButton();
         btnRollOverCD = new javax.swing.JButton();
+        op = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        accountType = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        balance = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        ssn = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        accountNumber = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        lname = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        fname = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuOpen = new javax.swing.JMenu();
@@ -81,10 +95,6 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         menuExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         btnTransfer.setText("Transfer");
         btnTransfer.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -100,6 +110,11 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         bindingGroup.addBinding(binding);
 
         btnLookupAccount.setText("Look up Account");
+        btnLookupAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLookupAccountActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Deposit");
         jButton9.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -131,7 +146,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
             }
         });
 
-        jButton12.setText("Issue Credit Card");
+        jButton12.setText("Issue ATM Card");
         jButton12.setMaximumSize(new java.awt.Dimension(150, 50));
         jButton12.setMinimumSize(new java.awt.Dimension(150, 50));
         jButton12.setPreferredSize(new java.awt.Dimension(150, 50));
@@ -191,7 +206,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Enter account number to search");
+        message2.setText("Enter account number to search");
 
         jButton1.setText("Adjust All Rate");
         jButton1.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -238,7 +253,12 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
             }
         });
 
-        acctNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+        accountNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+        accountNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountNumActionPerformed(evt);
+            }
+        });
 
         btnOpenCD.setText("Open CD");
         btnOpenCD.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -269,6 +289,30 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                 btnRollOverCDActionPerformed(evt);
             }
         });
+
+        jTextField7.setText("Account Type");
+
+        jTextField5.setText("Balance");
+
+        jTextField3.setText("SSN");
+
+        jTextField1.setText("Account Number");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField12.setText("First Name");
+
+        jTextField14.setText("Last Name");
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+
+        jTextField16.setText("Overdraft Protection");
 
         jMenu1.setText("File");
 
@@ -314,14 +358,14 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                 .addGap(229, 229, 229)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnLookupAccount)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(message2)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -356,9 +400,43 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                                         .addComponent(btnUpdateUserInformation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnLookupUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(301, 301, 301))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(accountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(accountType, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,11 +446,11 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                     .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnLookupAccount)
-                        .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(message2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -406,7 +484,38 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                             .addComponent(btnOpenCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCloseCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRollOverCD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(accountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(accountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -504,6 +613,100 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         up.run();
     }//GEN-LAST:event_btnUpdateUserInformationActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void accountNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumActionPerformed
+        this.btnLookupAccountActionPerformed(evt);
+    }//GEN-LAST:event_accountNumActionPerformed
+
+    private void btnLookupAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLookupAccountActionPerformed
+        UserParser up = new UserParser("");
+        AccountParser ap = new AccountParser("");
+        
+        //input information requested from xml
+        int acctNum = Integer.parseInt(accountNum.getText());//from lookup field input
+        int ssn1 = ap.getAccount(acctNum).getCustomerID();//get CustomerID from Account Object, -1 = no account
+        
+        //Search in user.xml for ssn,-1 = not match in user.xml
+
+        if(up.getIndexFromSSN(ssn1)==-1){
+            System.out.println("SSN did found match in user.xml");
+        }else{System.out.println("SSN found match in user.xml, SSN = " + ssn1 + " at index = " + up.getIndexFromSSN(ssn1));}
+
+
+        System.out.println("ssn1 = " + ssn1);//no this SSN found in user.xml
+        if(ssn1==-1){
+            //
+            message2.setText("No Customer Found in Accounts.xml, CustomerID = " + ssn1);
+            fname.setText("");
+            lname.setText("");
+            balance.setText("");
+            accountNumber.setText("");
+            ssn.setText("");
+            accountType.setText("");
+        }else{
+            message2.setText("Found in Accounts.xml, but not in user.xml");
+            double balance1 = ap.getAccount(acctNum).checkBalance();
+            String balance2 = String.valueOf(balance1);//convert int to string
+            String acctNum1 = String.valueOf(acctNum);//convert int to string
+            int acctType = ap.getAccount(acctNum).getAccountType();
+            
+            String acctType1;//convert int to string
+            /*
+            * <li>1=SimpleSavings</li>
+            * <li>2=CDs</li>
+            * <li>3=TMB</li>
+            * <li>4=G/D</li>
+            * <li>5=LLoans</li>
+            * <li>6=SLoans</li>
+            * <li>7=CreditCards</li>
+            * */
+            switch(acctType){
+                case 1: acctType1 = "SimpleSaving";
+                    break;
+                case 2: acctType1 = "CD";
+                    break;
+                case 3: acctType1 = "TMB";
+                    break;
+                case 4: acctType1 = "G/D";
+                    break;
+                case 5: acctType1 = "LLoans";
+                    break;
+                case 6: acctType1 = "SLoans";
+                    break;
+                case 7: acctType1 = "CreditCards";
+                    break;
+                default: acctType1 = "Unknown Type,in default. Check for acctType error";
+            }
+            
+            String ssn2 = String.valueOf(ssn1);
+
+            //out put account information
+            balance.setText(balance2);
+                accountNumber.setText(acctNum1);
+                ssn.setText(ssn2);
+                accountType.setText(acctType1);
+            //further check in user.xml
+            if(up.getIndexFromSSN(ssn1)>-1){
+                message2.setText("Found in Accounts.xml, and user.xml. CustomerID(ssn) = " + ssn1);
+                
+                String fname1 = up.getFName(up.getIndexFromSSN(ssn1));//if ssn1=-1,this will be outofbound
+                String lname1 = up.getLName(up.getIndexFromSSN(ssn1));//if ssn1=-1,this will be outofbound
+
+                //output informations when found match in user.xml
+                fname.setText(fname1);
+                lname.setText(lname1);
+            }//end user.xml part
+        }
+        
+    }//GEN-LAST:event_btnLookupAccountActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -519,7 +722,10 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     }//end main args
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField acctNum;
+    private javax.swing.JFormattedTextField accountNum;
+    private javax.swing.JTextField accountNumber;
+    private javax.swing.JTextField accountType;
+    private javax.swing.JTextField balance;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeRate;
     private javax.swing.JButton btnCloseAccount;
@@ -535,21 +741,32 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private javax.swing.JButton btnUpdateUserInformation;
     private javax.swing.JButton btnWithdraw;
     private javax.swing.JButton createAcct;
+    private javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField lname;
     private javax.swing.JMenu menuExit;
     private javax.swing.JMenuItem menuLogin;
     private javax.swing.JMenu menuOpen;
+    private javax.swing.JLabel message2;
+    private javax.swing.JTextField op;
+    private javax.swing.JTextField ssn;
     private javax.swing.JLabel welcome;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
