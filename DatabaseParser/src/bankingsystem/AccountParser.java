@@ -957,17 +957,31 @@ public class AccountParser {
                                                         
                                                         //found IntrestRate
                                                         // <editor-fold defaultstate="collapsed">
-                                                        if(AccountDetails.getNodeName().compareTo("MaturityDate")==0){
-                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
-                                                            a1.setEndDate(Long.parseLong(text));
-                                                        }//end if//</editor-fold>
-                                                        //found Maturity Date
-                                                        // <editor-fold defaultstate="collapsed">
-                                                        if(AccountDetails.getNodeName().compareTo("BillAmount")==0){
+                                                        if(AccountDetails.getNodeName().compareTo("InterestRate")==0){
                                                             CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
                                                         }//end if//</editor-fold>
-                                                        
+                                                        //found Maturity Date
+                                                        // <editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("MaturityDate")==0){
+                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
+                                                            a1.setEndDate(Long.parseLong(text));
+                                                            a1.setLongEndDate(Long.parseLong(text));
+                                                        }//end if//</editor-fold>
+                                                        //found RolloverDate
+                                                        // <editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("RolloverDate")==0){
+                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
+                                                            a1.setRolloverDate(Long.parseLong(text));
+                                                            a1.setLongRolloverDate(Long.parseLong(text));
+                                                        }//end if//</editor-fold>
+                                                        //found StartDate
+                                                        // <editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("StartDate")==0){
+                                                            CdAccount a1=(CdAccount)accountobjects.get(recordcount-1);
+                                                            a1.setStartDate(Long.parseLong(text));
+                                                            a1.setLongStartDate(Long.parseLong(text));
+                                                        }//end if//</editor-fold>
                                                         AccountDetails=AccountDetails.getNextSibling();
                                                     }//end while
                                                     catch(Exception creditcardsloop){
@@ -1296,7 +1310,9 @@ public class AccountParser {
                         // <editor-fold defaultstate="collapsed">
                         if(this.accountobjects.get(i) instanceof CdAccount){
                             CdAccount a1=(CdAccount)this.accountobjects.get(i);
-                            p1.println("\t\t\t<MaturityDate>"+a1.getEndDate()+"</MaturityDate>");
+                            p1.println("\t\t\t<MaturityDate>"+a1.getLongEndDate()+"</MaturityDate>");
+                            p1.println("\t\t\t<StartDate>"+a1.getLongStartDate()+"</StartDate>");
+                            p1.println("\t\t\t<RolloverDate>"+a1.getLongRolloverDate()+"</RolloverDate>");
                             p1.println("\t\t\t<InterestRate>"+a1.getInterestRate()+"</InterestRate>");
                         }//end if CDs
                         // </editor-fold>

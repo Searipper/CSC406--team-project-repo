@@ -113,8 +113,8 @@ public class CdAccount extends AbstractAccount {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDate(long startDate) {
+        this.startDate.setTime(startDate);
     }
 
     public long getLongEndDate() {
