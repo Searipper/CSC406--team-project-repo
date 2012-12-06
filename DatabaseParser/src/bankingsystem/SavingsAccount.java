@@ -24,15 +24,18 @@ public class SavingsAccount extends AtmCards {
         super(customerID, accountNum, balance, accountFlag);
         interestRate = interest;
         isOverdraftAcc = OP;
+        super.setAccountType(accountType);
     }
 
     public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag, boolean OP) {
         super(customerID, accountNum, balance, accountFlag);
         isOverdraftAcc = OP;
+        super.setAccountType(accountType);
     }
 
     public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(accountType);
     }
 
     //--------------------------------------

@@ -44,6 +44,7 @@ public class CdAccount extends AbstractAccount {
         ed.add(ed.YEAR, maturity);    //sets maturity date
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
+        super.setAccountType(accountType);
     }
 
     public CdAccount(int customerID, int accountNum, double balance, int accountFlag, int maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
@@ -55,6 +56,7 @@ public class CdAccount extends AbstractAccount {
         ed.add(ed.YEAR, maturity);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
+        super.setAccountType(accountType);
     }
 
     public CdAccount(int customerID, int accountNum, double balance, int accountFlag, double interest) { //creation of CD requires: initial deposit, interest applied, and end date of CD
@@ -67,6 +69,7 @@ public class CdAccount extends AbstractAccount {
         ed.add(ed.YEAR, FIXEDMAT);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
+        super.setAccountType(accountType);
     }
 
     public CdAccount(int customerID, int accountNum, double balance, int accountFlag) { //creation of CD requires: initial deposit, interest applied, and end date of CD
@@ -78,6 +81,7 @@ public class CdAccount extends AbstractAccount {
         ed.add(ed.YEAR, FIXEDMAT);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
+        super.setAccountType(accountType);
     }
 
     //-----------------------------
