@@ -44,6 +44,7 @@ public class AccountParser {
     public AccountParser(String path) {
         this.path = path+"Accounts.xml";//this sets the file path
         ReadFile();//Reads in records
+        EnforceRefEnteg(0);
     }
 
     
@@ -144,6 +145,26 @@ public class AccountParser {
         return usersAccounts;//</editor-fold>
     }//end getCustomerAccounts
     
+    //<editor-fold defaultstate="collapsed">
+    /**method that searches records for an account by ATM card number and 
+     * returns an ArrayList of ATM card accounts with that card number
+     * @param cardnum the card number of the account.
+     * @return an arraylist of accounts with the specified account number
+     *///</editor-fold>
+    public ArrayList<AtmCards> getMyATM(int cardnum)
+    {//<editor-fold  defaultstate="collapsed">
+        ArrayList<AtmCards> atm = new ArrayList<AtmCards>();
+        for(int i=0;i<this.getRecordCount();i++){
+            if(this.accountobjects.get(i) instanceof AtmCards){
+                AtmCards account =(AtmCards)accountobjects.get(i);
+                if(account.getCardNum()==cardnum){
+                    System.out.println("Match");
+                    atm.add(account);
+                }//end if
+            }//end if
+        }//end fot
+        return atm;//</editor-fold>
+    }//end getMyATM()
     
     //------------------------------------
     //  get Individual Account Methods
@@ -295,7 +316,13 @@ public class AccountParser {
         return a1;
         //</editor-fold>
     }//end getLoanAccount
-    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective ATM account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the ATM account searched for</li>
+     *              <li>If not found, returns a blank loan account</li></ul>
+     *///</editor-fold>
     public  AtmCards getAtmAccount(int accountnumber) 
     {//<editor-fold  defaultstate="collapsed">
         AtmCards a1= new AtmCards(-1,-1,0.00,1);
@@ -306,6 +333,7 @@ public class AccountParser {
                 return a1;
             }//end if
             if((accountobjects.get(i).getAccountNum()==accountnumber)&&!(accountobjects.get(i) instanceof AtmCards)){
+                a1.setAccountNum(-2);
                 System.out.println("Found account, but it is not a Loan account");
             }//end if
         }//end for
@@ -313,7 +341,7 @@ public class AccountParser {
         return a1;
         //</editor-fold>
     }//end getAtmAccount
-
+    
     //-------------------------------------------------------------
     //          Create & Close Account Methods
     //-------------------------------------------------------------
@@ -375,23 +403,6 @@ public class AccountParser {
     //          File Input & Output Methods
     //-------------------------------------------------------------
     
-    //<editor-fold  defaultstate="collapsed">
-    /**Finds the index of the account in arraylist by searching for the account 
-     * number and returns the index of the account
-     * @param accountnumber number of the account we are looking for
-     * @return index of the account in the record
-     */// </editor-fold>
-    public int findAccountIndexByAccountNumber(int accountnumber)
-    {//<editor-fold  defaultstate="collapsed">
-        int index=-1;
-        for(int i = 0; i<this.recordcount;i++){
-            if(this.accountobjects.get(i).getAccountNum()==accountnumber)
-                return i;
-        }
-        System.out.println("Could not find account");
-        return index;// </editor-fold>
-    }
-
     /**
      * <t/><p>reads in an xml file</p>
      * <t/><p>
@@ -435,6 +446,7 @@ public class AccountParser {
                 int flags = 0;
                 long activedate=0;
                 // </editor-fold>
+                //begin parsing file
                 System.out.println("Begin parsing file");
                 try{while(current != null){
 
@@ -475,7 +487,19 @@ public class AccountParser {
                                     text = text.replace("\n", "");
                                     //get data needed to intialize a class
                                     if(Stats.getNodeName().compareTo("AccountType")==0){ AccountType=text;}
-                                    if(Stats.getNodeName().compareTo("CusID")==0){usernum=Integer.parseInt(text);}
+                                    
+                                    if(Stats.getNodeName().compareTo("CusID")==0){
+                                        //set the temp variable
+                                        usernum=Integer.parseInt(text);
+                                        //check if user exists in data
+//                                        if(!up.DoesUserExist(usernum)){
+//                                            System.out.println("User "+usernum+" does not exist in records. now creating user");
+////                                            User user1 = new User(usernum,"Error in user records","Error in user records","","","",0,0);
+//                                            String errormsg = "Error in user records"+usernum;
+//                                            System.out.println(up.CreateRecord(usernum,errormsg,errormsg,"_","_","_",0,"_","_",0));
+//                                        }
+                                    }
+                                    
                                     if(Stats.getNodeName().compareTo("Balance")==0){balence= Double.parseDouble(text);}
                                     if(Stats.getNodeName().compareTo("AccountFlag")==0){flags=Integer.parseInt(text);}
                                     if(Stats.getNodeName().compareTo("DateActivated")==0){activedate = Long.parseLong(text);}
@@ -500,7 +524,18 @@ public class AccountParser {
                                                     while(AccountDetails!=null)try{
                                                         text = AccountDetails.getTextContent().replace("\t", "");;
                                                         text = text.replace("\n", "");
-                                                        
+                                                        //found ATM Card number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("AtmCardNo")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setCardNum(Integer.parseInt(text));
+                                                        }//</editor-fold>
+                                                        //found ATM PIN number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("PIN")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setPIN(Integer.parseInt(text));
+                                                        }//</editor-fold>
                                                         //found Overdraft protected account number
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
@@ -515,7 +550,7 @@ public class AccountParser {
                                                                 a1.setHasOverDraftProtection(false);
                                                             }else{a1.setHasOverDraftProtection(true);}
                                                         }//end if//</editor-fold>
-                                                         //found recent debits
+                                                        //found recent debits
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("RecentDebits")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
@@ -523,15 +558,42 @@ public class AccountParser {
                                                              Node Debits = AccountDetails.getFirstChild();
                                                              
                                                             while(Debits!=null){
-                                                                text = Debits.getTextContent().replace("\t", "");;
+                                                                text = Debits.getTextContent().replace("\t", "");
                                                                 text = text.replace("\n", "");
 
                                                                 if(Debits.getNodeName().compareTo("Debit")==0){
                                                                     attributes = Debits.getAttributes();
                                                                     Node detail = attributes.item(0);
-                                                                    String date= detail.getNodeValue().replace("\t", "");
-                                                                    date = date.replace("\n", "");
-                                                                    a1.addDebititRecord(Double.parseDouble(text), Long.parseLong(date));
+//                                                                    String description=null;
+                                                                    String date=null;
+                                                                    int checknum=0;
+                                                                    double transactionfee=0.00;
+                                                                    double transferfee=0.00;
+                                                                    
+                                                                        for(int i=0; i<attributes.getLength(); i++){
+                                                                            Node attr = attributes.item(i);
+                                                                            
+                                                                            if(attr.getNodeName().compareTo("date")==0){
+                                                                            //found date of Debit
+                                                                                date = attr.getNodeValue().replace("\t", "");
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("checknum")==0){
+                                                                            //found Description of Debit
+                                                                                checknum = Integer.parseInt(attr.getNodeValue());
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("transactionfee")==0){
+//                                                                                System.out.println("Found description: "+attr.getNodeValue());
+                                                                            //found Description of Debit
+                                                                                transactionfee = Double.parseDouble(attr.getNodeValue());
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("transferfee")==0){
+//                                                                                System.out.println("Found description: "+attr.getNodeValue());
+                                                                                //found Description of Debit
+                                                                                transferfee = Double.parseDouble(attr.getNodeValue());
+                                                                            }
+                                                                        }//end for
+                                                                    
+                                                                    a1.addDebititRecord(Double.parseDouble(text), Long.parseLong(date),checknum,transactionfee,transferfee);
 
                                                                 }//end if
                                                                 Debits=Debits.getNextSibling();
@@ -554,7 +616,6 @@ public class AccountParser {
                                                                     String date= detail.getNodeValue().replace("\t", "");
                                                                     date = date.replace("\n", "");
                                                                     a1.addCreditRecord(Double.parseDouble(text), Long.parseLong(date));
-
                                                                 }//end if
                                                                 Credits=Credits.getNextSibling();
                                                             }//end while
@@ -593,6 +654,18 @@ public class AccountParser {
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
                                                             a1.setGDinterestRate(Double.parseDouble(text));
                                                         }//</editor-fold>
+                                                        //found ATM Card number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("AtmCardNo")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setCardNum(Integer.parseInt(text));
+                                                        }//</editor-fold>
+                                                        //found ATM PIN number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("PIN")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setPIN(Integer.parseInt(text));
+                                                        }//</editor-fold>
                                                         //found Overdraft protected account number
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
@@ -607,7 +680,7 @@ public class AccountParser {
                                                                 a1.setHasOverDraftProtection(false);
                                                             }else{a1.setHasOverDraftProtection(true);}
                                                         }//end if//</editor-fold>
-                                                         //found recent debits
+                                                        //found recent debits
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("RecentDebits")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
@@ -615,15 +688,42 @@ public class AccountParser {
                                                              Node Debits = AccountDetails.getFirstChild();
                                                              
                                                             while(Debits!=null){
-                                                                text = Debits.getTextContent().replace("\t", "");;
+                                                                text = Debits.getTextContent().replace("\t", "");
                                                                 text = text.replace("\n", "");
 
                                                                 if(Debits.getNodeName().compareTo("Debit")==0){
                                                                     attributes = Debits.getAttributes();
                                                                     Node detail = attributes.item(0);
-                                                                    String date= detail.getNodeValue().replace("\t", "");
-                                                                    date = date.replace("\n", "");
-                                                                    a1.addDebititRecord(Double.parseDouble(text), Long.parseLong(date));
+//                                                                    String description=null;
+                                                                    String date=null;
+                                                                    int checknum=0;
+                                                                    double transactionfee=0.00;
+                                                                    double transferfee=0.00;
+                                                                    
+                                                                        for(int i=0; i<attributes.getLength(); i++){
+                                                                            Node attr = attributes.item(i);
+                                                                            
+                                                                            if(attr.getNodeName().compareTo("date")==0){
+                                                                            //found date of Debit
+                                                                                date = attr.getNodeValue().replace("\t", "");
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("checknum")==0){
+                                                                            //found Description of Debit
+                                                                                checknum = Integer.parseInt(attr.getNodeValue());
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("transactionfee")==0){
+//                                                                                System.out.println("Found description: "+attr.getNodeValue());
+                                                                            //found Description of Debit
+                                                                                transactionfee = Double.parseDouble(attr.getNodeValue());
+                                                                            }
+                                                                            if(attr.getNodeName().compareTo("transferfee")==0){
+//                                                                                System.out.println("Found description: "+attr.getNodeValue());
+                                                                                //found Description of Debit
+                                                                                transferfee = Double.parseDouble(attr.getNodeValue());
+                                                                            }
+                                                                        }//end for
+                                                                    
+                                                                    a1.addDebititRecord(Double.parseDouble(text), Long.parseLong(date),checknum,transactionfee,transferfee);
 
                                                                 }//end if
                                                                 Debits=Debits.getNextSibling();
@@ -994,7 +1094,6 @@ public class AccountParser {
                                         // <editor-fold defaultstate="collapsed">
                                         if (AccountType.compareTo("Savings")==0)try{
                                             
-//                                            System.out.println("Creating Savings account for account #"+AccountNumber);
                                             accountobjects.add(new SavingsAccount(usernum,AccountNumber,balence,flags));
                                             recordcount++;
                                             accountobjects.get(recordcount-1).setAccountType(1);
@@ -1007,6 +1106,18 @@ public class AccountParser {
                                                     while(AccountDetails!=null)try{
                                                         text = AccountDetails.getTextContent().replace("\t", "");;
                                                         text = text.replace("\n", "");
+                                                        //found ATM Card number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("AtmCardNo")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setCardNum(Integer.parseInt(text));
+                                                        }//</editor-fold>
+                                                        //found ATM PIN number
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("PIN")==0){
+                                                            AtmCards a1=(AtmCards)accountobjects.get(recordcount-1);
+                                                            a1.setPIN(Integer.parseInt(text));
+                                                        }//</editor-fold>
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("OverdraftAccount")==0){
@@ -1072,6 +1183,7 @@ public class AccountParser {
                                                         System.out.println(savingsloop);
                                                         System.exit(1);
                                                     }// </editor-fold>
+                                                    
                                         }//end if (simple savings)
                                         catch(Exception savings){
                                             System.out.println("Error in adding savings account");
@@ -1158,8 +1270,15 @@ public class AccountParser {
                             SavingsAccount a1=(SavingsAccount)this.accountobjects.get(i);
                             int over=0;
                             if(a1.isOverdraftAcc){over=1;}else{over=0;}
+                            //ATM card Number
+                            p1.println("\t\t\t<AtmCardNo>"+a1.getCardNum()+"</AtmCardNo>");
+                            //pin number
+                            p1.println("\t\t\t<PIN>"+a1.getPIN()+"</PIN>");
+                            //overdraft check
                             p1.println("\t\t<OverdraftAccount>"+over+"</OverdraftAccount>");
+                            //intrest rate
                             p1.println("\t\t<InterestRate>"+a1.getInterestRate()+"</InterestRate>");
+                            //recent debits
                             p1.println("\t\t<RecentDebits>");
                                 for(int j=0;j<a1.getNumOfDebits();j++){
                                     p1.println("\t\t\t<Debit date=\""+a1.getDebitDates(j) +"\">"+a1.getDebitAmounts(j) +"</Debit>");
@@ -1189,6 +1308,10 @@ public class AccountParser {
                             //overdraft protection status
                             int protection=0; if(a1.getHasOverDraftProtection()){protection=1;}
                             p1.println("\t\t\t<OverdraftProtection>"+protection+"</OverdraftProtection>");
+                            //ATM card Number
+                            p1.println("\t\t\t<AtmCardNo>"+a1.getCardNum()+"</AtmCardNo>");
+                            //pin number
+                            p1.println("\t\t\t<PIN>"+a1.getPIN()+"</PIN>");
                             //overdraft account number
                             if(a1.getHasOverDraftProtection()){
                                 p1.println("\t\t\t<OverdraftAccount>"+a1.getBackupAccountNumber()+"</OverdraftAccount>");
@@ -1199,9 +1322,13 @@ public class AccountParser {
                             }
                             //debits
                             p1.println("\t\t\t<RecentDebits>");
-                                for(int j=0;j<a1.getNumOfDebits();j++){
-                                    p1.println("\t\t\t\t<Debit date=\""+a1.getDebitDates(j) +"\">"+a1.getDebitAmounts(j) +"</Debit>");
+                                try{
+                                    for(int j=0;j<a1.getNumOfDebits();j++){
+                                    p1.println("\t\t\t\t<Debit date=\""+a1.getDebitDates(j) +"\" checknum=\""+a1.getCheckNumbers(j)+
+                                            "\" transactionfee=\""+a1.getTransactionChargeList(j) +"\" transferfee=\""+
+                                            a1.getTransferChargeList(j) +"\">"+a1.getDebitAmounts(j) +"</Debit>");
                                 }//end debits
+                            }catch(Exception Checkingdebits){System.out.println("Error in adding Checking Debits");}
                             p1.println("\t\t\t</RecentDebits>");
                             //credits
                             p1.println("\t\t\t<RecentCredits>");
@@ -1272,6 +1399,39 @@ public class AccountParser {
             System.out.println(e);
         }
     }
+    
+    //<editor-fold  defaultstate="collapsed">
+    /**this is a method that goes through the accounts and checks to see if their 
+     * account owners exist in the user file. if the user does not exist the method 
+     * creates one and then recursively calls itself and starts searching for more 
+     * unmatched user accounts from the last searched point in the array\
+     * @param arraylocation location to start searching from
+     * @return String message
+     *///</editor-fold>
+    private String EnforceRefEnteg(int arraylocation)
+    {//<editor-fold  defaultstate="collapsed">
+        //call in the userparser so we have accounts on hand
+        UserParser up = new UserParser("");
+        if(arraylocation<this.recordcount){
+            for(int i=arraylocation;i<recordcount;i++){
+                //check if account has a user, if they don't do this
+                if(!up.DoesUserExist(accountobjects.get(i).getCustomerID())){
+                    System.out.println("Found account without a user. missing ssn account: "+accountobjects.get(i).getCustomerID());
+                    //create an error message to let user know account data needs updated
+                    String errormsg = "Error in user records"+accountobjects.get(i).getCustomerID();
+                    //create a new record
+                    up.CreateRecord(accountobjects.get(i).getCustomerID(),errormsg,errormsg,"####","####","##",0,"####","####",0);
+                    //use recursion and call this method again starting from this point in the loop
+                    if(arraylocation<this.recordcount){System.out.println(EnforceRefEnteg(i));}
+                    //return
+                    return"user added";
+                }//end if
+            }//end for
+        }//end if
+        //the data is secure
+        return "Referential entegrity secure";//</editor-fold>
+    }//end EnforceRefEnteg
+    
     //-------------------------------------------------------------
     //          Print Methods
     //-------------------------------------------------------------

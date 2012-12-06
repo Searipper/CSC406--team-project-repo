@@ -115,8 +115,18 @@ public class Checking extends AtmCards {
         return protectingAcc;
     }
 
-    
-    
+    public int getCheckNumbers(int index) {
+        return CheckNumbers.get(index);
+    }
+
+    public double getTransactionChargeList(int index) {
+        return TransactionChargeList.get(index);
+    }
+
+    public double getTransferChargeList(int index) {
+        return TransferChargeList.get(index);
+    }
+
     //-----------------------------
     //      Other Methods
     //-----------------------------
@@ -247,7 +257,7 @@ public class Checking extends AtmCards {
             //send a negative number to detract from the balence
     }
 
-    public void DebitAccount(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
+    public void addDebititRecord(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
         super.addDebititRecord(amount, DateOfActivation);
         this.CheckNumbers.add(checknumber);
         this.TransactionChargeList.add(transaction);
