@@ -61,6 +61,14 @@ public class AtmCards extends AbstractAccount implements CreditInterface, DebitI
     int getCardNum() {
         return cardNum;
     }
+
+    public void setCardNum(int cardNum) {
+        this.cardNum = cardNum;
+    }
+
+    public void setPIN(int PIN) {
+        this.PIN = PIN;
+    }
     
     void ATMwithdrawal() {
         throw new UnsupportedOperationException("Not supported yet.");
