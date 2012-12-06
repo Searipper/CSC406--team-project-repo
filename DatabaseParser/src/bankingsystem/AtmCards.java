@@ -45,8 +45,8 @@ public class AtmCards extends AbstractAccount implements CreditInterface, DebitI
     //      Methods
     //-----------------------------
 
-    public void balanceCheck() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public double balanceCheck() {
+        return this.balance;
     }
 
     public int getNumOfWithdraw() {

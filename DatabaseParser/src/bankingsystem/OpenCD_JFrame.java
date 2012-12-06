@@ -217,7 +217,7 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
         int accountNumber = Integer.parseInt(acctNum.getText());
         double loanAmount = Double.parseDouble(amt.getText());
         double loanInterest = Double.parseDouble(rate.getText());
-        long maturityDate = Long.parseLong(matDate.getText());
+        int maturityDate = (int) Long.parseLong(matDate.getText());
         int accountFlag = 0;//need to confirm what does accountflag have to do when openning a CD    
         System.out.println(customerId);
         System.out.println(accountNumber);

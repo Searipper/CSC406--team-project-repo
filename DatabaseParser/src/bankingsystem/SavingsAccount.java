@@ -8,13 +8,15 @@ import java.util.Date;
  * @author mlaunet
  */
 public class SavingsAccount extends AtmCards {
-    
+
     //--------------------------------------
     //  Variables
     //--------------------------------------
+    final private int accountType = 1;
     double interestRate = .015; //changable to whatever
     boolean isOverdraftAcc = false; //is an overdraft protection account flag
-    
+    int accountToProtect; //if there is an account to protect, this holds the number
+
     //--------------------------------------
     //  Constructors
     //--------------------------------------
@@ -23,19 +25,19 @@ public class SavingsAccount extends AtmCards {
         interestRate = interest;
         isOverdraftAcc = OP;
     }
-    
+
     public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag, boolean OP) {
-            super(customerID, accountNum, balance, accountFlag);
-            isOverdraftAcc = OP;
+        super(customerID, accountNum, balance, accountFlag);
+        isOverdraftAcc = OP;
     }
+
     public SavingsAccount(int customerID, int accountNum, double balance, int accountFlag) {
-            super(customerID, accountNum, balance, accountFlag);
+        super(customerID, accountNum, balance, accountFlag);
     }
-    
+
     //--------------------------------------
     //  methods
     //--------------------------------------
-    
     public double withdraw(double amount) { //deducts funds from account, returns updated balance
         balance -= amount;
         return balance;
@@ -50,6 +52,14 @@ public class SavingsAccount extends AtmCards {
         double total = (balance * interestRate);
         balance += total;
         return total;
+    }
+
+    public int getAccountToProtect() {
+        return accountToProtect;
+    }
+
+    public void setAccountToProtect(int accountProtecting) {
+        this.accountToProtect = accountProtecting;
     }
 
     public double getInterestRate() {
@@ -68,15 +78,17 @@ public class SavingsAccount extends AtmCards {
         isOverdraftAcc = set;
     }
 
-
     @Override
     public void updateBalance(double balance) {
         this.balance = balance;
     }
+
+//    public void print() {
+//        System.out.println(getAccountNum() +" - user num: " + getssn());
+//    }
 //    public double transferFunds(account accNum, double amount) { //you'll have to specify account to pass funds to
 //        balance -= amount;
 //        accNum.balance += amount;        
 //        return balance;
 //    }
-    
 }

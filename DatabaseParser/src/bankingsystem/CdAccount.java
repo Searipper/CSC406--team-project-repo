@@ -5,8 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in
+ * the editor.
  */
 
 /**
@@ -18,34 +18,41 @@ public class CdAccount extends AbstractAccount {
     //---------------------------------
     //  Variable decleration
     //---------------------------------
+    final private int accountType = 2;
     final double PENALTY = 90; //temp constant for penalty to apply to early CD withdrawal
-    final long FIXEDMAT = 5; //standard maturity date if none set
+    final int FIXEDMAT = 5; //standard maturity date if none set
     private long longEndDate; // date that CD reaches full maturity
+    private long longStartDate;// date that CD is created
     Date endDate = new Date();
+    Date startDate = new Date();
+    Date rolloverDate = new Date();
     private double interestEarned; //variable to store interest earned
     private double interestRate = .015; //changable to whatever
     long longRolloverDate; // date the the CD will rollover once it has reached maturity, should be ten days standard
-    Date rolloverDate = new Date();
 
     //---------------------------------
     //  Constructor
     //---------------------------------
-    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
+    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, double interest, int maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         //maturity should be in 'YEAR' form. So, five years for full maturity for example: (param.., 5);
         super(customerID, accountNum, balance, accountFlag);
         interestRate = interest;
         interestEarned = 0;
         Calendar ed = Calendar.getInstance(); //create a calendar object to set today's date for account creation
-        ed.add(ed.YEAR, (int) maturity);    //sets maturity date
+        startDate.setTime(ed.getTime().getTime());
+        longStartDate = ed.getTime().getTime();
+        ed.add(ed.YEAR, maturity);    //sets maturity date
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
     }
 
-    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, long maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
+    public CdAccount(int customerID, int accountNum, double balance, int accountFlag, int maturity) { //creation of CD requires: initial deposit, interest applied, and end date of CD
         super(customerID, accountNum, balance, accountFlag);
         interestEarned = 0;
         Calendar ed = Calendar.getInstance();
-        ed.add(ed.YEAR, (int) maturity);
+        startDate.setTime(ed.getTime().getTime());
+        longStartDate = ed.getTime().getTime();
+        ed.add(ed.YEAR, maturity);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
     }
@@ -55,7 +62,9 @@ public class CdAccount extends AbstractAccount {
         interestEarned = 0;
         interestRate = interest;
         Calendar ed = Calendar.getInstance();
-        ed.add(ed.YEAR, (int) FIXEDMAT);
+        startDate.setTime(ed.getTime().getTime());
+        longStartDate = ed.getTime().getTime();
+        ed.add(ed.YEAR, FIXEDMAT);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
     }
@@ -64,7 +73,9 @@ public class CdAccount extends AbstractAccount {
         super(customerID, accountNum, balance, accountFlag);
         interestEarned = 0;
         Calendar ed = Calendar.getInstance();
-        ed.add(ed.YEAR, (int) FIXEDMAT);
+        startDate.setTime(ed.getTime().getTime());
+        longStartDate = ed.getTime().getTime();
+        ed.add(ed.YEAR, FIXEDMAT);
         longEndDate = ed.getTime().getTime();
         endDate.setTime(longEndDate);
     }
@@ -88,6 +99,22 @@ public class CdAccount extends AbstractAccount {
 
     public void setRolloverDate(long longRolloverDate) {
         this.rolloverDate.setTime(longRolloverDate);
+    }
+
+    public long getLongStartDate() {
+        return longStartDate;
+    }
+
+    public void setLongStartDate(long longStartDate) {
+        this.longStartDate = longStartDate;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public long getLongEndDate() {
@@ -147,12 +174,16 @@ public class CdAccount extends AbstractAccount {
     }
 
     public double closeCD() { //closes account, requests current mm/dd/yyyy, return funds depending on maturity
+        double temp = balance;
         long currDate = new Date().getTime();
         if (currDate < endDate.getTime()) {
-            balance -= (PENALTY + interestEarned);
-            System.out.println("Penalty for early withdrawal");
+            double temppen = (PENALTY + interestEarned);
+            balance -= temppen;
+            System.out.println(temppen+" penalty for early withdrawal, you will only recieve " + balance + " instead of " + temp);
+            balance = 0;
             return balance;
         } else {
+            System.out.println("Closing fulling mature account, you will recieve " + balance);
             return balance;
         }
     }
