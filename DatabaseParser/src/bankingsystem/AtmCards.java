@@ -40,6 +40,14 @@ public class AtmCards extends AbstractAccount implements CreditInterface, DebitI
         this.balance = balance;
         this.accountFlag = accountFlag;
     }
+
+    public void setPIN(int PIN) {
+        this.PIN = PIN;
+    }
+
+    public void setCardNum(int cardNum) {
+        this.cardNum = cardNum;
+    }
     
     //-----------------------------
     //      Methods

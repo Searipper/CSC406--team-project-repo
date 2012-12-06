@@ -198,4 +198,37 @@
 		<ZIP>64501</ZIP>
 		<AccessType>1</AccessType>
 	</user>
+	<user SSN="987654321">
+		<Fname>Error in user records987654321</Fname>
+		<Lname>Error in user records987654321</Lname>
+		<password>####</password>
+		<UID>####</UID>
+		<StreetAddress>####</StreetAddress>
+		<City>####</City>
+		<State>##</State>
+		<ZIP>0</ZIP>
+		<AccessType>0</AccessType>
+	</user>
+	<user SSN="123456789">
+		<Fname>Error in user records123456789</Fname>
+		<Lname>Error in user records123456789</Lname>
+		<password>####</password>
+		<UID>####</UID>
+		<StreetAddress>####</StreetAddress>
+		<City>####</City>
+		<State>##</State>
+		<ZIP>0</ZIP>
+		<AccessType>0</AccessType>
+	</user>
+	<user SSN="423567980">
+		<Fname>Error in user records423567980</Fname>
+		<Lname>Error in user records423567980</Lname>
+		<password>####</password>
+		<UID>####</UID>
+		<StreetAddress>####</StreetAddress>
+		<City>####</City>
+		<State>##</State>
+		<ZIP>0</ZIP>
+		<AccessType>0</AccessType>
+	</user>
 </users>

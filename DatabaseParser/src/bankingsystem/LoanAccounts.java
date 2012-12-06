@@ -34,6 +34,13 @@ public class LoanAccounts extends BillingAccounts{
         super.setAccountType(accounttype);
     }
     
+    public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag,int accounttype,double intrestrate) {
+        super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(accounttype);
+        this.setInterestRate(intrestrate);
+        
+    }
+    
     //-----------------------------
     //      Methods
     //-----------------------------
@@ -54,6 +61,7 @@ public class LoanAccounts extends BillingAccounts{
     }
     /**sets the Fixed payment amount = (Principle * Interest Rate) / 365 days*/
     private void setFixedPaymentAmount() {
+        //minimum amount
         this.FixedPaymentAmount=((this.balance*this.InterestRate)/365)*30;
     }
     /**get the interest Incurred on a specific payment*/
@@ -65,6 +73,7 @@ public class LoanAccounts extends BillingAccounts{
     //----------------------------------
     //  implemented from BillingAccounts
     //----------------------------------
+    /**Minimum monthly*/
     @Override
     public double CalculateBill() {
         double billamount=0;

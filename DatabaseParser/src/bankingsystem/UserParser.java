@@ -10,7 +10,7 @@ import javax.xml.parsers.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.*;
-
+import java.util.concurrent.locks.*;//needs a lock in this class
 /**
  * <p>
  * This class is the interface between the User Data files and the Banking system.
@@ -27,6 +27,7 @@ public class UserParser {
     private String path;
     private int usercount;
     private ArrayList<User> userlist = new ArrayList<User>();
+    private Lock lock = new ReentrantLock();
     //end data variables
 
 
@@ -91,7 +92,32 @@ public class UserParser {
     //          Methods
     //-------------------------------------------------------------
     
-    public int getIndexFromSSN(int ssn){
+    // <editor-fold defaultstate="collapsed">
+    /**Searches the array of users for a user with the ssn number equal to the ssn search parameter.
+     @param ssn social security number we are searching for.
+     @return <ul><li>false if user does not exist in records</li>
+     * <li>true if user is found</li></ul>*/// </editor-fold>
+    public boolean DoesUserExist(int ssn)
+    {// <editor-fold defaultstate="collapsed">
+        lock.lock();//acquire the processor
+        boolean check=false;
+        int counter=0;
+        try{
+            for(int i=0;i<this.usercount;i++){
+                if(ssn==this.userlist.get(i).getSsn()){
+                    counter++;
+                }//end if
+            }//end loop
+            if(counter!=0){check= true;}
+        }catch(Exception locking){
+        }finally{
+        lock.unlock();
+        return check;// </editor-fold>
+        }
+    }//end DoesUserExist;
+    
+    public int getIndexFromSSN(int ssn)
+    {// <editor-fold defaultstate="collapsed">
         int index =-1;//negative number means not in the system files
         System.out.println("in getIndexFromSSN() looking for "+ssn);
         for(int i=0;i<usercount;i++){//loop through the system files
@@ -102,8 +128,10 @@ public class UserParser {
                 return index;
             }
         }
-        return index;
-    }
+        return index;// </editor-fold>
+    }//end getIndexFromSSN
+    
+    // <editor-fold defaultstate="collapsed">
     /**
      * <p>This Function adds a record to the ArrayLists, updates the user counter
      * and then updates the .xml file by calling WriteFile();
@@ -120,35 +148,82 @@ public class UserParser {
      * @param password System Password
      * @param utype User access type
      * @return String message <ul><li>"User Added"</li><li>"User already exist in our database"</li><li>"Error in adding user"</li></ul>
-     */
+     */// </editor-fold>
     public String CreateRecord(int ssn,String fname,String lname,String street,
-            String city,String state,int zip,String username,String password, int accestype){
+            String city,String state,int zip,String username,String password, int accestype)
+    {// <editor-fold defaultstate="collapsed">
         //update counter variable
-        
+        System.out.println(ssn);
+        int flag=-1;
+        for(int i=0;i<usercount;i++){
+            if(ssn==getSSN(i)){flag=1;}
+        }
+        if(flag!=-1){
+            return"User already exist in our database";
+        }else {
+            try{
+                User u1 = new User(ssn,fname,lname,street,city,state,zip,accestype);
+                this.userlist.add(u1);
+                usercount = usercount+1;
+                //add to arraylists
+                this.userlist.get(usercount-1).setUsername(username);
+                this.userlist.get(usercount-1).setPassword(password);
+                //update file
+                WriteFile();
+                return "User Added";
+            }catch(Exception addingexception){
+                System.out.println("Error in adding user");
+                System.out.println(addingexception);
+                return "error in file write";
+            }
+        }// </editor-fold>
+    }//end Create Record 
+    
+    // <editor-fold defaultstate="collapsed">
+    /**
+     * <p>This Function adds a record to the ArrayLists, updates the user counter
+     * and then updates the .xml file by calling WriteFile();
+     * the if the SSN number passed already exists for one of the records it 
+     * does not update.</p>
+     * @param newuser new user object
+     * @return String message <ul><li>"User Added"</li><li>"User already exist in our database"</li><li>"Error in adding user"</li></ul>
+     */// </editor-fold>
+    public String CreateRecord(User newuser)
+    {// <editor-fold defaultstate="collapsed">
+        lock.lock();//acquire the processor
+        String reString="";
+        try{
+        //update counter variable
         int flag=0;
         for(int i=0;i<usercount;i++){
-            if(ssn==getSSN(i)){flag++;}
+            if(newuser.getSsn()==this.userlist.get(i).getSsn()){
+                flag++;
+            }
         }
         if(flag==0){
-        try{
-        usercount = usercount+1;
-        //add to arraylists
-        
-        this.userlist.add(new User(ssn,fname,lname,street,city,state,zip,accestype));
-        this.userlist.get(usercount-1).setUsername(username);
-        this.userlist.get(usercount-1).setPassword(password);
-        //update file
-        WriteFile();
-        return "User Added";
-        }catch(Exception addingexception){
-            System.out.println("Error in adding user");
-            System.out.println(addingexception);
-            return "error in file write";
-        }
+            try{
+                usercount = usercount+1;
+                //add to arraylists
+                this.userlist.add(newuser);
+                //update file
+                WriteFile();
+                reString = "User Added";
+            }catch(Exception addingexception){
+                System.out.println("Error in adding user");
+                System.out.println(addingexception);
+                reString= "error in file write";
+            }
         }else{
-            return"User already exist in our database";
+            reString="User already exist in our database";
+        }// </editor-fold>
+        }catch(Exception e){
+        }finally{
+        lock.unlock();
+        return reString;
         }
-    }//end Create Record    
+    }//end CreateRecord
+    
+    // <editor-fold defaultstate="collapsed">
     /**
      * Removes a user record from the database.
      * @param userssn Social security number of the user to be removed from the system.
@@ -158,8 +233,9 @@ public class UserParser {
      * <li>"could not find user to delete!"</li>
      * <li>"User deleted"</li>
      * </ul>
-     */
-    public String DeleteRecord(int userssn){
+     */// </editor-fold>
+    public String DeleteRecord(int userssn)
+    {// <editor-fold defaultstate="collapsed">
         System.out.println(userssn);
         if(usercount<1){
             return "There are no users in the system to delete";
@@ -181,18 +257,20 @@ public class UserParser {
                 System.exit(0);
             }//end catch
             return "User deleted";
-        }//end else
+        }//end else// </editor-fold>
     }//end DeleteRecord    
-
+    
+    // <editor-fold defaultstate="collapsed">
     /**
      * <p>this function takes the data stored in the ArrayLists 
      * and writes it into a properly formed xml file in the 
      * location path declared in the constructor</p>
      * @return 1 Million dollars!!! No, not really!
-     */
-    private void WriteFile(){
+     */// </editor-fold>
+    private void WriteFile()
+    {// <editor-fold defaultstate="collapsed">
         File f1 = new File(path);
-        try{
+        try{// <editor-fold defaultstate="collapsed">
             //FileOutputStream fileout = new FileOutputStream(f1);
             PrintWriter p1 = new PrintWriter(f1);
             
@@ -218,12 +296,14 @@ public class UserParser {
                 
                 //update records of change
                 ReadFile();
-            }
+            }// </editor-fold>
         }catch(Exception e){
             System.out.println("Exception in file output stream");
             System.out.println(e);
-        }
-    }
+        }// </editor-fold>
+    }//end WriteFile
+    
+    // <editor-fold defaultstate="collapsed">
     /**
      * <t/><p>reads in an xml file</p>
      * <t/><p>
@@ -236,9 +316,9 @@ public class UserParser {
      * ---------------------------------<br/>
      * </p>
      * @return  not a damn thing....
-     */
-    private void ReadFile(){
-        
+     */// </editor-fold>
+    private void ReadFile()
+    {// <editor-fold defaultstate="collapsed">
         try{
             //reset the usercount
             usercount=0;
@@ -328,14 +408,18 @@ public class UserParser {
                 System.exit(1);
                 //To get rid of this exception, we need to consider the empty file situation and put another if else statement
             }//end exception
+        // </editor-fold>
     }//end ReadFile()
+    // <editor-fold defaultstate="collapsed">
     /**
      * Checks a username and password passed to the method. returns a valid or invalid number
      * @param username username
      * @param password password
      * @return Boolean T/F value.
-     */
-    public int ValidateUserLogin(String username,String password){
+     */// </editor-fold>
+    
+    public int ValidateUserLogin(String username,String password)
+    {// <editor-fold defaultstate="collapsed">
         int index = -1;
         for(int i=0;i<usercount;i++){
             System.out.println("looking for user: "+username+" found: "+getUsername(i)+ 
@@ -353,15 +437,19 @@ public class UserParser {
         }//end if checking username
         }//end for loop
         return index;
-    }//
-    public int getUserType(String username){
+        // </editor-fold>
+    }
+    
+    public int getUserType(String username)
+    {// <editor-fold defaultstate="collapsed">
         int index = -1;
         for(int i=0;i<usercount;i++){
             if(this.getUsername(i).compareTo(username)==0){index = i;}           
         }
         System.out.println(index);
-        return this.getType(index);
+        return this.getType(index);// </editor-fold>
     }
+    // <editor-fold defaultstate="collapsed">
     /**
      * Updates user record. Checks the record for the SSN and updates if it exists.
      * 
@@ -375,9 +463,11 @@ public class UserParser {
      * @param username String Username
      * @param password String Password
      * @param utype integer User Type
-     */
+     */// </editor-fold>
+    
     public String UpdateRecord(int ssn,String fname,String lname,String street,
-            String city,String state,int zip,String username,String password, int utype){
+            String city,String state,int zip,String username,String password, int utype)
+    {// <editor-fold defaultstate="collapsed">
         int record=-1;
         for(int i=0;i<usercount;i++){
             if(ssn==getSSN(i)){record=i;}
@@ -398,8 +488,9 @@ public class UserParser {
             WriteFile();
             
             return "user information updated";
-        }
+        }// </editor-fold>
     }//end UpdateRecord
+    
     //-------------------------------------------------------------
     //          Print Methods
     //-------------------------------------------------------------
@@ -408,8 +499,8 @@ public class UserParser {
      * prints out all the data on all the users in the ArrayLists
      * @return do I even have to say it? nothing!!!
      */
-    public String printUser(int ssn){
-
+    public String printUser(int ssn)
+    {// <editor-fold defaultstate="collapsed">
         String fn = null;
         String ln = null;
         String sn = null;
@@ -421,14 +512,15 @@ public class UserParser {
                 System.out.println(this.getFName(i) + " " + this.getLName(i) + " USER TYPE:" + this.getType(i));
             }
         }
-        return (fn + " "+ ln + " " + sn);
+        return (fn + " "+ ln + " " + sn);// </editor-fold>
     }//end printUser
     
-    public void printUserList(){
+    public void printUserList()
+    {// <editor-fold defaultstate="collapsed">
         for(int i=0;i<usercount;i++){
             System.out.println(getFName(i)+"\t"+getLName(i)+"\t"+getSSN(i)+
                     "\t"+getStreet(i)+" \t"+getCity(i)+"    \t"+getState(i)+"\t"
                     +getZip(i)+"\t"+getUsername(i)+"\t"+getPassword(i));
-        }//end for
+        }//end for// </editor-fold>
     }//end printUsers
 }//end UserParser class
