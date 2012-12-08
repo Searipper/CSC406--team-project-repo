@@ -259,7 +259,19 @@ public class UserParser {
             return "User deleted";
         }//end else// </editor-fold>
     }//end DeleteRecord    
-    
+    public String RegisterUserForATM(int ssn, int cardnum,int pin){
+        User u1=null;
+        for(int i=0;i<this.usercount;i++){
+            if(this.userlist.get(i).getSsn()==ssn){
+                u1=userlist.get(i);
+            }//end if
+        }//end for
+        if(u1!=null){
+            return u1.RegisterForATMCard(cardnum, pin);
+        }else{
+            return"User does not exist and could not register for ATM";
+        }//end if
+    }//end RegisterUserForATM
     // <editor-fold defaultstate="collapsed">
     /**
      * <p>this function takes the data stored in the ArrayLists 
@@ -289,6 +301,11 @@ public class UserParser {
                     p1.println("\t\t<State>"+getState(i)+"</State>");
                     p1.println("\t\t<ZIP>"+getZip(i)+"</ZIP>");
                     p1.println("\t\t<AccessType>"+getType(i)+"</AccessType>");
+                    //if user has an atm account
+                    if(this.userlist.get(i).getCardnum()!=0&&this.userlist.get(i).getPIN()!=0){
+                        p1.println("\t\t<cardnum>"+this.userlist.get(i).getCardnum() +"</cardnum>");
+                        p1.println("\t\t<PIN>"+this.userlist.get(i).getPIN() +"</PIN>");
+                    }//end if
                 p1.println("\t</user>");
                 }
                 p1.println("</users>");
@@ -384,6 +401,8 @@ public class UserParser {
                                     if(Stats.getNodeName().compareTo("State")==0){this.userlist.get(this.usercount-1).setState(text);}
                                     if(Stats.getNodeName().compareTo("ZIP")==0){this.userlist.get(this.usercount-1).setZip(Integer.parseInt(text));}
                                     if(Stats.getNodeName().compareTo("AccessType")==0){this.userlist.get(this.usercount-1).setAccestype(Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("cardnum")==0){this.userlist.get(this.usercount-1).setCardnum(Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("PIN")==0){this.userlist.get(this.usercount-1).setPIN(Integer.parseInt(text));}
 
                                     //System.out.print(text);
                                     Stats = Stats.getNextSibling();

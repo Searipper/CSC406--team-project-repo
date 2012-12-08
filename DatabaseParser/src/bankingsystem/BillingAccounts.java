@@ -42,8 +42,18 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
     
     //----getter & setter methods----
     public long getBillDue() {return BillDue;}
+    public Date getDueDate(){
+        Calendar cr = Calendar.getInstance();
+        cr.setTime(new Date(this.BillDue));
+        return cr.getTime();
+    }//end getDueDate
     public void setBillDue(long BillDue) {this.BillDue = BillDue;}
     public long getBillSentOut() {return BillSentOut;}
+    public Date getSendOutDate(){
+        Calendar cr = Calendar.getInstance();
+        cr.setTime(new Date(this.BillSentOut));
+        return cr.getTime();
+    }//end getSendOutDate
     public void setBillSentOut(long BillSentOut) {this.BillSentOut = BillSentOut;}
     public double getBillamount() {return Billamount;}
     public void setBillamount(double Billamount) {this.Billamount = Billamount;}
@@ -87,6 +97,8 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
                 //This months bill has been paid in full
                 return 1;
             }//end if
+            //if bill has not been paid off flag as problem account
+            if(Billamount>recentPaymentAmts){super.setAccountFlag(1);}
         }//end else
         return status;
     }//end CheckPaymentStatus
@@ -95,17 +107,21 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
      * Marks the date of sendoff and the payment due date
      */
     public void SendoutBills(){
-        //calculate the amount of the bill. will be implamented in lower classes
-        Billamount=CalculateBill();
-        //set the date of sendoff
-        BillSentOut= new Date().getTime();
-        //set the due date
-        //this is supposed to set the calender date when the bill is due.
-        Calendar cal = Calendar.getInstance();
-        //this should set the calender ahead to the date after the grace period
-        cal.add(cal.DAY_OF_MONTH, graceperiod);
-        //convert the calender to a date, converts the date to a long value
-        BillDue =cal.getTime().getTime();
+        if(new Date().getTime()>=this.BillDue){
+            //calculate the amount of the bill. will be implamented in lower classes
+            Billamount=CalculateBill();
+            //set the date of sendoff
+            BillSentOut= new Date().getTime();
+            //set the due date
+            //this is supposed to set the calender date when the bill is due.
+            Calendar cal = Calendar.getInstance();
+            //this should set the calender ahead to the date after the grace period
+            cal.add(cal.DAY_OF_MONTH, graceperiod);
+            //convert the calender to a date, converts the date to a long value
+            BillDue = cal.getTime().getTime();
+        }else{
+            System.out.println("Cannot send out a new bill until current due date is past");
+        }
     }
     //---------------------------------
     //  implemented from DebitInterface
@@ -146,9 +162,23 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
             return 0;
         }
     }
+    public Date getDebitDate(int index) {
+        Calendar cr = Calendar.getInstance();
+        cr.setTime(new Date(this.DebitDates.get(index)));
+        return cr.getTime();
+    }    
     @Override
     public int getNumOfDebits() {
         return NumberOfDebits;
     }
-    
+    //-------------------------------------
+    //  printmethods
+    //-------------------------------------
+    public String getBillDetails(){
+        String bill="\tAmount: $"+this.getBillamount()+
+                "\n\tDate sent out: "+this.getSendOutDate()+
+                "\n\tDate Due: "+this.getDueDate();
+        
+        return bill;
+    }
 }//end class

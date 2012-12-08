@@ -1,6 +1,7 @@
 package bankingsystem;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -12,22 +13,40 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     //-------------------------------------
     //  Variables
     //-------------------------------------
-    private ArrayList<Double> CreditAmounts=new ArrayList<Double>();
-    private ArrayList<Long> CreditDates=new ArrayList<Long>();
-    private int NumberOfCredits;
+    private ArrayList<Double> CreditAmounts=new ArrayList<Double>();//holds amounts of credit history
+    private ArrayList<Long> CreditDates=new ArrayList<Long>();//holds dates of credit history
+    private int NumberOfCredits;//holds number of credits
     //----creditcard specific----
-    private ArrayList<String> CreditDescriptions=new ArrayList<String>();
-    private double CreditLimit;
+    private ArrayList<String> CreditDescriptions=new ArrayList<String>();//holds purchase discriptions of credit history
+    private double CreditLimit;//holds the credit limit
     private double FinanceCharge;//average of purchases during the month
     private long DateOfFinanceCharge;//date that user paid off finance charge
     
     //-------------------------------------
     //  Constructor
     //-------------------------------------
-    
+    /**CreditCard Constructor 
+     * @param customerID customer ssn 
+     * @param accountNum Account number 
+     * @param balence account starting balance
+     * @param accountFlag accountFlags
+     */
     public CreditCards(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
         super.setAccountType(7);
+        CreditLimit=500.00;
+    }
+    /**CreditCard Constructor 
+     * @param customerID customer ssn 
+     * @param accountNum Account number 
+     * @param balence account starting balance
+     * @param accountFlag accountFlags
+     * @param creditlimit credit card limit
+     */
+    public CreditCards(int customerID, int accountNum, double balance, int accountFlag,double creditlimit) {
+        super(customerID, accountNum, balance, accountFlag);
+        super.setAccountType(7);
+        CreditLimit=creditlimit;
     }
 
     //-------------------------------------
@@ -72,10 +91,11 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
                     purchases++;
                 }
             }
-            System.out.println("Number of purchases this month: "+purchases);
-            System.out.println("Total value of purchases this month: "+monthlyamount);
+//            System.out.println("Number of purchases this month: "+purchases);
+//            System.out.println("Total value of purchases this month: "+monthlyamount);
             //get the average balence by dividing the purchase values by number of purchases
-            FinanceCharge=monthlyamount/purchases;
+            FinanceCharge=Math.rint(monthlyamount/purchases);
+            
             System.out.println("Finance charge value: "+FinanceCharge);
         }else{
             System.out.println("Nothing owed. no need to calculate finance charge");
@@ -90,6 +110,16 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
         FinanceCharge = 0;
         DateOfFinanceCharge= new Date().getTime();
     }
+    public String UseCreditCard(int accountnum,double amount,String desc){
+        if(accountnum==this.accountNum){
+        if(amount+balance<=this.CreditLimit){
+            this.CreditAccount(amount, desc);
+            return"Purchase Authorized";
+        }else{
+            return"Purchase over Credit Limit";
+        }//end if
+        }else{return "Either wrong account or account does not exist";}
+    }//end UseCreditCard
     
     //-------------------------------------
     //  Abstract Method Implementation 
@@ -150,11 +180,48 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     public double getCreditAmounts(int index) {return CreditAmounts.get(index);}
     @Override
     public long getCreditDates(int index) {return CreditDates.get(index);}
+    
+    public Date getCreditDate(int index) {
+        Calendar cr = Calendar.getInstance();
+        cr.setTime(new Date(this.CreditDates.get(index)));
+        return cr.getTime();
+    }   
+    
     @Override
     public int getNumOfCredits() {return NumberOfCredits;}
 
     public String getCreditDescriptions(int index) {
         return CreditDescriptions.get(index);
     }
+    //-------------------------------------
+    //  printmethods
+    //-------------------------------------
+    public String getEntirePurchaseHistory(){
+        String history="";
+        for(int i=0;i<this.NumberOfCredits;i++){
+             history = history+"\nDate: "+this.getCreditDate(i)+"\t"+
+                     this.getCreditAmounts(i)+"\t"+this.getCreditDescriptions(i);
+        }
+        return history;
+    }
+    public String getPurchaseHistorySinceLastPayment(){
+        String history="";
+        for(int i=0;i<this.NumberOfCredits;i++){
+            if(this.getCreditDates(i)>this.FinanceCharge){
+             history = history+"\nDate: "+this.getCreditDate(i)+"\t"+
+                     this.getCreditAmounts(i)+"\t"+this.getCreditDescriptions(i);
+            }
+        }
+        return history;
+    }
     
+    public String getEntirePaymentHistory(){
+        String history="";
+        for(int i=0;i<this.NumberOfDebits;i++){
+            double amount=this.getDebitAmounts(i);
+            history = history+"\nDate: "+this.getDebitDate(i)+"\n\tAmount: \t\t$"+
+                    amount;
+        }
+        return history;
+    }//end getEntirePaymentHistory
 }

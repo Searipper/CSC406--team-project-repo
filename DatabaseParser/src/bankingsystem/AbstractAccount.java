@@ -30,6 +30,13 @@ abstract class AbstractAccount {
         this.balance = balance;
         this.accountFlag = accountFlag;
     }
+    public AbstractAccount(int customerID, int accountNum, 
+            double balance) {
+        //constructor to set the basic account details
+        this.customerID = customerID;
+        this.accountNum = accountNum;
+        this.balance = balance;
+    }
     
     
 
@@ -112,5 +119,5 @@ abstract class AbstractAccount {
     public long getDateOfActivation() {return DateOfActivation;}
     /**sets the date of activation @param DateOfActivation long date*/
     public void setDateOfActivation(long DateOfActivation) {this.DateOfActivation = DateOfActivation;}
-    
+        
 }//end Abstract class
