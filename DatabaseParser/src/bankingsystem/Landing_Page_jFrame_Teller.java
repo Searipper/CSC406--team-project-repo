@@ -352,7 +352,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void createAcctActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcctActionPerformed
-        Create_Account_Page_JDialog create = new Create_Account_Page_JDialog(this,true);
+        Create_Account_jFrame_Form create = new Create_Account_jFrame_Form(this,true);
         create.run();
     }//GEN-LAST:event_createAcctActionPerformed
 

@@ -1,5 +1,7 @@
 package bankingsystem;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,7 +74,7 @@ public class LoanAccounts extends BillingAccounts{
     public void setEndLoanDate(long EndLoanDate) {this.EndLoanDate = EndLoanDate;}
     /**Returns the amount for the next payment*/
     public double getFixedPaymentAmount() {
-        this.setFixedPaymentAmount();
+        if(this.FixedPaymentAmount==0){this.setFixedPaymentAmount();}
         return FixedPaymentAmount;
     }
     /**sets the Fixed payment amount = (Principle * Interest Rate) / 365 days*/
@@ -81,11 +83,21 @@ public class LoanAccounts extends BillingAccounts{
          *  Monthly = ----------------------------
          *  Payment    years of loan * 12 months
          */
-        this.FixedPaymentAmount=Math.rint((this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))/(this.loanyears*12));
-        
-    }
+        double payment = (this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))/(this.loanyears*12);
+        BigDecimal roundedup = new BigDecimal(payment).setScale(2, RoundingMode.HALF_UP);
+        payment = roundedup.doubleValue();
+        System.out.println("Loan amount: $"+this.IntitialLoanAmount+" Intrest of account $"+
+                CalcIntrest(this.IntitialLoanAmount)+" Loan months: "+this.loanyears+" years * 12\n"
+                +"Total loan value: $"+(this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))+
+                "\ttotal months:"+(this.loanyears*12)+"\nmonthly payment: "+payment);
+        this.FixedPaymentAmount=payment;
+    }//end setFixedPaymentAmount
+
     private double getMonthlyIntrestAmount(){
-        return Math.rint(this.CalcIntrest(this.IntitialLoanAmount)/(this.loanyears*12));
+        double intrest = (this.CalcIntrest(this.IntitialLoanAmount)/(this.loanyears*12));
+        BigDecimal roundedup = new BigDecimal(intrest).setScale(2, RoundingMode.HALF_UP);
+        intrest=roundedup.doubleValue();
+        return intrest;
     }//end getMonthlyIntrestAmount
     
     /**get the interest Incurred on a specific payment*/
@@ -114,14 +126,18 @@ public class LoanAccounts extends BillingAccounts{
         double totalneeded= balance+CalcIntrest(balance);
         return totalneeded;
     }
+    /**this method makes a fixed payment on the loan amount. 
+     * to find the amount of this payment call getFixedPaymentAmount()
+     * @return Amount of the payment
+     */
     public String MakePayment(){
-        
+        if(this.FixedPaymentAmount==0){this.setFixedPaymentAmount();}
         if(balance!=0){//if the payment is less then or equal to the amount owed
             System.out.println("Making payment of: "+this.FixedPaymentAmount);
             this.DebitAccount(this.FixedPaymentAmount,getMonthlyIntrestAmount());
         }else{return "Nothing owed";}
         return "Payment made";
-    }
+    }//end MakePayment
     
     //----------------------------------
     //  implemented from BillingAccounts

@@ -93,7 +93,7 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
                     recentPaymentAmts+=DebitAmounts.get(i);                
                 }//end if
             }//end for loop
-            if(Billamount<recentPaymentAmts){
+            if(Billamount<=recentPaymentAmts){
                 //This months bill has been paid in full
                 return 1;
             }//end if
@@ -106,7 +106,7 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
      * Allows the manager to send out bill notices to customers. 
      * Marks the date of sendoff and the payment due date
      */
-    public void SendoutBills(){
+    public String SendoutBills(){
         if(new Date().getTime()>=this.BillDue){
             //calculate the amount of the bill. will be implamented in lower classes
             Billamount=CalculateBill();
@@ -119,8 +119,11 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
             cal.add(cal.DAY_OF_MONTH, graceperiod);
             //convert the calender to a date, converts the date to a long value
             BillDue = cal.getTime().getTime();
+            return "Bill of $"+Billamount+" sent out on "+
+                    this.getSendOutDate()+".\nBill is due in "+this.graceperiod+
+                    " day(s) on "+this.getDueDate()+".";
         }else{
-            System.out.println("Cannot send out a new bill until current due date is past");
+            return"Cannot send out a new bill until current due date is past";
         }
     }
     //---------------------------------
@@ -143,7 +146,7 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
         DebitAmounts.add(amount);
         DebitDates.add(creditdate);
         NumberOfDebits++;
-    }
+    }//end addDebititRecord
     @Override
     public double getDebitAmounts(int index) {
         if(index<NumberOfDebits){
@@ -152,7 +155,7 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
             System.out.println("index not within range of "+NumberOfDebits);
             return 0.00;
         }
-    }
+    }//end getDebitAmounts
     @Override//people need to be able to search by dates
     public long getDebitDates(int index) {
         if(index<NumberOfDebits){
@@ -161,16 +164,17 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
             System.out.println("index not within range of "+NumberOfDebits);
             return 0;
         }
-    }
+    }//end getDebitDates
     public Date getDebitDate(int index) {
         Calendar cr = Calendar.getInstance();
         cr.setTime(new Date(this.DebitDates.get(index)));
         return cr.getTime();
-    }    
+    }//end getDebitDate
     @Override
     public int getNumOfDebits() {
         return NumberOfDebits;
-    }
+    }//end getNumOfDebits
+    
     //-------------------------------------
     //  printmethods
     //-------------------------------------
@@ -178,7 +182,6 @@ public abstract class BillingAccounts extends AbstractAccount implements DebitIn
         String bill="\tAmount: $"+this.getBillamount()+
                 "\n\tDate sent out: "+this.getSendOutDate()+
                 "\n\tDate Due: "+this.getDueDate();
-        
         return bill;
     }
 }//end class

@@ -117,9 +117,9 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
         AccountParser ap = new AccountParser("");
      
         Checking chk = ap.getCheckingAccount(account);
-        System.out.println("b4 if");
-        if(chk.getAccountNum()==-1){System.out.println("null checking");}
-        else{System.out.println("Not null");
+
+        if(chk.getAccountNum()==-1){message.setText("Not a valid account");System.out.println("null checking");}
+        else{message.setText("Account found");
         if(account==chk.getBackupAccountNumber()){
             System.out.println("Right account");}
             System.out.println(chk.checkBalance());
@@ -131,29 +131,7 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnWithdrawActionPerformed
 
     private void amtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amtActionPerformed
-          
-        int account = Integer.parseInt(acctNum.getText());
-        double amount = Double.parseDouble(amt.getText());
-        
-        AccountParser ap = new AccountParser("");
-     
-        Checking chk = ap.getCheckingAccount(account);
-
-        String msg;
-        if(chk.getAccountNum()==-1){msg="No this account in database";message.setText(msg);
-        }
-        else{
-            if(chk.getAccountNum()==-2){msg="Found account, but not ATM class";message.setText(msg);
-            }
-            else{
-
-                System.out.println(chk.checkBalance());
-                message.setText("Account Balance: " + chk.Withdrawl(amount));
-                System.out.println(chk.checkBalance());
-        
-                ap.WriteFile();
-            }
-        }
+        this.btnWithdrawActionPerformed(evt);
     }//GEN-LAST:event_amtActionPerformed
 
             public void run() {

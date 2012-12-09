@@ -29,6 +29,7 @@ public class Deposit_JDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         cancel = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -44,6 +45,13 @@ public class Deposit_JDialog extends javax.swing.JDialog {
         });
 
         btnsubmit.setText("Submit");
+        btnsubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsubmitActionPerformed(evt);
+            }
+        });
+
+        message.setText("Result:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,19 +60,22 @@ public class Deposit_JDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(btnsubmit)
                         .addGap(38, 38, 38)
-                        .addComponent(cancel)))
+                        .addComponent(cancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,7 +89,9 @@ public class Deposit_JDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnsubmit)
                     .addComponent(cancel))
@@ -91,6 +104,28 @@ public class Deposit_JDialog extends javax.swing.JDialog {
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelActionPerformed
+
+    private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
+        
+        int acctNum =Integer.parseInt(accountNum.getText());
+        double amt  =Double.parseDouble(amount.getText());
+        AccountParser ap = new AccountParser("");
+        if(ap.getAccount(acctNum).getAccountNum()==-1){
+            message.setText("No account found");
+        }else{
+            if(ap.getAccount(acctNum).getAccountType()==3||ap.getAccount(acctNum).getAccountType()==4){
+                message.setText("Account found, Checking Account.");
+                ap.getCheckingAccount(acctNum).Deposit(amt);ap.WriteFile();
+                System.out.println("Checking account deposit ok");
+            }
+            if(ap.getAccount(acctNum).getAccountType()==1){
+                message.setText("Simple Saving");
+                double balance= ap.getSavingsAccount(acctNum).deposit(amt);ap.WriteFile();
+                System.out.println("Balance After = " + balance);
+            }
+        }
+        //this.accountNum.getText()
+    }//GEN-LAST:event_btnsubmitActionPerformed
 
             public void run() {
                 Deposit_JDialog dialog = new Deposit_JDialog(new javax.swing.JFrame(), true);
@@ -109,5 +144,6 @@ public class Deposit_JDialog extends javax.swing.JDialog {
     private javax.swing.JButton cancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel message;
     // End of variables declaration//GEN-END:variables
 }

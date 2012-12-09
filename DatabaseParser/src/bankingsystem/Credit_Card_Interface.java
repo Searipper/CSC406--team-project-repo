@@ -1,11 +1,13 @@
 package bankingsystem;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author Arron
  */
 public class Credit_Card_Interface extends javax.swing.JDialog {
-
     /**
      * Creates new form Credit_Card_Interface
      */
@@ -23,21 +25,23 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ccNo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        acctNum = new javax.swing.JTextField();
+        btnCancel = new javax.swing.JButton();
         amt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         desc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+        message = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("cancel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setText("cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -47,84 +51,135 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
 
         jLabel3.setText("Purchase descrption");
 
-        jButton2.setText("submit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setText("submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
+
+        message.setText("Result:");
+
+        jLabel4.setFont(new java.awt.Font("Apple Braille", 1, 14)); // NOI18N
+        jLabel4.setText("Credit Card Transaction Interface.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addComponent(btnSubmit)
+                .addGap(36, 36, 36)
+                .addComponent(btnCancel)
+                .addGap(124, 124, 124))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)))
                         .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(ccNo)
-                                .addComponent(amt, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))
-                            .addComponent(desc)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(122, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton1)
-                        .addGap(46, 46, 46)))
-                .addGap(78, 78, 78))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                            .addComponent(amt)
+                            .addComponent(acctNum)))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ccNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(amt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(btnSubmit)
+                    .addComponent(btnCancel))
                 .addGap(60, 60, 60))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();//Current window disspear,however the application still running
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //int customerID(SSN), int accountNum, double balance, int accountFlag
-        AccountParser ap = new AccountParser("");
-        
-        int ccNum = Integer.parseInt(ccNo.getText());
-        double amount = Double.parseDouble(amt.getText());
-        String description = desc.getText();
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        //empty check
 
-        ap.getCreditCardAccount(ccNum).CreditAccount(amount, description);
-        ap.WriteFile();
+        int emptycount = 0;
+        if(acctNum.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(amt.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(desc.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
         
-        //double amount, long creditdate,String description
-        
-        //CreditCards account implement required to continue......
-        //cc.addCreditRecord(ccNum ,amount ,description);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        if(emptycount==0){
+            AccountParser ap = new AccountParser("");
+            int acctnumber = Integer.parseInt(acctNum.getText());
+            double amount = Double.parseDouble(amt.getText());
+            String description = desc.getText();
+            long ctime = 1234567890;//Change this to system current in long form.
+            System.out.println("See what we can get, " + ap.getAccount(acctnumber).getAccountNum());
+            if(ap.getAccount(acctnumber).getAccountNum()==-1){
+                System.out.println("No account Found.");
+                message.setText("Noß account found with this account Number.");
+                return;
+            }
+            int accountType = ap.getAccount(acctnumber).getAccountType();//retrieve account type
+            
+            switch(accountType){
+            case 0: message.setText("Can't process,this is a Simple Checking account");
+            break;
+            case 1: message.setText("Can't process,this is a CD account");
+            break;
+            case 2: message.setText("Can't process,this is a TMB Checking account");
+            break;
+            case 3: message.setText("Can't process,this is a G/D Checking account");
+            break;
+            case 4: message.setText("Can't process,this is a Long term loan Checking account");
+            break;
+            case 5: message.setText("Can't process,this is a Short term loan Checking account");
+            break;
+            case 6: message.setText("Credit Card account, process!");
+                    ap.getCreditCardAccount(acctnumber).addCreditRecord(amount, ctime, description);
+            break;
+            default: System.out.println("Default, Unkown type. Type retrieving failed! In Credit_Card_Interface");
+        }//end switch   
+            
+        }
+
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,13 +197,15 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
             }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField acctNum;
     private javax.swing.JTextField amt;
-    private javax.swing.JTextField ccNo;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JTextField desc;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel message;
     // End of variables declaration//GEN-END:variables
 }

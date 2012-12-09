@@ -178,6 +178,7 @@ public class CdAccount extends AbstractAccount {
     }
 
     public double closeCD() { //closes account, requests current mm/dd/yyyy, return funds depending on maturity
+
         double temp = balance;
         long currDate = new Date().getTime();
         if (currDate < endDate.getTime()) {

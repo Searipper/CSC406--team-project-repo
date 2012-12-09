@@ -25,12 +25,12 @@ public class transfer_JDialog extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        accountNum = new javax.swing.JTextField();
+        fromAccount = new javax.swing.JTextField();
         amount = new javax.swing.JTextField();
-        btnsubmit = new javax.swing.JButton();
-        cancel = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        toAccount = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -38,12 +38,17 @@ public class transfer_JDialog extends javax.swing.JDialog {
 
         jLabel2.setText("Amount");
 
-        btnsubmit.setText("Submit");
-
-        cancel.setText("Cancel");
-        cancel.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
+            }
+        });
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -63,14 +68,14 @@ public class transfer_JDialog extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(accountNum, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(fromAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                             .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1)))
+                            .addComponent(toAccount)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(btnsubmit)
+                        .addComponent(btnSubmit)
                         .addGap(38, 38, 38)
-                        .addComponent(cancel)))
+                        .addComponent(btnCancel)))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,28 +84,74 @@ public class transfer_JDialog extends javax.swing.JDialog {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fromAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(toAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsubmit)
-                    .addComponent(cancel))
+                    .addComponent(btnSubmit)
+                    .addComponent(btnCancel))
                 .addGap(53, 53, 53))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
-    }//GEN-LAST:event_cancelActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        
+//        int facct = Integer.parseInt(this.fromAccount.getText());
+//        int tacct = Integer.parseInt(this.toAccount.getText());
+//        double amt = Double.parseDouble(this.amount.getText());
+//        
+//        AccountParser ap = new AccountParser("");
+//        
+//        int acctType = ap.getAccount(facct).getAccountType();//acctType for source account
+//        int acctType2 = ap.getAccount(tacct).getAccountType();//acctType for target account
+//        
+//        
+//        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
+//        }
+//        if(acctType == 3){ap.getCheckingAccount(facct).Transfer(amt+.5);
+//        }
+//        if(acctType == 4){ap.getCheckingAccount(facct).Withdrawl(amt);
+//        }
+//        
+//        
+//        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
+//        }
+//        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt);
+//        }
+//        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
+//        }
+//        ap.WriteFile();
+        
+//        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
+//        }
+//        if(acctType == 3){ap.getCheckingAccount(facct).Withdrawl(amt+.5);
+//        }
+//        if(acctType == 4){ap.getCheckingAccount(facct).Withdrawl(amt);
+//        }
+//        
+//        
+//        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
+//        }
+//        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt-.25);
+//        }
+//        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
+//        }
+//        ap.WriteFile();
+        
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
 
             public void run() {
@@ -115,13 +166,13 @@ public class transfer_JDialog extends javax.swing.JDialog {
             }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField accountNum;
     private javax.swing.JTextField amount;
-    private javax.swing.JButton btnsubmit;
-    private javax.swing.JButton cancel;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JTextField fromAccount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField toAccount;
     // End of variables declaration//GEN-END:variables
 }

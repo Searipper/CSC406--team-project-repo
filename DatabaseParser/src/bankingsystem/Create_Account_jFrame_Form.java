@@ -11,10 +11,6 @@
 
 package bankingsystem;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Arron
@@ -22,6 +18,10 @@ import java.util.logging.Logger;
  * @version 1
  */
 public class Create_Account_jFrame_Form extends javax.swing.JDialog {
+
+    // End of variables declaration
+
+        
 
     //-------------------------------------------------------------
     //          Constructor
@@ -42,245 +42,243 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        street = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        city = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        state = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
+        acctNum = new javax.swing.JFormattedTextField();
+        balance = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        lname = new javax.swing.JTextField();
-        ssn = new javax.swing.JFormattedTextField();
-        zip = new javax.swing.JFormattedTextField();
-        jLabel10 = new javax.swing.JLabel();
-        type = new javax.swing.JFormattedTextField();
-        jLabel11 = new javax.swing.JLabel();
-        pass = new javax.swing.JPasswordField();
-        fname = new javax.swing.JTextField();
+        message = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JButton();
+        opt = new javax.swing.JComboBox();
+        btnCreate = new javax.swing.JButton();
+        ssn = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("First Name");
+        acctNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
 
-        jLabel2.setText("Last Name");
+        jLabel9.setText("Initial Balance");
 
-        jLabel4.setText("SSN");
+        message.setText("Result:");
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel8.setText("AccountNum");
+
+        jLabel3.setText("SSN");
+
+        jLabel1.setText("Select Type");
+
+        btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Close");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        opt.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Simple Saving", "CD", "Checking", "Long Term Loan", "Short Term Loan", "Credit Card" }));
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCreateActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Street");
-
-        jLabel6.setText("City");
-
-        jLabel7.setText("State");
-
-        jLabel8.setText("Zipcode");
-
-        state.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NV", "NH", "NJ", "NM", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY" }));
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, state, org.jdesktop.beansbinding.ELProperty.create("${actionCommand}"), state, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
-        bindingGroup.addBinding(binding);
-
-        jLabel3.setText("User Name");
-
-        jLabel9.setText("Password");
-
-        try {
-            ssn.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            zip.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        jLabel10.setText("Type");
-
-        type.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#"))));
-
-        jLabel11.setText("(1 = Teller  2 = Manager)");
+        jLabel2.setFont(new java.awt.Font("Apple Braille", 1, 14)); // NOI18N
+        jLabel2.setText("Create Account Interface.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(street)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(city, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(0, 1, Short.MAX_VALUE)
-                                                .addComponent(jButton1)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(33, 33, 33)
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lname)))
-                                .addGap(65, 65, 65))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel11)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8))
+                                .addGap(11, 11, 11))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pass)))
-                        .addContainerGap())))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(opt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(acctNum)
+                                .addComponent(ssn, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(balance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1)
+                        .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btnCreate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancel))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(street, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(opt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(18, 32, Short.MAX_VALUE))
+                    .addComponent(btnCreate)
+                    .addComponent(btnCancel))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
-
-        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-//        if(pass1.getPassword()==pass2.getPassword()){        
-//            System.out.println("pass1.toString()==pass2.toString()");
-//            System.out.println("pass=" + pass);
-//        }else{
-//            System.out.println("pass1 >< pass2");
-//            pass1.revalidate();
-//            pass2.revalidate();
-//        }
-
-//        
-//        User user1 = new User(ssn.getText(), fname.getText(), lname.getText(),
-//                street.getText(), city.getText(), state.getSelectedItem().toString(), 
-//                zip.getText(),type.getSelectedItem().toString(), username.getText(), pass.getText());
-//        System.out.println("SSN=" + user1.getSsn().get(1) + " fname=" + user1.getFname()+
-//                " lname="+ user1.getLname()+" street=" + user1.getStreet()+ 
-//                " city=" + user1.getCity()+" state"+ user1.getState()+
-//                " zip"+user1.getZip()+" type" + user1.getType() + " username"+user1.getUsername()+" pass"+user1.getPassword());
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        //Inputs check
+        int emptycount = 0;
+        if(ssn.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(acctNum.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(balance.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        //end Inputs check
         
+        int cid = Integer.parseInt(ssn.getText());
+        System.out.println("in btnCreateActionPerformed, ssn.getText = "+ssn.getText());
         
-        //Test through UserParser
-        String path= "C:/Users/Arron/Documents/NetBeansProjects/Fall2012_CSC406_Banking_System/";
-        UserParser rec1 = new UserParser(path);
-        System.out.println(
-                rec1.CreateRecord(
-                Integer.parseInt(ssn.getText()),fname.getText(),lname.getText(),
-                street.getText(),city.getText(),state.getSelectedItem().toString(),
-                Integer.parseInt(zip.getText()),username.getText(),String.copyValueOf(pass.getPassword()),Integer.parseInt(type.getText())
-                )
-                );
- 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        //if there is no error, starting Search for SSN in user.xml
+        if(emptycount==0){
+        UserParser up = new UserParser("");
+        int userExist = up.getIndexFromSSN(cid);//check if SSN is already in the user.xml. -1 means no match
+        
+        if(userExist==-1){
+            //if SSN not found in user.xml then open creating screen to create a new user.
+            Create_User_jFrame_Form2 user = new Create_User_jFrame_Form2(new javax.swing.JFrame(), true, cid);
+            System.out.println("in Form2, cid = " + cid);
+            message.setText("SSN not found match in user.xml");
+            user.run(cid);
+        }else{
+            //if SSN found in user.xml, create this Account
+            this.createAccountAfterCreateUser();
+        }
+        }else{
+            message.setText("Please check your fields.");
+        }
+        
+    }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.exit(0);        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    public void createAccountAfterCreateUser(){//Method for creating account
 
+        //input check
+        int emptycount = 0;
+        if(ssn.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(acctNum.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        if(balance.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            emptycount++;
+            return;
+        }
+        
+        //if all field are filled, then keep going
+        if(emptycount==0){
+        int cid = Integer.parseInt(ssn.getText());
+        int acctnum = Integer.parseInt(acctNum.getText());
+        double bal = Double.parseDouble(balance.getText());
+        int optcase;//switch case index
+        optcase = this.opt.getSelectedIndex();//0=simple saving,1=CD,2=Checking,3=LLoan,4=SLoan,5=CC
+        AccountParser ap = new AccountParser("");
+        //a safe check before creating. Make sure all inputs are not null.
+
+        switch(optcase){
+            case 0: SavingsAccount sav = new SavingsAccount(cid,acctnum,bal,0);
+                    message.setText(ap.CreateAccount(sav));
+            break;
+            case 1: CdAccount cd = new CdAccount(cid,acctnum,bal,0,1);
+                    message.setText(ap.CreateAccount(cd));
+            break;
+            case 2: Checking chk = new Checking(cid,acctnum,bal,0);
+                    message.setText(ap.CreateAccount(chk));
+            break;
+            case 3: LoanAccounts lloan = new LoanAccounts(cid,acctnum,bal,0,15);//long term set at 15 years now
+                    message.setText(ap.CreateAccount(lloan));
+            break;
+            case 4: LoanAccounts sloan = new LoanAccounts(cid,acctnum,bal,0,5);//short term at 5 years to this point now
+                    message.setText(ap.CreateAccount(sloan));
+            break;
+            case 5: CreditCards cc = new CreditCards(cid,acctnum,bal,0);
+                    message.setText(ap.CreateAccount(cc));
+            break;
+            default: System.out.println("default,optcase = -1,check optcase");
+        }//end switch   
+        
+        }else{
+            message.setText("Please fill all fields.");
+        }
+  
+
+    }//end method createAccountAfterCreateUser()
+    
     /**
     * @param args the command line arguments
     */
-
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Create_Account_jFrame_Form dialog = new Create_Account_jFrame_Form(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
+        });
+    }//end main args
 
             public void run() {
                 Create_Account_jFrame_Form dialog = new Create_Account_jFrame_Form(new javax.swing.JFrame(), true);
@@ -294,30 +292,18 @@ public class Create_Account_jFrame_Form extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField city;
-    private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JFormattedTextField acctNum;
+    private javax.swing.JTextField balance;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField lname;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JFormattedTextField ssn;
-    private javax.swing.JComboBox state;
-    private javax.swing.JTextField street;
-    private javax.swing.JFormattedTextField type;
-    private javax.swing.JTextField username;
-    private javax.swing.JFormattedTextField zip;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
+    private javax.swing.JLabel message;
+    private javax.swing.JComboBox opt;
+    private javax.swing.JTextField ssn;
     // End of variables declaration//GEN-END:variables
 
 }

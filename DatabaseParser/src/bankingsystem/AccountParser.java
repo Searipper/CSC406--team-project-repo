@@ -786,7 +786,18 @@ public class AccountParser {
                                                             LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
                                                         }//</editor-fold>
-                                                        //found CC bill amount
+                                                        //found initial loan amount and years of payoff
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("IntitialLoanAmount")==0){
+                                                            LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
+                                                            attributes = AccountDetails.getAttributes();
+                                                            Node detail = attributes.item(0);
+                                                            String years= detail.getNodeValue().replace("\t", "");
+                                                            years = years.replace("\n", "");
+                                                            a1.setLoanyears(Integer.parseInt(years));
+                                                            a1.setIntitialLoanAmount(Double.parseDouble(text));
+                                                        }//end if//</editor-fold>
+                                                        //found SLoan bill amount
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("BillAmount")==0){
                                                             LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
@@ -844,6 +855,7 @@ public class AccountParser {
                                                         
                                                         AccountDetails=AccountDetails.getNextSibling();
                                                     }//end while
+                                                    
                                                     catch(Exception LLoan){
                                                         System.out.println("Error in adding SLoan account");
                                                         System.out.println(LLoan);
@@ -1033,6 +1045,12 @@ public class AccountParser {
                                                         if(AccountDetails.getNodeName().compareTo("CreditLimit")==0){
                                                             CreditCards a1=(CreditCards)accountobjects.get(recordcount-1);
                                                             a1.setCreditLimit(Double.parseDouble(text));
+                                                        }//end if//</editor-fold>
+                                                        //found Last Finance charge reset date
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("DateOfFinanceChargeReset")==0){
+                                                            CreditCards a1=(CreditCards)accountobjects.get(recordcount-1);
+                                                            a1.setDateOfFinanceCharge(Long.parseLong(text));
                                                         }//end if//</editor-fold>
                                                         //found recent debits
                                                         //<editor-fold defaultstate="collapsed">
@@ -1359,6 +1377,9 @@ public class AccountParser {
                             LoanAccounts a1=(LoanAccounts)this.accountobjects.get(i);
                             //account intrest rate
                             p1.println("\t\t\t<InterestRate>"+a1.getInterestRate()+"</InterestRate>");
+                            //IntitialLoanAmount and years of length
+                            p1.println("\t\t\t<IntitialLoanAmount loanyears=\""+a1.getLoanyears()
+                                        +"\">"+a1.getIntitialLoanAmount()+"</IntitialLoanAmount>");
                             //bill senout date
                             p1.println("\t\t\t<BillSentOutDate>"+a1.getBillSentOut()+"</BillSentOutDate>");
                             //bill amount
@@ -1378,6 +1399,8 @@ public class AccountParser {
                             CreditCards a1=(CreditCards)this.accountobjects.get(i);
                             //credit limit
                             p1.println("\t\t\t<CreditLimit>"+a1.getCreditLimit()+"</CreditLimit>");
+                            //Last Finance Charge Date
+                            p1.println("\t\t\t<DateOfFinanceChargeReset>"+a1.getDateOfFinanceCharge()+"</DateOfFinanceChargeReset>");
                             //bill sendout
                             p1.println("\t\t\t<BillSentOutDate>"+a1.getBillSentOut()+"</BillSentOutDate>");
                             //bill amount
@@ -1407,7 +1430,7 @@ public class AccountParser {
                 p1.close();
                 
                 //update records of change
-                ReadFile();
+//                ReadFile(); //Redundent code. the data on file is already up-to-date at this point
                 
             }//end WriteFile//</editor-fold>
         }catch(Exception e){

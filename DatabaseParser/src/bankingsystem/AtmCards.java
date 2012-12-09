@@ -17,9 +17,9 @@ public class AtmCards extends AbstractAccount implements CreditInterface, DebitI
     protected ArrayList<Long> DebitDates=new ArrayList<Long>();
     protected int NumberOfDebits;
     //credit variables
-    private ArrayList<Double> CreditAmounts=new ArrayList<Double>();
-    private ArrayList<Long> CreditDates=new ArrayList<Long>();
-    private int NumberOfCredits;
+    protected ArrayList<Double> CreditAmounts=new ArrayList<Double>();
+    protected ArrayList<Long> CreditDates=new ArrayList<Long>();
+    protected int NumberOfCredits;
     
     //-------------------------------------
     //  Constructor

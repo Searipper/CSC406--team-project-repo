@@ -36,18 +36,14 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        custID = new javax.swing.JFormattedTextField();
-        acctNum = new javax.swing.JFormattedTextField();
-        amt = new javax.swing.JFormattedTextField();
-        rate = new javax.swing.JFormattedTextField();
-        matDate = new javax.swing.JFormattedTextField();
         btnCancel = new javax.swing.JButton();
         btnOpenCD = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        ssn = new javax.swing.JTextField();
+        acctNum = new javax.swing.JTextField();
+        amount = new javax.swing.JTextField();
+        rate = new javax.swing.JTextField();
+        year = new javax.swing.JTextField();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,52 +51,11 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
 
         jLabel2.setText("Account Number");
 
-        jLabel3.setText("Loan Amount");
+        jLabel3.setText("CD Amount");
 
         jLabel4.setText("Interest Rate");
 
-        jLabel5.setText("Maturity Date");
-
-        try {
-            custID.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        custID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custIDActionPerformed(evt);
-            }
-        });
-
-        try {
-            acctNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        acctNum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acctNumActionPerformed(evt);
-            }
-        });
-
-        try {
-            amt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            rate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        matDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        matDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                matDateActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Terms of Years");
 
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -116,15 +71,13 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
             }
         });
 
-        jLabel6.setText("Example: 10000.00");
+        amount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amountActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setText("Example: 3.29");
-
-        jLabel8.setText("Example: MM/DD/YY");
-
-        jLabel9.setText("Example: 12345678   8 digits");
-
-        jLabel10.setText("Example: 111111111      9 digits");
+        message.setText("Result:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,33 +85,32 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnOpenCD)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnCancel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(matDate)
-                            .addComponent(rate)
-                            .addComponent(amt)
-                            .addComponent(acctNum, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(custID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnOpenCD)
+                                .addGap(38, 38, 38)
+                                .addComponent(btnCancel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(amount)
+                                    .addComponent(acctNum, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                                    .addComponent(rate)
+                                    .addComponent(year))))))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,29 +118,26 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(custID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
+                    .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(amt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(matDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOpenCD)
                     .addComponent(btnCancel))
@@ -198,45 +147,29 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void acctNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acctNumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_acctNumActionPerformed
-
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnOpenCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenCDActionPerformed
         //int customerID, int accountNum, double balance, int accountFlag, double interest, long maturity
-        System.out.println(custID.getText());
-        System.out.println(acctNum.getText());
-        System.out.println(amt.getText());
-        System.out.println(rate.getText());
-        System.out.println(matDate.getText());
-        int customerId = Integer.parseInt(custID.getText());
-        int accountNumber = Integer.parseInt(acctNum.getText());
-        double loanAmount = Double.parseDouble(amt.getText());
-        double loanInterest = Double.parseDouble(rate.getText());
-        int maturityDate = Integer.parseInt(matDate.getText());
-        int accountFlag = 0;//need to confirm what does accountflag have to do when openning a CD    
-        System.out.println(customerId);
-        System.out.println(accountNumber);
-        System.out.println(loanAmount);
-        System.out.println(loanInterest);
-        System.out.println(maturityDate);
+
+        int cid = Integer.parseInt(ssn.getText());
+        int accountnumber = Integer.parseInt(acctNum.getText());
+        double amt = Double.parseDouble(amount.getText());
+        double interestrate = Double.parseDouble(rate.getText());
+        int years = Integer.parseInt(year.getText());
         
-        //parsing information when openning a CD, require CdAccount class to store
-        //the object into the CDAccount arraylist and save in xml file
-        CdAccount cd = new CdAccount(customerId, accountNumber, loanAmount, accountFlag, loanInterest,maturityDate);
+        //int customerID, int accountNum, double balance, int accountFlag, double interest, int maturity
+        CdAccount cd = new CdAccount(cid,accountnumber, amt, 0, interestrate, years);
+
+        AccountParser ap = new AccountParser("");
+        message.setText(ap.CreateAccount(cd));
     }//GEN-LAST:event_btnOpenCDActionPerformed
 
-    private void custIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDActionPerformed
+    private void amountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_custIDActionPerformed
-
-    private void matDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_matDateActionPerformed
+    }//GEN-LAST:event_amountActionPerformed
 
             public void run() {
                 OpenCD_JFrame dialog = new OpenCD_JFrame(new javax.swing.JFrame(), true);
@@ -250,22 +183,18 @@ public class OpenCD_JFrame extends javax.swing.JDialog {
             }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField acctNum;
-    private javax.swing.JFormattedTextField amt;
+    private javax.swing.JTextField acctNum;
+    private javax.swing.JTextField amount;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnOpenCD;
-    private javax.swing.JFormattedTextField custID;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JFormattedTextField matDate;
-    private javax.swing.JFormattedTextField rate;
+    private javax.swing.JLabel message;
+    private javax.swing.JTextField rate;
+    private javax.swing.JTextField ssn;
+    private javax.swing.JTextField year;
     // End of variables declaration//GEN-END:variables
 }

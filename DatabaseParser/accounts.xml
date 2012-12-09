@@ -425,6 +425,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
+			<IntitialLoanAmount loanyears="5">5000.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -444,6 +445,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
+			<IntitialLoanAmount loanyears="6">1800.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -467,6 +469,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
+			<IntitialLoanAmount loanyears="5">6000.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -486,6 +489,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
+			<IntitialLoanAmount loanyears="5">2000.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -501,6 +505,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
+			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -522,6 +527,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.054</InterestRate>
+			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>293.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -539,6 +545,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.049</InterestRate>
+			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>510.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -556,6 +563,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.065</InterestRate>
+			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>178.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -573,6 +581,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.058</InterestRate>
+			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>88.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -590,6 +599,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.037</InterestRate>
+			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>259.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -607,6 +617,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -630,6 +641,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>1500.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>1351793588910</BillDueDate>
@@ -653,6 +665,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -676,6 +689,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -701,6 +715,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>2500.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -726,6 +741,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>10000.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -749,6 +765,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>3000.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -770,6 +787,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>20000.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -795,6 +813,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>9000.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
@@ -820,6 +839,7 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>5000.0</CreditLimit>
+			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
 			<BillSentOutDate>1351793588910</BillSentOutDate>
 			<BillAmount>123.2</BillAmount>
 			<BillDueDate>0</BillDueDate>
