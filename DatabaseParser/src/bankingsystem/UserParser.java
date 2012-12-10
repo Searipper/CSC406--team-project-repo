@@ -267,11 +267,46 @@ public class UserParser {
             }//end if
         }//end for
         if(u1!=null){
-            return u1.RegisterForATMCard(cardnum, pin);
+            String re =u1.RegisterForATMCard(cardnum, pin);
+            this.WriteFile();
+            return re;
         }else{
             return"User does not exist and could not register for ATM";
         }//end if
     }//end RegisterUserForATM
+    /**
+     * user enters card number and PIN. if valid returns array Index. if false return error number
+     * @param cardnum card number for ATM account.
+     * @param PIN PIN number for ATM account.
+     * @return <ul>
+     * <li>-1: user not found</li>
+     * <li>-2: user found, incorrect PIN</li>
+     * <li>-3: user found, over usage of account</li>
+     * <li>index: if everything valid, return index of user in Array.</li>
+     * </ul>
+     */
+    public int LoginToATM(int cardnum,int PIN){
+        int status=-1;
+        User u1=null;
+        for(int i=0;i<this.usercount;i++){
+            if(cardnum==this.userlist.get(i).getCardnum()){
+                if(PIN==this.userlist.get(i).getPIN()){
+                    int usage = this.userlist.get(i).UseATM();
+                    this.WriteFile();
+                    if(usage==1){//usage is within acceptable limits
+                        status = i;//return user location in array
+                    }else{//Cardnum and login OK, but card over usage limits
+                        status=-3;
+                    }
+                }else{//card number correct, but incorrect PIN.
+                    status=-2;
+                }
+            }//if none of these, then user not found
+        }//end for loop
+        //return status
+        return status;
+    }//end LoginToATM
+    
     // <editor-fold defaultstate="collapsed">
     /**
      * <p>this function takes the data stored in the ArrayLists 
@@ -305,6 +340,8 @@ public class UserParser {
                     if(this.userlist.get(i).getCardnum()!=0&&this.userlist.get(i).getPIN()!=0){
                         p1.println("\t\t<cardnum>"+this.userlist.get(i).getCardnum() +"</cardnum>");
                         p1.println("\t\t<PIN>"+this.userlist.get(i).getPIN() +"</PIN>");
+                        p1.println("\t\t<Strike1>"+this.userlist.get(i).getStrike1()+"</Strike1>");
+                        p1.println("\t\t<Strike2>"+this.userlist.get(i).getStrike2()+"</Strike2>");
                     }//end if
                 p1.println("\t</user>");
                 }
@@ -312,7 +349,7 @@ public class UserParser {
                 p1.close();
                 
                 //update records of change
-                ReadFile();
+//                ReadFile();
             }// </editor-fold>
         }catch(Exception e){
             System.out.println("Exception in file output stream");
@@ -403,6 +440,8 @@ public class UserParser {
                                     if(Stats.getNodeName().compareTo("AccessType")==0){this.userlist.get(this.usercount-1).setAccestype(Integer.parseInt(text));}
                                     if(Stats.getNodeName().compareTo("cardnum")==0){this.userlist.get(this.usercount-1).setCardnum(Integer.parseInt(text));}
                                     if(Stats.getNodeName().compareTo("PIN")==0){this.userlist.get(this.usercount-1).setPIN(Integer.parseInt(text));}
+                                    if(Stats.getNodeName().compareTo("Strike1")==0){this.userlist.get(this.usercount-1).setStrike1(Long.parseLong(text));}
+                                    if(Stats.getNodeName().compareTo("Strike2")==0){this.userlist.get(this.usercount-1).setStrike2(Long.parseLong(text));}
 
                                     //System.out.print(text);
                                     Stats = Stats.getNextSibling();

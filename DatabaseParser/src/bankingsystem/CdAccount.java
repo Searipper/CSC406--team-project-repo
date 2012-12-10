@@ -179,17 +179,19 @@ public class CdAccount extends AbstractAccount {
 
     public double closeCD() { //closes account, requests current mm/dd/yyyy, return funds depending on maturity
 
-        double temp = balance;
+        double temp = balance; //a temp variable to return the balance, since the balance will be set to zero at the end of method
         long currDate = new Date().getTime();
         if (currDate < endDate.getTime()) {
-            double temppen = (PENALTY + interestEarned);
+            double temppen = (PENALTY + interestEarned); //if closing before maturity, apply penalty
             balance -= temppen;
-            System.out.println(temppen+" penalty for early withdrawal, you will only recieve " + balance + " instead of " + temp);
+            temp = balance;
+            System.out.println(temppen + " penalty for early withdrawal, you will only recieve " + balance + " instead of " + temp);
             balance = 0;
-            return balance;
+            return temp;
         } else {
             System.out.println("Closing fulling mature account, you will recieve " + balance);
-            return balance;
+            balance = 0;
+            return temp;
         }
     }
 }

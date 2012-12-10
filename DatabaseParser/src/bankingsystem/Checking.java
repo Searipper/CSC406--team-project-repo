@@ -15,13 +15,13 @@ public class Checking extends AtmCards {
     private static final double GDminBalance = 1000.00;//GD minimum balance
     private static final double StopPaymentCharge = 15.00;//Stop payment charge
     private static final double OverDraftCharge = 20.00;//Overdraft charge
-    private double GDinterestRate;//GD interest rate (savingAccountRate*.5)
-    private double GDavgBalance;//Used to calc interst
-    private double GDinterest;//Interst Amount to be added to balance
+    protected double GDinterestRate;//GD interest rate (savingAccountRate*.5)
+    protected double GDavgBalance;//Used to calc interst
+    protected double GDinterest;//Interst Amount to be added to balance
     public int protectingAcct; // the account# of backup overdraft protection account  
-    private int CheckNumber = 0;// sets first check number to 0
-    private boolean HasOverDraftProtection;//True = yes False = No
-    private int BackupAccountNumber;
+    protected int CheckNumber = 0;// sets first check number to 0
+    protected boolean HasOverDraftProtection;//True = yes False = No
+    protected int BackupAccountNumber;
 //    protected ArrayList<Double> DebitAmounts = new ArrayList<Double>();
 //    protected ArrayList<Long> DebitDates = new ArrayList<Long>();
 //    protected int NumberOfDebits;
@@ -45,56 +45,14 @@ public class Checking extends AtmCards {
        
         if(balance<=999.99){
             accountType = 3;
-//             System.out.println("A TMB account has been created.");
+             System.out.println("A TMB account has been created.");
         }
         else{
             accountType = 4;
-//             System.out.println("A Gold/Diamond account has been created.");
+             System.out.println("A Gold/Diamond account has been created.");
         }
     }
-       
-//     public Checking(int customerID, int accountNum, int AcctType, double balance, int accountFlag) {
-//        super(customerID, accountFlag);//send to the constructor
-//        this.AcctType = AcctType;
-//        if(AcctType == 4){
-//            if(balance < GDminBalance)
-//            {
-//                AcctType = 3;
-//                System.out.println("Error - A Gold/Diamond account must have a balance of atleast $1000");
-//                System.out.println("A TMB account was created");
-//            }
-//            else{
-//            System.out.println("A Gold/Diamond account was created.");  
-//            }
-//        }
-//        else{
-//            System.out.println("A TMB account has been created.");  
-//        }
-//        
-//        NumberOfDebits = 0;
-//    }
-//     
-//    public Checking(int customerID, int accountNum, double balance, int accountFlag, int AcctType, int protectingAcct) {
-//        super(customerID, accountFlag);//send to the constructor
-//        this.AcctType = AcctType;
-//        this.protectingAcct = protectingAcct;
-//        this.balance = balance;
-//         if(AcctType == 4){
-//            if(balance < GDminBalance)
-//            {
-//                AcctType = 3;
-//                System.out.println("Error - A Gold/Diamond account must have a balance of atleast $1000");
-//                System.out.println("A TMB account was created");
-//            }
-//            else{
-//            System.out.println("A Gold/Diamond account was created.");  
-//            }
-//        }
-//        else{
-//            System.out.println("A TMB account has been created.");  
-//        }
-//        NumberOfDebits = 0;
-//    }    
+          
     //-----------------------------
     //      Getter and Setter Methods
     //-----------------------------
@@ -106,8 +64,7 @@ public class Checking extends AtmCards {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-    
-    
+        
     public double getGDinterestRate() {
         return GDinterestRate;
     }
@@ -166,13 +123,27 @@ public class Checking extends AtmCards {
     
     public void setProtectingAcc(int protectingAcc) {
         this.protectingAcct = protectingAcc;
+        if(this.protectingAcct!=0){
+          this.setHasOverDraftProtection(true);  
+        }
+        
     }
     
      public double getProtectingAcc() { //sets account to protect from ODing
         return protectingAcct;
     }
 
-    
+        public double getTransactionChargeList(int index) {
+        return TransactionChargeList.get(index);
+    }
+
+    public double getTransferChargeList(int index) {
+        return TransferChargeList.get(index);
+    }
+
+    public int getCheckNumbers(int index) {
+        return CheckNumbers.get(index);
+    }
     
     //-----------------------------
     //      Other Methods
@@ -227,6 +198,123 @@ public class Checking extends AtmCards {
             System.out.println("Error - Cannot apply Gold/Diamond interest to a TMB account.");
         }
     }
+    
+        public double Transfer(double amount){
+        if(amount<=balance){//if the payment is less then or equal to the balence
+            int checknum = this.CheckNumber + 1;
+            this.DebitAccount(amount,checknum);
+            if(this.accountType!=4){
+                this.TransferChargeList.set(this.NumberOfDebits-1, this.TMBmonthlyTransCharge);//Transfer charge applied here
+                this.updateBalance(0-TMBmonthlyTransCharge);
+            }
+            return amount;
+        }else{
+            System.out.println("no withdrawls greater than account balance!");
+            return 0.00;
+        }
+    }
+    
+  public void Deposit(double amount){
+      this.CreditAmounts.add(amount);
+            this.CreditDates.add(new Date().getTime());
+            this.NumberOfCredits++;
+            this.updateBalance(amount);//add amount to the balence
+            
+       if(balance<=999.99){
+            accountType = 3;
+             System.out.println("Account Updated to 3, after deposit");
+        }
+        else{
+            accountType = 4;
+             System.out.println("Account Updated to 4, after deposit");
+        }
+            
+    }
+
+
+            
+            
+     public void DebitAccount(double amount, int checknum) {
+        
+            DebitAmounts.add(amount);
+            DebitDates.add(new Date().getTime());
+            NumberOfDebits++;
+            CheckNumbers.add(checknum);
+            if(this.accountType==4){
+                this.TransactionChargeList.add(0.00);
+                this.TransferChargeList.add(0.00);
+                this.updateBalance(0-(amount));
+            }else{
+                this.TransactionChargeList.add(TMBtransCharge);
+                this.TransferChargeList.add(0.00);
+                this.updateBalance(0-(amount+TMBtransCharge));
+            }
+            //send a negative number to detract from the balence
+    }
+
+    public void addDebititRecord(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
+        super.addDebititRecord(amount, DateOfActivation);
+        this.CheckNumbers.add(checknumber);
+        this.TransactionChargeList.add(transaction);
+        this.TransferChargeList.add(transfer);
+    }
+       
+
+    //------------------------------------
+    //      Impliments from DebitInterface
+    //------------------------------------
+
+    
+    //@Override
+    public int Withdrawl(double amount, AccountParser ap) {
+
+        int status =-1;
+        if(amount<=(balance+this.TMBtransCharge)){//if the payment is less then or equal to the balence
+            status=1;
+            int checknum = this.CheckNumber + 1;
+            this.DebitAccount(amount,checknum);
+            if(balance<=999.99){
+                accountType = 3;
+                System.out.println("Account is now TMB.");
+             
+           }
+            
+            
+            else{
+                accountType = 4;
+                System.out.println("Account is now a Gold/Diamond.");
+            }
+            status = 0;
+            return status;
+        }
+        else if(this.HasOverDraftProtection){
+           
+            SavingsAccount s1 = ap.getSavingsAccount(this.protectingAcct);
+            if(amount<=this.balance+s1.checkBalance()+50){
+                double temp = amount-balance+50;
+                int checknum = this.CheckNumber + 1;
+                this.DebitAccount(balance-50,checknum);
+                s1.Withdrawl(temp);
+                status = 1;
+                System.out.println("Overdraft protected. Amount withdrawn from backup accout $" + temp 
+                        + "Amount withdrawn from checking accout $" +(balance - 50)); 
+              return status;           
+            }
+            else{
+               this.DebitAccount(OverDraftCharge,-1);
+               
+               System.out.println("Not enough funds in backup account to cover charges. Account Overdrafted charging fee");
+               return status;
+            }
+            
+        }
+        else{
+           this.DebitAccount(OverDraftCharge,-1);
+           System.out.println("Account Overdrafted charging fee");
+           return status; 
+        }
+        
+    }
 
     //-----------------------------
     //      Other Methods (NOT FINISHED)
@@ -273,133 +361,9 @@ public class Checking extends AtmCards {
            }
     }
 
-    //------------------------------------
-    //      Impliments from DebitInterface
-    //------------------------------------
 
+}     
     
-    @Override
-    public int Withdrawl(double amount) {
 
-        int status =-1;
-        if(amount<=balance){//if the payment is less then or equal to the balence
-            status=1;
-            int checknum = this.CheckNumber + 1;
-            this.DebitAccount(amount,checknum);
-            if(balance<=999.99){
-            accountType = 3;
-             System.out.println("A TMB account has been created.");
-        }
-        else{
-            accountType = 4;
-             System.out.println("A Gold/Diamond account has been created.");
-        }
-            return status;
-        }else{//Subject to change for OP implementation
-            System.out.println("Overdraft!");
-            return status;
-        }
-        
-    }
-       
-    
-    public double Transfer(double amount){
-        if(amount<=balance){//if the payment is less then or equal to the balence
-            int checknum = this.CheckNumber + 1;
-            this.DebitAccount(amount,checknum);
-            if(this.accountType!=4){
-                this.TransferChargeList.set(this.NumberOfDebits-1, this.TMBmonthlyTransCharge);//Transfer charge applied here
-                this.updateBalance(0-TMBmonthlyTransCharge);
-            }
-            //checl the new account balance and set the account type based on that
-            if(balance<=999.99){
-                accountType = 3;
-            }else{accountType = 4;}
-            return amount;
-        }else{
-            System.out.println("no withdrawls greater than account balance!");
-            return 0.00;
-        }
-    }
-    
-    public void Deposit(double amount){
-      this.CreditAmounts.add(amount);
-            this.CreditDates.add(new Date().getTime());
-            this.NumberOfCredits++;
-            this.updateBalance(amount);//add amount to the balence
-            
-       if(balance<=999.99){
-            accountType = 3;
-             System.out.println("Account Updated to 3, after deposit");
-        }
-        else{
-            accountType = 4;
-             System.out.println("Account Updated to 4, after deposit");
-        }
-            
-    }
-
-    public double getTransactionChargeList(int index) {
-        return TransactionChargeList.get(index);
-    }
-
-    public double getTransferChargeList(int index) {
-        return TransferChargeList.get(index);
-    }
-
-    public int getCheckNumbers(int index) {
-        return CheckNumbers.get(index);
-    }
-            
-            
-     public void DebitAccount(double amount, int checknum) {
-        
-            DebitAmounts.add(amount);
-            DebitDates.add(new Date().getTime());
-            NumberOfDebits++;
-            CheckNumbers.add(checknum);
-            if(this.accountType==4){
-                this.TransactionChargeList.add(0.00);
-                this.TransferChargeList.add(0.00);
-                this.updateBalance(0-(amount));
-            }else{
-                this.TransactionChargeList.add(TMBtransCharge);
-                this.TransferChargeList.add(0.00);
-                this.updateBalance(0-(amount+TMBtransCharge));
-            }
-            //send a negative number to detract from the balence
-    }
-
-    public void addDebititRecord(double amount,long DateOfActivation,int checknumber,double transaction,double transfer) {
-        super.addDebititRecord(amount, DateOfActivation);
-        this.CheckNumbers.add(checknumber);
-        this.TransactionChargeList.add(transaction);
-        this.TransferChargeList.add(transfer);
-    }
-     
-
-}
             
        
-     
-   
-    
-
-   
-
-    
-
-
-
- 
-
- 
-
- 
-
- 
-
-
-
-
- 

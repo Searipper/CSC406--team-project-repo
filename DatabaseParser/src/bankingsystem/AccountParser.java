@@ -146,18 +146,18 @@ public class AccountParser {
     }//end getCustomerAccounts
     
     //<editor-fold defaultstate="collapsed">
-    /**method that searches records for an account by ATM card number and 
-     * returns an ArrayList of ATM card accounts with that card number
-     * @param cardnum the card number of the account.
-     * @return an arraylist of accounts with the specified account number
+    /**method that searches records for an account by ssn and 
+     * returns an ArrayList of ATM card accounts owned by user.
+     * @param ssn the social security number of account owner.
+     * @return an arraylist of ATM accessible accounts owned by this customer.
      *///</editor-fold>
-    public ArrayList<AtmCards> getMyATM(int cardnum)
+    public ArrayList<AtmCards> getMyATM(int ssn)
     {//<editor-fold  defaultstate="collapsed">
         ArrayList<AtmCards> atm = new ArrayList<AtmCards>();
         for(int i=0;i<this.getRecordCount();i++){
             if(this.accountobjects.get(i) instanceof AtmCards){
                 AtmCards account =(AtmCards)accountobjects.get(i);
-                if(account.getCardNum()==cardnum){
+                if(account.getCustomerID()==ssn){
                     System.out.println("Match");
                     atm.add(account);
                 }//end if
@@ -398,7 +398,7 @@ public class AccountParser {
         return "Could not find account";
         //</editor-fold>
     }
-
+    
     //-------------------------------------------------------------
     //          File Input & Output Methods
     //-------------------------------------------------------------
@@ -1431,7 +1431,7 @@ public class AccountParser {
                 
                 //update records of change
 //                ReadFile(); //Redundent code. the data on file is already up-to-date at this point
-                
+                System.out.println("XML File updated");
             }//end WriteFile//</editor-fold>
         }catch(Exception e){
             System.out.println("Exception in file output stream");
