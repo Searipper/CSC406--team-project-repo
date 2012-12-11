@@ -42,7 +42,9 @@ public class SavingsAccount extends AtmCards {
     //  methods
     //--------------------------------------
     public double withdraw(double amount) { //deducts funds from account, returns updated balance
-        balance -= amount;
+        if(amount<=balance){//if the payment is less then or equal to the balence
+            this.DebitAccount(amount);
+        }
         return balance;
     }
 
@@ -81,10 +83,10 @@ public class SavingsAccount extends AtmCards {
         isOverdraftAcc = set;
     }
 
-    @Override
-    public void updateBalance(double balance) {
-        this.balance = balance;
-    }
+//    @Override
+//    public void updateBalance(double balance) {
+//        this.balance = balance;
+//    }
 
 //    public void print() {
 //        System.out.println(getAccountNum() +" - user num: " + getssn());
