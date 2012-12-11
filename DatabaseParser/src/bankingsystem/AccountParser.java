@@ -387,6 +387,50 @@ public class AccountParser {
         //</editor-fold>
     }//end getAtmAccount
     
+    public  Checking getCheckingAccountBySSN(int ssn) 
+    {//<editor-fold  defaultstate="collapsed">
+        Checking a1= new Checking(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getCustomerID()==ssn)&&(accountobjects.get(i) instanceof Checking)){
+                a1= (Checking)accountobjects.get(i);
+                System.out.println("Found Checking account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getCustomerID()==ssn)&&!(accountobjects.get(i) instanceof Checking)){
+                System.out.println("Found account, but it is not a Checking account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account, returning blank account");
+        return a1;
+        //</editor-fold>
+    }//end getCheckingAccount
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the perspective savings account if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the savings account searched for</li>
+     *              <li>If not found, returns a blank savings account</li></ul>
+     *///</editor-fold>
+    public  SavingsAccount getSavingsAccountBySSN(int ssn) 
+    {//<editor-fold  defaultstate="collapsed">
+        SavingsAccount a1= new SavingsAccount(-1,-1,0.00,1);
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getCustomerID()==ssn)&&(accountobjects.get(i) instanceof SavingsAccount)){
+                a1= (SavingsAccount)accountobjects.get(i);
+                System.out.println("Found savings account now returning");
+                return a1;
+            }//end if
+            if((accountobjects.get(i).getCustomerID()==ssn)&&!(accountobjects.get(i) instanceof SavingsAccount)){
+                System.out.println("Found account, but it is not a savings account");
+            }//end if
+        }//end for
+        System.out.println("could not retrieve account,returning blank savings account");
+        return a1;
+        //</editor-fold>
+    }//end getSavingsAccount
+    
+    
     //-------------------------------------------------------------
     //          Create & Close Account Methods
     //-------------------------------------------------------------
