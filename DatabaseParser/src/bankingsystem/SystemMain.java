@@ -7,11 +7,9 @@ package bankingsystem;
 public class SystemMain {
     
     public static void main(String[] args) {
-        UserParser u1 = new UserParser("");
-        System.out.println(u1.RegisterUserForATM(559555555, 561234, 1234));
 //        AccountParser a1 = new AccountParser("");
-        System.out.println(u1.LoginToATM(561234, 1234));
 //        a1.getRecordCount();
-        
+        Application_Start_Form app1 = new Application_Start_Form();
+        app1.run();
     }//end main
 }

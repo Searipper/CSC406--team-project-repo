@@ -551,7 +551,8 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseAccountActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        Create_ATMCard_jFrame atm = new Create_ATMCard_jFrame(this,true);
+        atm.run();
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void btnChangeRateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeRateActionPerformed

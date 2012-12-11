@@ -167,6 +167,51 @@ public class AccountParser {
     }//end getMyATM()
     
     //------------------------------------
+    //  set intrest Methods
+    //------------------------------------
+    
+    /**Method sends out bills for all billing accounts*/
+    public String SendOutAllBills(){
+        int count=0;
+        BillingAccounts b1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof BillingAccounts){
+            b1=(BillingAccounts)this.accountobjects.get(i);
+            b1.SendoutBills();
+            count++;
+            }//end if
+        }//end for
+        return count +" Bills sent out";
+    }//end method
+    /**Method sends out bills for all CreditCard accounts*/
+    public String SendOutAllCreditCardBills(){
+        int count=0;
+        BillingAccounts b1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof CreditCards){
+            b1=(BillingAccounts)this.accountobjects.get(i);
+            b1.SendoutBills();
+            count++;
+            }//end if
+        }//end for
+        return count +" Bills sent out";
+    }//end method
+    
+    /**Method sends out bills for all Loan accounts*/
+    public String SendOutAllLoanBills(){
+        int count=0;
+        BillingAccounts b1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof BillingAccounts){
+            b1=(BillingAccounts)this.accountobjects.get(i);
+            b1.SendoutBills();
+            count++;
+            }//end if
+        }//end for
+        return count +" Bills sent out";
+    }//end method
+    
+    //------------------------------------
     //  get Individual Account Methods
     //------------------------------------
     
