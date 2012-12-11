@@ -241,7 +241,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     //  printmethods
     //-------------------------------------
     public String getEntirePurchaseHistory(){
-        String history="";
+        String history="Purchase History";
         for(int i=0;i<this.NumberOfCredits;i++){
              history = history+"\nDate: "+this.getCreditDate(i)+"\t"+
                      this.getCreditAmounts(i)+"\t"+this.getCreditDescriptions(i);
@@ -260,7 +260,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     }//end getPurchaseHistory
     
     public String getEntirePaymentHistory(){
-        String history="";
+        String history="Payment History";
         for(int i=0;i<this.NumberOfDebits;i++){
             double amount=this.getDebitAmounts(i);
             history = history+"\nDate: "+this.getDebitDate(i)+"\n\tAmount: \t\t$"+
@@ -268,6 +268,12 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
         }
         return history;
     }//end getEntirePaymentHistory
+    @Override
+    public String getTransactionHistory(){
+        String msg=this.getEntirePurchaseHistory()+
+                "\n"+this.getEntirePaymentHistory();
+        return msg;
+    }
     
     @Override
     public String getBillDetails(){

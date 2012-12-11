@@ -181,8 +181,8 @@ public class LoanAccounts extends BillingAccounts{
     //-------------------------------------
     //  printmethods
     //-------------------------------------
-
-    public String getEntirePaymentHistory(){
+    @Override
+    public String getTransactionHistory(){
         String history="";
         for(int i=0;i<this.NumberOfDebits;i++){
             double amount=this.getDebitAmounts(i),

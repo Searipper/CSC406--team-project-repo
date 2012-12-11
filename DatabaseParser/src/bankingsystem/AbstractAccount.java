@@ -120,4 +120,7 @@ abstract class AbstractAccount {
     /**sets the date of activation @param DateOfActivation long date*/
     public void setDateOfActivation(long DateOfActivation) {this.DateOfActivation = DateOfActivation;}
         
+    public String getTransactionHistory() {
+        return "";
+    }
 }//end Abstract class
