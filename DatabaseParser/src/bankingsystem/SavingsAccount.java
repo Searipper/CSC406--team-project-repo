@@ -180,6 +180,12 @@ public class SavingsAccount extends AtmCards {
         this.balance = balance;
     }
 
+    /**
+     * method which will list all of the debits and credits of a savings account into
+     * output and return a end string
+     *
+     * @return words which will contain "end history"
+     */
     @Override
     public String getTransactionHistory() {
 
