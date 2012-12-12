@@ -98,6 +98,7 @@ public class SavingsAccount extends AtmCards {
      */
     public double deposit(double amount) {
         balance += amount;
+        this.CreditAccount(amount);
         return balance;
     }
 
@@ -177,5 +178,24 @@ public class SavingsAccount extends AtmCards {
     @Override
     public void updateBalance(double balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public String getTransactionHistory() {
+
+        String words = "Empty";
+
+        for (int i = 0; i < this.getNumOfDebits(); i++) {
+            words = "Debit: " + this.getDebitDates(i) + " in the amount of " + this.getDebitAmounts(i);
+            System.out.println(words);
+        }
+        for (int i = 0; i < this.getNumOfCredits(); i++) {
+            words = "Credit: " + this.getCreditDates(i) + " in the amount of " + this.getCreditAmounts(i);
+            System.out.println(words);
+        }
+
+        words = "end history";
+
+        return words;
     }
 }

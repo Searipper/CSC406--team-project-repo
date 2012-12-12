@@ -344,4 +344,29 @@ public class CdAccount extends AbstractAccount {
             return temp;
         }
     }
+
+    /**
+     * A method to return all of an accounts credit and debit details
+     */
+    public void rollOverCD() {
+        long currDate = new Date().getTime();
+
+        if (currDate > rolloverDate.getTime() && this.accountFlag != 0) { //account must be past rollover date and be flagged
+
+            balance = (balance + interestEarned); //sets new balance balance + interest earned from previous CD
+
+            Calendar ed = Calendar.getInstance(); //create a calendar object to set today's date for account reset
+            startDate.setTime(ed.getTime().getTime());//reset start time to current time
+            longStartDate = ed.getTime().getTime();
+            ed.add(ed.YEAR, 5);    //standard rollover will be set to five years
+            longEndDate = ed.getTime().getTime(); //end date is set to five years
+            endDate.setTime(longEndDate);
+            rolloverDate.setTime(0); //rollover is reset to 0
+            System.out.println("Account successfully rolled over, will mature on: " + getEndDate());
+        } else {
+            System.out.println("Account cannot roll over until: " + getRolloverDate());
+        }
+
+
+    }
 }
