@@ -15,14 +15,21 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     //-------------------------------------
     //  Variables
     //-------------------------------------
-    private ArrayList<Double> CreditAmounts=new ArrayList<Double>();//holds amounts of credit history
-    private ArrayList<Long> CreditDates=new ArrayList<Long>();//holds dates of credit history
-    private int NumberOfCredits;//holds number of credits
+    /**holds amounts of credit history*/
+    private ArrayList<Double> CreditAmounts=new ArrayList<Double>();
+    /**holds dates of credit history*/
+    private ArrayList<Long> CreditDates=new ArrayList<Long>();
+    /**holds number of credits*/
+    private int NumberOfCredits;
     //----creditcard specific----
-    private ArrayList<String> CreditDescriptions=new ArrayList<String>();//holds purchase discriptions of credit history
-    private double CreditLimit;//holds the credit limit
-    private double FinanceCharge;//average of purchases during the month
-    private long DateOfFinanceChargeReset;//date that user paid off finance charge
+    /**holds purchase descriptions of credit history*/
+    private ArrayList<String> CreditDescriptions=new ArrayList<String>();
+    /**holds the credit limit*/
+    private double CreditLimit;
+    /**average of purchases during the month*/
+    private double FinanceCharge;
+    /**date that user paid off finance charge*/
+    private long DateOfFinanceChargeReset;
     
     //-------------------------------------
     //  Constructor
@@ -85,7 +92,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
      * made this month. get the average balance by dividing the purchase 
      * values by number of purchases
      */
-    private void CalculateFinanceCharge(){
+    private void CalculateFinanceCharge()
+    {//<editor-fold  defaultstate="collapsed">
         //check to see if there is even a need to calculate finance charge
         if(balance>0){
             double monthlyamount=0;//get the total of purchases this month
@@ -107,8 +115,9 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
         }else{
             System.out.println("Nothing owed. no need to calculate finance charge");
         }
-        
+        //</editor-fold>
     }
+    
     /**
      * Customer has paid off the credit card balance. reset finance charge to 0.
      * calculate new finance charges after present date.
@@ -125,7 +134,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
      * @param amount amount of the charge
      * @param desc description of the charge item
      * @return message describing the success or failure of the transaction*/
-    public String UseCreditCard(int accountnum,double amount,String desc){
+    public String UseCreditCard(int accountnum,double amount,String desc)
+    {//<editor-fold  defaultstate="collapsed">
         if(accountnum==this.accountNum){
         if(amount+balance<=this.CreditLimit){
             this.CreditAccount(amount, desc);
@@ -133,13 +143,17 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
         }else{
             return"Purchase over Credit Limit";
         }//end if
-        }else{return "Either wrong account or account does not exist";}
+        }else{
+            return "Either wrong account or account does not exist";
+        }//</editor-fold>
     }//end UseCreditCard
+    
     /**Used to pay off account. 
      * @param amount amount you wish to pay off. cannot be greater than balance
      * @return String message describing the success or failure of payment
      */
-    public String MakePayment(double amount){
+    public String MakePayment(double amount)
+    {//<editor-fold  defaultstate="collapsed">
         if(balance>0){
             if(!(amount>balance)){
                 if(amount==balance){//payment in full. debit account and reset finance charge
@@ -156,7 +170,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
             }//end else
         }else{//nothing owed. return error msg.
             return"Cannot make payment. balance is 0!";
-        }//end else
+        }//end else//</editor-fold>
     }//end MakePayment
     
     //-------------------------------------
@@ -168,7 +182,8 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
      * @return Value of bill.
      */
     @Override
-    public double CalculateBill() {
+    public double CalculateBill() 
+    {//<editor-fold  defaultstate="collapsed">
         if(balance>0){
         this.CalculateFinanceCharge();//calculate the finance charge.
         System.out.println("balance: $"+balance+" FinanceCharge: $"+this.FinanceCharge);
@@ -181,7 +196,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
         return Billamount;//return the bill amount
         }else{
             return 0;
-        }//end if
+        }//end if//</editor-fold>
     }//end CalculateBill
     
     //-----------------------------------
@@ -190,65 +205,88 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
     
     /**Adds amount to balance @param amount amount of purchase*/
     @Override
-    public void CreditAccount(double amount) {
+    public void CreditAccount(double amount) 
+    {//<editor-fold  defaultstate="collapsed">
         //check against the credit limit first
         if(amount+balance<=this.CreditLimit){
             this.CreditAmounts.add(amount);
             this.CreditDates.add(new Date().getTime());
             this.NumberOfCredits++;
             this.updateBalance(amount);//add amount to the balence
-        }else{System.out.println("Amount over the Credit limit");}//end if
+        }else{System.out.println("Amount over the Credit limit");}//end if//</editor-fold>
     }//end CreditAccount
-        public void CreditAccount(double amount,String description) {
+    
+    /**adds purchase data @param amount purchase amount @param description text*/
+        public void CreditAccount(double amount,String description) 
+        {//<editor-fold  defaultstate="collapsed">
                 this.CreditAmounts.add(amount);
                 this.CreditDates.add(new Date().getTime());
                 this.CreditDescriptions.add(description);
                 this.NumberOfCredits++;
-                this.updateBalance(amount);//add amount to the balence
+                this.updateBalance(amount);//add amount to the balence//</editor-fold>
         }//end CreditAccount
 
+    /**adds purchase data @param amount purchase amount @param date purchase date*/
     @Override
-    public void addCreditRecord(double amount, long creditdate) {       
+    public void addCreditRecord(double amount, long creditdate) 
+    {//<editor-fold  defaultstate="collapsed">       
         this.CreditAmounts.add(amount);
         this.CreditDates.add(creditdate);
-        this.NumberOfCredits++;
+        this.NumberOfCredits++;//</editor-fold>
     }
-        public void addCreditRecord(double amount, long creditdate,String description) {       
+    /**adds purchase data @param amount purchase amount @param date purchase date @param description text*/
+        public void addCreditRecord(double amount, long creditdate,String description) 
+        {//<editor-fold  defaultstate="collapsed">       
             this.CreditAmounts.add(amount);
             this.CreditDates.add(creditdate);
             this.CreditDescriptions.add(description);
-            this.NumberOfCredits++;
+            this.NumberOfCredits++;//</editor-fold>
         }
 
+    /**returns amount of a requested purchase record @param index record index @return amount*/
     @Override
     public double getCreditAmounts(int index) {return CreditAmounts.get(index);}
+    
+    /**returns date of a requested purchase record @param index record index @return long*/
     @Override
     public long getCreditDates(int index) {return CreditDates.get(index);}
     
-    public Date getCreditDate(int index) {
+    /**returns date of a requested purchase record @param index record index @return date*/
+    public Date getCreditDate(int index) 
+    {//<editor-fold  defaultstate="collapsed">
         Calendar cr = Calendar.getInstance();
         cr.setTime(new Date(this.CreditDates.get(index)));
-        return cr.getTime();
+        return cr.getTime();//</editor-fold>
     }   
     
+    /**returns the number of purchases @return number of purchases*/
     @Override
     public int getNumOfCredits() {return NumberOfCredits;}
-
+    
+    /**returns description for a purchase in purchase history
+     * @param index index of purchase description @return purchase description */
     public String getCreditDescriptions(int index) {
         return CreditDescriptions.get(index);
     }
+    
     //-------------------------------------
     //  printmethods
     //-------------------------------------
-    public String getEntirePurchaseHistory(){
+    
+    /**returns all of the purchases of this account. @return purchase history*/
+    public String getEntirePurchaseHistory()
+    {//<editor-fold  defaultstate="collapsed">
         String history="Purchase History";
         for(int i=0;i<this.NumberOfCredits;i++){
              history = history+"\nDate: "+this.getCreditDate(i)+"\t"+
                      this.getCreditAmounts(i)+"\t"+this.getCreditDescriptions(i);
         }
-        return history;
+        return history;//</editor-fold>
     }//end getEntirePurchaseHistory
-    public String getPurchaseHistorySinceLastPayment(){
+    
+    /**returns all of the credits of this account since last bill. @return purchase history*/
+    public String getPurchaseHistorySinceLastPayment()
+    {//<editor-fold  defaultstate="collapsed">
         String history="";
         for(int i=0;i<this.NumberOfCredits;i++){
             if(this.getCreditDates(i)>this.FinanceCharge){
@@ -256,27 +294,36 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
                      this.getCreditAmounts(i)+"\t"+this.getCreditDescriptions(i);
             }//end if
         }//end for
-        return history;
+        return history;//</editor-fold>
     }//end getPurchaseHistory
     
-    public String getEntirePaymentHistory(){
+    /**returns all of the debits of this account. @return payment history*/
+    public String getEntirePaymentHistory()
+    {//<editor-fold  defaultstate="collapsed">
         String history="Payment History";
         for(int i=0;i<this.NumberOfDebits;i++){
             double amount=this.getDebitAmounts(i);
             history = history+"\nDate: "+this.getDebitDate(i)+"\n\tAmount: \t\t$"+
                     amount;
         }
-        return history;
+        return history;//</editor-fold>
     }//end getEntirePaymentHistory
-    @Override
-    public String getTransactionHistory(){
-        String msg=this.getEntirePurchaseHistory()+
-                "\n"+this.getEntirePaymentHistory();
-        return msg;
-    }
     
+    /**returns all of the transactions of this account. @return transaction history*/
     @Override
-    public String getBillDetails(){
+    public String getTransactionHistory()
+    {//<editor-fold  defaultstate="collapsed">
+        String msg="Account: "+this.getAccountNum()+"\tType: "+
+                this.getAccountDescription()+"\n"+
+                this.getEntirePurchaseHistory()+
+                "\n"+this.getEntirePaymentHistory();
+        return msg;//</editor-fold>
+    }
+    /**returns all of the purchases and payments of this account that factor into the new bill. 
+     * @return bill details*/
+    @Override
+    public String getBillDetails()
+    {//<editor-fold  defaultstate="collapsed">
         String bill="\tBill Details:";
         bill=bill+"\n\t--------------------------------------\n"
                 +"\tAmount: $"+this.getBillamount()+
@@ -300,7 +347,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
                 this.getDebitDate(i);
             }//end if
         }//end for
-        return bill;
+        return bill;//</editor-fold>
     }//end getBillDetails
     
 }//end Loans

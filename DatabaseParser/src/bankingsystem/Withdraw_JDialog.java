@@ -57,6 +57,8 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
             }
         });
 
+        message.setText("Result:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,7 +125,7 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
         if(account==chk.getBackupAccountNumber()){
             System.out.println("Right account");}
             System.out.println(chk.checkBalance());
-            message.setText("Account Balance: " + chk.Withdrawl(amount));
+            message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
             System.out.println(chk.checkBalance());
         
             ap.WriteFile();

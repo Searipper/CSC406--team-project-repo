@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * account for loans
+ * this account is for Long-term mortgages and Short-term loans
  * @author sjhajeer
  */
 public class LoanAccounts extends BillingAccounts{
@@ -20,9 +20,13 @@ public class LoanAccounts extends BillingAccounts{
     private double InterestRate;
     /**date the loan is to be paid off by*/
     private long EndLoanDate;
+    /**Array to hold Interest the bank earns on payments*/
     private ArrayList<Double> IntrestGained= new ArrayList<Double>();
+    /**initial amount of the loan*/
     private double IntitialLoanAmount;
+    /**number of years the loan is to be paid back over*/
     private int loanyears;
+    /**the fixed payment amount of the loan*/
     private double FixedPaymentAmount;
     
     
@@ -30,11 +34,24 @@ public class LoanAccounts extends BillingAccounts{
     //  Constructor
     //---------------------------------
     
+    /**constructs a loan account.
+     * @param customerID account holder ssn
+     * @param accountNum Unique account identifier
+     * @param balance amount the loan is taken out for.
+     * @param accountFlag flags on the account.
+     */
     public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
         super.setAccountType(5);
     }//end constructor
     
+    /**constructs a loan account and sets the type of loan based off of the length of the loan.
+     * @param customerID account holder ssn
+     * @param accountNum Unique account identifier
+     * @param balance amount the loan is taken out for.
+     * @param accountFlag flags on the account.
+     * @param loanlength number of years account is to be paid back over.
+     */
     public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag,int loanlength) {
         super(customerID, accountNum, balance, accountFlag);
         Calendar ed = Calendar.getInstance(); //create a calendar object to set today's date for account creation
@@ -142,7 +159,8 @@ public class LoanAccounts extends BillingAccounts{
     //----------------------------------
     //  implemented from BillingAccounts
     //----------------------------------
-    /**Minimum monthly*/
+    
+    /**Calculates the Minimum monthly bill @return bill amount*/
     @Override
     public double CalculateBill() {
         double billamount=0;
@@ -181,6 +199,8 @@ public class LoanAccounts extends BillingAccounts{
     //-------------------------------------
     //  printmethods
     //-------------------------------------
+    
+    /**returns all of the transactions of this account. @return transaction history*/
     @Override
     public String getTransactionHistory(){
         String history="";

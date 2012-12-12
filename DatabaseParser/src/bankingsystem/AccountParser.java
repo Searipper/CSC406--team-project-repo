@@ -169,6 +169,34 @@ public class AccountParser {
     //------------------------------------
     //  set intrest Methods
     //------------------------------------
+    /**method updates the interest rate of Simple Savings and Gold/Diamond accounts
+     * @param intrest the new intrest rate for accounts.
+     * @return message with the number of accounts updated.
+     */
+    public String SetCheckingAndSavingIntrestRates(double intrest){
+        int count=0;
+        Checking c1;
+        SavingsAccount s1;
+        
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof Checking){
+                //if it is gold diamond account set intrest
+                if(this.accountobjects.get(i).getAccountType()==4){
+                    c1=(Checking)this.accountobjects.get(i);
+                    c1.setGDinterestRate(intrest*.5);
+                    count++;
+                }//end if
+            }//end if
+            if(this.accountobjects.get(i) instanceof SavingsAccount){
+                s1=(SavingsAccount)this.accountobjects.get(i);
+                s1.setInterestRate(intrest);
+                count++;
+            }//end if
+        }//end for
+        this.WriteFile();
+        return "Intrest rate updated on "+count +" Accounts";
+    }//end method
+    
     
     /**Method sends out bills for all billing accounts*/
     public String SendOutAllBills(){
@@ -630,6 +658,7 @@ public class AccountParser {
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
                                                             a1.setProtectingAcc(Integer.parseInt(text));
+                                                            a1.setBackupAccountNumber(Integer.parseInt(text));
                                                         }//</editor-fold>
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">
@@ -760,6 +789,7 @@ public class AccountParser {
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
                                                             a1.setProtectingAcc(Integer.parseInt(text));
+                                                            a1.setBackupAccountNumber(Integer.parseInt(text));
                                                         }//</editor-fold>
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">

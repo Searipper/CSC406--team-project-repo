@@ -10,12 +10,18 @@ abstract class AbstractAccount {
     //        Variables
     //----------------------------
     
-    protected int customerID;//the SSN number of the customer associated with this account
-    protected int accountNum;//unique account identifier number 9-digit number
-    protected int accountType;//account type identifier
-    protected double balance;//the current balence of the account
-    protected int accountFlag;//any flaggs associated with this account
-    protected long DateOfActivation;//long date of activation
+    /**the SSN number of the customer associated with this account*/
+    protected int customerID;
+    /**unique account identifier number 9-digit number*/
+    protected int accountNum;
+    /**account type identifier*/
+    protected int accountType;
+    /**the current balance of the account*/
+    protected double balance;
+    /**any flags associated with this account*/
+    protected int accountFlag;
+    /**long date of activation*/
+    protected long DateOfActivation;
 
     //---------------------------
     //Abstract constructor
@@ -119,7 +125,7 @@ abstract class AbstractAccount {
     public long getDateOfActivation() {return DateOfActivation;}
     /**sets the date of activation @param DateOfActivation long date*/
     public void setDateOfActivation(long DateOfActivation) {this.DateOfActivation = DateOfActivation;}
-        
+    /**returns all of the transactions of this account. @return transaction history*/
     public String getTransactionHistory() {
         return "";
     }

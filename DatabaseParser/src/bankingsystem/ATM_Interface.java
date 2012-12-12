@@ -141,36 +141,66 @@ public class ATM_Interface extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+   
+       //fielderror check to insure all field are filled
+       int fielderror =0 ;
+       if(cardNo.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            fielderror++;
+            return;
+        }
+       if(pin.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            fielderror++;
+            return;
+        }
+       if(amt.getText().isEmpty()){
+            message.setText("Please Fill all fields");
+            fielderror++;
+            return;
+        }
+
+       if(fielderror==0){
        int cardnumber = Integer.parseInt(this.cardNo.getText());
        int pinnumber  = Integer.parseInt(this.pin.getText());
-
        double amount  = Double.parseDouble(this.amt.getText());
-       System.out.println("cardnumber " + cardnumber);
+
        UserParser up = new UserParser("");
        AccountParser ap = new AccountParser("");
+           
+       //get ssnindex and ssn
        int ssnindex = up.LoginToATM(cardnumber, pinnumber);//-3=over usage ,-2= pin error, -1=no cardnum
        int ssn = -99;
+       if(ssnindex==-1){message.setText("Card Number not found.");return;}
+       if(ssnindex==-2){message.setText("PIN error");return;}
+       if(ssnindex==-3){message.setText("Reach Usage Limit today");return;}
        if(ssnindex>=0){ssn = up.getSSN(ssnindex);}
-       System.out.println();
-       System.out.println("------ssnindex  " + ssnindex);
-       System.out.println("------ssn, -99 = default " + ssn);
        Checking chk = ap.getCheckingAccountBySSN(ssn);
        SavingsAccount sav = ap.getSavingsAccountBySSN(ssn);
-       System.out.println("---------chk = " + chk);
-       System.out.println("---------sav = " + sav);
-       if(ssnindex==-1){message.setText("Card Number not found.");}
-       if(ssnindex==-2){message.setText("PIN error");}
-       if(ssnindex==-3){message.setText("Reach Usage Limit today");}
+       //Check for correctness
+
+            if(chk.getAccountNum()==-1){
+                message.setText("This ATM Card Owner, doesn't not have a Checking account." + chk.getAccountNum());
+                return;
+            }
+            if(sav.getAccountNum()==-1){
+                message.setText("This ATM Card Owner, doesn't not have a Saving account." + sav.getAccountNum());
+                return;
+            }
+
+            if(this.sourceAccount.getSelectedIndex()==0&&ssnindex>=0){
+                chk.Withdrawl(amount);ap.WriteFile();
+                message.setText("Withdraw from Checking Account, amount " + amount);
+
+            }
+            if(this.sourceAccount.getSelectedIndex()==1&&ssnindex>=0){
+                sav.Withdrawl(amount);ap.WriteFile();
+                message.setText("Withdraw from Saving Acount, amount " + amount);
+            }
+            }else{
+                message.setText("Fieldcheck failed, Please fill all the fields");
+            }
        
-       if(this.sourceAccount.getSelectedIndex()==0&&ssnindex>=0){
-           chk.Withdrawl(amount);ap.WriteFile();
-           message.setText("Withdraw from Checking Account, amount " + amount);
-        
-       }
-       if(this.sourceAccount.getSelectedIndex()==1&&ssnindex>=0){
-           sav.Withdrawl(amount);ap.WriteFile();
-           message.setText("Withdraw from Saving Acount, amount " + amount);
-       }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     /**
