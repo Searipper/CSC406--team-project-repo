@@ -104,11 +104,13 @@ public class AccountParser {
     //------------------------------------
     //  set intrest Methods
     //------------------------------------
+    //<editor-fold defaultstate="collapsed">
     /**method updates the interest rate of Simple Savings and Gold/Diamond accounts
      * @param intrest the new intrest rate for accounts.
      * @return message with the number of accounts updated.
-     */
-    public String SetCheckingAndSavingIntrestRates(double intrest){
+     *///</editor-fold>
+    public String SetCheckingAndSavingIntrestRates(double intrest)
+    {//<editor-fold defaultstate="collapsed">
         int count=0;
         Checking c1;
         SavingsAccount s1;
@@ -129,12 +131,27 @@ public class AccountParser {
             }//end if
         }//end for
         this.WriteFile();
-        return "Intrest rate updated on "+count +" Accounts";
+        return "Intrest rate updated on "+count +" Accounts";//</editor-fold>
     }//end method
     
-    
+    /**Method sends out bills for all Loan accounts*/
+    public String CalculateFPsOnAllLoanBills()
+    {//<editor-fold defaultstate="collapsed">
+        int count=0;
+        LoanAccounts b1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof LoanAccounts){
+            b1=(LoanAccounts)this.accountobjects.get(i);
+            b1.CalculateFixedPaymentAmount();
+            count++;
+            }//end if
+        }//end for
+        this.WriteFile();
+        return count +" Bills sent out";//</editor-fold>
+    }//end method
     /**Method sends out bills for all billing accounts*/
-    public String SendOutAllBills(){
+    public String SendOutAllBills()
+    {//<editor-fold defaultstate="collapsed">
         int count=0;
         BillingAccounts b1;
         for(int i=0;i<this.recordcount;i++){
@@ -145,10 +162,11 @@ public class AccountParser {
             }//end if
         }//end for
         this.WriteFile();
-        return count +" Bills sent out";
+        return count +" Bills sent out";//</editor-fold>
     }//end method
     /**Method sends out bills for all CreditCard accounts*/
-    public String SendOutAllCreditCardBills(){
+    public String SendOutAllCreditCardBills()
+    {//<editor-fold defaultstate="collapsed">
         int count=0;
         BillingAccounts b1;
         for(int i=0;i<this.recordcount;i++){
@@ -159,22 +177,23 @@ public class AccountParser {
             }//end if
         }//end for
         this.WriteFile();
-        return count +" Bills sent out";
+        return count +" Bills sent out";//</editor-fold>
     }//end method
     
     /**Method sends out bills for all Loan accounts*/
-    public String SendOutAllLoanBills(){
+    public String SendOutAllLoanBills()
+    {//<editor-fold defaultstate="collapsed">
         int count=0;
-        BillingAccounts b1;
+        LoanAccounts b1;
         for(int i=0;i<this.recordcount;i++){
-            if(this.accountobjects.get(i) instanceof BillingAccounts){
-            b1=(BillingAccounts)this.accountobjects.get(i);
+            if(this.accountobjects.get(i) instanceof LoanAccounts){
+            b1=(LoanAccounts)this.accountobjects.get(i);
             b1.SendoutBills();
             count++;
             }//end if
         }//end for
         this.WriteFile();
-        return count +" Bills sent out";
+        return count +" Bills sent out";//</editor-fold>
     }//end method
     
     //------------------------------------
@@ -481,6 +500,7 @@ public class AccountParser {
     //          File Input & Output Methods
     //-------------------------------------------------------------
     
+    // <editor-fold defaultstate="collapsed">
     /**
      * <t/><p>reads in an xml file</p>
      * <t/><p>
@@ -493,7 +513,7 @@ public class AccountParser {
      * ---------------------------------<br/>
      * </p>
      * @return  not a damn thing....
-     */
+     */// </editor-fold>
     private void ReadFile(){
         try{// <editor-fold defaultstate="collapsed">
             //reset the usercount
@@ -867,6 +887,12 @@ public class AccountParser {
                                                             LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
                                                         }//</editor-fold>
+                                                        //found FixedPaymentAmount
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("FixedPaymentAmount")==0){
+                                                            LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
+                                                            a1.setFixedPaymentAmount(Double.parseDouble(text));
+                                                        }//</editor-fold>
                                                         //found initial loan amount and years of payoff
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("IntitialLoanAmount")==0){
@@ -966,6 +992,12 @@ public class AccountParser {
                                                         if(AccountDetails.getNodeName().compareTo("InterestRate")==0){
                                                             LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
                                                             a1.setInterestRate(Double.parseDouble(text));
+                                                        }//</editor-fold>
+                                                        //found FixedPaymentAmount
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("FixedPaymentAmount")==0){
+                                                            LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
+                                                            a1.setFixedPaymentAmount(Double.parseDouble(text));
                                                         }//</editor-fold>
                                                         //found CC bill amount
                                                         //<editor-fold defaultstate="collapsed">
@@ -1458,6 +1490,8 @@ public class AccountParser {
                             LoanAccounts a1=(LoanAccounts)this.accountobjects.get(i);
                             //account intrest rate
                             p1.println("\t\t\t<InterestRate>"+a1.getInterestRate()+"</InterestRate>");
+                            //FixedPaymentAmount
+                            p1.println("\t\t\t<FixedPaymentAmount>"+a1.getFixedPaymentAmount()+"</FixedPaymentAmount>");
                             //IntitialLoanAmount and years of length
                             p1.println("\t\t\t<IntitialLoanAmount loanyears=\""+a1.getLoanyears()
                                         +"\">"+a1.getIntitialLoanAmount()+"</IntitialLoanAmount>");
@@ -1556,5 +1590,32 @@ public class AccountParser {
     //          Print Methods
     //-------------------------------------------------------------
     
+    public String getAccountsList(){
+        String list="";
+        UserParser up = new UserParser("");
+        AbstractAccount ap=null;
+        int uindex;
+        list=list+"\n#   \tAccountNum  \t\tAccount Type \t \t  Account owner\n";
+        for(int i=0;i<this.recordcount;i++){
+            ap =this.accountobjects.get(i);
+            uindex=up.getIndexFromSSN(ap.getCustomerID());
+            
+            list=list+"\n"+i+")\t";
+            if(ap.getAccountNum()<1000000){list=list+"0";}
+            
+            list=list+ap.getAccountNum()+"\t \t"+ap.getAccountDescription();
+            
+            if(ap.getAccountDescription().compareTo("CD")==0){
+                list=list+"\t\t";
+            }else if(ap.getAccountDescription().compareTo("Long-Term Mortgage")==0){
+                list=list+" ";
+            }else{
+                list=list+"\t";
+            }
+            
+            list=list+"  \t "+up.getFName(uindex)+" "+up.getLName(uindex);
+        }
+        return list;
+    }
     
 }//end AccountParser

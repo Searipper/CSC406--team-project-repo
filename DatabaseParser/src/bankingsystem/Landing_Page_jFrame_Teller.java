@@ -46,31 +46,37 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnTransfer = new javax.swing.JButton();
-        btnLookupAccount = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        createAcct = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        accountNum = new javax.swing.JFormattedTextField();
+        btnStopPayment = new javax.swing.JButton();
+        message2 = new javax.swing.JLabel();
         btnCloseAccount = new javax.swing.JButton();
         btnWithdraw = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        message2 = new javax.swing.JLabel();
-        accountNum = new javax.swing.JFormattedTextField();
+        jButton9 = new javax.swing.JButton();
+        createAcct = new javax.swing.JButton();
+        btnLookupAccount = new javax.swing.JButton();
+        btnTransfer = new javax.swing.JButton();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
         jTextField1 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
         accountNumber = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        ssn = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        balance = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        accountType = new javax.swing.JTextField();
+        bill = new javax.swing.JTextField();
+        rate = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        fname = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
         op = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        fname = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
+        transactionHistory2 = new java.awt.TextArea();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        balance = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        accountType = new javax.swing.JTextField();
+        ssn = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuOpen = new javax.swing.JMenu();
@@ -82,42 +88,30 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnTransfer.setText("Transfer");
-        btnTransfer.setMaximumSize(new java.awt.Dimension(150, 50));
-        btnTransfer.setMinimumSize(new java.awt.Dimension(150, 50));
-        btnTransfer.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnTransfer.addActionListener(new java.awt.event.ActionListener() {
+        accountNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
+        accountNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransferActionPerformed(evt);
+                accountNumActionPerformed(evt);
             }
         });
+        accountNum.setBounds(20, 10, 131, 20);
+        jLayeredPane1.add(accountNum, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLookupAccount.setText("Look up Account");
-        btnLookupAccount.addActionListener(new java.awt.event.ActionListener() {
+        btnStopPayment.setText("Stop Payment");
+        btnStopPayment.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnStopPayment.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnStopPayment.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnStopPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLookupAccountActionPerformed(evt);
+                btnStopPaymentActionPerformed(evt);
             }
         });
+        btnStopPayment.setBounds(180, 190, 150, 50);
+        jLayeredPane1.add(btnStopPayment, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton9.setText("Deposit");
-        jButton9.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton9.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton9.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
-        createAcct.setText("Create Account");
-        createAcct.setMaximumSize(new java.awt.Dimension(150, 50));
-        createAcct.setMinimumSize(new java.awt.Dimension(150, 50));
-        createAcct.setPreferredSize(new java.awt.Dimension(150, 50));
-        createAcct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createAcctActionPerformed(evt);
-            }
-        });
+        message2.setText("Enter account number to search");
+        message2.setBounds(20, 40, 350, 14);
+        jLayeredPane1.add(message2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnCloseAccount.setText("Close Account");
         btnCloseAccount.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -128,6 +122,8 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 btnCloseAccountActionPerformed(evt);
             }
         });
+        btnCloseAccount.setBounds(180, 70, 150, 50);
+        jLayeredPane1.add(btnCloseAccount, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnWithdraw.setText("Withdraw");
         btnWithdraw.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -138,25 +134,53 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 btnWithdrawActionPerformed(evt);
             }
         });
+        btnWithdraw.setBounds(180, 130, 150, 50);
+        jLayeredPane1.add(btnWithdraw, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton16.setText("Modify Transaction");
-        jButton16.setMaximumSize(new java.awt.Dimension(150, 50));
-        jButton16.setMinimumSize(new java.awt.Dimension(150, 50));
-        jButton16.setPreferredSize(new java.awt.Dimension(150, 50));
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        jButton9.setText("Deposit");
+        jButton9.setMaximumSize(new java.awt.Dimension(150, 50));
+        jButton9.setMinimumSize(new java.awt.Dimension(150, 50));
+        jButton9.setPreferredSize(new java.awt.Dimension(150, 50));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                jButton9ActionPerformed(evt);
             }
         });
+        jButton9.setBounds(20, 130, 150, 50);
+        jLayeredPane1.add(jButton9, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        message2.setText("Enter account number to search");
-
-        accountNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
-        accountNum.addActionListener(new java.awt.event.ActionListener() {
+        createAcct.setText("Create Account");
+        createAcct.setMaximumSize(new java.awt.Dimension(150, 50));
+        createAcct.setMinimumSize(new java.awt.Dimension(150, 50));
+        createAcct.setPreferredSize(new java.awt.Dimension(150, 50));
+        createAcct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountNumActionPerformed(evt);
+                createAcctActionPerformed(evt);
             }
         });
+        createAcct.setBounds(20, 70, 150, 50);
+        jLayeredPane1.add(createAcct, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnLookupAccount.setText("Look up Account");
+        btnLookupAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLookupAccountActionPerformed(evt);
+            }
+        });
+        btnLookupAccount.setBounds(170, 10, 124, 23);
+        jLayeredPane1.add(btnLookupAccount, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnTransfer.setText("Transfer");
+        btnTransfer.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnTransfer.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnTransfer.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnTransfer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTransferActionPerformed(evt);
+            }
+        });
+        btnTransfer.setBounds(20, 190, 150, 50);
+        jLayeredPane1.add(btnTransfer, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField1.setText("Account Number");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,14 +188,28 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.setBounds(20, 60, 120, 20);
+        jLayeredPane2.add(jTextField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTextField16.setText("Overdraft Protection");
+        jTextField16.setBounds(20, 180, 120, 20);
+        jLayeredPane2.add(jTextField16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        accountNumber.setBounds(150, 60, 206, 20);
+        jLayeredPane2.add(accountNumber, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField3.setText("SSN");
+        jTextField3.setBounds(20, 90, 120, 20);
+        jLayeredPane2.add(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        bill.setBounds(150, 210, 206, 20);
+        jLayeredPane2.add(bill, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        rate.setBounds(150, 240, 206, 20);
+        jLayeredPane2.add(rate, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField5.setText("Balance");
-
-        jTextField7.setText("Account Type");
-
-        jTextField12.setText("First Name");
+        jTextField11.setText("Bill of the Account");
+        jTextField11.setBounds(20, 210, 120, 20);
+        jLayeredPane2.add(jTextField11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        fname.setBounds(150, 0, 206, 20);
+        jLayeredPane2.add(fname, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jTextField14.setText("Last Name");
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
@@ -179,8 +217,40 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 jTextField14ActionPerformed(evt);
             }
         });
+        jTextField14.setBounds(20, 30, 120, 20);
+        jLayeredPane2.add(jTextField14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        op.setBounds(150, 180, 206, 20);
+        jLayeredPane2.add(op, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lname.setBounds(150, 30, 206, 20);
+        jLayeredPane2.add(lname, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jTextField16.setText("Overdraft Protection");
+        jTextField12.setText("First Name");
+        jTextField12.setBounds(20, 0, 120, 20);
+        jLayeredPane2.add(jTextField12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        transactionHistory2.setBounds(20, 290, 340, 160);
+        jLayeredPane2.add(transactionHistory2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTextField5.setText("Balance");
+        jTextField5.setBounds(20, 120, 120, 20);
+        jLayeredPane2.add(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel1.setText("Transaction History");
+        jLabel1.setBounds(20, 270, 150, 14);
+        jLayeredPane2.add(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        balance.setBounds(150, 120, 206, 20);
+        jLayeredPane2.add(balance, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTextField17.setText("Interest Rate");
+        jTextField17.setBounds(20, 240, 120, 20);
+        jLayeredPane2.add(jTextField17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jTextField7.setText("Account Type");
+        jTextField7.setBounds(20, 150, 120, 20);
+        jLayeredPane2.add(jTextField7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        accountType.setBounds(150, 150, 206, 20);
+        jLayeredPane2.add(accountType, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ssn.setBounds(150, 90, 206, 20);
+        jLayeredPane2.add(ssn, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("File");
 
@@ -223,62 +293,11 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLookupAccount))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(createAcct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnCloseAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(message2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(accountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(accountType, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,56 +305,10 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(accountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLookupAccount)
-                            .addComponent(accountNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(message2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(createAcct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCloseAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(210, Short.MAX_VALUE))
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                        .addGap(211, 211, 211))
+                    .addComponent(jLayeredPane2))
+                .addContainerGap())
         );
 
         pack();
@@ -366,9 +339,11 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
         wd.run();
     }//GEN-LAST:event_btnWithdrawActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    private void btnStopPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopPaymentActionPerformed
+        //Apply stop payment function
+        Stop_Payment stop = new Stop_Payment(this, true);
+        stop.run();    
+    }//GEN-LAST:event_btnStopPaymentActionPerformed
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
         System.exit(0);
@@ -412,12 +387,52 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
             accountNumber.setText("");
             ssn.setText("");
             accountType.setText("");
+            op.setText("");
+            bill.setText("");
+            rate.setText("");
+            transactionHistory2.setText("No Record available");
         }else{
             message2.setText("Found in Accounts.xml, but not in user.xml");
             double balance1 = ap.getAccount(acctNum).checkBalance();
             String balance2 = String.valueOf(balance1);//convert int to string
             String acctNum1 = String.valueOf(acctNum);//convert int to string
             int acctType = ap.getAccount(acctNum).getAccountType();
+            int overprotection;
+            String odp;
+            
+            //bill, cc and loans
+            String billstr = "";
+            if(ap.getAccountTypeByAccountNumber(acctNum)==7){
+                /*cc*/
+                CreditCards cc = ap.getCreditCardAccount(acctNum);
+                billstr = String.valueOf(cc.getBillamount());
+            }
+            if(ap.getAccountTypeByAccountNumber(acctNum)==5||ap.getAccountTypeByAccountNumber(acctNum)==6){
+                // Loan of short and long
+               
+                LoanAccounts loan = ap.getLoanAccount(acctNum);
+                billstr = String.valueOf(loan.getBillamount());
+            }
+            if(ap.getAccountTypeByAccountNumber(acctNum)==1){bill.setText("Saving, N/A");}
+            if(ap.getAccountTypeByAccountNumber(acctNum)==2){bill.setText("CD, N/A");}
+            if(ap.getAccountTypeByAccountNumber(acctNum)==3){bill.setText("TMB, N/A");}
+            if(ap.getAccountTypeByAccountNumber(acctNum)==4){bill.setText("G/D, N/A");}
+            // bill done
+
+
+            if(acctType==3||acctType==4){
+                //checking account
+                overprotection = ap.getCheckingAccount(acctNum).getProtectingAcc();
+                odp = String.valueOf(overprotection);
+                op.setText(odp);
+            }else{
+                op.setText("This is not a checking account, so no OverProtection.");
+            }
+            
+            //Transaction History
+            String history = ap.getAccount(acctNum).getTransactionHistory();
+            System.out.println("~~~~~~history");
+            System.out.println(history); 
             
             String acctType1;//convert int to string
             /*
@@ -451,9 +466,11 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
 
             //out put account information
             balance.setText(balance2);
-                accountNumber.setText(acctNum1);
-                ssn.setText(ssn2);
-                accountType.setText(acctType1);
+            accountNumber.setText(acctNum1);
+            ssn.setText(ssn2);
+            accountType.setText(acctType1);
+            bill.setText(billstr);
+            transactionHistory2.setText(history);
             //further check in user.xml
             if(up.getIndexFromSSN(ssn1)>-1){
                 message2.setText("Found in Accounts.xml, and user.xml. CustomerID(ssn) = " + ssn1);
@@ -466,6 +483,7 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
                 lname.setText(lname1);
             }//end user.xml part
         }
+        
     }//GEN-LAST:event_btnLookupAccountActionPerformed
 
     private void accountNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumActionPerformed
@@ -492,14 +510,18 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     private javax.swing.JTextField accountNumber;
     private javax.swing.JTextField accountType;
     private javax.swing.JTextField balance;
+    private javax.swing.JTextField bill;
     private javax.swing.JButton btnCloseAccount;
     private javax.swing.JButton btnLookupAccount;
+    private javax.swing.JButton btnStopPayment;
     private javax.swing.JButton btnTransfer;
     private javax.swing.JButton btnWithdraw;
     private javax.swing.JButton createAcct;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -508,9 +530,9 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField7;
@@ -520,7 +542,9 @@ public class Landing_Page_jFrame_Teller extends javax.swing.JFrame {
     private javax.swing.JMenu menuOpen;
     private javax.swing.JLabel message2;
     private javax.swing.JTextField op;
+    private javax.swing.JTextField rate;
     private javax.swing.JTextField ssn;
+    private java.awt.TextArea transactionHistory2;
     // End of variables declaration//GEN-END:variables
 
 }

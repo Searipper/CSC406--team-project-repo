@@ -43,6 +43,8 @@ public class LoanAccounts extends BillingAccounts{
     public LoanAccounts(int customerID, int accountNum, double balance, int accountFlag) {
         super(customerID, accountNum, balance, accountFlag);
         super.setAccountType(5);
+        this.setLoanyears(5);
+        this.setFixedPaymentAmount(0.00);
     }//end constructor
     
     /**constructs a loan account and sets the type of loan based off of the length of the loan.
@@ -66,7 +68,7 @@ public class LoanAccounts extends BillingAccounts{
             super.setAccountType(5);//else it is a Long-term Mortgage
             InterestRate=0.015;
         }//end if
-        this.setFixedPaymentAmount();
+        this.CalculateFixedPaymentAmount();
     }//end constructor
     
     //-----------------------------
@@ -91,11 +93,15 @@ public class LoanAccounts extends BillingAccounts{
     public void setEndLoanDate(long EndLoanDate) {this.EndLoanDate = EndLoanDate;}
     /**Returns the amount for the next payment*/
     public double getFixedPaymentAmount() {
-        if(this.FixedPaymentAmount==0){this.setFixedPaymentAmount();}
+        if(this.FixedPaymentAmount==0){this.CalculateFixedPaymentAmount();}
         return FixedPaymentAmount;
     }
+    /**sets the amount for the next payment*/
+    public void setFixedPaymentAmount(double FixedPaymentAmount) {
+        this.FixedPaymentAmount = FixedPaymentAmount;
+    }
     /**sets the Fixed payment amount = (Principle * Interest Rate) / 365 days*/
-    private void setFixedPaymentAmount() {
+    public void CalculateFixedPaymentAmount() {
         /**           InitialLoanAmount + Interest
          *  Monthly = ----------------------------
          *  Payment    years of loan * 12 months
@@ -107,10 +113,10 @@ public class LoanAccounts extends BillingAccounts{
         }catch(Exception e){
             System.out.println("error here");
         }
-        System.out.println("Loan amount: $"+this.IntitialLoanAmount+" Intrest of account $"+
-                CalcIntrest(this.IntitialLoanAmount)+" Loan months: "+this.loanyears+" years * 12\n"
-                +"Total loan value: $"+(this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))+
-                "\ttotal months:"+(this.loanyears*12)+"\nmonthly payment: "+payment);
+//        System.out.println("Loan amount: $"+this.IntitialLoanAmount+" Intrest of account $"+
+//                CalcIntrest(this.IntitialLoanAmount)+" Loan months: "+this.loanyears+" years * 12\n"
+//                +"Total loan value: $"+(this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))+
+//                "\ttotal months:"+(this.loanyears*12)+"\nmonthly payment: "+payment);
         this.FixedPaymentAmount=payment;
     }//end setFixedPaymentAmount
 
@@ -152,7 +158,7 @@ public class LoanAccounts extends BillingAccounts{
      * @return Amount of the payment
      */
     public String MakePayment(){
-        if(this.FixedPaymentAmount==0){this.setFixedPaymentAmount();}
+        if(this.FixedPaymentAmount==0){this.CalculateFixedPaymentAmount();}
         if(balance!=0){//if the payment is less then or equal to the amount owed
             System.out.println("Making payment of: "+this.FixedPaymentAmount);
             this.DebitAccount(this.FixedPaymentAmount,getMonthlyIntrestAmount());
