@@ -296,6 +296,23 @@ public class CdAccount extends AbstractAccount {
     }
 
     /**
+     * getter method to return the maturity date of a CD in Date() format
+     *
+     * @return Maturity date in Date() format
+     */
+    public String checkMaturity() {
+        String temp = "";
+        Date currentDate = new Date();
+        if (currentDate.getTime() < endDate.getTime()) {
+            temp = "Account has not reached full maturity, no need to send notice";
+        } else {
+            temp = "Account is mature, commencing rollover!";
+            this.sendRolloverNotices();
+        }
+        return temp;
+    }
+
+    /**
      * A method to determine if an account requires a notice to be rolled over.
      * If an account does require to be rollover over, it's flag will be set and
      * the rollover date will also be set to ten days from the date the notices
@@ -333,13 +350,14 @@ public class CdAccount extends AbstractAccount {
         long currDate = new Date().getTime();
         if (currDate < endDate.getTime()) {
             double temppen = (PENALTY + interestEarned); //if closing before maturity, apply penalty
-            balance -= temppen;
             temp = balance;
+            balance -= temppen;
             System.out.println(temppen + " penalty for early withdrawal, you will only recieve " + balance + " instead of " + temp);
             balance = 0;
             return temp;
         } else {
-            System.out.println("Closing fulling mature account, you will recieve " + balance);
+            temp = balance + interestEarned;
+            System.out.println("Closing fulling mature account, you will recieve " + balance + " as well as " + interestEarned + " for a total of " + temp);
             balance = 0;
             return temp;
         }

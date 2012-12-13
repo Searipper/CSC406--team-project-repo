@@ -101,8 +101,12 @@ public class LoanAccounts extends BillingAccounts{
          *  Payment    years of loan * 12 months
          */
         double payment = (this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))/(this.loanyears*12);
+        try{
         BigDecimal roundedup = new BigDecimal(payment).setScale(2, RoundingMode.HALF_UP);
         payment = roundedup.doubleValue();
+        }catch(Exception e){
+            System.out.println("error here");
+        }
         System.out.println("Loan amount: $"+this.IntitialLoanAmount+" Intrest of account $"+
                 CalcIntrest(this.IntitialLoanAmount)+" Loan months: "+this.loanyears+" years * 12\n"
                 +"Total loan value: $"+(this.IntitialLoanAmount+this.CalcIntrest(this.IntitialLoanAmount))+

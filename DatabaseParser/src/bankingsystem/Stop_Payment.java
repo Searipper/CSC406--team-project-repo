@@ -7,11 +7,11 @@ import java.util.Date;
  *
  * @author Arron
  */
-public class Credit_Card_Interface extends javax.swing.JDialog {
+public class Stop_Payment extends javax.swing.JDialog {
     /**
      * Creates new form Credit_Card_Interface
      */
-    public Credit_Card_Interface(java.awt.Frame parent, boolean modal) {
+    public Stop_Payment(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -27,11 +27,9 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
 
         acctNum = new javax.swing.JTextField();
         btnCancel = new javax.swing.JButton();
-        amt = new javax.swing.JTextField();
+        checkNo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        desc = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         btnSubmit = new javax.swing.JButton();
         message = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -45,11 +43,9 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Credit Card Account No");
+        jLabel1.setText("Account No");
 
-        jLabel2.setText("Transaction Amount");
-
-        jLabel3.setText("Purchase descrption");
+        jLabel2.setText("Check No");
 
         btnSubmit.setText("submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -61,35 +57,33 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
         message.setText("Result:");
 
         jLabel4.setFont(new java.awt.Font("Apple Braille", 1, 14)); // NOI18N
-        jLabel4.setText("Credit Card Transaction Interface.");
+        jLabel4.setText("Stop Payment");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
-                .addComponent(btnSubmit)
-                .addGap(36, 36, 36)
-                .addComponent(btnCancel)
-                .addGap(124, 124, 124))
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2)))
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                            .addComponent(amt)
-                            .addComponent(acctNum)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(btnSubmit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCancel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkNo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,21 +94,17 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(acctNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(amt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(desc, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel2)
+                    .addComponent(checkNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
                     .addComponent(btnCancel))
-                .addGap(60, 60, 60))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,20 +115,14 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-                //empty check
-
+        //empty check
         int emptycount = 0;
         if(acctNum.getText().isEmpty()){
             message.setText("Please Fill all fields");
             emptycount++;
             return;
         }
-        if(amt.getText().isEmpty()){
-            message.setText("Please Fill all fields");
-            emptycount++;
-            return;
-        }
-        if(desc.getText().isEmpty()){
+        if(checkNo.getText().isEmpty()){
             message.setText("Please Fill all fields");
             emptycount++;
             return;
@@ -147,36 +131,18 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
         if(emptycount==0){
             AccountParser ap = new AccountParser("");
             int acctnumber = Integer.parseInt(acctNum.getText());
-            double amount = Double.parseDouble(amt.getText());
-            String description = desc.getText();
-            long ctime = 1234567890;//Change this to system current in long form.
-            System.out.println("See what we can get, " + ap.getAccount(acctnumber).getAccountNum());
-            if(ap.getAccountTypeByAccountNumber(acctnumber) ==-1){
-                System.out.println("No account Found.");
-                message.setText("No account found with this account Number.");
-                return;
+            int checknumber = Integer.parseInt(checkNo.getText());
+            
+            if(ap.getAccountTypeByAccountNumber(acctnumber)==3||ap.getAccountTypeByAccountNumber(acctnumber)==4){
+                Checking chk = ap.getCheckingAccount(acctnumber);
+                String stopStr = chk.stopPayment(checknumber);
+                ap.WriteFile();
+                message.setText(stopStr);
             }else{
-                int accountType = ap.getAccount(acctnumber).getAccountType();//retrieve account type
-
-                switch(accountType){
-                case 1: message.setText("Can't process,this is a Simple Checking account");
-                break;
-                case 2: message.setText("Can't process,this is a CD account");
-                break;
-                    case 3: message.setText("Can't process,this is a TMB Checking account");
-                break;
-                case 4: message.setText("Can't process,this is a G/D Checking account");
-                    break;
-                case 5: message.setText("Can't process,this is a Long term loan Checking account");
-                    break;
-                case 6: message.setText("Can't process,this is a Short term loan Checking account");
-                break;
-                case 7: //message.setText("Credit Card account, process!");
-                        message.setText(ap.getCreditCardAccount(acctnumber).UseCreditCard(acctnumber,amount, description));
-                break;
-                default: System.out.println("Default, Unkown type. Type retrieving failed! In Credit_Card_Interface");
-                }//end switch   
+                message.setText("Wrong Account Type. N/A ");
             }
+        }else{
+            message.setText("emptycount><0, check fields");
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -185,7 +151,7 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
      */
 
             public void run() {
-                Credit_Card_Interface dialog = new Credit_Card_Interface(new javax.swing.JFrame(), true);
+                Stop_Payment dialog = new Stop_Payment(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -197,13 +163,11 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField acctNum;
-    private javax.swing.JTextField amt;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JTextField desc;
+    private javax.swing.JTextField checkNo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel message;
     // End of variables declaration//GEN-END:variables

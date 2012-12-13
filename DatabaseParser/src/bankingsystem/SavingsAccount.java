@@ -97,7 +97,6 @@ public class SavingsAccount extends AtmCards {
      * @return updated balance
      */
     public double deposit(double amount) {
-        balance += amount;
         this.CreditAccount(amount);
         return balance;
     }
@@ -175,10 +174,6 @@ public class SavingsAccount extends AtmCards {
      * @param balance will update accounts balance to the one passed in
      * parameters
      */
-//    @Override
-//    public void updateBalance(double balance) {
-//        this.balance = balance;
-//    }
 
     /**
      * method which will list all of the debits and credits of a savings account into

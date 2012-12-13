@@ -144,6 +144,7 @@ public class AccountParser {
             count++;
             }//end if
         }//end for
+        this.WriteFile();
         return count +" Bills sent out";
     }//end method
     /**Method sends out bills for all CreditCard accounts*/
@@ -157,6 +158,7 @@ public class AccountParser {
             count++;
             }//end if
         }//end for
+        this.WriteFile();
         return count +" Bills sent out";
     }//end method
     
@@ -171,6 +173,7 @@ public class AccountParser {
             count++;
             }//end if
         }//end for
+        this.WriteFile();
         return count +" Bills sent out";
     }//end method
     
@@ -615,16 +618,17 @@ public class AccountParser {
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
-                                                            a1.setProtectingAcc(Integer.parseInt(text));
-                                                            a1.setBackupAccountNumber(Integer.parseInt(text));
+                                                            //a1.setBackupAccountNumber(Integer.parseInt(text));
                                                         }//</editor-fold>
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("OverdraftAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
+                                                            a1.setProtectingAcc(Integer.parseInt(text));
                                                             if(Integer.parseInt(text)==0){
                                                                 a1.setHasOverDraftProtection(false);
                                                             }else{a1.setHasOverDraftProtection(true);}
+                                                            
                                                         }//end if//</editor-fold>
                                                         //found recent debits
                                                         //<editor-fold defaultstate="collapsed">
@@ -746,13 +750,13 @@ public class AccountParser {
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("ProtectedAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
-                                                            a1.setProtectingAcc(Integer.parseInt(text));
-                                                            a1.setBackupAccountNumber(Integer.parseInt(text));
+                                                            //a1.setBackupAccountNumber(Integer.parseInt(text));
                                                         }//</editor-fold>
                                                         //found Overdraft protection status
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("OverdraftAccount")==0){
                                                             Checking a1=(Checking)accountobjects.get(recordcount-1);
+                                                            a1.setProtectingAcc(Integer.parseInt(text));
                                                             if(Integer.parseInt(text)==0){
                                                                 a1.setHasOverDraftProtection(false);
                                                             }else{a1.setHasOverDraftProtection(true);}
@@ -1425,7 +1429,7 @@ public class AccountParser {
                             p1.println("\t\t\t<PIN>"+a1.getPIN()+"</PIN>");
                             //overdraft account number
                             if(a1.getHasOverDraftProtection()){
-                                p1.println("\t\t\t<OverdraftAccount>"+a1.getBackupAccountNumber()+"</OverdraftAccount>");
+                                p1.println("\t\t\t<OverdraftAccount>"+a1.getProtectingAcc()+"</OverdraftAccount>");
                             }
                             //G/D intrest rate
                             if(a1.getAccountType()==4){

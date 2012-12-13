@@ -134,22 +134,7 @@ public class transfer_JDialog extends javax.swing.JDialog {
         if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
         }
         ap.WriteFile();
-//        
-//        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
-//        }
-//        if(acctType == 3){ap.getCheckingAccount(facct).Withdrawl(amt+.5);
-//        }
-//        if(acctType == 4){ap.getCheckingAccount(facct).Withdrawl(amt);
-//        }
-//        
-//        
-//        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
-//        }
-//        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt-.25);
-//        }
-//        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
-//        }
-//        ap.WriteFile();
+
         
     }//GEN-LAST:event_btnSubmitActionPerformed
 

@@ -1,27 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Accounts>
-	<Account AccountNum="1245646">
-		<AccountType>G/D</AccountType>
-		<CusID>559555555</CusID>
-		<Balance>1500.65</Balance>
-		<AccountFlag>0</AccountFlag>
-		<DateActivated>1351793588910</DateActivated>
-		<AccountSpecificDetails>
-			<OverdraftProtection>0</OverdraftProtection>
-			<AtmCardNo>123456</AtmCardNo>
-			<PIN>1234</PIN>
-			<InterestRate>0.0</InterestRate>
-			<RecentDebits>
-				<Debit date="1351793588910" checknum="1" transactionfee="0.0" transferfee="0.0">25.0</Debit>
-				<Debit date="1351793588910" checknum="2" transactionfee="0.0" transferfee="0.0">25.0</Debit>
-			</RecentDebits>
-			<RecentCredits>
-				<Credit date="1351793588910">30.0</Credit>
-				<Credit date="1351793588910">30.0</Credit>
-				<Credit date="1355352760033">50.0</Credit>
-			</RecentCredits>
-		</AccountSpecificDetails>
-	</Account>
 	<Account AccountNum="2000000">
 		<AccountType>G/D</AccountType>
 		<CusID>423453245</CusID>
@@ -29,9 +7,10 @@
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
-			<OverdraftProtection>0</OverdraftProtection>
+			<OverdraftProtection>1</OverdraftProtection>
 			<AtmCardNo>0</AtmCardNo>
 			<PIN>0</PIN>
+			<OverdraftAccount>765432</OverdraftAccount>
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910" checknum="1" transactionfee="0.0" transferfee="0.0">10.0</Debit>
@@ -75,7 +54,7 @@
 	<Account AccountNum="2000002">
 		<AccountType>TMB</AccountType>
 		<CusID>423148894</CusID>
-		<Balance>212.12</Balance>
+		<Balance>199.62</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -83,6 +62,7 @@
 			<AtmCardNo>0</AtmCardNo>
 			<PIN>0</PIN>
 			<RecentDebits>
+				<Debit date="1355359736453" checknum="1" transactionfee="0.5" transferfee="0.0">12.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">160.0</Credit>
@@ -433,9 +413,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
 			<IntitialLoanAmount loanyears="5">5000.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730777</BillSentOutDate>
+			<BillAmount>84.58</BillAmount>
+			<BillDueDate>1355970530777</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">225.0</Debit>
@@ -453,9 +433,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
 			<IntitialLoanAmount loanyears="6">1800.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730784</BillSentOutDate>
+			<BillAmount>25.38</BillAmount>
+			<BillDueDate>1355970530784</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">425.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">100.0</Debit>
@@ -477,9 +457,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
 			<IntitialLoanAmount loanyears="5">6000.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730785</BillSentOutDate>
+			<BillAmount>101.5</BillAmount>
+			<BillDueDate>1355970530785</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">1425.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">1125.0</Debit>
@@ -497,9 +477,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
 			<IntitialLoanAmount loanyears="5">2000.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730785</BillSentOutDate>
+			<BillAmount>33.83</BillAmount>
+			<BillDueDate>1355970530785</BillDueDate>
 			<RecentDebits>
 			</RecentDebits>
 		</AccountSpecificDetails>
@@ -513,9 +493,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
 			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730785</BillSentOutDate>
+			<BillAmount>0.0</BillAmount>
+			<BillDueDate>1355970530785</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
@@ -535,9 +515,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.054</InterestRate>
 			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>293.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730786</BillSentOutDate>
+			<BillAmount>NaN</BillAmount>
+			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
@@ -553,9 +533,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.049</InterestRate>
 			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>510.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730786</BillSentOutDate>
+			<BillAmount>NaN</BillAmount>
+			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
@@ -571,9 +551,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.065</InterestRate>
 			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>178.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730786</BillSentOutDate>
+			<BillAmount>NaN</BillAmount>
+			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
@@ -589,9 +569,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.058</InterestRate>
 			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>88.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730786</BillSentOutDate>
+			<BillAmount>NaN</BillAmount>
+			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
@@ -607,9 +587,9 @@
 		<AccountSpecificDetails>
 			<InterestRate>0.037</InterestRate>
 			<IntitialLoanAmount loanyears="0">0.0</IntitialLoanAmount>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>259.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730787</BillSentOutDate>
+			<BillAmount>NaN</BillAmount>
+			<BillDueDate>1355970530787</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
 				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
@@ -625,9 +605,9 @@
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
+			<BillSentOutDate>1355365730787</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillDueDate>1355970530787</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">100.01</Debit>
 				<Debit date="1351793588910">100.01</Debit>
@@ -643,15 +623,15 @@
 	<Account AccountNum="1113461">
 		<AccountType>CC</AccountType>
 		<CusID>233435656</CusID>
-		<Balance>7.51</Balance>
+		<Balance>41.269999999999996</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>1500.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>1351793588910</BillDueDate>
+			<BillSentOutDate>1355365730787</BillSentOutDate>
+			<BillAmount>41.27</BillAmount>
+			<BillDueDate>1355970530787</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">60.0</Debit>
 				<Debit date="1351793588910">60.0</Debit>
@@ -661,6 +641,7 @@
 				<Credit date="1351793588910" description="TGIFriday's Bill">22.51</Credit>
 				<Credit date="1351793588910" description="Books">45.0</Credit>
 				<Credit date="1351793588910" description="TGIFriday's Bill">22.51</Credit>
+				<Credit date="1355365730787" description="Bill Finance Charge">33.76</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -673,9 +654,9 @@
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730788</BillSentOutDate>
+			<BillAmount>0.0</BillAmount>
+			<BillDueDate>1355970530788</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">227.11</Debit>
 				<Debit date="1351793588910">227.11</Debit>
@@ -691,15 +672,15 @@
 	<Account AccountNum="1113463">
 		<AccountType>CC</AccountType>
 		<CusID>563432913</CusID>
-		<Balance>1.0</Balance>
+		<Balance>56.06</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730788</BillSentOutDate>
+			<BillAmount>56.06</BillAmount>
+			<BillDueDate>1355970530788</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">164.18</Debit>
 				<Debit date="1351793588910">164.18</Debit>
@@ -711,6 +692,7 @@
 				<Credit date="1351793588910" description="Gas Bill">111.0</Credit>
 				<Credit date="1351793588910" description="Grociery Store purchases">42.15</Credit>
 				<Credit date="1351793588910" description="Lunch">12.03</Credit>
+				<Credit date="1355365730788" description="Bill Finance Charge">55.06</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -723,9 +705,9 @@
 		<AccountSpecificDetails>
 			<CreditLimit>2500.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730788</BillSentOutDate>
+			<BillAmount>0.0</BillAmount>
+			<BillDueDate>1355970530788</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">1666.78</Debit>
 				<Debit date="1351793588910">1666.78</Debit>
@@ -743,15 +725,15 @@
 	<Account AccountNum="123456">
 		<AccountType>CC</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>345.98</Balance>
+		<Balance>673.97</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>10000.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730789</BillSentOutDate>
+			<BillAmount>673.97</BillAmount>
+			<BillDueDate>1355970530789</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">110.0</Debit>
 				<Debit date="1351793588910">110.0</Debit>
@@ -761,21 +743,22 @@
 				<Credit date="1351793588910" description="Electric Bill">352.98</Credit>
 				<Credit date="1351793588910" description="Gas bill">303.0</Credit>
 				<Credit date="1351793588910" description="Electric Bill">352.98</Credit>
+				<Credit date="1355365730789" description="Bill Finance Charge">327.99</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="234567">
 		<AccountType>CC</AccountType>
 		<CusID>345653425</CusID>
-		<Balance>2502.01</Balance>
+		<Balance>3753.0200000000004</Balance>
 		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>3000.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730789</BillSentOutDate>
+			<BillAmount>3753.02</BillAmount>
+			<BillDueDate>1355970530789</BillDueDate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
@@ -783,21 +766,22 @@
 				<Credit date="1351793588910" description="3D Television">2100.0</Credit>
 				<Credit date="1351793588910" description="moniter">402.01</Credit>
 				<Credit date="1351793588910" description="3D Television">2100.0</Credit>
+				<Credit date="1355365730789" description="Bill Finance Charge">1251.01</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="345678">
 		<AccountType>CC</AccountType>
 		<CusID>423148894</CusID>
-		<Balance>12222.23</Balance>
+		<Balance>16696.309999999998</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>20000.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730789</BillSentOutDate>
+			<BillAmount>16696.31</BillAmount>
+			<BillDueDate>1355970530789</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">1200.0</Debit>
 				<Debit date="1351793588910">1200.0</Debit>
@@ -809,21 +793,22 @@
 				<Credit date="1351793588910" description="Seriously, what is the credit limit?">9923.01</Credit>
 				<Credit date="1351793588910" description="small jet plane">2100.0</Credit>
 				<Credit date="1351793588910" description="New TV">1399.22</Credit>
+				<Credit date="1355365730789" description="Bill Finance Charge">4474.08</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="456789">
 		<AccountType>CC</AccountType>
 		<CusID>677879013</CusID>
-		<Balance>5555.43</Balance>
+		<Balance>8073.91</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>9000.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730790</BillSentOutDate>
+			<BillAmount>8073.91</BillAmount>
+			<BillDueDate>1355970530790</BillDueDate>
 			<RecentDebits>
 				<Debit date="1351793588910">2000.0</Debit>
 				<Debit date="1351793588910">2000.0</Debit>
@@ -835,26 +820,28 @@
 				<Credit date="1351793588910" description="Patio Extension">3123.01</Credit>
 				<Credit date="1351793588910" description="Car">2314.2</Credit>
 				<Credit date="1351793588910" description="WashingMachine">2118.22</Credit>
+				<Credit date="1355365730790" description="Bill Finance Charge">2518.48</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="567890">
 		<AccountType>CC</AccountType>
 		<CusID>345599870</CusID>
-		<Balance>12.54</Balance>
+		<Balance>25.08</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>5000.0</CreditLimit>
 			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
-			<BillSentOutDate>1351793588910</BillSentOutDate>
-			<BillAmount>123.2</BillAmount>
-			<BillDueDate>0</BillDueDate>
+			<BillSentOutDate>1355365730790</BillSentOutDate>
+			<BillAmount>25.08</BillAmount>
+			<BillDueDate>1355970530790</BillDueDate>
 			<RecentDebits>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910" description="Lunch">12.54</Credit>
 				<Credit date="1351793588910" description="Lunch">12.54</Credit>
+				<Credit date="1355365730790" description="Bill Finance Charge">12.54</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -868,7 +855,7 @@
 			<AtmCardNo>0</AtmCardNo>
 			<PIN>0</PIN>
 		<OverdraftAccount>0</OverdraftAccount>
-		<InterestRate>0.011</InterestRate>
+		<InterestRate>0.05</InterestRate>
 		<RecentDebits>
 		</RecentDebits>
 		<RecentCredits>
@@ -992,6 +979,23 @@
 			<StartDate>1354837830687</StartDate>
 			<RolloverDate>0</RolloverDate>
 			<InterestRate>0.015</InterestRate>
+		</AccountSpecificDetails>
+	</Account>
+	<Account AccountNum="9997777">
+		<AccountType>Savings</AccountType>
+		<CusID>559555555</CusID>
+		<Balance>500.0</Balance>
+		<AccountFlag>0</AccountFlag>
+		<DateActivated>0</DateActivated>
+		<AccountSpecificDetails>
+			<AtmCardNo>0</AtmCardNo>
+			<PIN>0</PIN>
+		<OverdraftAccount>0</OverdraftAccount>
+		<InterestRate>0.015</InterestRate>
+		<RecentDebits>
+		</RecentDebits>
+		<RecentCredits>
+		</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 </Accounts>

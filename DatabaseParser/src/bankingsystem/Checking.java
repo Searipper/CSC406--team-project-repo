@@ -1,9 +1,10 @@
 package bankingsystem;
 
-import java.io.*;
-import javax.swing.*;
 import java.util.*;
 import java.lang.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Calendar;
 
 public class Checking extends AtmCards {
 
@@ -15,19 +16,12 @@ public class Checking extends AtmCards {
     private static final double GDminBalance = 1000.00;//GD minimum balance
     private static final double StopPaymentCharge = 15.00;//Stop payment charge
     private static final double OverDraftCharge = 20.00;//Overdraft charge
-    protected double GDinterestRate;//GD interest rate (savingAccountRate*.5)
+    protected double GDinterestRate = .015;//GD interest rate (savingAccountRate*.5)
     protected double GDavgBalance;//Used to calc interst
     protected double GDinterest;//Interst Amount to be added to balance
     public int protectingAcct; // the account# of backup overdraft protection account  
     protected int CheckNumber = 0;// sets first check number to 0
     protected boolean HasOverDraftProtection;//True = yes False = No
-    protected int BackupAccountNumber;
-//    protected ArrayList<Double> DebitAmounts = new ArrayList<Double>();
-//    protected ArrayList<Long> DebitDates = new ArrayList<Long>();
-//    protected int NumberOfDebits;
-//    protected ArrayList<Double> CreditAmounts = new ArrayList<Double>();
-//    protected ArrayList<Long> CreditDates = new ArrayList<Long>();
-    protected int NumberOfCredits;
     protected ArrayList<Integer> CheckNumbers = new ArrayList<Integer>();
     protected ArrayList<Double> TransactionChargeList = new ArrayList<Double>();
     protected ArrayList<Double> TransferChargeList = new ArrayList<Double>();
@@ -85,7 +79,8 @@ public class Checking extends AtmCards {
     }
 
     public double getGDinterest() {
-        return GDinterest;
+       
+        return GDinterest*.5;
     }
 
     public void setGDinterest(double GDinterest) {
@@ -104,16 +99,12 @@ public class Checking extends AtmCards {
         this.CheckNumber = CheckNumber;
     }
 
-    public int getStopPaymentCheckNumber() {
+    public int getCheckNumber() {
         return CheckNumber;
     }
 
-    public int getBackupAccountNumber() {
-        return BackupAccountNumber;
-    }
-
-    public void setBackupAccountNumber(int BackupAccountNumber) {
-        this.BackupAccountNumber = BackupAccountNumber;
+    public int getStopPaymentCheckNumber() {
+        return CheckNumber;
     }
 
     public void setProtectingAcc(int protectingAcc) {
@@ -121,10 +112,9 @@ public class Checking extends AtmCards {
         if (this.protectingAcct != 0) {
             this.setHasOverDraftProtection(true);
         }
-
     }
 
-    public double getProtectingAcc() { //sets account to protect from ODing
+    public int getProtectingAcc() { //sets account to protect from ODing
         return protectingAcct;
     }
 
@@ -138,11 +128,12 @@ public class Checking extends AtmCards {
 
     public int getCheckNumbers(int index) {
         return CheckNumbers.get(index);
-    }
+    } 
 
     //-----------------------------
     //      Other Methods
     //-----------------------------
+    
     public void applyTMBtransCharge() {//charges Account with a transaction charge
         if (accountType == 3) {
             balance = balance - TMBtransCharge;
@@ -163,26 +154,26 @@ public class Checking extends AtmCards {
 
     public void calcGDavgBalance() {//calcs GD average balance
         GDavgBalance = balance / 30;
-        System.out.println("Calculating Gold/Diamond average balance. " + GDavgBalance);
-    }
-
-    public void calcGDinterestRate() {//calcs GD interst Rate      
-        GDinterestRate = .15 * .5; //.15 is Savings interest rate
-        System.out.println("Calculating Gold/Diamond interest rate. " + GDinterestRate);
+        BigDecimal roundedup = new BigDecimal(GDavgBalance).setScale(2, RoundingMode.HALF_UP);
+        GDavgBalance=roundedup.doubleValue();
+        
+        System.out.println("Calculating Gold/Diamond average balance. $" + GDavgBalance);
     }
 
     public void calcGDinterest() { //calcs GD interst
         GDinterest = GDavgBalance * GDinterestRate;
-        System.out.println("Calculating Gold/Diamond interest. " + GDinterest);
+        BigDecimal roundedup = new BigDecimal(GDinterest).setScale(2, RoundingMode.HALF_UP);
+        GDinterest=roundedup.doubleValue();
+        System.out.println("Calculating Gold/Diamond interest. $" + GDinterest);
     }
 
-    public void applyGDinterest() {//adds interest rate to acctBalance
+    public void applyGDinterest() {//adds interest rate to acctBalance        
         if (accountType == 4) {
             calcGDavgBalance();
-            calcGDinterestRate();
             calcGDinterest();
-            balance = balance + GDinterest;
-            System.out.println("Adding Gold/Diamond interest to account balance. +" + GDinterest);
+            
+            this.Deposit(this.GDinterest);
+            System.out.println("Adding Gold/Diamond interest to account balance. $" + GDinterest);
         } else {
             System.out.println("Error - Cannot apply Gold/Diamond interest to a TMB account.");
         }
@@ -208,8 +199,6 @@ public class Checking extends AtmCards {
         this.CreditAmounts.add(amount);
         this.CreditDates.add(new Date().getTime());
         this.NumberOfCredits++;
-        //int checknum = this.CheckNumber + 1;
-        this.CreditAccount(amount);
         this.updateBalance(amount);//add amount to the balence
 
         if (balance <= 999.99) {
@@ -219,7 +208,6 @@ public class Checking extends AtmCards {
             accountType = 4;
             System.out.println("Account Updated to 4, after deposit");
         }
-
     }
 
     public void DebitAccount(double amount, int checknum) {
@@ -271,11 +259,73 @@ public class Checking extends AtmCards {
         super.addCreditRecord(amount, date);        
         this.DepositList.add(transaction);
     }
+      
+        public String stopPayment(int StopPaymentCheckNumber) {//stops the payment on a check and charges account
+        String msg = "";
+        int temp = -1;
+        for (int i = 0; i < this.getNumOfDebits(); i++) {
+            if (this.CheckNumbers.get(i) == StopPaymentCheckNumber) {
+                temp = i;
+            }
+        }
+        if (temp == -1) {
+            msg = "Check not found";
+        }
+        else {
+         this.updateBalance(this.getDebitAmounts(temp));
+         this.CheckNumbers.remove(temp);
+         this.DebitAmounts.remove(temp);
+         this.DebitDates.remove(temp);
+         this.TransactionChargeList.remove(temp);
+         this.TransferChargeList.remove(temp);
+         
+         this.NumberOfDebits--;
+         this.DebitAccount(this.StopPaymentCharge, -1);
+         msg = "Payment Stopped";
+         System.out.println("Payment Stopped");
+         
+          if (balance <= 999.99) {
+            accountType = 3;
+            System.out.println("Account Updated to 3, after deposit");
+            
+            } else {
+                accountType = 4;
+                System.out.println("Account Updated to 4, after deposit");
+                }
+        }
+
+        return msg;
+    }
+
+    public void overDraft(double amt) {//credit back up, debit checking, and then credit checking
+   
+        if (amt > balance) {
+            if (HasOverDraftProtection = false)//no account protection
+            {
+
+                DebitAccount(OverDraftCharge);
+                setAccountFlag(1);
+            } else {//has account protection
+                if /*
+                         * backup account
+                         */ (balance > amt)//check backup account balance // HOW?
+                {
+                    //  BACKUP DebitAccount(amt); //withdraw from backup account // HOW?
+                    CreditAccount(amt);//deposit into checking account
+                } else {//backup account doesnt have enought to withdraw
+                    DebitAccount(OverDraftCharge);
+                    setAccountFlag(1);
+                }
+            }
+        } else {
+            System.out.println("No over draft occured");
+        }
+    }
 
     //------------------------------------
     //      Impliments from DebitInterface
     //------------------------------------
-    //@Override
+
     public int Withdrawl(double amount, AccountParser ap) {
 
         int status = -1;
@@ -320,63 +370,85 @@ public class Checking extends AtmCards {
         }
 
     }
+   
+public int Withdrawl(double amount,int CheckNum, AccountParser ap) {
 
-    //-----------------------------
-    //      Other Methods (NOT FINISHED)
-    //-----------------------------
-    public String stopPayment(int StopPaymentCheckNumber) {//stops the payment on a check and charges account
-        String msg = "";
-        int temp = -1;
-        for (int i = 0; i < this.getNumOfDebits(); i++) {
-            if (this.CheckNumbers.get(i) == StopPaymentCheckNumber) {
-                temp = i;
+        int status = -1;
+        if (amount + this.TMBtransCharge <= (balance )) {//if the payment is less then or equal to the balence
+            status = 1;
+            //int checknum = this.CheckNumber + 1;
+            this.DebitAccount(amount, CheckNum);
+            if (balance <= 999.99) {
+                accountType = 3;
+                System.out.println("Account is now TMB.");
+
+            } else {
+                accountType = 4;
+                System.out.println("Account is now a Gold/Diamond.");
             }
-        }
-        if (temp == -1) {
-            msg = "Check not found";
-        }
-        else {
-         this.updateBalance(this.getDebitAmounts(temp));
-         this.CheckNumbers.remove(temp);
-         this.DebitAmounts.remove(temp);
-         this.DebitDates.remove(temp);
-         this.TransactionChargeList.remove(temp);
-         this.TransferChargeList.remove(temp);
-         
-         this.NumberOfDebits--;
-         this.DebitAccount(this.StopPaymentCharge, -1);
-         msg = "Payment Stopped";
-        }
+            status = 0;
+            return status;
+        } else if (this.HasOverDraftProtection) {
 
-        return msg;
-    }
+            SavingsAccount s1 = ap.getSavingsAccount(this.protectingAcct);
+            if (amount <= this.balance + s1.checkBalance()+.5) {
+                double temp = amount - (balance - .5);
+                int checknum = this.CheckNumber + 1;
+                this.DebitAccount(balance - .5, checknum);
+                 
+                System.out.println(s1.withdraw(temp));
+                status = 1;
+                System.out.println("Overdraft protected. Amount withdrawn from backup accout $" + temp
+                        + " Amount withdrawn from checking account $" + (balance));
+                return status;
+            } else {
+                this.DebitAccount(OverDraftCharge, -1);
 
-    public void overDraft(double amt) {//credit back up, debit checking, and then credit checking
-        //check if prot. acc. exists
-        //if one doesn't, stop transaction charge 20
-        //if prot. acc. exists, determine that balance
-        //if prot acc can cover cost, withdraw from savings, deposit to checking
-        //if one doesn't, stop charge 20
-        if (amt > balance) {
-            if (HasOverDraftProtection = false)//no account protection
-            {
-
-                DebitAccount(OverDraftCharge);
-                setAccountFlag(1);
-            } else {//has account protection
-                if /*
-                         * backup account
-                         */ (balance > amt)//check backup account balance // HOW?
-                {
-                    //  BACKUP DebitAccount(amt); //withdraw from backup account // HOW?
-                    CreditAccount(amt);//deposit into checking account
-                } else {//backup account doesnt have enought to withdraw
-                    DebitAccount(OverDraftCharge);
-                    setAccountFlag(1);
-                }
+                System.out.println("Not enough funds in backup account to cover charges. Account Overdrafted charging fee");
+                return status;
             }
+
         } else {
-            System.out.println("No over draft occured");
+            this.DebitAccount(OverDraftCharge, -1);
+            System.out.println("Account Overdrafted charging fee");
+            return status;
         }
+
     }
+
+    //--------------------------------------
+    //      Implements From Abstract Account
+    //--------------------------------------
+    
+    @Override
+
+    public String getTransactionHistory(){
+        Calendar c1 = Calendar.getInstance();
+        Date temp = new Date();
+        String history="";
+        //prints out all debits
+        for(int i=0;i<this.NumberOfDebits;i++){
+            temp.setTime(this.getDebitDates(i));
+            double amount=this.getDebitAmounts(i);
+            history = history+"\nDate: "+ temp +"\n\tDebit Amount: \t\t$" + amount;
+
+        }
+        
+       //prints out all credits
+        for(int i=0;i<this.NumberOfCredits;i++){
+            temp.setTime(this.getCreditDates(i));
+            double amount=this.getCreditAmounts(i);
+            history = history+"\nDate: "+temp+"\n\tCredit Amount: \t\t$" + amount;
+
+        }
+        System.out.println(history);
+        return history;
+
+    }
+    
+    public ArrayList<Integer> getCheckNumList(){
+           
+        return this.CheckNumbers;
+    }
+  
 }
