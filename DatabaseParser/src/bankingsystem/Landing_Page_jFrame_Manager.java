@@ -79,13 +79,13 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        bill = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
         jTextField16 = new javax.swing.JTextField();
         stopPayment = new javax.swing.JButton();
         btnSendBill1 = new javax.swing.JButton();
-        jTextField15 = new javax.swing.JTextField();
+        rate = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -425,7 +425,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(bill, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +438,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
@@ -517,11 +517,11 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(rate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -649,12 +649,25 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
             accountNumber.setText("");
             ssn.setText("");
             accountType.setText("");
+            op.setText("");
+            bill.setText("");
+            rate.setText("");
         }else{
             message2.setText("Found in Accounts.xml, but not in user.xml");
             double balance1 = ap.getAccount(acctNum).checkBalance();
             String balance2 = String.valueOf(balance1);//convert int to string
             String acctNum1 = String.valueOf(acctNum);//convert int to string
             int acctType = ap.getAccount(acctNum).getAccountType();
+            int overprotection;
+            if(acctType==3||acctType==4){
+                //checking account
+                overprotection = ap.getCheckingAccount(acctNum).getBackupAccountNumber();
+                op.setText(String.valueOf(overprotection));
+            }else{
+                op.setText("This is not a checking account, so no OverProtection.");
+            }
+            //int overprotection = ap.getAccount(acctNum).
+            
             
             String acctType1;//convert int to string
             /*
@@ -688,9 +701,9 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
 
             //out put account information
             balance.setText(balance2);
-                accountNumber.setText(acctNum1);
-                ssn.setText(ssn2);
-                accountType.setText(acctType1);
+            accountNumber.setText(acctNum1);
+            ssn.setText(ssn2);
+            accountType.setText(acctType1);
             //further check in user.xml
             if(up.getIndexFromSSN(ssn1)>-1){
                 message2.setText("Found in Accounts.xml, and user.xml. CustomerID(ssn) = " + ssn1);
@@ -736,6 +749,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private javax.swing.JTextField accountNumber;
     private javax.swing.JTextField accountType;
     private javax.swing.JTextField balance;
+    private javax.swing.JTextField bill;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeRate;
     private javax.swing.JButton btnCloseAccount;
@@ -763,9 +777,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField3;
@@ -777,6 +789,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private javax.swing.JMenu menuOpen;
     private javax.swing.JLabel message2;
     private javax.swing.JTextField op;
+    private javax.swing.JTextField rate;
     private javax.swing.JTextField ssn;
     private javax.swing.JButton stopPayment;
     private javax.swing.JLabel welcome;

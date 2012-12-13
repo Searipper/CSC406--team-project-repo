@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Accounts>
 	<Account AccountNum="1245646">
-		<AccountType>TMB</AccountType>
+		<AccountType>G/D</AccountType>
 		<CusID>559555555</CusID>
-		<Balance>1400.65</Balance>
+		<Balance>1500.65</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<OverdraftProtection>0</OverdraftProtection>
 			<AtmCardNo>123456</AtmCardNo>
 			<PIN>1234</PIN>
+			<InterestRate>0.0</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910" checknum="1" transactionfee="0.0" transferfee="0.0">25.0</Debit>
 				<Debit date="1351793588910" checknum="2" transactionfee="0.0" transferfee="0.0">25.0</Debit>
@@ -17,13 +18,14 @@
 			<RecentCredits>
 				<Credit date="1351793588910">30.0</Credit>
 				<Credit date="1351793588910">30.0</Credit>
+				<Credit date="1355352760033">50.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="2000000">
 		<AccountType>G/D</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>2500.65</Balance>
+		<Balance>1800.65</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -40,6 +42,8 @@
 				<Debit date="1351793588910" checknum="6" transactionfee="0.0" transferfee="0.0">10.0</Debit>
 				<Debit date="1351793588910" checknum="7" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 				<Debit date="1351793588910" checknum="8" transactionfee="0.0" transferfee="0.0">25.0</Debit>
+				<Debit date="1355352002050" checknum="9" transactionfee="0.0" transferfee="0.0">500.0</Debit>
+				<Debit date="1355352198047" checknum="10" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">60.0</Credit>
@@ -156,7 +160,7 @@
 	<Account AccountNum="3000003">
 		<AccountType>TMB</AccountType>
 		<CusID>345812332</CusID>
-		<Balance>99.05</Balance>
+		<Balance>446.05</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -166,10 +170,13 @@
 			<RecentDebits>
 				<Debit date="1351793588910" checknum="0" transactionfee="0.0" transferfee="0.0">55.11</Debit>
 				<Debit date="1351793588910" checknum="0" transactionfee="0.0" transferfee="0.0">55.11</Debit>
+				<Debit date="1355352760031" checknum="3" transactionfee="0.5" transferfee="0.75">51.25</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">11.99</Credit>
 				<Credit date="1351793588910">11.99</Credit>
+				<Credit date="1355352198047">100.0</Credit>
+				<Credit date="1355352198047">100.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -897,8 +904,11 @@
 		<OverdraftAccount>0</OverdraftAccount>
 		<InterestRate>0.01</InterestRate>
 		<RecentDebits>
+			<Debit date="1355351821321">100.0</Debit>
+			<Debit date="1355351942411">600.0</Debit>
 		</RecentDebits>
 		<RecentCredits>
+			<Credit date="1355351922793">600.0</Credit>
 		</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -962,19 +972,6 @@
 		<AccountType>CD</AccountType>
 		<CusID>423168945</CusID>
 		<Balance>32149.15</Balance>
-		<AccountFlag>0</AccountFlag>
-		<DateActivated>1351793588910</DateActivated>
-		<AccountSpecificDetails>
-			<MaturityDate>1351793588910</MaturityDate>
-			<StartDate>1354837830686</StartDate>
-			<RolloverDate>0</RolloverDate>
-			<InterestRate>0.015</InterestRate>
-		</AccountSpecificDetails>
-	</Account>
-	<Account AccountNum="987123">
-		<AccountType>CD</AccountType>
-		<CusID>423567980</CusID>
-		<Balance>5367.15</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>

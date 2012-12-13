@@ -62,72 +62,7 @@ public class AccountParser {
     //-------------------------------------
     //  get Arraylist of Accounts Methods
     //-------------------------------------
-    
-    /**get an ArrayList of all Accounts*/
-    public ArrayList<AbstractAccount> getAccountobjects() 
-    {//<editor-fold  defaultstate="collapsed">
-        return accountobjects;//</editor-fold>
-    }
-    
-    /**get an ArrayList of all Checking accounts @return accountlist checking accounts ArrayList*/
-    public ArrayList<Checking> getCheckingAccounts()
-    { //<editor-fold  defaultstate="collapsed">
-        ArrayList<Checking> accountlist= new ArrayList<Checking>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof Checking){
-                accountlist.add((Checking)accountobjects.get(i));
-            }//end if
-        }//end for
-        return accountlist;//</editor-fold>
-    }//end getCheckingAccounts
-    
-     /**get an ArrayList of all Loan accounts @return accountlist loan accounts ArrayList*/
-    public ArrayList<LoanAccounts> getLoanAccounts()
-    { //<editor-fold  defaultstate="collapsed">
-        ArrayList<LoanAccounts> accountlist= new ArrayList<LoanAccounts>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof LoanAccounts){
-                accountlist.add((LoanAccounts)accountobjects.get(i));
-            }
-        }
-        return accountlist;// </editor-fold>
-    }
-    /**get an ArrayList of all CreditCard accounts @return ArrayList of CreditCard accounts*/
-    public ArrayList<CreditCards> getCreditCardAccounts() 
-    {//<editor-fold  defaultstate="collapsed">
-        ArrayList<CreditCards> accountlist= new ArrayList<CreditCards>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof CreditCards){
-                accountlist.add((CreditCards)accountobjects.get(i));
-            }//edn if
-        }//end for
-        return accountlist;//</editor-fold>
-    }//end getSavingsAccounts
-    
-    /**get an ArrayList of all CD accounts @return ArrayList of CD Accounts*/
-    public ArrayList<CdAccount> getCDAccounts() 
-    {//<editor-fold  defaultstate="collapsed">
-        ArrayList<CdAccount> accountlist= new ArrayList<CdAccount>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof CdAccount){
-                accountlist.add((CdAccount)accountobjects.get(i));
-            }//edn if
-        }//end for
-        return accountlist;//</editor-fold>
-    }//end getSavingsAccounts
-    
-    /**get an ArrayList of all savings accounts @return savings accounts ArrayList*/
-    public ArrayList<SavingsAccount> getSavingsAccounts() 
-    {//<editor-fold  defaultstate="collapsed">
-        ArrayList<SavingsAccount> savings= new ArrayList<SavingsAccount>();
-        for(int i=0;i<recordcount;i++){
-            if(accountobjects.get(i) instanceof SavingsAccount){
-                savings.add((SavingsAccount)accountobjects.get(i));
-            }//edn if
-        }//end for
-        return savings;//</editor-fold>
-    }//end getSavingsAccounts
-    
+
     //<editor-fold defaultstate="collapsed">
     /** 
      * searches the records for accounts owned by a specific Customer and returns an ArrayList of Accounts
@@ -242,6 +177,29 @@ public class AccountParser {
     //------------------------------------
     //  get Individual Account Methods
     //------------------------------------
+    
+    //<editor-fold defaultstate="collapsed">
+    /**
+     * takes an account number and returns the account type if in records.
+     * @param accountnumber ID number of the account we are searching for.
+     * @return <ul> <li>If found, returns the type of account</li>
+     *              <li>If not found, returns -1</li></ul>
+     *///</editor-fold>
+    public  int getAccountTypeByAccountNumber(int accountnumber) 
+    {//<editor-fold  defaultstate="collapsed">
+        int type =-1;
+        for(int i=0;i<recordcount;i++){
+            if(accountobjects.get(i).getAccountNum()==accountnumber){
+                type= accountobjects.get(i).getAccountType();
+                System.out.println("Found account now returning");
+                return type;
+            }//end if
+        }//end for
+        System.out.println("Account not found,returning blank account");
+        return type;
+        //</editor-fold>
+        
+    }//end getAccount
     
     //<editor-fold defaultstate="collapsed">
     /**

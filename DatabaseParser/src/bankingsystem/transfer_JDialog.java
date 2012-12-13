@@ -109,32 +109,32 @@ public class transfer_JDialog extends javax.swing.JDialog {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         
-//        int facct = Integer.parseInt(this.fromAccount.getText());
-//        int tacct = Integer.parseInt(this.toAccount.getText());
-//        double amt = Double.parseDouble(this.amount.getText());
-//        
-//        AccountParser ap = new AccountParser("");
-//        
-//        int acctType = ap.getAccount(facct).getAccountType();//acctType for source account
-//        int acctType2 = ap.getAccount(tacct).getAccountType();//acctType for target account
-//        
-//        
-//        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
-//        }
-//        if(acctType == 3){ap.getCheckingAccount(facct).Transfer(amt+.5);
-//        }
-//        if(acctType == 4){ap.getCheckingAccount(facct).Withdrawl(amt);
-//        }
-//        
-//        
-//        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
-//        }
-//        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt);
-//        }
-//        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
-//        }
-//        ap.WriteFile();
+        int facct = Integer.parseInt(this.fromAccount.getText());
+        int tacct = Integer.parseInt(this.toAccount.getText());
+        double amt = Double.parseDouble(this.amount.getText());
         
+        AccountParser ap = new AccountParser("");
+        
+        int acctType = ap.getAccount(facct).getAccountType();//acctType for source account
+        int acctType2 = ap.getAccount(tacct).getAccountType();//acctType for target account
+        
+        
+        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
+        }
+        if(acctType == 3){ap.getCheckingAccount(facct).Transfer(amt+1.25);
+        }
+        if(acctType == 4){ap.getCheckingAccount(facct).Transfer(amt);
+        }
+        
+        
+        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
+        }
+        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt);
+        }
+        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
+        }
+        ap.WriteFile();
+//        
 //        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
 //        }
 //        if(acctType == 3){ap.getCheckingAccount(facct).Withdrawl(amt+.5);

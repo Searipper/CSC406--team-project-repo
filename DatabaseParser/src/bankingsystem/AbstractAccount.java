@@ -127,6 +127,6 @@ abstract class AbstractAccount {
     public void setDateOfActivation(long DateOfActivation) {this.DateOfActivation = DateOfActivation;}
     /**returns all of the transactions of this account. @return transaction history*/
     public String getTransactionHistory() {
-        return "";
+        return this.getAccountDescription()+" Account";
     }
 }//end Abstract class

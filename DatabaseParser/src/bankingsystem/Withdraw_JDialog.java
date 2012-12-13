@@ -112,23 +112,48 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
-  
+
         int account = Integer.parseInt(acctNum.getText());
         double amount = Double.parseDouble(amt.getText());
-        
-        AccountParser ap = new AccountParser("");
-     
-        Checking chk = ap.getCheckingAccount(account);
 
-        if(chk.getAccountNum()==-1){message.setText("Not a valid account");System.out.println("null checking");}
-        else{message.setText("Account found");
-        if(account==chk.getBackupAccountNumber()){
-            System.out.println("Right account");}
-            System.out.println(chk.checkBalance());
-            message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
-            System.out.println(chk.checkBalance());
-        
-            ap.WriteFile();
+        AccountParser ap = new AccountParser("");
+
+        int type = ap.getAccountTypeByAccountNumber(account);
+
+        Checking chk;
+        SavingsAccount sav;
+
+        if (type == -1) {
+            message.setText("account does not exist");
+        } else {
+            message.setText("Account found");
+            switch(type){
+                case 1:
+                    sav =ap.getSavingsAccount(account);
+                    System.out.println("Right account");
+                    System.out.println(sav.checkBalance());
+                    message.setText("Account Balance: " + sav.Withdrawl(amount));
+                    System.out.println(sav.checkBalance());
+                    ap.WriteFile();
+                    break;
+                case 3:
+                    chk = ap.getCheckingAccount(account);
+                    System.out.println("Right account");
+                    System.out.println(chk.checkBalance());
+                    message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
+                    System.out.println(chk.checkBalance());
+                    ap.WriteFile();
+                    break;
+                case 4:
+                     chk= ap.getCheckingAccount(account);
+                    System.out.println("Right account");
+                    System.out.println(chk.checkBalance());
+                    message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
+                    System.out.println(chk.checkBalance());
+                    ap.WriteFile();
+                    break;
+                default: message.setText("incorrect account type");
+            }
         }
     }//GEN-LAST:event_btnWithdrawActionPerformed
 
@@ -136,16 +161,17 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
         this.btnWithdrawActionPerformed(evt);
     }//GEN-LAST:event_amtActionPerformed
 
-            public void run() {
-                Withdraw_JDialog dialog = new Withdraw_JDialog(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+    public void run() {
+        Withdraw_JDialog dialog = new Withdraw_JDialog(new javax.swing.JFrame(), true);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(0);
             }
+        });
+        dialog.setVisible(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField acctNum;
     private javax.swing.JTextField amt;

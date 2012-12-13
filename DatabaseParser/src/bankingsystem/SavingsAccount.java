@@ -175,10 +175,10 @@ public class SavingsAccount extends AtmCards {
      * @param balance will update accounts balance to the one passed in
      * parameters
      */
-    @Override
-    public void updateBalance(double balance) {
-        this.balance = balance;
-    }
+//    @Override
+//    public void updateBalance(double balance) {
+//        this.balance = balance;
+//    }
 
     /**
      * method which will list all of the debits and credits of a savings account into
