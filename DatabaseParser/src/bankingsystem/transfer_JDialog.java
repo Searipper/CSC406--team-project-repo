@@ -31,6 +31,7 @@ public class transfer_JDialog extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         toAccount = new javax.swing.JTextField();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -54,6 +55,8 @@ public class transfer_JDialog extends javax.swing.JDialog {
 
         jLabel3.setText("To Account");
 
+        message.setText("Result:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,22 +64,28 @@ public class transfer_JDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(fromAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                            .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toAccount)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(btnSubmit)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnCancel)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(fromAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                    .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(toAccount)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(btnSubmit)
+                                .addGap(38, 38, 38)
+                                .addComponent(btnCancel)))
+                        .addGap(0, 116, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +102,9 @@ public class transfer_JDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSubmit)
                     .addComponent(btnCancel))
@@ -118,23 +129,72 @@ public class transfer_JDialog extends javax.swing.JDialog {
         int acctType = ap.getAccount(facct).getAccountType();//acctType for source account
         int acctType2 = ap.getAccount(tacct).getAccountType();//acctType for target account
         
+        int a=0,b=0;
+        //check if valid transfer accounts
+        //---------------------------------------------------------------------
+        if((acctType!=1)&&(acctType!=3)&&(acctType!=4)){
+            message.setText("transfer from account not a valid account");
+            a++;
+        }
+        if((acctType2!=1)&&(acctType2!=3)&&(acctType2!=4)){
+            message.setText("transfer from account not a valid account");
+            a++;
+        }
+        //---------------------------------------------------------------------
+        if((a+b)==0){
+            int check=-1;
+            String successMsg="";
         
-        if(acctType == 1){ap.getSavingsAccount(facct).withdraw(amt);
+            if(acctType == 1){
+                double check2=ap.getSavingsAccount(facct).Transfer(amt);
+                if(check2==amt){
+                    successMsg="amount of "+check2+" transfered from Savings ";
+                    check=1;
+                }else{
+                    message.setText("Not enough funds in transfer account");
+                    return;
+                }
+            }
+            if(acctType == 3){
+                double check2=ap.getCheckingAccount(facct).Transfer(amt+1.25);
+                if(check2==amt){
+                    successMsg="amount of "+check2+" transfered from Checking ";
+                    check=1;
+                }else{
+                    message.setText("Not enough funds in transfer account");
+                    return;
+                }
+            }
+            if(acctType == 4){
+                double check2=ap.getCheckingAccount(facct).Transfer(amt);
+                if(check2==amt){
+                    successMsg="amount of "+check2+" transfered from Checking ";
+                    check=1;
+                }else{
+                    message.setText("Not enough funds in transfer account");
+                    return;
+                }
+            }
+            
+            if(check>-1){
+                if(acctType2 == 1){
+                    ap.getSavingsAccount(tacct).deposit(amt);
+                    successMsg=successMsg+" into Savings";
+                }
+                if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt);
+                    successMsg=successMsg+" into Checking";
+                }
+                if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
+                    successMsg=successMsg+" into Checking";
+                }
+                message.setText(successMsg);
+                ap.WriteFile();
+                return;
+            }else{
+                message.setText("Unseccessful transfer");
+            }
+            
         }
-        if(acctType == 3){ap.getCheckingAccount(facct).Transfer(amt+1.25);
-        }
-        if(acctType == 4){ap.getCheckingAccount(facct).Transfer(amt);
-        }
-        
-        
-        if(acctType2 == 1){ap.getSavingsAccount(tacct).deposit(amt);
-        }
-        if(acctType2 == 3){ap.getCheckingAccount(tacct).Deposit(amt);
-        }
-        if(acctType2 == 4){ap.getCheckingAccount(tacct).Deposit(amt);
-        }
-        ap.WriteFile();
-
         
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -158,6 +218,7 @@ public class transfer_JDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel message;
     private javax.swing.JTextField toAccount;
     // End of variables declaration//GEN-END:variables
 }

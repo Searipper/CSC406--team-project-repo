@@ -189,7 +189,7 @@ public class ATM_Interface extends javax.swing.JDialog {
             }
 
             if(this.sourceAccount.getSelectedIndex()==0&&ssnindex>=0){
-                chk.Withdrawl(amount);ap.WriteFile();
+                chk.ATMwithdrawal(amount);ap.WriteFile();
                 message.setText("Withdraw from Checking Account, amount " + amount);
 
             }

@@ -165,7 +165,7 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
                 }else{//recived payment debit account
                     this.DebitAccount(amount);
                     this.setBillamount(this.getBillamount()-amount);
-                    return"Payment of "+amount+" recieved. balance is now $"+this.balance;
+                    return"Payment of "+amount+" recieved. balance is now $"+this.balance+" Bill is now $"+this.getBillamount();
                 }//end else
             }else{//payment greater then amount owed. return error msg.
                 return "Cannot make greater payment then amount on balance";

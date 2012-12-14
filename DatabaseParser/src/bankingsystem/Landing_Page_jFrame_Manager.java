@@ -61,7 +61,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         btnDeleteUser = new javax.swing.JButton();
         btnAccountList = new javax.swing.JButton();
         btnSendBill = new javax.swing.JButton();
-        btnOpenCD1 = new javax.swing.JButton();
+        btnMakePayment = new javax.swing.JButton();
         btnSetOP = new javax.swing.JButton();
         btnTransfer = new javax.swing.JButton();
         btnWithdraw = new javax.swing.JButton();
@@ -226,17 +226,17 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         btnSendBill.setBounds(0, 250, 150, 50);
         jLayeredPane2.add(btnSendBill, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnOpenCD1.setText("**Make Payment");
-        btnOpenCD1.setMaximumSize(new java.awt.Dimension(150, 50));
-        btnOpenCD1.setMinimumSize(new java.awt.Dimension(150, 50));
-        btnOpenCD1.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnOpenCD1.addActionListener(new java.awt.event.ActionListener() {
+        btnMakePayment.setText("Make Payment");
+        btnMakePayment.setMaximumSize(new java.awt.Dimension(150, 50));
+        btnMakePayment.setMinimumSize(new java.awt.Dimension(150, 50));
+        btnMakePayment.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnMakePayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOpenCD1ActionPerformed(evt);
+                btnMakePaymentActionPerformed(evt);
             }
         });
-        btnOpenCD1.setBounds(320, 310, 150, 50);
-        jLayeredPane2.add(btnOpenCD1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnMakePayment.setBounds(320, 310, 150, 50);
+        jLayeredPane2.add(btnMakePayment, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnSetOP.setText("Set OP");
         btnSetOP.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -715,9 +715,10 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         odp.run();
     }//GEN-LAST:event_btnSetOPActionPerformed
 
-    private void btnOpenCD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenCD1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOpenCD1ActionPerformed
+    private void btnMakePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakePaymentActionPerformed
+        MakePayment mp = new MakePayment(this,true);
+        mp.run();
+    }//GEN-LAST:event_btnMakePaymentActionPerformed
 
     /**
     * @param args the command line arguments
@@ -747,8 +748,8 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteUser;
     private javax.swing.JButton btnLookupAccount;
     private javax.swing.JButton btnLookupUser;
+    private javax.swing.JButton btnMakePayment;
     private javax.swing.JButton btnOpenCD;
-    private javax.swing.JButton btnOpenCD1;
     private javax.swing.JButton btnSendBill;
     private javax.swing.JButton btnSetOP;
     private javax.swing.JButton btnTransfer;

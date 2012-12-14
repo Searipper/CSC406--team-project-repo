@@ -89,7 +89,15 @@ public class SavingsAccount extends AtmCards {
         }
         return balance;
     }
-
+    public double Transfer(double amount) { //deducts funds from account, returns updated balance
+        if (amount <= balance) {//if the payment is less then or equal to the balence
+            this.DebitAccount(amount);
+            return amount;
+        }else{
+            return 0.00;
+        }
+        
+    }
     /**
      * deposit method which will deduct the amount from balance
      *
