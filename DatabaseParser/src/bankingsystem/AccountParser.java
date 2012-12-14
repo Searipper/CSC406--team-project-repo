@@ -195,7 +195,48 @@ public class AccountParser {
         this.WriteFile();
         return count +" Bills sent out";//</editor-fold>
     }//end method
-    
+    public String RollOverAllCDs(){
+        int count=0;
+        CdAccount cd1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof CdAccount){
+            cd1=(CdAccount)this.accountobjects.get(i);
+            cd1.rollOverCD();
+            count++;
+            }//end if
+        }//end for
+        this.WriteFile();
+        return "RollOver check attempted on "+count +" CD accounts";//</editor-fold>
+    }
+    public String CheckStatusOnAllBills(){//<editor-fold defaultstate="collapsed">
+        int count=0;
+        int due=0, ndue=0,late=0;
+        BillingAccounts b1;
+        for(int i=0;i<this.recordcount;i++){
+            if(this.accountobjects.get(i) instanceof CreditCards){
+            b1=(BillingAccounts)this.accountobjects.get(i);
+            switch(b1.CheckPaymentStatus()){
+                case -1: late++;break;
+                case 0: ndue ++;break;
+                case 1: due ++;break;
+                    
+            }
+            count++;
+            }
+            if(this.accountobjects.get(i) instanceof LoanAccounts){
+            b1=(BillingAccounts)this.accountobjects.get(i);
+            switch(b1.CheckPaymentStatus()){
+                case -1: late++;break;
+                case 0: ndue ++;break;
+                case 1: due ++;break;       
+            }
+            count++;
+            }//end if
+        }//end for
+        this.WriteFile();
+        return count +" Bills checked. \n"+late+" bills are late. \n"+ndue
+                +" bills are not yet due. \n"+due+" bills are paid off";//</editor-fold>
+    }//end method
     //------------------------------------
     //  get Individual Account Methods
     //------------------------------------

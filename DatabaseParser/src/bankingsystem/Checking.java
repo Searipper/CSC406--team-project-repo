@@ -730,7 +730,19 @@ public class Checking extends AtmCards {
         for (int i = 0; i < this.NumberOfDebits; i++) {
             temp.setTime(this.getDebitDates(i));
             double amount = this.getDebitAmounts(i);
-            history = history + "\nDate: " + temp + "\n\tDebit Amount: \t\t$" + amount;
+            switch(this.CheckNumbers.get(i)){
+                case -1:
+                    history = history + "Stop payment\t";
+                    break;
+                case 0:
+                    history = history + "ATM withdrawl\t";
+                    break;
+                default:
+                    history = history + "check NO: "+this.CheckNumbers.get(i)+"\t";
+                   
+            }
+            history = history + "Date: " + temp + "\n\tDebit Amount: \t\t$" + amount+"\n";
+            
 
         }
 

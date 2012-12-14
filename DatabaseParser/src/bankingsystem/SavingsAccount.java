@@ -192,18 +192,19 @@ public class SavingsAccount extends AtmCards {
     @Override
     public String getTransactionHistory() {
 
-        String words = "Empty";
-
+        String words = "";
+        words = words+"Debitss:";
         for (int i = 0; i < this.getNumOfDebits(); i++) {
-            words = "Debit: " + this.getDebitDates(i) + " in the amount of " + this.getDebitAmounts(i);
+            words = words+"\n\tDebit: " + this.getDebitDates(i) + " in the amount of " + this.getDebitAmounts(i);
             System.out.println(words);
-        }
+        }words = words+"\nCredits";
         for (int i = 0; i < this.getNumOfCredits(); i++) {
-            words = "Credit: " + this.getCreditDates(i) + " in the amount of " + this.getCreditAmounts(i);
+            words = words+"\n\tCredit: " + this.getCreditDates(i) + " in the amount of " + this.getCreditAmounts(i);
             System.out.println(words);
         }
+        
 
-        words = "end history";
+        words = words+"\nend history";
 
         return words;
     }

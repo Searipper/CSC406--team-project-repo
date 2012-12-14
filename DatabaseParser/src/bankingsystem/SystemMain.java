@@ -7,8 +7,10 @@ package bankingsystem;
 public class SystemMain {
     
     public static void main(String[] args) {
-//        AccountParser a1 = new AccountParser("");
-//        a1.getRecordCount();
+        AccountParser a1 = new AccountParser("");
+        a1.getRecordCount();
+        System.out.println(a1.CheckStatusOnAllBills());
+        System.out.println(a1.RollOverAllCDs());
         Application_Start_Form app1 = new Application_Start_Form();
         app1.run();
     }//end main

@@ -370,7 +370,7 @@ public class CdAccount extends AbstractAccount {
         long currDate = new Date().getTime();
 
         if (currDate > rolloverDate.getTime() && this.accountFlag != 0) { //account must be past rollover date and be flagged
-
+            
             balance = (balance + interestEarned); //sets new balance balance + interest earned from previous CD
 
             Calendar ed = Calendar.getInstance(); //create a calendar object to set today's date for account reset
@@ -382,7 +382,7 @@ public class CdAccount extends AbstractAccount {
             rolloverDate.setTime(0); //rollover is reset to 0
             System.out.println("Account successfully rolled over, will mature on: " + getEndDate());
         } else {
-            System.out.println("Account cannot roll over until: " + getRolloverDate());
+            System.out.println("Account will not roll over until: " + getRolloverDate());
         }
 
 

@@ -3,7 +3,7 @@
 	<Account AccountNum="2000000">
 		<AccountType>G/D</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>1700.65</Balance>
+		<Balance>1795.65</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -14,7 +14,6 @@
 			<InterestRate>0.015</InterestRate>
 			<RecentDebits>
 				<Debit date="1351793588910" checknum="1" transactionfee="0.0" transferfee="0.0">10.0</Debit>
-				<Debit date="1351793588910" checknum="2" transactionfee="0.0" transferfee="0.0">10.0</Debit>
 				<Debit date="1351793588910" checknum="3" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 				<Debit date="1351793588910" checknum="4" transactionfee="0.0" transferfee="0.0">25.0</Debit>
 				<Debit date="1351793588910" checknum="5" transactionfee="0.0" transferfee="0.0">10.0</Debit>
@@ -26,12 +25,14 @@
 				<Debit date="1355441228619" checknum="11" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 				<Debit date="1355464405274" checknum="12" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 				<Debit date="1355467577170" checknum="13" transactionfee="0.0" transferfee="0.0">250.0</Debit>
+				<Debit date="1355494058044" checknum="-1" transactionfee="0.0" transferfee="0.0">15.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">60.0</Credit>
 				<Credit date="1351793588910">60.0</Credit>
 				<Credit date="1355467428820">250.0</Credit>
 				<Credit date="1355467725994">100.0</Credit>
+				<Credit date="1355493513253">100.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -836,17 +837,18 @@
 	<Account AccountNum="567890">
 		<AccountType>CC</AccountType>
 		<CusID>345599870</CusID>
-		<Balance>0.0799999999999983</Balance>
+		<Balance>0.0</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>5000.0</CreditLimit>
-			<DateOfFinanceChargeReset>0</DateOfFinanceChargeReset>
+			<DateOfFinanceChargeReset>1355493771996</DateOfFinanceChargeReset>
 			<BillSentOutDate>1355365730790</BillSentOutDate>
-			<BillAmount>0.0799999999999983</BillAmount>
+			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530790</BillDueDate>
 			<RecentDebits>
 				<Debit date="1355468552271">25.0</Debit>
+				<Debit date="1355493771996">0.0799999999999983</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910" description="Lunch">12.54</Credit>
@@ -997,7 +999,7 @@
 	<Account AccountNum="9997777">
 		<AccountType>Savings</AccountType>
 		<CusID>559555555</CusID>
-		<Balance>500.0</Balance>
+		<Balance>300.0</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>0</DateActivated>
 		<AccountSpecificDetails>
@@ -1006,6 +1008,8 @@
 		<OverdraftAccount>0</OverdraftAccount>
 		<InterestRate>0.015</InterestRate>
 		<RecentDebits>
+			<Debit date="1355493485983">100.0</Debit>
+			<Debit date="1355493513252">100.0</Debit>
 		</RecentDebits>
 		<RecentCredits>
 		</RecentCredits>
