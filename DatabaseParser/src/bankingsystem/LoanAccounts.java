@@ -158,12 +158,25 @@ public class LoanAccounts extends BillingAccounts{
      * @return Amount of the payment
      */
     public String MakePayment(){
-        if(this.FixedPaymentAmount==0){this.CalculateFixedPaymentAmount();}
+        
+        if(this.FixedPaymentAmount==0){
+            this.CalculateFixedPaymentAmount();
+        }
         if(balance!=0){//if the payment is less then or equal to the amount owed
+            
             System.out.println("Making payment of: "+this.FixedPaymentAmount);
+            
+            System.out.println(balance+" "+getMonthlyIntrestAmount());
             this.DebitAccount(this.FixedPaymentAmount,getMonthlyIntrestAmount());
-        }else{return "Nothing owed";}
-        return "Payment made";
+            
+                    this.setBillamount(this.getBillamount()-FixedPaymentAmount);
+            System.out.println(balance);
+            return "Payment of $"+this.FixedPaymentAmount+" made. bal: $"+this.balance;
+            
+        }else{
+            return "Nothing owed";
+        }
+        
     }//end MakePayment
     
     //----------------------------------
@@ -184,19 +197,22 @@ public class LoanAccounts extends BillingAccounts{
     }//end CalculateBill
     
     public void DebitAccount(double amount,double intrest) {
-        if(amount<=balance&&amount>0){//if the payment is less then or equal to the amount owed
-            
+        System.out.println("amt: "+amount+" intrest: "+intrest);
+        if(amount>balance){
+            System.out.println("No payments greater then the amount owed!");
+        }else if(amount<0){//if the payment is less then the amount owed
+            System.out.println("payment must be greater than 0!");
+        }else{
             //calculating intrest on payment
             DebitAmounts.add(amount);
             DebitDates.add(new Date().getTime());
             this.IntrestGained.add(intrest);
             NumberOfDebits++;
+            System.out.println("payment made. balance is now $"+this.balance);
             //the amount applied to the principal is the amount - intrest
             amount= amount - intrest;
             //send a negative number to detract from the principal
             this.updateBalance(0-amount);
-        }else{
-            System.out.println("No payments greater then the amount owed!");
         }
     }//end DebitAccount
     public void addDebititRecord(double amount, long creditdate,double interest) {

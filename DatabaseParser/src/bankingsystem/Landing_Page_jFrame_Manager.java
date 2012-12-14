@@ -103,6 +103,7 @@ public class Landing_Page_jFrame_Manager extends javax.swing.JFrame {
         menuExit = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         accountNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############"))));
         accountNum.addActionListener(new java.awt.event.ActionListener() {

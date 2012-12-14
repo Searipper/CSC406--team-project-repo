@@ -3,7 +3,7 @@
 	<Account AccountNum="2000000">
 		<AccountType>G/D</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>1700.65</Balance>
+		<Balance>1600.65</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -24,6 +24,7 @@
 				<Debit date="1355352002050" checknum="9" transactionfee="0.0" transferfee="0.0">500.0</Debit>
 				<Debit date="1355352198047" checknum="10" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 				<Debit date="1355441228619" checknum="11" transactionfee="0.0" transferfee="0.0">100.0</Debit>
+				<Debit date="1355464405274" checknum="12" transactionfee="0.0" transferfee="0.0">100.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910">60.0</Credit>
@@ -497,8 +498,8 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>1758.23</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="5">103935.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730785</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530785</BillDueDate>
@@ -520,14 +521,12 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.054</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>608.6</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="15">103935.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730786</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
-				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
-				<Debit date="1351793588910" intrestgained="0.0">500.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -539,14 +538,12 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.049</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>1066.86</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="15">183065.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730786</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
-				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
-				<Debit date="1351793588910" intrestgained="0.0">183065.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -558,33 +555,30 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.065</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>140.59</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="15">23762.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730786</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
-				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
-				<Debit date="1351793588910" intrestgained="0.0">23762.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
 	<Account AccountNum="901234">
 		<AccountType>LLoan</AccountType>
 		<CusID>423567890</CusID>
-		<Balance>13846.0</Balance>
+		<Balance>13769.08</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.058</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>81.38</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="15">13846.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730786</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530786</BillDueDate>
 			<RecentDebits>
-				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
-				<Debit date="1351793588910" intrestgained="0.0">13846.0</Debit>
+				<Debit date="1355452076118" intrestgained="4.46">81.38</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -596,14 +590,12 @@
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.037</InterestRate>
-			<FixedPaymentAmount>0.0</FixedPaymentAmount>
-			<IntitialLoanAmount loanyears="5">0.0</IntitialLoanAmount>
+			<FixedPaymentAmount>527.24</FixedPaymentAmount>
+			<IntitialLoanAmount loanyears="15">91517.0</IntitialLoanAmount>
 			<BillSentOutDate>1355365730787</BillSentOutDate>
 			<BillAmount>0.0</BillAmount>
 			<BillDueDate>1355970530787</BillDueDate>
 			<RecentDebits>
-				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
-				<Debit date="1351793588910" intrestgained="0.0">91517.0</Debit>
 			</RecentDebits>
 		</AccountSpecificDetails>
 	</Account>
@@ -736,7 +728,7 @@
 	<Account AccountNum="123456">
 		<AccountType>CC</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>673.97</Balance>
+		<Balance>573.97</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -748,6 +740,8 @@
 			<RecentDebits>
 				<Debit date="1351793588910">110.0</Debit>
 				<Debit date="1351793588910">110.0</Debit>
+				<Debit date="1355452289682">50.0</Debit>
+				<Debit date="1355452408404">50.0</Debit>
 			</RecentDebits>
 			<RecentCredits>
 				<Credit date="1351793588910" description="Gas bill">303.0</Credit>

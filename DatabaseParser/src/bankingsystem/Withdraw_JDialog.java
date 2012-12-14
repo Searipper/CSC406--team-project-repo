@@ -127,6 +127,7 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
             message.setText("account does not exist");
         } else {
             message.setText("Account found");
+            int msg=0;
             switch(type){
                 case 1:
                     sav =ap.getSavingsAccount(account);
@@ -140,7 +141,14 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
                     chk = ap.getCheckingAccount(account);
                     System.out.println("Right account");
                     System.out.println(chk.checkBalance());
-                    message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
+                    msg=chk.Withdrawl(amount,ap);
+                        if(msg==0){
+                            message.setText("Account withdrawn successfuly." );
+                        }else if(msg==1){
+                            message.setText("Account overdrafted, but protected by savings" );
+                        }else{
+                            message.setText("Account overdrafted." );
+                        }
                     System.out.println(chk.checkBalance());
                     ap.WriteFile();
                     break;
@@ -148,7 +156,14 @@ public class Withdraw_JDialog extends javax.swing.JDialog {
                      chk= ap.getCheckingAccount(account);
                     System.out.println("Right account");
                     System.out.println(chk.checkBalance());
-                    message.setText("Account Balance: " + chk.Withdrawl(amount, ap));
+                    msg=chk.Withdrawl(amount,ap);
+                        if(msg==0){
+                            message.setText("Account withdrawn successfuly." );
+                        }else if(msg==1){
+                            message.setText("Account overdrafted, but protected by savings" );
+                        }else{
+                            message.setText("Account overdrafted." );
+                        }
                     System.out.println(chk.checkBalance());
                     ap.WriteFile();
                     break;

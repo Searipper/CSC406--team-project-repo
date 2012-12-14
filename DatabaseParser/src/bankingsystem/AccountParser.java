@@ -999,6 +999,17 @@ public class AccountParser {
                                                             LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
                                                             a1.setFixedPaymentAmount(Double.parseDouble(text));
                                                         }//</editor-fold>
+                                                        //found initial loan amount and years of payoff
+                                                        //<editor-fold defaultstate="collapsed">
+                                                        if(AccountDetails.getNodeName().compareTo("IntitialLoanAmount")==0){
+                                                            LoanAccounts a1=(LoanAccounts)accountobjects.get(recordcount-1);
+                                                            attributes = AccountDetails.getAttributes();
+                                                            Node detail = attributes.item(0);
+                                                            String years= detail.getNodeValue().replace("\t", "");
+                                                            years = years.replace("\n", "");
+                                                            a1.setLoanyears(Integer.parseInt(years));
+                                                            a1.setIntitialLoanAmount(Double.parseDouble(text));
+                                                        }//end if//</editor-fold>
                                                         //found CC bill amount
                                                         //<editor-fold defaultstate="collapsed">
                                                         if(AccountDetails.getNodeName().compareTo("BillAmount")==0){

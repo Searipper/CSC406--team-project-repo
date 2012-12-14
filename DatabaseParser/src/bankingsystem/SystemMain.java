@@ -11,6 +11,8 @@ public class SystemMain {
         a1.getRecordCount();
 //        Application_Start_Form app1 = new Application_Start_Form();
 //        app1.run();
-        System.out.println(a1.getAccountsList());
+        System.out.println(a1.getCreditCardAccount(123456).MakePayment(50));
+        //13846.0
+        a1.WriteFile();
     }//end main
 }

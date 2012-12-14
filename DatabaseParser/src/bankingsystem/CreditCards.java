@@ -160,10 +160,12 @@ public class CreditCards extends BillingAccounts implements CreditInterface{
                     System.out.println("about to reset finance charge.");
                     this.DebitAccount(amount);
                     this.ResetFinanceCharge();
-                    return"Payment recievied. Finance Charge reset";
+                    this.setBillamount(this.getBillamount()-amount);
+                    return"Payment of "+amount+" recieved. balance is now $"+this.balance+". Finance Charge reset";
                 }else{//recived payment debit account
                     this.DebitAccount(amount);
-                    return"Payment recieved.";
+                    this.setBillamount(this.getBillamount()-amount);
+                    return"Payment of "+amount+" recieved. balance is now $"+this.balance;
                 }//end else
             }else{//payment greater then amount owed. return error msg.
                 return "Cannot make greater payment then amount on balance";

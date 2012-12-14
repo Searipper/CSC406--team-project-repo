@@ -201,6 +201,7 @@ public class Send_Bill extends javax.swing.JDialog {
                     bill = cc.SendoutBills();
                     message.setText(bill);
                     ap.WriteFile();
+                    break;
                 case 1:
                     message.setText("Saving,no bill");
                     break;
