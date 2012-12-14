@@ -12,8 +12,8 @@
 		<AccessType>1</AccessType>
 		<cardnum>561234</cardnum>
 		<PIN>1234</PIN>
-		<Strike1>1355205481449</Strike1>
-		<Strike2>1355176292040</Strike2>
+		<Strike1>1355498413622</Strike1>
+		<Strike2>1355498405723</Strike2>
 	</user>
 	<user SSN="777777777">
 		<Fname>Alan</Fname>
@@ -27,8 +27,8 @@
 		<AccessType>2</AccessType>
 		<cardnum>100000</cardnum>
 		<PIN>9999</PIN>
-		<Strike1>1355187043973</Strike1>
-		<Strike2>1355187016248</Strike2>
+		<Strike1>1355498468479</Strike1>
+		<Strike2>1355498450963</Strike2>
 	</user>
 	<user SSN="543201234">
 		<Fname>Xubo</Fname>

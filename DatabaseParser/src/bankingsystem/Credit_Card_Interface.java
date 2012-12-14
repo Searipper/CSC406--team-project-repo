@@ -173,6 +173,7 @@ public class Credit_Card_Interface extends javax.swing.JDialog {
                 break;
                 case 7: //message.setText("Credit Card account, process!");
                         message.setText(ap.getCreditCardAccount(acctnumber).UseCreditCard(acctnumber,amount, description));
+                        ap.WriteFile();
                 break;
                 default: System.out.println("Default, Unkown type. Type retrieving failed! In Credit_Card_Interface");
                 }//end switch   

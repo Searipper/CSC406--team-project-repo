@@ -679,7 +679,7 @@
 	<Account AccountNum="1113463">
 		<AccountType>CC</AccountType>
 		<CusID>563432913</CusID>
-		<Balance>56.06</Balance>
+		<Balance>68.56</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -700,6 +700,7 @@
 				<Credit date="1351793588910" description="Grociery Store purchases">42.15</Credit>
 				<Credit date="1351793588910" description="Lunch">12.03</Credit>
 				<Credit date="1355365730788" description="Bill Fi0.00ce Charge">55.06</Credit>
+				<Credit date="1355498313734" description="12-pack of pop">12.5</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
