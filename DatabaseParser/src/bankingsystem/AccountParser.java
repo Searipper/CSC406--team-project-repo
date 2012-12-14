@@ -453,6 +453,36 @@ public class AccountParser {
         return a1;
         //</editor-fold>
     }//end getCheckingAccount
+    public int getAccountNumberBySSN(int ssn){
+        int check=-1;
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getCustomerID()==ssn)&&(accountobjects.get(i) instanceof Checking)){
+                check = accountobjects.get(i).getAccountNum();
+                System.out.println("Found Checking "+check+"account now returning");
+                return check;
+            }//end if
+            if((accountobjects.get(i).getCustomerID()==ssn)&&!(accountobjects.get(i) instanceof Checking)){
+                System.out.println("Found account, but it is not a Checking account");
+                return check;
+            }//end if
+        }//end for
+        return check;
+    }
+    public int getSavingsAccountNumberBySSN(int ssn){
+        int check=-1;
+        for(int i=0;i<recordcount;i++){
+            if((accountobjects.get(i).getCustomerID()==ssn)&&(accountobjects.get(i) instanceof SavingsAccount)){
+                check = accountobjects.get(i).getAccountNum();
+                System.out.println("Found Checking "+check+"account now returning");
+                return check;
+            }//end if
+            if((accountobjects.get(i).getCustomerID()==ssn)&&!(accountobjects.get(i) instanceof SavingsAccount)){
+                System.out.println("Found account, but it is not a Checking account");
+                return -2;
+            }//end if
+        }//end for
+        return check;
+    }
     
     //<editor-fold defaultstate="collapsed">
     /**

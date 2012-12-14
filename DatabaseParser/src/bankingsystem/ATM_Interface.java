@@ -47,6 +47,7 @@ public class ATM_Interface extends javax.swing.JDialog {
         jLabel3.setText("Amount");
 
         sourceAccount.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Checking", "Saving" }));
+        
 
         btnSubmit.setText("submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -141,83 +142,112 @@ public class ATM_Interface extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-   
-       //fielderror check to insure all field are filled
-       int fielderror =0 ;
-       if(cardNo.getText().isEmpty()){
+
+        //fielderror check to insure all field are filled
+        int fielderror = 0;
+        if (cardNo.getText().isEmpty()) {
             message.setText("Please Fill all fields");
             fielderror++;
             return;
         }
-       if(pin.getText().isEmpty()){
+        if (pin.getText().isEmpty()) {
             message.setText("Please Fill all fields");
             fielderror++;
             return;
         }
-       if(amt.getText().isEmpty()){
+        if (amt.getText().isEmpty()) {
             message.setText("Please Fill all fields");
             fielderror++;
             return;
         }
 
-       if(fielderror==0){
-       int cardnumber = Integer.parseInt(this.cardNo.getText());
-       int pinnumber  = Integer.parseInt(this.pin.getText());
-       double amount  = Double.parseDouble(this.amt.getText());
+        if (fielderror == 0) {
+            //login data
+            int cardnumber = Integer.parseInt(this.cardNo.getText());
+            int pinnumber = Integer.parseInt(this.pin.getText());
+            //amount
+            double amount = Double.parseDouble(this.amt.getText());
+            //parsers
+            UserParser up = new UserParser("");
+            AccountParser ap = new AccountParser("");
 
-       UserParser up = new UserParser("");
-       AccountParser ap = new AccountParser("");
-           
-       //get ssnindex and ssn
-       int ssnindex = up.LoginToATM(cardnumber, pinnumber);//-3=over usage ,-2= pin error, -1=no cardnum
-       int ssn = -99;
-       if(ssnindex==-1){message.setText("Card Number not found.");return;}
-       if(ssnindex==-2){message.setText("PIN error");return;}
-       if(ssnindex==-3){message.setText("Reach Usage Limit today");return;}
-       if(ssnindex>=0){ssn = up.getSSN(ssnindex);}
-       Checking chk = ap.getCheckingAccountBySSN(ssn);
-       SavingsAccount sav = ap.getSavingsAccountBySSN(ssn);
-       //Check for correctness
-
-            if(chk.getAccountNum()==-1){
-                message.setText("This ATM Card Owner, doesn't not have a Checking account." + chk.getAccountNum());
-                return;
+            //get ssnindex and ssn
+            int ssnindex = up.LoginToATM(cardnumber, pinnumber);//-3=over usage ,-2= pin error, -1=no cardnum
+            int ssn = -99;
+            
+            switch (ssnindex){
+                case -1:
+                    message.setText("Card Number not found.");
+                    break;
+                case -2: 
+                    message.setText("PIN error");
+                    break;
+                case -3: 
+                    message.setText("Reach Usage Limit today");
+                    break;
+                default:
+                    ssn = up.getSSN(ssnindex);
             }
-            if(sav.getAccountNum()==-1){
-                message.setText("This ATM Card Owner, doesn't not have a Saving account." + sav.getAccountNum());
-                return;
-            }
-
-            if(this.sourceAccount.getSelectedIndex()==0&&ssnindex>=0){
-                chk.ATMwithdrawal(amount);ap.WriteFile();
-                message.setText("Withdraw from Checking Account, amount " + amount);
-
-            }
-            if(this.sourceAccount.getSelectedIndex()==1&&ssnindex>=0){
-                sav.Withdrawl(amount);ap.WriteFile();
-                message.setText("Withdraw from Saving Acount, amount " + amount);
-            }
-            }else{
-                message.setText("Fieldcheck failed, Please fill all the fields");
-            }
-       
+            System.out.println(ssn);
+            //account numbers
+            int account = ap.getAccountNumberBySSN(ssn);
+            System.out.println(account);
+            //ap.getSavingsAccountNumberBySSN(ssn);
+            //Check for correctness
+//
+//            if (ap.getAccountTypeByAccountNumber(account)== -1) {
+//                message.setText("This ATM Card Owner, doesn't not have an account." + account);
+//                //message.setText("Fieldcheck failed, Please fill all the fields");
+//                return;
+//            }else{
+                
+                        if ((this.sourceAccount.getSelectedIndex() == 1) && (ssnindex >= 0)) {
+                            account = ap.getSavingsAccountBySSN(ssn).getAccountNum();
+                            SavingsAccount sav=ap.getSavingsAccount(account);
+                            if(sav.getAccountNum()>-1){
+                                sav.Withdrawl(amount);
+                                ap.WriteFile();
+                                message.setText("Withdraw from Saving Acount, amount " + amount);
+                            }else{
+                                message.setText("Account does not exist");
+                            }
+                            return;
+                        }
+                        if ((this.sourceAccount.getSelectedIndex() == 0) && (ssnindex >= 0)) {
+                            account = ap.getCheckingAccountBySSN(ssn).getAccountNum();
+                            Checking chk = ap.getCheckingAccount(account);
+                            if(chk.getAccountNum()>-1){
+                                chk.Withdrawl(amount);
+                                ap.WriteFile();
+                                message.setText("Withdraw from Checking Acount, amount " + amount);
+                            }else{
+                                message.setText("Account does not exist");
+                            }
+                            return;
+                        }
+                    
+        
+            
+//            }//end else
+        }//end if field error
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+
 
     /**
      * @param args the command line arguments
      */
 
-            public void run() {
-                ATM_Interface dialog = new ATM_Interface(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+    public void run() {
+        ATM_Interface dialog = new ATM_Interface(new javax.swing.JFrame(), true);
+        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                System.exit(0);
             }
-
+        });
+        dialog.setVisible(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField amt;
     private javax.swing.JButton btnCancel;
