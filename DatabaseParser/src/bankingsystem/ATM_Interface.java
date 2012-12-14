@@ -217,7 +217,7 @@ public class ATM_Interface extends javax.swing.JDialog {
                             account = ap.getCheckingAccountBySSN(ssn).getAccountNum();
                             Checking chk = ap.getCheckingAccount(account);
                             if(chk.getAccountNum()>-1){
-                                chk.Withdrawl(amount);
+                                chk.ATMwithdrawal(amount);
                                 ap.WriteFile();
                                 message.setText("Withdraw from Checking Acount, amount " + amount);
                             }else{
