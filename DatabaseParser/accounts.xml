@@ -3,7 +3,7 @@
 	<Account AccountNum="2000000">
 		<AccountType>G/D</AccountType>
 		<CusID>423453245</CusID>
-		<Balance>1795.65</Balance>
+		<Balance>2795.65</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -33,6 +33,7 @@
 				<Credit date="1355467428820">250.0</Credit>
 				<Credit date="1355467725994">100.0</Credit>
 				<Credit date="1355493513253">100.0</Credit>
+				<Credit date="1356658598497">1000.0</Credit>
 			</RecentCredits>
 		</AccountSpecificDetails>
 	</Account>
@@ -414,7 +415,7 @@
 		<AccountType>SLoan</AccountType>
 		<CusID>436789213</CusID>
 		<Balance>4450.0</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
@@ -435,7 +436,7 @@
 		<AccountType>SLoan</AccountType>
 		<CusID>233435656</CusID>
 		<Balance>1800.0</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
@@ -460,7 +461,7 @@
 		<AccountType>SLoan</AccountType>
 		<CusID>435678787</CusID>
 		<Balance>5450.0</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
@@ -481,7 +482,7 @@
 		<AccountType>SLoan</AccountType>
 		<CusID>563432913</CusID>
 		<Balance>2000.0</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<InterestRate>0.015</InterestRate>
@@ -631,7 +632,7 @@
 		<AccountType>CC</AccountType>
 		<CusID>233435656</CusID>
 		<Balance>41.269999999999996</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>1500.0</CreditLimit>
@@ -680,7 +681,7 @@
 		<AccountType>CC</AccountType>
 		<CusID>563432913</CusID>
 		<Balance>68.56</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>500.0</CreditLimit>
@@ -734,7 +735,7 @@
 		<AccountType>CC</AccountType>
 		<CusID>423453245</CusID>
 		<Balance>573.97</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>10000.0</CreditLimit>
@@ -784,7 +785,7 @@
 		<AccountType>CC</AccountType>
 		<CusID>423148894</CusID>
 		<Balance>16696.309999999998</Balance>
-		<AccountFlag>0</AccountFlag>
+		<AccountFlag>1</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
 			<CreditLimit>20000.0</CreditLimit>
@@ -881,7 +882,7 @@
 	<Account AccountNum="765432">
 		<AccountType>Savings</AccountType>
 		<CusID>559555555</CusID>
-		<Balance>12019.51</Balance>
+		<Balance>11019.51</Balance>
 		<AccountFlag>0</AccountFlag>
 		<DateActivated>1351793588910</DateActivated>
 		<AccountSpecificDetails>
@@ -893,6 +894,7 @@
 			<Debit date="1355506450969">1000.0</Debit>
 			<Debit date="1355506523359">1000.0</Debit>
 			<Debit date="1355506935809">1000.0</Debit>
+			<Debit date="1356658598496">1000.0</Debit>
 		</RecentDebits>
 		<RecentCredits>
 		</RecentCredits>
